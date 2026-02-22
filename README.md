@@ -14,6 +14,7 @@ This monorepo contains the full Reva design system and product platform:
 - **`apps/website`** (`@reva/website`): Marketing and company website (Next.js).
 - **`apps/advisor-portal`** (`@reva/advisor-portal`): Advisor-facing web portal.
 - **`apps/client-portal`** (`@reva/client-portal`): End-client web portal (white-labelled per advisory firm).
+- **`apps/client-app`** (`@reva/client-app`): End-client mobile app (React Native + Expo).
 
 ## Tech Stack
 
@@ -25,6 +26,7 @@ This monorepo contains the full Reva design system and product platform:
 | Language | TypeScript (strict) |
 | Design tokens | Tokens Studio + Style Dictionary v4 |
 | Web framework | React, Next.js, Vite |
+| Mobile | React Native + Expo |
 | Documentation | Fumadocs |
 | Testing | Playwright |
 | CI/CD | GitHub Actions |
@@ -51,7 +53,8 @@ reva/
 │   ├── docs/                  # Documentation site
 │   ├── website/               # Marketing website
 │   ├── advisor-portal/        # Advisor web portal
-│   └── client-portal/         # Client web portal (white-labelled)
+│   ├── client-portal/         # Client web portal (white-labelled)
+│   └── client-app/            # Client mobile app (React Native + Expo)
 ├── packages/
 │   ├── design-tokens/         # Design token system
 │   ├── panda-preset/          # Panda CSS preset and themes
