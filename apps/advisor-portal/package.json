@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && tsc -b && vite build",
-    "dev": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && vite",
+    "build": "panda codegen --clean && tsc -b && vite build",
+    "dev": "panda codegen --clean && vite",
     "preview": "vite preview",
-    "codegen": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css"
+    "codegen": "panda codegen --clean"
   },
   "dependencies": {
     "@reva/ui": "workspace:*",
