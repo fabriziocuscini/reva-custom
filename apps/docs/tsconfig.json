@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "paths": {
+      "styled-system/*": ["./styled-system/*"],
+      "@/*": ["./*"]
+    },
+    "plugins": [{ "name": "next" }]
+  },
+  "include": ["src", "app", "content", "lib", "styled-system", "*.ts", "*.mjs", ".source"],
+  "exclude": ["node_modules", "dist", ".next", ".turbo"]
+}
