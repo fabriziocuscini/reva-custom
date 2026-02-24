@@ -8,13 +8,12 @@ This monorepo contains the full Reva design system and product platform:
 
 - **`packages/design-tokens`** (`@reva/tokens`): Platform-agnostic, multi-themeable design token system. Authored in Tokens Studio format, transformed via Style Dictionary into CSS, TypeScript, W3C JSON, and React Native outputs.
 - **`packages/panda-preset`** (`@reva/panda-preset`): Panda CSS preset bridging design tokens into the styling system. Manages base theme, client themes (white-labelling), light/dark mode conditions, and all component recipes.
-- **`packages/components`** (`@reva/ui`): React component library built on Ark UI (headless) and Panda CSS (styling). Anatomy-first, fully typed, accessible by default.
+- **`packages/ui`** (`@reva/ui`): React component library built on Ark UI (headless) and Panda CSS (styling). Anatomy-first, fully typed, accessible by default.
 - **`packages/config`** (`@reva/config`): Shared ESLint, Prettier, and TypeScript configurations.
 - **`apps/docs`** (`@reva/docs`): Documentation site built with Fumadocs and Next.js.
-- **`apps/website`** (`@reva/website`): Marketing and company website (Next.js).
-- **`apps/advisor-portal`** (`@reva/advisor-portal`): Advisor-facing web portal.
-- **`apps/client-portal`** (`@reva/client-portal`): End-client web portal (white-labelled per advisory firm).
-- **`apps/client-app`** (`@reva/client-app`): End-client mobile app (React Native + Expo).
+- **`apps/website-static`** (`@reva/website-static`): Current static marketing site (Vite + PostCSS + PostHTML).
+- **`apps/advisor-portal`** (`@reva/advisor-portal`): Advisor-facing web portal (Vite + React).
+- **`apps/client-portal`** (`@reva/client-portal`): End-client web portal, white-labelled per advisory firm (Vite + React).
 
 ## Tech Stack
 
@@ -25,12 +24,14 @@ This monorepo contains the full Reva design system and product platform:
 | Components | Ark UI + Panda CSS |
 | Language | TypeScript (strict) |
 | Design tokens | Tokens Studio + Style Dictionary v4 |
+| Package builds | tsdown |
 | Web framework | React, Next.js, Vite |
-| Mobile | React Native + Expo |
+| Mobile | React Native + Expo (future) |
 | Documentation | Fumadocs |
 | Testing | Playwright |
 | CI/CD | GitHub Actions |
 | Deployment | Vercel |
+| Versioning | Changesets |
 
 ## Getting Started
 
@@ -51,14 +52,13 @@ bun run dev
 reva/
 ├── apps/
 │   ├── docs/                  # Documentation site
-│   ├── website/               # Marketing website
+│   ├── website-static/        # Current static marketing site
 │   ├── advisor-portal/        # Advisor web portal
-│   ├── client-portal/         # Client web portal (white-labelled)
-│   └── client-app/            # Client mobile app (React Native + Expo)
+│   └── client-portal/         # Client web portal (white-labelled)
 ├── packages/
 │   ├── design-tokens/         # Design token system
 │   ├── panda-preset/          # Panda CSS preset and themes
-│   ├── components/            # React component library
+│   ├── ui/                    # React component library
 │   └── config/                # Shared lint, format, TS configs
 └── turbo.json
 ```
