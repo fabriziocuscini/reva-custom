@@ -33,8 +33,8 @@
     "@pandacss/dev": "^0",
     "@pandacss/types": "^0",
     "@reva/panda-preset": "workspace:*",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "tsdown": "^0.20.3",
     "typescript": "^5"
   }
