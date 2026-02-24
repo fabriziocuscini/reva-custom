@@ -3,21 +3,37 @@ title: Button
 description: A button component with solid, outline, and ghost variants.
 ---
 
-## Usage
+import ButtonDefault, { code as defaultCode } from '@/examples/button/default'
+import ButtonVariants, { code as variantsCode } from '@/examples/button/variants'
+import ButtonSizes, { code as sizesCode } from '@/examples/button/sizes'
 
-Import the Button component from `@reva/ui`:
+<ComponentPreview code={defaultCode}>
+  <ButtonDefault />
+</ComponentPreview>
+
+## Usage
 
 ```tsx
 import { Button } from '@reva/ui'
 ```
 
-## Variants
+## Examples
 
-The Button supports three variants: `solid` (default), `outline`, and `ghost`.
+### Variants
 
-## Sizes
+The Button supports three visual styles: `solid` (default), `outline`, and `ghost`.
+
+<ComponentPreview code={variantsCode}>
+  <ButtonVariants />
+</ComponentPreview>
+
+### Sizes
 
 Three sizes are available: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview code={sizesCode}>
+  <ButtonSizes />
+</ComponentPreview>
 
 ## Props
 
@@ -26,3 +42,4 @@ Three sizes are available: `sm`, `md` (default), and `lg`.
 | `variant` | `'solid' \| 'outline' \| 'ghost'` | `'solid'` | Visual style |
 | `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Button size |
 | `className` | `string` | — | Additional CSS classes |
+| `disabled` | `boolean` | `false` | Disable the button |

@@ -1,5 +1,6 @@
-@layer panda_reset, panda_base, panda_tokens, panda_recipes, panda_utilities;
-
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+@layer panda_base, panda_tokens, panda_recipes, panda_utilities;
+@import '../styled-system/styles.css';

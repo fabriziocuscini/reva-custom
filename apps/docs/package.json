@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "panda codegen --clean && next build",
+    "build": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && next build",
     "dev": "next dev --turbopack",
-    "codegen": "panda codegen --clean"
+    "codegen": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css"
   },
   "dependencies": {
     "@reva/ui": "workspace:*",

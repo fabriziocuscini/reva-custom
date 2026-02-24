@@ -1,4 +1,4 @@
 export const conditions = {
-  light: '[data-color-mode=light] &',
-  dark: '[data-color-mode=dark] &',
+  light: ':root:not(.dark) &, [data-color-mode=light] &',
+  dark: ':root.dark &, [data-color-mode=dark] &',
 }

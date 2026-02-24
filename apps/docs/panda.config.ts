@@ -3,10 +3,13 @@ import { revaPreset } from '@reva/panda-preset'
 
 export default defineConfig({
   presets: [revaPreset],
-  include: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  include: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './examples/**/*.{ts,tsx}'],
   outdir: 'styled-system',
   outExtension: 'js',
   jsxFramework: 'react',
+  staticCss: {
+    recipes: '*',
+  },
   layers: {
     base: 'panda_base',
     tokens: 'panda_tokens',
