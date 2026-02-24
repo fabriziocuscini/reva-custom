@@ -1,0 +1,31 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "styled-system/**", ".next/**", ".fumadocs/**"]
+    },
+    "dev": {
+      "dependsOn": ["^build"],
+      "persistent": true,
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "tokens:build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"]
+    },
+    "codegen": {
+      "dependsOn": ["^build"],
+      "outputs": ["styled-system/**"]
+    }
+  }
+}

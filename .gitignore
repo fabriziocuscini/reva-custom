@@ -13,6 +13,10 @@ out/
 # Panda CSS
 styled-system/
 
+# Fumadocs
+.source/
+.fumadocs/
+
 # Style Dictionary
 tokens/build/
 
