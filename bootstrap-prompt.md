@@ -62,13 +62,13 @@ reva/
 
 1. **Foundation tokens** (`src/foundation/`): Raw primitive values. Colour scales (with alpha variants), spacing scale, type scale, radii, shadows, border widths, z-indices, durations, easings. Named by scale step (e.g. `gray.50`, `amber.500`, `spacing.4`). **Colour foundation tokens must never be referenced directly in recipes or app code; always go through the semantic layer.** Non-colour foundation tokens (spacing, radii, borders, z-indices, durations, easings) may be referenced directly in recipes and layouts (e.g. `gap: '4'`, `rounded: 'md'`). Semantic aliases for non-colour tokens are optional and should only be introduced for repeated patterns where naming the intent adds clarity (e.g. `spacing.layout.gutter`, `spacing.inset.component`).
 
-2. **Semantic tokens** (`src/semantic/`): Contextual role mappings that reference foundation tokens. Support light/dark mode switching. Examples: `color.bg.surface`, `color.fg.default`, `color.border.default`. These are the mandatory tokens for all colour styling in Panda CSS recipes and component code.
+2. **Semantic tokens** (`src/semantic/`): Contextual role mappings that reference foundation tokens. Support light/dark mode switching. Examples: `colors.bg.surface`, `colors.fg.default`, `colors.border.default`. These are the mandatory tokens for all colour styling in Panda CSS recipes and component code. In recipe style objects, reference them without the `colors.` prefix (e.g., `bg: 'bg.surface'`) — Panda auto-maps CSS properties to token categories.
 
 3. **Component tokens** (`src/component/`): Specific to individual components, used sparingly and only when a semantic token genuinely does not fit. Reference semantic tokens.
 
 > **NOTE: Token naming convention is deferred.** The full naming convention, colour palettes, semantic categories (fg, bg, divider, overlay, etc.), and component token structure will be defined in a separate specification after bootstrapping. For now, use a minimal set of placeholder tokens sufficient to prove the pipeline end to end: a few foundation colours, a handful of semantic mappings, and one component token. Mark all placeholder values clearly with `// PLACEHOLDER` comments so they are easy to find and replace later.
 >
-> **Naming principle (apply to all placeholder tokens):** Use singular namespace convention, not plural group names. Token names should read as a path to a specific value. Examples: `color.gray.50` (not `colors.gray.50`), `color.surface.bg` (not `colors.surface.bg`), `spacing.4` (not `spacings.4`), `component.button.primary.solid.bg` (not `components.button...`). This convention applies across all three layers.
+> **Naming principle (apply to all placeholder tokens):** Use Panda-aligned plural namespace keys: `colors`, `spacing`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`. Token names should read as a path to a specific value. Examples: `colors.neutral.50`, `colors.brand.500`, `spacing.4`, `radii.md`. This convention applies across all three layers and matches Panda CSS categories for zero-mapping between token sources and the preset.
 
 **Source format:** Tokens Studio JSON format in `src/`. This is the authoring format synced bidirectionally with Figma Variables via the Tokens Studio plugin.
 
@@ -136,54 +136,25 @@ packages/design-tokens/
 
 **Multi-theme architecture (following Panda CSS best practices):**
 
-The preset disables Panda's default preset (`@pandacss/preset-base`) and defines all tokens from scratch using our singular namespace convention. This ensures full consistency between our token names and Panda's generated utilities.
+The preset disables Panda's default preset (`@pandacss/preset-base`) and defines all tokens from scratch using Panda-aligned plural namespace keys. Token values are imported from `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` rather than hardcoded.
 
 ```typescript
 // packages/panda-preset/src/index.ts
 import { definePreset } from '@pandacss/dev'
 
 export const revaPreset = definePreset({
+  name: '@reva/panda-preset',
   conditions: {
     light: '[data-color-mode=light] &',
     dark: '[data-color-mode=dark] &',
   },
   theme: {
-    // Using 'theme' (not 'theme.extend') to fully own the token definitions
-    tokens: {
-      color: {  // singular namespace
-        gray: {
-          900: { value: '#1a1a1a' },  // PLACEHOLDER
-          50: { value: '#fafafa' },   // PLACEHOLDER
-        },
-        // ...
-      },
-      spacing: { /* ... */ },
-      radius: { /* ... */ },
-    },
-    semanticTokens: {
-      color: {  // singular namespace
-        fg: {
-          default: {
-            value: { _light: '{color.gray.900}', _dark: '{color.gray.50}' }
-          },
-        },
-        bg: {
-          surface: {
-            value: { _light: '{color.gray.50}', _dark: '{color.gray.900}' }
-          },
-        },
-        // ...
-      },
-    },
+    tokens,           // imported from @reva/tokens/panda/tokens
+    semanticTokens,   // imported from @reva/tokens/panda/semantic-tokens
     recipes: { /* all CVA recipes */ },
     slotRecipes: { /* all slot recipes */ },
     keyframes: { /* animation keyframes */ },
     textStyles: { /* typography presets */ },
-  },
-  // Client theme overrides
-  themes: {
-    // Each client theme overrides tokens and/or semanticTokens
-    // All must satisfy the theme contract
   },
 })
 ```
@@ -632,7 +603,7 @@ Execute these phases **one at a time**. After completing each phase, stop and re
 ### Phase 8: Author CLAUDE.md
 Once all previous phases are complete and verified, distil this bootstrap prompt into a concise `CLAUDE.md` file at the repository root. This file serves as the persistent reference for all future development work in the project. It should be prescriptive and compact, not explanatory. Include:
 1. Project structure overview (packages, apps, their purposes)
-2. Token usage rules (colour tokens always via semantic layer; non-colour foundation tokens allowed directly; singular naming convention)
+2. Token usage rules (colour tokens always via semantic layer; non-colour foundation tokens allowed directly; Panda-aligned plural namespace)
 3. Component creation checklist (condensed version of the workflow in section 7)
 4. MCP server usage (which server for which task, reference hierarchy)
 5. Coding standards (naming, imports, formatting, linting)
@@ -654,7 +625,7 @@ Key rules enforced by this skill:
 - `createStyleContext` pattern for distributing recipe classes to compound component parts
 - Data-attribute conditions (`_open`, `_closed`, `_disabled`, `_highlighted`, `_checked`, `_focus`, `_invalid`) for interactive state styling
 - Three-layer token architecture: colour foundation tokens never in recipes (always use semantic layer), non-colour foundation tokens (spacing, radii, etc.) may be used directly, component tokens sparingly
-- Singular token namespace (`color`, not `colors`; `spacing`, not `spacings`)
+- Panda-aligned plural token namespace (`colors`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`, `spacing`)
 - Role-based variant naming (`solid`, `outline`, `ghost`), never visual-description naming
 - `cva` for single-element components, `defineSlotRecipe` for multi-part
 - Export `RecipeVariantProps` types for type-safe props

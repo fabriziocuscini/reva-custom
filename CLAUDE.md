@@ -70,7 +70,7 @@ bun run format:check  # Check formatting
 
 - **Panda-aligned plural namespace**: `colors`, `spacing`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`. Matches Panda CSS category names for zero-mapping between token source and Panda preset.
 - **Three layers**: foundation → semantic → component
-- **Colour foundation tokens NEVER in recipes or app code** — always go through the semantic layer (`colors.fg.default`, `colors.bg.surface`, `colors.brand.solid`)
+- **Colour foundation tokens NEVER in recipes or app code** — always go through the semantic layer (`colors.fg.default`, `colors.bg.surface`, `colors.brand.solid`). In recipe style objects, omit the `colors.` prefix — Panda auto-maps CSS properties to token categories (e.g., `bg: 'bg.surface'`, not `bg: 'colors.bg.surface'`)
 - **Non-colour foundation tokens** (spacing, radii, borders, z-indices, durations, easings) MAY be used directly in recipes (`py: '4'`, `rounded: 'md'`)
 - **Component tokens** used sparingly, only when semantic tokens don't fit; must reference semantic tokens
 - **DTCG format**: Always use `$value`, `$type`, `$description` (dollar-prefixed keys). No comments in JSON source files.

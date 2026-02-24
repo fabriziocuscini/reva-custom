@@ -1,6 +1,6 @@
 ---
 name: ui-component-patterns
-description: Component implementation patterns for the Reva design system using Ark UI + Panda CSS. Covers token architecture (singular namespace, three-layer system), slot recipes, styled wrappers via createStyleContext, data-attribute conditions, variant conventions, file structure across @reva/panda-preset and @reva/ui, and forbidden patterns. Auto-invoke when creating, editing, or reviewing any component, recipe, or styled wrapper.
+description: Component implementation patterns for the Reva design system using Ark UI + Panda CSS. Covers token architecture (Panda plural namespace, three-layer system), slot recipes, styled wrappers via createStyleContext, data-attribute conditions, variant conventions, file structure across @reva/panda-preset and @reva/ui, and forbidden patterns. Auto-invoke when creating, editing, or reviewing any component, recipe, or styled wrapper.
 ---
 
 # Reva Component Patterns: Ark UI + Panda CSS
@@ -8,7 +8,7 @@ description: Component implementation patterns for the Reva design system using 
 ## Stack
 
 - **Component primitives:** `@ark-ui/react` (headless, state-machine powered via Zag.js)
-- **Styling:** Panda CSS (`defineSlotRecipe`, `cva`, design tokens, singular namespace)
+- **Styling:** Panda CSS (`defineSlotRecipe`, `cva`, design tokens, Panda plural namespace)
 - **Language:** TypeScript (strict mode)
 - **Framework:** React 18+
 - **Context:** Turborepo monorepo with `@reva` scoped packages
@@ -70,7 +70,7 @@ export const accordion = defineSlotRecipe({
   slots: accordionAnatomy.keys(), // always derive from anatomy, never hardcode
   base: {
     root: { width: "full" },
-    item: { borderBottomWidth: "1px", borderColor: "color.border.default" },
+    item: { borderBottomWidth: "1px", borderColor: "border.default" },
     itemTrigger: {
       display: "flex",
       width: "full",
@@ -90,7 +90,7 @@ export const accordion = defineSlotRecipe({
   variants: {
     variant: {
       subtle: {
-        item: { borderColor: "color.border.subtle" },
+        item: { borderColor: "border.subtle" },
       },
     },
   },
@@ -106,12 +106,14 @@ export const accordion = defineSlotRecipe({
 
 The token system has three layers. Each layer has strict rules about where it can be used.
 
-**All token names use a singular namespace:** `color` (not `colors`), `spacing` (not `spacings`), `radius` (not `radii`). This is enforced because `@reva/panda-preset` disables Panda's default preset and fully owns all token definitions.
+**Token source files use Panda-aligned plural namespace keys:** `colors`, `spacing`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`. This convention matches Panda CSS categories exactly, eliminating namespace mapping between token sources and the preset.
+
+**In recipes and style objects**, Panda's utility system auto-maps CSS properties to token categories. So you write `bg: 'bg.surface'` (not `bg: 'colors.bg.surface'`) — the `bg` utility knows to look in `colors`. The `colors.` prefix is only used in DTCG source `$value` reference strings.
 
 ### Foundation layer
 
 Raw values, no semantics, named by scale step.
-Examples: `color.gray.50`, `color.gray.900`, `color.amber.500`, `spacing.4`, `radius.md`.
+Examples: `colors.neutral.50`, `colors.neutral.900`, `colors.brand.500`, `spacing.4`, `radii.md`.
 Lives in `packages/design-tokens/src/foundation/`.
 
 **Colour foundation tokens:** NEVER referenced in recipes or app code. Always go through the semantic layer.
@@ -121,10 +123,10 @@ Lives in `packages/design-tokens/src/foundation/`.
 ### Semantic layer
 
 Maps foundation tokens to roles, supports light/dark mode switching.
-Examples: `color.fg.default`, `color.fg.subtle`, `color.bg.surface`, `color.border.default`, `color.brand.solid`, `color.status.error`.
+Examples: `colors.fg.default`, `colors.fg.subtle`, `colors.bg.surface`, `colors.border.default`, `colors.brand.solid`, `colors.status.error`.
 Lives in `packages/design-tokens/src/semantic/`.
 
-**Mandatory for all colour styling.** These are the only colour tokens used in recipes.
+**Mandatory for all colour styling.** These are the only colour tokens used in recipes. In recipe style objects, reference them without the `colors.` prefix (e.g., `color: 'fg.default'`, `bg: 'bg.surface'`).
 
 ### Component layer
 
@@ -134,16 +136,17 @@ Only create component-layer tokens when a semantic token genuinely does not fit.
 
 ```typescript
 // Correct: semantic colour tokens + direct foundation non-colour tokens
+// Note: no 'colors.' prefix needed — Panda auto-maps CSS properties to categories
 itemTrigger: {
-  color: 'color.fg.default',
-  bg: 'color.bg.surface',
-  borderColor: 'color.border.default',
+  color: 'fg.default',
+  bg: 'bg.surface',
+  borderColor: 'border.default',
   py: '4',             // spacing foundation token (direct, allowed)
   rounded: 'md',       // radius foundation token (direct, allowed)
   textStyle: 'sm',     // typography token
-  _open: { color: 'color.brand.solid' },
-  _disabled: { color: 'color.fg.disabled', opacity: 0.5 },
-  _invalid: { borderColor: 'color.status.error' },
+  _open: { color: 'brand.solid' },
+  _disabled: { color: 'fg.disabled', opacity: 0.5 },
+  _invalid: { borderColor: 'status.error' },
 }
 
 // NEVER: raw CSS values in recipes
@@ -153,12 +156,12 @@ fontSize: '14px'
 borderRadius: '8px'
 
 // NEVER: colour foundation tokens in recipes
-color: 'color.gray.900'
-bg: 'color.gray.50'
-borderColor: 'color.amber.200'
+color: 'neutral.900'
+bg: 'neutral.50'
+borderColor: 'brand.200'
 ```
 
-Light/dark mode switching is handled entirely at the semantic layer via CSS custom properties. Component recipes never contain conditional dark mode logic. A token like `color.bg.surface` resolves to the correct value for the active mode automatically.
+Light/dark mode switching is handled entirely at the semantic layer via CSS custom properties. Component recipes never contain conditional dark mode logic. A token like `bg: 'bg.surface'` resolves to the correct value for the active mode automatically.
 
 ---
 
@@ -234,13 +237,13 @@ Ark UI exposes interactive state via `data-*` attributes. Panda CSS has built-in
 ```typescript
 // Common Ark UI data attributes and their Panda CSS conditions
 itemTrigger: {
-  _open: { color: 'color.brand.solid' },            // data-state="open"
-  _closed: { color: 'color.fg.muted' },             // data-state="closed"
+  _open: { color: 'brand.solid' },                    // data-state="open"
+  _closed: { color: 'fg.muted' },                     // data-state="closed"
   _disabled: { opacity: 0.4, cursor: 'not-allowed' }, // data-disabled
-  _highlighted: { bg: 'color.bg.subtle' },           // data-highlighted (Select, Menu)
-  _checked: { bg: 'color.brand.solid' },             // data-checked (Checkbox, Radio)
-  _focus: { outline: 'none', ring: '2px' },          // data-focus
-  _invalid: { borderColor: 'color.status.error' },   // data-invalid
+  _highlighted: { bg: 'bg.subtle' },                   // data-highlighted (Select, Menu)
+  _checked: { bg: 'brand.solid' },                     // data-checked (Checkbox, Radio)
+  _focus: { outline: 'none', ring: '2px' },            // data-focus
+  _invalid: { borderColor: 'status.error' },           // data-invalid
 }
 ```
 
@@ -328,12 +331,12 @@ export const badge = cva({
   },
   variants: {
     variant: {
-      solid: { bg: "color.brand.solid", color: "color.fg.onBrand" },
-      subtle: { bg: "color.brand.subtle", color: "color.brand.fg" },
+      solid: { bg: "brand.solid", color: "fg.onBrand" },
+      subtle: { bg: "brand.subtle", color: "brand.fg" },
       outline: {
         borderWidth: "1px",
-        borderColor: "color.brand.solid",
-        color: "color.brand.solid",
+        borderColor: "brand.solid",
+        color: "brand.solid",
       },
     },
     size: {
@@ -374,7 +377,8 @@ Use `forwardRef` on all leaf parts that render DOM elements, so consumers can at
 `@reva/panda-preset` disables Panda's default preset and fully owns all token definitions. This means:
 
 - No `@pandacss/preset-base` in the presets array
-- All tokens defined under singular keys: `color`, `spacing`, `radius`, `font`, `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `shadow`, `borderWidth`, `zIndex`, `duration`, `easing`
+- All tokens defined under Panda plural keys: `colors`, `spacing`, `radii`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`, `shadows`, plus `letterSpacings`, `borderWidths`, `zIndex`, `durations`, `easings` as needed
+- Token values imported from `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` (not hardcoded)
 - Consuming apps configure Panda with only our preset:
 
 ```typescript
@@ -486,11 +490,11 @@ import { accordionAnatomy } from '@ark-ui/react' // causes build errors
 borderRadius: '8px'
 
 // Colour foundation tokens in recipes
-color: 'color.gray.900'
-bg: 'color.amber.50'
+color: 'neutral.900'
+bg: 'neutral.50'
 
 // Styling based on element tags instead of data attributes
-'& button': { color: 'color.brand.solid' }
+'& button': { color: 'brand.solid' }
 
 // Using defineSlotRecipe for single-element components
 // Use cva for single elements, defineSlotRecipe for multi-part
@@ -503,7 +507,8 @@ import { accordion } from 'packages/panda-preset/src/recipes/accordion'
 presets: ['@pandacss/preset-base', revaPreset]  // wrong
 presets: [revaPreset]                            // correct
 
-// Plural token namespace keys
-colors: { ... }   // wrong
-color: { ... }    // correct
+// Singular token namespace keys in source files
+color: { ... }    // wrong — use 'colors'
+radius: { ... }   // wrong — use 'radii'
+shadow: { ... }   // wrong — use 'shadows'
 ```
