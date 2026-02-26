@@ -22,9 +22,3 @@ export const revaPreset = definePreset({
     textStyles,
   },
 })
-
-/** Panda config with preset + preflight. Spread into defineConfig() so apps don't set preflight manually. */
-export const revaPandaConfig = {
-  presets: [revaPreset],
-  preflight: true,
-}
