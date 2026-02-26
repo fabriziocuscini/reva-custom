@@ -117,12 +117,12 @@ async function build() {
   const foundationFiles = [
     'foundation/colors.json',
     'foundation/spacing.json',
+    'foundation/sizes.json',
     'foundation/typography.json',
     'foundation/radii.json',
     'foundation/blurs.json',
     'foundation/durations.json',
     'foundation/aspectRatios.json',
-    'foundation/breakpoints.json',
     'foundation/zIndex.json',
     'foundation/shadows.json',
   ]

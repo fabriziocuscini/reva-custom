@@ -2,6 +2,8 @@
   "tokenSetOrder": [
     "foundation/colors",
     "foundation/spacing",
+    "foundation/sizes",
+    "foundation/containerSizes",
     "foundation/typography",
     "foundation/radii",
     "foundation/blurs",

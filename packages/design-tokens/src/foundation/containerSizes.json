@@ -1,0 +1,53 @@
+{
+  "containerSizes": {
+    "$type": "dimension",
+    "xs": {
+      "$value": "320px",
+      "$description": "Extra small container width for narrow mobile layouts"
+    },
+    "sm": {
+      "$value": "384px",
+      "$description": "Small container width for compact mobile layouts"
+    },
+    "md": {
+      "$value": "448px",
+      "$description": "Medium container width for compact content areas and small modals"
+    },
+    "lg": {
+      "$value": "512px",
+      "$description": "Large container width for standard content columns"
+    },
+    "xl": {
+      "$value": "576px",
+      "$description": "Extra large container width for wider content sections"
+    },
+    "2xl": {
+      "$value": "672px",
+      "$description": "Container width for form layouts and medium dialogs"
+    },
+    "3xl": {
+      "$value": "768px",
+      "$description": "Container width matching tablet portrait breakpoint"
+    },
+    "4xl": {
+      "$value": "896px",
+      "$description": "Container width for wide content areas and large modals"
+    },
+    "5xl": {
+      "$value": "1024px",
+      "$description": "Container width matching tablet landscape breakpoint"
+    },
+    "6xl": {
+      "$value": "1152px",
+      "$description": "Container width for expansive layouts"
+    },
+    "7xl": {
+      "$value": "1280px",
+      "$description": "Container width for wide desktop layouts"
+    },
+    "8xl": {
+      "$value": "1440px",
+      "$description": "Maximum container width for full-width desktop layouts"
+    }
+  }
+}

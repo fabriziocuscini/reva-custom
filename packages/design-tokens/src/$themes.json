@@ -5,6 +5,8 @@
     "selectedTokenSets": {
       "foundation/colors": "source",
       "foundation/spacing": "source",
+      "foundation/sizes": "source",
+      "foundation/containerSizes": "source",
       "foundation/typography": "source",
       "foundation/radii": "source",
       "foundation/blurs": "source",
@@ -23,6 +25,8 @@
     "selectedTokenSets": {
       "foundation/colors": "source",
       "foundation/spacing": "source",
+      "foundation/sizes": "source",
+      "foundation/containerSizes": "source",
       "foundation/typography": "source",
       "foundation/radii": "source",
       "foundation/blurs": "source",

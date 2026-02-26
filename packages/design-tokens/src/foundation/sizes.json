@@ -1,0 +1,201 @@
+{
+  "sizes": {
+    "$type": "dimension",
+    "0": {
+      "$value": "0px",
+      "$description": "No size"
+    },
+    "half": {
+      "$value": "2px",
+      "$description": "Extra extra small size (2px)"
+    },
+    "1": {
+      "$value": "4px",
+      "$description": "Extra small size (4px)"
+    },
+    "1_half": {
+      "$value": "6px",
+      "$description": "Between extra small and small (6px)"
+    },
+    "2": {
+      "$value": "8px",
+      "$description": "Small size (8px)"
+    },
+    "2_half": {
+      "$value": "10px",
+      "$description": "Between small and medium-small (10px)"
+    },
+    "3": {
+      "$value": "12px",
+      "$description": "Medium-small size (12px)"
+    },
+    "3_half": {
+      "$value": "14px",
+      "$description": "Between medium-small and medium (14px)"
+    },
+    "4": {
+      "$value": "16px",
+      "$description": "Medium size (16px)"
+    },
+    "4_half": {
+      "$value": "18px",
+      "$description": "Between medium and medium-large (18px)"
+    },
+    "5": {
+      "$value": "20px",
+      "$description": "Medium-large size (20px)"
+    },
+    "5_half": {
+      "$value": "22px",
+      "$description": "Between medium-large and large (22px)"
+    },
+    "6": {
+      "$value": "24px",
+      "$description": "Large size (24px)"
+    },
+    "6_half": {
+      "$value": "26px",
+      "$description": "Between large and extra large (26px)"
+    },
+    "7": {
+      "$value": "28px",
+      "$description": "Extra large size (28px)"
+    },
+    "7_half": {
+      "$value": "30px",
+      "$description": "Between 28px and 32px (30px)"
+    },
+    "8": {
+      "$value": "32px",
+      "$description": "2x large size (32px)"
+    },
+    "8_half": {
+      "$value": "34px",
+      "$description": "Between 32px and 36px (34px)"
+    },
+    "9": {
+      "$value": "36px",
+      "$description": "3x large size (36px)"
+    },
+    "9_half": {
+      "$value": "38px",
+      "$description": "Between 36px and 40px (38px)"
+    },
+    "10": {
+      "$value": "40px",
+      "$description": "4x large size (40px)"
+    },
+    "12": {
+      "$value": "48px",
+      "$description": "5x large size (48px)"
+    },
+    "14": {
+      "$value": "56px",
+      "$description": "6x large size (56px)"
+    },
+    "16": {
+      "$value": "64px",
+      "$description": "7x large size (64px)"
+    },
+    "xs": {
+      "$value": "20rem",
+      "$description": "Extra small named size (320px)"
+    },
+    "sm": {
+      "$value": "24rem",
+      "$description": "Small named size (384px)"
+    },
+    "md": {
+      "$value": "28rem",
+      "$description": "Medium named size (448px)"
+    },
+    "lg": {
+      "$value": "32rem",
+      "$description": "Large named size (512px)"
+    },
+    "xl": {
+      "$value": "36rem",
+      "$description": "Extra large named size (576px)"
+    },
+    "2xl": {
+      "$value": "42rem",
+      "$description": "2x large named size (672px)"
+    },
+    "3xl": {
+      "$value": "48rem",
+      "$description": "3x large named size (768px)"
+    },
+    "4xl": {
+      "$value": "56rem",
+      "$description": "4x large named size (896px)"
+    },
+    "5xl": {
+      "$value": "64rem",
+      "$description": "5x large named size (1024px)"
+    },
+    "6xl": {
+      "$value": "72rem",
+      "$description": "6x large named size (1152px)"
+    },
+    "7xl": {
+      "$value": "80rem",
+      "$description": "7x large named size (1280px)"
+    },
+    "8xl": {
+      "$value": "90rem",
+      "$description": "8x large named size (1440px)"
+    },
+    "prose": {
+      "$value": "65ch",
+      "$description": "Optimal reading width based on character count for long-form text"
+    },
+    "full": {
+      "$value": "100%",
+      "$description": "Full width of the parent container"
+    },
+    "min": {
+      "$value": "min-content",
+      "$description": "Shrink to the minimum content size"
+    },
+    "max": {
+      "$value": "max-content",
+      "$description": "Expand to the maximum content size"
+    },
+    "fit": {
+      "$value": "fit-content",
+      "$description": "Fit to content size within available space"
+    },
+    "dvh": {
+      "$value": "100dvh",
+      "$description": "Full dynamic viewport height, adjusts for mobile browser chrome"
+    },
+    "svh": {
+      "$value": "100svh",
+      "$description": "Small viewport height, smallest possible viewport"
+    },
+    "lvh": {
+      "$value": "100lvh",
+      "$description": "Large viewport height, largest possible viewport"
+    },
+    "dvw": {
+      "$value": "100dvw",
+      "$description": "Full dynamic viewport width"
+    },
+    "svw": {
+      "$value": "100svw",
+      "$description": "Small viewport width"
+    },
+    "lvw": {
+      "$value": "100lvw",
+      "$description": "Large viewport width"
+    },
+    "vw": {
+      "$value": "100vw",
+      "$description": "Full viewport width"
+    },
+    "vh": {
+      "$value": "100vh",
+      "$description": "Full viewport height"
+    }
+  }
+}
