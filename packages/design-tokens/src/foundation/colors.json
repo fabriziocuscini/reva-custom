@@ -10,7 +10,6 @@
       "$description": "PLACEHOLDER"
     },
     "neutral": {
-      "$description": "PLACEHOLDER — Neutral grey scale",
       "50": { "$value": "#fafafa" },
       "100": { "$value": "#f4f4f5" },
       "200": { "$value": "#e4e4e7" },
@@ -24,7 +23,6 @@
       "950": { "$value": "#09090b" }
     },
     "brand": {
-      "$description": "PLACEHOLDER — Primary brand colour scale (indigo)",
       "50": { "$value": "#eef2ff" },
       "100": { "$value": "#e0e7ff" },
       "200": { "$value": "#c7d2fe" },

@@ -58,6 +58,9 @@ W3C DTCG specification:
   different and will cause transformation issues.
 - `$type` can be declared at **group level** and is inherited by all
   tokens nested within that group. This keeps files concise.
+- `$description` must ONLY be placed on **leaf tokens** (nodes with a
+  `$value`). Never place `$description` on group nodes — Tokens
+  Studio misinterprets it as a child string token instead of metadata.
 - Token groups are nested JSON objects. A dot in the Tokens Studio UI
   name (e.g. `color.amber.500`) becomes nested keys in JSON.
 
@@ -350,3 +353,32 @@ When creating a new token set file, always add it to the
     redundant but not harmful. However, placing a non-colour token
     inside a group typed as `color` without overriding `$type` on
     that token will cause a type mismatch.
+
+11. **`$description` on groups (non-leaf nodes).** The W3C DTCG spec
+    allows `$description` at group level, but **Tokens Studio treats
+    it as a child string token** instead of group metadata. This
+    creates a phantom `$description` token visible in the Figma
+    plugin under the "Other" category, polluting the token tree.
+    **Only place `$description` on leaf tokens** (objects that have a
+    `$value`). To document a group's purpose, use a code comment
+    workflow (e.g., a companion docs file or inline comments in a
+    build script) — never a `$description` key on the group itself.
+
+    Wrong:
+    ```json
+    {
+      "neutral": {
+        "$description": "Neutral grey scale",
+        "50": { "$value": "#fafafa" }
+      }
+    }
+    ```
+
+    Right — description only on leaf tokens:
+    ```json
+    {
+      "neutral": {
+        "50": { "$value": "#fafafa", "$description": "Lightest neutral" }
+      }
+    }
+    ```

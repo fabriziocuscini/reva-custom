@@ -1,7 +1,6 @@
 {
   "shadows": {
     "$type": "shadow",
-    "$description": "PLACEHOLDER — Box shadows",
     "sm": {
       "$value": {
         "color": "#0000001a",

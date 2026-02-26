@@ -1,7 +1,6 @@
 {
   "spacing": {
     "$type": "dimension",
-    "$description": "PLACEHOLDER — Spacing scale",
     "0": { "$value": "0px" },
     "0.5": { "$value": "2px" },
     "1": { "$value": "4px" },

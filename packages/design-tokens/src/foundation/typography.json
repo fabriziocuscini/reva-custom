@@ -1,13 +1,11 @@
 {
   "fonts": {
     "$type": "fontFamily",
-    "$description": "PLACEHOLDER — Font families",
     "sans": { "$value": ["Inter", "sans-serif"] },
     "mono": { "$value": ["JetBrains Mono", "monospace"] }
   },
   "fontSizes": {
     "$type": "fontSize",
-    "$description": "PLACEHOLDER — Font size scale",
     "xs": { "$value": "12px" },
     "sm": { "$value": "14px" },
     "md": { "$value": "16px" },
@@ -17,7 +15,6 @@
   },
   "fontWeights": {
     "$type": "fontWeight",
-    "$description": "PLACEHOLDER — Font weights",
     "regular": { "$value": 400 },
     "medium": { "$value": 500 },
     "semibold": { "$value": 600 },
@@ -25,7 +22,6 @@
   },
   "lineHeights": {
     "$type": "lineHeight",
-    "$description": "PLACEHOLDER — Line heights",
     "tight": { "$value": 1.25 },
     "normal": { "$value": 1.5 },
     "relaxed": { "$value": 1.75 }
