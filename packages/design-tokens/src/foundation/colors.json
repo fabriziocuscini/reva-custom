@@ -3,11 +3,11 @@
     "$type": "color",
     "white": {
       "$value": "{colors.common.white.solid}",
-      "$description": "PLACEHOLDER"
+      "$description": "Pure white"
     },
     "black": {
       "$value": "{colors.common.black.solid}",
-      "$description": "PLACEHOLDER"
+      "$description": "Pure black"
     },
     "neutral": {
       "50": {
