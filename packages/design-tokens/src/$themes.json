@@ -10,6 +10,7 @@
       "foundation/blurs": "source",
       "foundation/durations": "source",
       "foundation/aspectRatios": "source",
+      "foundation/breakpoints": "source",
       "foundation/shadows": "source",
       "semantic/colors": "enabled",
       "semantic/colors-dark": "disabled"
@@ -26,6 +27,7 @@
       "foundation/blurs": "source",
       "foundation/durations": "source",
       "foundation/aspectRatios": "source",
+      "foundation/breakpoints": "source",
       "foundation/shadows": "source",
       "semantic/colors": "disabled",
       "semantic/colors-dark": "enabled"

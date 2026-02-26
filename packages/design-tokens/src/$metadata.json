@@ -7,6 +7,7 @@
     "foundation/blurs",
     "foundation/durations",
     "foundation/aspectRatios",
+    "foundation/breakpoints",
     "foundation/shadows",
     "semantic/colors",
     "semantic/colors-dark"

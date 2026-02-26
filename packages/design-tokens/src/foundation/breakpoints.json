@@ -1,0 +1,25 @@
+{
+  "breakpoints": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "640px",
+      "$description": "Small screens — large phones in landscape"
+    },
+    "md": {
+      "$value": "768px",
+      "$description": "Medium screens — tablets in portrait"
+    },
+    "lg": {
+      "$value": "1024px",
+      "$description": "Large screens — tablets in landscape, small laptops"
+    },
+    "xl": {
+      "$value": "1536px",
+      "$description": "Extra large screens — standard desktop monitors"
+    },
+    "2xl": {
+      "$value": "1920px",
+      "$description": "Full HD screens and above"
+    }
+  }
+}
