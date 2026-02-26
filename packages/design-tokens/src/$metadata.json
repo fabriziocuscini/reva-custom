@@ -6,6 +6,7 @@
     "foundation/radii",
     "foundation/blurs",
     "foundation/durations",
+    "foundation/aspectRatios",
     "foundation/shadows",
     "semantic/colors",
     "semantic/colors-dark"

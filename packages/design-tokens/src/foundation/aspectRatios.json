@@ -1,0 +1,29 @@
+{
+  "aspectRatios": {
+    "$type": "other",
+    "square": {
+      "$value": "1 / 1",
+      "$description": "Equal width and height for square elements"
+    },
+    "landscape": {
+      "$value": "4 / 3",
+      "$description": "Classic landscape proportion for photos and cards"
+    },
+    "portrait": {
+      "$value": "3 / 4",
+      "$description": "Classic portrait proportion for vertical content"
+    },
+    "wide": {
+      "$value": "16 / 9",
+      "$description": "Widescreen proportion for video and hero sections"
+    },
+    "ultrawide": {
+      "$value": "18 / 5",
+      "$description": "Ultra-wide proportion for cinematic banners"
+    },
+    "golden": {
+      "$value": "1.618 / 1",
+      "$description": "Golden ratio proportion for harmonious layouts"
+    }
+  }
+}
