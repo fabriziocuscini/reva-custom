@@ -3,17 +3,17 @@
     "fg": {
       "primary": {
         "$type": "color",
-        "$value": "{colors.neutral.50}"
+        "$value": "{colors.stone.50}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{colors.neutral.200}"
+        "$value": "{colors.stone.200}"
       }
     },
     "bg": {
       "surface": {
         "$type": "color",
-        "$value": "{colors.neutral.900}"
+        "$value": "{colors.stone.900}"
       }
     }
   }

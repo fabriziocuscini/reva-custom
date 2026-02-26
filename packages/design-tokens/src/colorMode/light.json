@@ -3,11 +3,11 @@
     "fg": {
       "primary": {
         "$type": "color",
-        "$value": "{colors.neutral.950}"
+        "$value": "{colors.stone.950}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{colors.neutral.800}"
+        "$value": "{colors.stone.800}"
       }
     },
     "bg": {
