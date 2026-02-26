@@ -82,23 +82,40 @@ W3C DTCG specification:
 Use only the `$type` strings listed below. Anything else will be
 rejected or silently misinterpreted by Tokens Studio and sd-transforms.
 
-### Official W3C DTCG types
+### Core types (W3C DTCG)
 
 | `$type`         | `$value` format                      | Examples                              |
 | --------------- | ------------------------------------ | ------------------------------------- |
 | `color`         | Hex string (3, 4, 6, or 8 digit)     | `"#f59e0b"`, `"#0000"`, `"#f59e0b80"` |
 | `dimension`     | Number + unit string (`px` or `rem`) | `"16px"`, `"1.5rem"`                  |
 | `number`        | Unitless number                      | `4`, `1.5`, `300`                     |
-| `fontFamily`    | String or array of strings           | `"Inter"`, `["Inter", "sans-serif"]`  |
-| `fontWeight`    | Numeric weight or named string       | `400`, `"Bold"`, `"Semi Bold"`        |
-| `fontSize`      | Number + unit string (`px` or `rem`) | `"16px"`, `"1rem"`                    |
-| `lineHeight`    | Unitless number or percentage string | `1.5`, `"150%"`                       |
 | `letterSpacing` | Percentage string or em dimension    | `"-1%"`, `"0.02em"`                   |
 | `border`        | Composite object                     | See composites section                |
 | `shadow`        | Composite object or array of objects | See composites section                |
 | `typography`    | Composite object                     | See composites section                |
 
-### Tokens Studio unofficial types
+### Typography types — ALWAYS use Tokens Studio types
+
+For typography-related tokens, **always use the Tokens Studio types**
+listed below, NOT the W3C DTCG official types (`fontFamily`,
+`fontWeight`, `fontSize`, `lineHeight`).
+
+**Why**: The W3C official typography types do not map to Figma variable
+types. Tokens Studio silently skips them during Figma export — tokens
+using official types will not appear as Figma variables. The Tokens
+Studio types (`fontFamilies`, `fontWeights`, `fontSizes`,
+`lineHeights`) are correctly mapped and exported. `sd-transforms`
+converts them to their DTCG equivalents at build time, so there is no
+loss on the engineering side.
+
+| `$type`        | `$value` format                      | Examples                              |
+| -------------- | ------------------------------------ | ------------------------------------- |
+| `fontFamilies` | String or array of strings           | `"Inter"`, `["Inter", "sans-serif"]`  |
+| `fontWeights`  | Numeric weight or named string       | `400`, `"Bold"`, `"Semi Bold"`        |
+| `fontSizes`    | Number + unit string (`px` or `rem`) | `"16px"`, `"1rem"`                    |
+| `lineHeights`  | Unitless number or percentage string | `1.5`, `"150%"`                       |
+
+### Other Tokens Studio types
 
 These are Tokens Studio extensions that predate the W3C spec. They are
 valid in source files and are converted to their DTCG equivalents by
@@ -111,10 +128,6 @@ the `@tokens-studio/sd-transforms` preprocessor during the build.
 | `spacing`          | `dimension`      | `"16px"`, `"1rem"`                                         |
 | `sizing`           | `dimension`      | `"48px"`, `"100%"`                                         |
 | `opacity`          | `number`         | `"0.5"` or `"50%"`                                         |
-| `fontFamilies`     | `fontFamily`     | Same as `fontFamily`                                       |
-| `fontWeights`      | `fontWeight`     | Same as `fontWeight`                                       |
-| `fontSizes`        | `fontSize`       | Same as `fontSize`                                         |
-| `lineHeights`      | `lineHeight`     | Same as `lineHeight`                                       |
 | `paragraphSpacing` | `dimension`      | `"16px"`, `"24px"`                                         |
 | `textCase`         | `textCase`       | `"uppercase"`, `"lowercase"`, `"capitalize"`, `"none"`     |
 | `textDecoration`   | `textDecoration` | `"underline"`, `"line-through"`, `"none"`                  |
@@ -123,10 +136,6 @@ the `@tokens-studio/sd-transforms` preprocessor during the build.
 | `asset`            | `asset`          | URL string                                                 |
 | `other`            | `other`          | Any value                                                  |
 | `composition`      | (expanded)       | **Legacy. Do not create new composition tokens.**          |
-
-When both an official and unofficial type exist for the same purpose,
-prefer the official type unless backward compatibility with an existing
-token set requires otherwise.
 
 ---
 
@@ -146,14 +155,26 @@ Valid properties within a typography `$value`:
 All are optional. Include only the properties relevant to the design
 decision.
 
+**Important**: `lineHeight` and `letterSpacing` inside typography
+composites must be **hardcoded as percentage strings** (e.g.,
+`"130%"`, `"-1%"`), not token references. These properties use
+`lineHeights` and `letterSpacing` types respectively, which Tokens
+Studio cannot resolve as Figma variables inside composites. Hardcode
+the actual values instead. Also note that bare numbers for
+`lineHeight` (e.g., `1.3`) are interpreted as pixel values by Figma
+— always use `"%"` format (e.g., `"130%"`).
+
+`fontFamily`, `fontWeight`, and `fontSize` can use token references
+normally.
+
 ```jsonc
 {
   "$type": "typography",
   "$value": {
-    "fontFamily": "{font.family.display}",
-    "fontWeight": "{font.weight.semibold}",
-    "fontSize": "{font.size.2xl}",
-    "lineHeight": "{font.lineHeight.tight}",
+    "fontFamily": "{fonts.display}",
+    "fontWeight": "{fontWeights.semibold}",
+    "fontSize": "{fontSizes.2xl}",
+    "lineHeight": "130%",
     "letterSpacing": "-1%",
     "textCase": "none",
     "textDecoration": "none",
@@ -354,7 +375,13 @@ When creating a new token set file, always add it to the
     inside a group typed as `color` without overriding `$type` on
     that token will cause a type mismatch.
 
-11. **`$description` on groups (non-leaf nodes).** The W3C DTCG spec
+11. **Using W3C official types for typography tokens.** The official
+    types `fontFamily`, `fontWeight`, `fontSize`, `lineHeight` are
+    valid DTCG but **do not export to Figma variables**. Tokens Studio
+    silently skips them. Always use the Tokens Studio types instead:
+    `fontFamilies`, `fontWeights`, `fontSizes`, `lineHeights`.
+
+12. **`$description` on groups (non-leaf nodes).** The W3C DTCG spec
     allows `$description` at group level, but **Tokens Studio treats
     it as a child string token** instead of group metadata. This
     creates a phantom `$description` token visible in the Figma

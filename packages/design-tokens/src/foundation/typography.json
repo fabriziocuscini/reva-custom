@@ -1,13 +1,13 @@
 {
   "fonts": {
-    "$type": "fontFamily",
-    "text": { "$value": ["Inter Tight", "sans-serif"] },
-    "display": { "$value": ["Inter Tight", "sans-serif"] },
-    "serif": { "$value": ["Playfair Display", "serif"] },
-    "mono": { "$value": ["Geist Mono", "monospace"] }
+    "$type": "fontFamilies",
+    "text": { "$value": "Inter Tight", "$description": "Primary sans-serif for body text" },
+    "display": { "$value": "Inter Tight", "$description": "Sans-serif for product headings" },
+    "serif": { "$value": "Playfair Display", "$description": "Serif for marketing headings" },
+    "mono": { "$value": "Geist Mono", "$description": "Monospace for code" }
   },
   "fontSizes": {
-    "$type": "fontSize",
+    "$type": "fontSizes",
     "3xs": { "$value": "11px", "$description": "Smallest text size (11px)" },
     "2xs": { "$value": "12px", "$description": "Extra extra small text (12px)" },
     "xs": { "$value": "13px", "$description": "Extra small text (13px)" },
@@ -22,11 +22,11 @@
     "6xl": { "$value": "64px", "$description": "6x large, largest display size (64px)" }
   },
   "fontWeights": {
-    "$type": "fontWeight",
-    "regular": { "$value": 400 },
-    "medium": { "$value": 500 },
-    "semibold": { "$value": 600 },
-    "bold": { "$value": 700 }
+    "$type": "fontWeights",
+    "regular": { "$value": 400, "$description": "Regular weight" },
+    "medium": { "$value": 500, "$description": "Medium weight" },
+    "semibold": { "$value": 600, "$description": "Semibold weight" },
+    "bold": { "$value": 700, "$description": "Bold weight" }
   },
   "letterSpacings": {
     "$type": "letterSpacing",
@@ -39,7 +39,7 @@
     "spacious": { "$value": "10%", "$description": "Very open tracking for uppercase labels (12px)" }
   },
   "lineHeights": {
-    "$type": "lineHeight",
+    "$type": "lineHeights",
     "tight": { "$value": 1.15, "$description": "Tight leading for display headings (48–64px)" },
     "compact": { "$value": 1.2, "$description": "Compact leading for section headings (40px)" },
     "normal": { "$value": 1.3, "$description": "Standard leading for body text and subtitles (12–24px)" },
