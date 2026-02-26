@@ -15,6 +15,7 @@
       "foundation/breakpoints": "source",
       "foundation/zIndex": "source",
       "foundation/borderWidths": "source",
+      "foundation/opacity": "source",
       "foundation/shadows": "source",
       "semantic/colors": "enabled",
       "semantic/colors-dark": "disabled"
@@ -36,6 +37,7 @@
       "foundation/breakpoints": "source",
       "foundation/zIndex": "source",
       "foundation/borderWidths": "source",
+      "foundation/opacity": "source",
       "foundation/shadows": "source",
       "semantic/colors": "disabled",
       "semantic/colors-dark": "enabled"

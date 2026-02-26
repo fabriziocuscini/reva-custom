@@ -124,6 +124,7 @@ async function build() {
     'foundation/durations.json',
     'foundation/aspectRatios.json',
     'foundation/borderWidths.json',
+    'foundation/opacity.json',
     'foundation/zIndex.json',
     'foundation/shadows.json',
   ]
