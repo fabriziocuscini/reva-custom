@@ -262,6 +262,16 @@ const PALETTES: PaletteConfig[] = [
     name: "olive",
     anchor: [0.5882, 0.0807, 97.194], // Reva Olive #8A7D42
     anchorStep: 600,
+    lightnessOverrides: {
+      50: 0.981,   // Porcelain #FAF9F2
+      100: 0.9449, // Soft Linen #F0EDE0
+      200: 0.8772, // Coolors warm eggshell #DED7BA
+    },
+    chromaOverrides: {
+      50: 0.1155,  // Porcelain — very low chroma
+      100: 0.2179, // Soft Linen — subtle warmth
+      200: 0.4891, // Coolors 200 — richer warmth
+    },
   },
 ];
 
