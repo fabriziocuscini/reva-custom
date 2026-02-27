@@ -253,6 +253,16 @@ const PALETTES: PaletteConfig[] = [
       400: 0.83,
     },
   },
+  {
+    name: "gold",
+    anchor: [0.7577, 0.1403, 76.713], // Reva Gold #E2A336
+    // anchorStep defaults to 500
+  },
+  {
+    name: "olive",
+    anchor: [0.5882, 0.0807, 97.194], // Reva Olive #8A7D42
+    anchorStep: 600,
+  },
 ];
 
 // ---------------------------------------------------------------------------
