@@ -273,6 +273,19 @@ const PALETTES: PaletteConfig[] = [
       200: 0.4891, // Coolors 200 — richer warmth
     },
   },
+  {
+    name: "wine",
+    anchor: [0.7044, 0.1004, 10.364], // Reva Wine #D68591
+    // anchorStep defaults to 500
+    lightnessOverrides: {
+      800: 0.2598, // Reva Burgundy #460815
+      950: 0.1422, // Dark Wine background #180207
+    },
+    chromaOverrides: {
+      800: 0.9074, // Pin burgundy chroma (0.0911 / 0.1004)
+      950: 0.4582, // Pin dark wine chroma (0.0460 / 0.1004)
+    },
+  },
 ];
 
 // ---------------------------------------------------------------------------
