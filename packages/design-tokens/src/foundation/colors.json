@@ -11,37 +11,37 @@
     },
     "amber": {
       "50": {
-        "$value": "#fffbeb"
+        "$value": "#fffbf5"
       },
       "100": {
-        "$value": "#fef3c7"
+        "$value": "#fdefe3"
       },
       "200": {
-        "$value": "#fde68a"
+        "$value": "#f4d8c0"
       },
       "300": {
-        "$value": "#fcd34d"
+        "$value": "#e6bb93"
       },
       "400": {
-        "$value": "#fbbf24"
+        "$value": "#e1a266"
       },
       "500": {
-        "$value": "#f59e0b"
+        "$value": "#d78d3f"
       },
       "600": {
-        "$value": "#d97706"
+        "$value": "#ab6400"
       },
       "700": {
-        "$value": "#b45309"
+        "$value": "#713f00"
       },
       "800": {
-        "$value": "#92400e"
+        "$value": "#4d2d08"
       },
       "900": {
-        "$value": "#78350f"
+        "$value": "#2d1b08"
       },
       "950": {
-        "$value": "#451a03"
+        "$value": "#180c03"
       }
     },
     "yellow": {

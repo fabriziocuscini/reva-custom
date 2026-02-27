@@ -1,9 +1,10 @@
 /**
  * OKLCH Palette Generator for Reva Design System
  *
- * Generates colour palettes from a defined 500 midpoint using OKLCH colour space.
- * Chroma peaks at 500 and tapers towards both light and dark extremes,
- * producing a refined "industrial luxury" aesthetic.
+ * Generates colour palettes from a defined anchor point using OKLCH colour space.
+ * By default the anchor is at step 500, but it can be placed at any step (e.g.
+ * 600 for amber). Chroma peaks at the anchor and tapers towards both light and
+ * dark extremes, producing a refined "industrial luxury" aesthetic.
  *
  * Usage:
  *   bun run scripts/generate-palette.ts
@@ -18,8 +19,17 @@ import chroma from "chroma-js";
 interface PaletteConfig {
   /** Human-readable name, used as the token group key (e.g. "teal") */
   name: string;
-  /** The 500 midpoint defined in OKLCH: [lightness 0–1, chroma 0–0.4, hue 0–360] */
-  midpoint: [lightness: number, chroma: number, hue: number];
+  /**
+   * The anchor colour defined in OKLCH: [lightness 0–1, chroma 0–0.4, hue 0–360].
+   * Placed at `anchorStep` (default 500).
+   */
+  anchor: [lightness: number, chroma: number, hue: number];
+  /**
+   * Which step the anchor colour occupies. Default: 500.
+   * When non-500, the lightness ramp and chroma curve are shifted so that the
+   * anchor's values land on this step.
+   */
+  anchorStep?: number;
   /**
    * Optional overrides for the lightness ramp.
    * Keys are step numbers (50–950), values are lightness in 0–1 range.
@@ -29,7 +39,7 @@ interface PaletteConfig {
   /**
    * Optional overrides for the chroma multiplier curve.
    * Keys are step numbers (50–950), values are multipliers (0–1) applied to
-   * the midpoint chroma. Any steps not overridden use the default curve.
+   * the anchor chroma. Any steps not overridden use the default curve.
    */
   chromaOverrides?: Partial<Record<number, number>>;
 }
@@ -114,23 +124,36 @@ const DEFAULT_CHROMA_CURVE: Record<number, number> = {
 // ---------------------------------------------------------------------------
 
 function generatePalette(config: PaletteConfig): PaletteStep[] {
-  const [midL, midC, midH] = config.midpoint;
+  const [anchorL, anchorC, anchorH] = config.anchor;
+  const anchorStep = config.anchorStep ?? 500;
 
   const lightnessRamp = {
     ...DEFAULT_LIGHTNESS,
-    500: midL, // always honour the midpoint lightness
+    [anchorStep]: anchorL, // always honour the anchor lightness at its step
     ...config.lightnessOverrides,
   };
 
-  const chromaCurve = {
-    ...DEFAULT_CHROMA_CURVE,
-    ...config.chromaOverrides,
-  };
+  // For non-500 anchors, shift the chroma curve so the peak (1.0) is at
+  // the anchor step instead of 500. We do this by looking up the default
+  // curve value at the anchor step and scaling all values so that step = 1.0.
+  let chromaCurve = { ...DEFAULT_CHROMA_CURVE, ...config.chromaOverrides };
+  if (anchorStep !== 500) {
+    const anchorDefault = DEFAULT_CHROMA_CURVE[anchorStep] ?? 1.0;
+    // Scale factor: make the anchor step's multiplier = 1.0
+    const scale = 1.0 / anchorDefault;
+    const shifted: Record<number, number> = {};
+    for (const step of ALL_STEPS) {
+      const original = chromaCurve[step] ?? 1.0;
+      // Scale and clamp to [0, 1]
+      shifted[step] = Math.min(1.0, original * scale);
+    }
+    chromaCurve = { ...shifted, ...config.chromaOverrides };
+  }
 
   const allSteps: PaletteStep[] = ALL_STEPS.map((step) => {
-    const l = lightnessRamp[step] ?? midL;
-    const c = midC * (chromaCurve[step] ?? 1.0);
-    const h = midH;
+    const l = lightnessRamp[step] ?? anchorL;
+    const c = anchorC * (chromaCurve[step] ?? 1.0);
+    const h = anchorH;
 
     // Build colour in OKLCH via chroma.js
     // chroma.oklch(l, c, h) — l is 0–1, c is 0–0.4, h is 0–360
@@ -148,7 +171,7 @@ function generatePalette(config: PaletteConfig): PaletteStep[] {
       oklch: {
         l: round(finalL, 4),
         c: round(finalC, 4),
-        h: round(finalH ?? midH, 2), // hue can be NaN for achromatic
+        h: round(finalH ?? anchorH, 2), // hue can be NaN for achromatic
       },
     };
   });
@@ -208,7 +231,27 @@ function toDTCG(steps: PaletteStep[]): Record<string, { $value: string }> {
 const PALETTES: PaletteConfig[] = [
   {
     name: "teal",
-    midpoint: [0.704, 0.14, 182.503],
+    anchor: [0.704, 0.14, 182.503],
+    // anchorStep defaults to 500
+  },
+  {
+    name: "amber",
+    anchor: [0.5707, 0.1291, 63.932], // Reva Amber #AB6400
+    anchorStep: 600,
+    lightnessOverrides: {
+      100: 0.96, // tiny lift for a softer light end
+      200: 0.90,
+      300: 0.82,
+      400: 0.76,
+      800: 0.33, // lighten dark end so it doesn't collapse to near-black
+      900: 0.24,
+    },
+    chromaOverrides: {
+      100: 0.17, // gentle ~15% chroma reduction on the light end
+      200: 0.35,
+      300: 0.56,
+      400: 0.83,
+    },
   },
 ];
 
