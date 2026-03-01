@@ -600,7 +600,10 @@
       "product.body.footnote1.regular": "S:b4583f01d46b4070be87a02a63086ab90fae57bc,",
       "product.body.footnote1.medium ✦": "S:93dae888ef404ae07b1e5f91693bfd1efb4f112d,",
       "product.body.footnote1.semibold": "S:b11e5955184999e82350eab605b96e9d1a1ded03,",
-      "product.body.footnote1.bold ✦": "S:f026ed4f5e6316cf911f942e9778071884c2d556,"
+      "product.body.footnote1.bold ✦": "S:f026ed4f5e6316cf911f942e9778071884c2d556,",
+      "marketing.body.caption.medium": "S:8d4ab0d3ccd1ead0d6d04bdbd95768c3e37c6ef2,",
+      "marketing.body.caption.semibold ✦": "S:d89309a162ffaa49275422459db0a2516c584d42,",
+      "marketing.body.caption.bold": "S:480a92850509f79cccc332062064797ee2c5fb48,"
     },
     "selectedTokenSets": {
       "foundation/typography": "enabled",

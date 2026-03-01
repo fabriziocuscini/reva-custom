@@ -449,7 +449,7 @@
           },
           "$description": "Marketing caption — medium (default)"
         },
-        "semibold": {
+        "semibold ✦": {
           "$value": {
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
@@ -459,7 +459,7 @@
           },
           "$description": "Marketing caption — semibold"
         },
-        "bold ✦": {
+        "bold": {
           "$value": {
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
