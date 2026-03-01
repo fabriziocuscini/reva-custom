@@ -6,7 +6,8 @@
 - **PostHTML Components** (`posthtml-component`) — HTML component system with `x-` tag prefix, props, slots, and yield
 - **PostCSS** with `postcss-nested` + `postcss-custom-media` — nested CSS syntax and build-time custom media queries
 - **Prettier** — code formatter for CSS, HTML, JS, JSON, and Markdown
-- **Package manager**: bun (fallback to pnpm if compatibility issues arise)
+- **@reva/tokens** — foundation design tokens (`--reva-*` CSS custom properties)
+- **Package manager**: bun
 
 ## File Structure
 
@@ -21,12 +22,11 @@ src/
   styles/
     main.css            → Entry CSS (imports globals, components, sections)
     tokens/
-      colors.css        → Color design tokens
-      typography.css    → Font family, size, weight, line-height, letter-spacing tokens
-      spacing.css       → Spacing design tokens
+      colors.css        → Imports @reva/tokens foundation CSS; brand aliases, semantic aliases, color-mix() opacity steps
+      typography.css    → Font-family tokens with fallback stacks (--font-body, --font-heading, --font-mono)
       breakpoints.css   → @custom-media breakpoint definitions (--screen-sm through --screen-2xl)
-      radius.css        → Border-radius design tokens (--radius-xs through --radius-4xl, --radius-full, --radius-square)
-      shadows.css       → Box-shadow design tokens
+      radius.css        → Semantic section card radius aliases (--radius-section-card-lg/md)
+      shadows.css       → Local --shadow-card composite
     globals/
       reset.css         → Andy Bell's "(more) Modern CSS Reset"
       base.css          → Token imports, focus, links, a11y utilities, reduced-motion
@@ -65,8 +65,9 @@ postcss.config.js       → PostCSS plugins (nested, custom-media)
 
 - Use `postcss-nested` for nesting. Prefix nested selectors with `&`.
 - Use `rem`/`em` for font sizes, never `px` for body text.
-- Use typography token variables (`--font-size-*`, `--font-weight-*`, `--line-height-*`, `--letter-spacing-*`) instead of raw values in all stylesheets.
-- Define design tokens as CSS custom properties in `styles/tokens/` (colors, typography, spacing, breakpoints, radius, shadows). Never declare `--*` variables in globals or section CSS files.
+- Use `@reva/tokens` CSS custom properties (`--reva-font-sizes-*`, `--reva-font-weights-*`, `--reva-line-heights-*`, `--reva-letter-spacings-*`, `--reva-spacing-*`, `--reva-radii-*`) instead of raw values.
+- Use font-family tokens (`--font-body`, `--font-heading`, `--font-mono`) from `tokens/typography.css` for all font-family declarations.
+- Local token aliases and semantic variables are defined in `styles/tokens/`. Foundation values come from `@reva/tokens`.
 - Foundational element-level styles and layout primitives live in `styles/globals/`. Reusable UI component styles live in `styles/components/`. Page-level partials live in `styles/sections/`.
 - Layout utilities (`.container`, `.vstack`, `.hstack`) use BEM modifiers for spacing (e.g. `.vstack--lg`) and alignment (e.g. `.hstack--center`).
 - Always provide `:focus-visible` styles for interactive elements.
