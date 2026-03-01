@@ -439,7 +439,7 @@
           },
           "$description": "Marketing caption — regular (default)"
         },
-        "medium ✦": {
+        "medium": {
           "$value": {
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",

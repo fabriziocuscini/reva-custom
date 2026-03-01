@@ -71,7 +71,7 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 - Each palette is a group of 11 stops: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`.
 - `50` is the lightest tint; `950` is the darkest shade.
 - `500` is the primary reference swatch for each hue.
-- The `common` group contains `black` and `white` with full alpha ramps (`transparent`, `a5`–`a95`, `solid`), plus top-level aliases `colors.white` and `colors.black`.
+- `black` and `white` sit directly under `colors` with full alpha ramps (`transparent`, `a5`–`a95`, `solid`).
 
 ### Typography
 
@@ -142,14 +142,14 @@ Each palette provides 11 stops: `50`, `100`, `200`–`900`, `950`. The `500` sto
 | **teal** | `colors.teal` | Blue-green for informational accents |
 | **sky** | `colors.sky` | Light blue for informational and link states |
 
-#### Common Colours
+#### Black & White
+
+`colors.black` and `colors.white` each provide a full alpha ramp at every 5% step (`transparent`, `a5`–`a95`, `solid`) for overlays, shadows, and layered effects.
 
 | Token | Value | Description |
 | --- | --- | --- |
-| `colors.white` | `{colors.common.white.solid}` | Pure white alias |
-| `colors.black` | `{colors.common.black.solid}` | Pure black alias |
-
-`colors.common.black` and `colors.common.white` each provide a full alpha ramp at every 5% step (`transparent`, `a5`–`a95`, `solid`) for overlays, shadows, and layered effects.
+| `colors.white` | `{colors.white.solid}` | Pure white alias |
+| `colors.black` | `{colors.black.solid}` | Pure black alias |
 
 ---
 
@@ -178,7 +178,7 @@ A 4px base-unit spatial scale for padding, margins, and gaps. Multipliers skip n
 | `spacing.16` | `64px` | 16x base |
 | `spacing.20` | `80px` | 20x base |
 | `spacing.24` | `96px` | 24x base |
-| `spacing.32` | `128px` | 32x base |
+| `spacing.30` | `120px` | 30x base |
 | `spacing.40` | `160px` | 40x base |
 | `spacing.50` | `200px` | 50x base |
 | `spacing.60` | `240px` | 60x base |
@@ -453,7 +453,7 @@ Border radius scale from sharp corners to full pill/circle shapes.
 **Panda category:** `shadows`
 **DTCG type:** `boxShadow`
 
-Elevation shadows using layered drop shadows. All shadows use `colors.common.black` alpha references (`a5`, `a10`, `a25`). Multi-layer shadows combine a primary distance shadow with a tighter contact shadow for realism.
+Elevation shadows using layered drop shadows. All shadows use `colors.black` alpha references (`a5`, `a10`, `a25`). Multi-layer shadows combine a primary distance shadow with a tighter contact shadow for realism.
 
 | Token | Layers | Description |
 | --- | --- | --- |
