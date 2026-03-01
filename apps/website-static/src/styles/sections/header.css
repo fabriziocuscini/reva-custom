@@ -1,7 +1,7 @@
 .site-header {
-  padding: var(--spacing-12) 0 0 0;
+  padding: var(--reva-spacing-12) 0 0 0;
   @media (--screen-lg) {
-    padding: var(--spacing-8);
+    padding: var(--reva-spacing-8);
   }
   display: flex;
   justify-content: center;

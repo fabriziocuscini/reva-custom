@@ -1,8 +1,8 @@
 .footer {
-  padding: var(--spacing-40) 0 var(--spacing-20) 0;
+  padding: var(--reva-spacing-40) 0 var(--reva-spacing-20) 0;
 
   @media (--screen-lg) {
-    padding-top: var(--spacing-60);
+    padding-top: var(--reva-spacing-60);
   }
   &__wrapper {
     max-width: 700px;
@@ -10,8 +10,8 @@
 
   &__footnote {
     color: var(--color-text-muted);
-    font-size: var(--font-size-xs);
-    line-height: var(--line-height-normal);
-    letter-spacing: var(--letter-spacing-loose);
+    font-size: var(--reva-font-sizes-2xs);
+    line-height: var(--reva-line-heights-normal);
+    letter-spacing: var(--reva-letter-spacings-loose);
   }
 }

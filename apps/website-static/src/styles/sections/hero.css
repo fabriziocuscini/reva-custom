@@ -1,10 +1,10 @@
 .hero {
-  padding-block: var(--spacing-30);
+  padding-block: var(--reva-spacing-30);
   @media (--screen-md) {
-    padding-block: var(--spacing-40);
+    padding-block: var(--reva-spacing-40);
   }
   @media (--screen-lg) {
-    padding-block: var(--spacing-60);
+    padding-block: var(--reva-spacing-60);
   }
 
   &__wrapper {
@@ -19,7 +19,7 @@
   }
   &__footnote {
     color: var(--color-text-muted);
-    font-size: var(--font-size-xs);
+    font-size: var(--reva-font-sizes-2xs);
   }
   .vstack {
     text-align: center;

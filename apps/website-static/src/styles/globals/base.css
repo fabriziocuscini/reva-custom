@@ -1,6 +1,5 @@
 @import '../tokens/colors.css';
 @import '../tokens/typography.css';
-@import '../tokens/spacing.css';
 @import '../tokens/breakpoints.css';
 @import '../tokens/radius.css';
 @import '../tokens/shadows.css';
@@ -13,7 +12,7 @@ body {
   color: var(--color-text);
   background: linear-gradient(
       to bottom,
-      var(--color-brand-eggshell),
+      var(--reva-colors-olive-200),
       var(--color-brand-porcelain)
     )
     no-repeat;
@@ -42,9 +41,9 @@ a {
 .skip-link {
   position: absolute;
   top: -100%;
-  left: var(--spacing-4);
+  left: var(--reva-spacing-4);
   z-index: 1000;
-  padding: var(--spacing-2) var(--spacing-4);
+  padding: var(--reva-spacing-2) var(--reva-spacing-4);
   background: var(--color-primary);
   color: #ffffff;
   text-decoration: none;

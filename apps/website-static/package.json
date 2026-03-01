@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@reva/tokens": "workspace:*",
     "@malobre/vite-plugin-posthtml": "^0.1.1",
     "postcss-custom-media": "^12.0.0",
     "postcss-nested": "^7.0.2",

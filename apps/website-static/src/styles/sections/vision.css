@@ -6,35 +6,35 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: var(--radius-section-card-lg);
-    padding: var(--spacing-10);
+    padding: var(--reva-spacing-10);
 
     & > .vstack--relaxed {
-      gap: var(--spacing-10);
+      gap: var(--reva-spacing-10);
 
       @media (--screen-sm) {
-        gap: var(--spacing-20);
+        gap: var(--reva-spacing-20);
       }
     }
     @media (--screen-md) {
-      padding: var(--spacing-20) var(--spacing-10);
+      padding: var(--reva-spacing-20) var(--reva-spacing-10);
     }
     @media (--screen-lg) {
       height: 800px;
-      padding: var(--spacing-30) var(--spacing-20);
+      padding: var(--reva-spacing-30) var(--reva-spacing-20);
     }
   }
   &__title {
     color: var(--color-text-inverted-default);
     font-family: var(--font-body);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--reva-font-weights-semibold);
 
     @media (--screen-sm) {
-      font-size: var(--font-size-4xl);
+      font-size: var(--reva-font-sizes-4xl);
     }
 
     @media (--screen-lg) {
-      font-size: var(--font-size-5xl);
-      font-weight: var(--font-weight-medium);
+      font-size: var(--reva-font-sizes-5xl);
+      font-weight: var(--reva-font-weights-medium);
     }
   }
   &__title--dimmed {
@@ -46,8 +46,8 @@
   &__symbol {
     position: absolute;
     display: none;
-    bottom: var(--spacing-30);
-    right: var(--spacing-30);
+    bottom: var(--reva-spacing-30);
+    right: var(--reva-spacing-30);
     width: 240px;
     height: 240px;
     @media (--screen-xl) {

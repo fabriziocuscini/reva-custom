@@ -5,14 +5,14 @@
     align-items: center;
     background-color: var(--color-surface-emphasized);
     border-radius: var(--radius-section-card-lg);
-    padding: var(--spacing-10);
+    padding: var(--reva-spacing-10);
     @media (--screen-md) {
-      padding: var(--spacing-16);
+      padding: var(--reva-spacing-16);
     }
     @media (--screen-lg) {
       flex-direction: row;
-      gap: var(--spacing-30);
-      padding: var(--spacing-20);
+      gap: var(--reva-spacing-30);
+      padding: var(--reva-spacing-20);
     }
   }
 
@@ -44,9 +44,9 @@
 
   &__title {
     color: var(--color-brand-amber);
-    font-size: var(--font-size-4xl);
+    font-size: var(--reva-font-sizes-4xl);
     @media (--screen-lg) {
-      font-size: var(--font-size-6xl);
+      font-size: var(--reva-font-sizes-6xl);
     }
   }
 

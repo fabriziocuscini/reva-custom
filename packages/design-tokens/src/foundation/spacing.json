@@ -16,6 +16,7 @@
     "16": { "$value": "64px", "$description": "16x base (64px)" },
     "20": { "$value": "80px", "$description": "20x base (80px)" },
     "24": { "$value": "96px", "$description": "24x base (96px)" },
+    "30": { "$value": "120px", "$description": "30x base (120px)" },
     "32": { "$value": "128px", "$description": "32x base (128px)" },
     "40": { "$value": "160px", "$description": "40x base (160px)" },
     "50": { "$value": "200px", "$description": "50x base (200px)" },

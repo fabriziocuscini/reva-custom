@@ -1,5 +1,5 @@
 import { register } from '@tokens-studio/sd-transforms'
-import { mkdir, readFile, writeFile } from 'fs/promises'
+import { readdir, mkdir, readFile, writeFile } from 'fs/promises'
 import { resolve } from 'path'
 import StyleDictionary from 'style-dictionary'
 import { buildDtcgOutput } from './dtcg-format'
@@ -11,144 +11,195 @@ register(StyleDictionary, {
   'ts/color/modifiers': { format: 'hex' },
 })
 
-interface Theme {
-  id: string
-  name: string
-  selectedTokenSets: Record<string, 'source' | 'enabled' | 'disabled'>
+// Custom transform: convert px values to rem for CSS output only.
+// Runs after tokens-studio transforms so letter-spacing (em) and shadows
+// (composite strings) are already resolved and won't match the regex.
+StyleDictionary.registerTransform({
+  name: 'reva/size/pxToRem',
+  type: 'value',
+  transitive: true,
+  filter: (token) => {
+    const val = String(token.$value ?? token.value)
+    return /^-?\d+(\.\d+)?px$/.test(val)
+  },
+  transform: (token) => {
+    const val = String(token.$value ?? token.value)
+    const px = parseFloat(val)
+    if (px === 0) return '0'
+    return `${px / 16}rem`
+  },
+})
+
+// Files that Style Dictionary cannot process (e.g. composite typography styles)
+const sdExclude = new Set(['textStyles.json'])
+
+/**
+ * Discovers foundation token files from the filesystem instead of reading
+ * $themes.json. This decouples the build from Tokens Studio theme config,
+ * which is managed via the Figma plugin and should not be edited manually.
+ */
+async function getFoundationFiles(srcDir: string): Promise<string[]> {
+  const dir = resolve(srcDir, 'foundation')
+  const entries = await readdir(dir)
+  return entries
+    .filter((f) => f.endsWith('.json') && !sdExclude.has(f))
+    .sort()
+    .map((f) => resolve(dir, f))
+}
+
+/** Shared SD platform config for non-CSS platforms (keep px values). */
+function nonCssPlatforms(distDir: string, name: string) {
+  return {
+    ts: {
+      transformGroup: 'tokens-studio',
+      transforms: ['name/camel'],
+      buildPath: `${distDir}/ts/`,
+      files: [
+        {
+          destination: `tokens-${name}.ts`,
+          format: 'javascript/es6',
+        },
+      ],
+    },
+
+    json: {
+      transformGroup: 'tokens-studio',
+      transforms: ['name/kebab'],
+      buildPath: `${distDir}/json/`,
+      files: [
+        {
+          destination: `tokens-${name}.json`,
+          format: 'json/nested',
+        },
+      ],
+    },
+
+    'json-mobile': {
+      transformGroup: 'tokens-studio',
+      transforms: ['name/camel'],
+      buildPath: `${distDir}/json-mobile/`,
+      files: [
+        {
+          destination: `tokens-${name}.json`,
+          format: 'json/flat',
+        },
+      ],
+    },
+  } as const
 }
 
 async function build() {
   const srcDir = resolve(import.meta.dirname, '..', 'src')
   const distDir = resolve(import.meta.dirname, '..', 'dist')
 
-  const $themes: Theme[] = JSON.parse(
-    await readFile(resolve(srcDir, '$themes.json'), 'utf-8'),
-  )
+  const foundationFiles = await getFoundationFiles(srcDir)
+  const colorModeDir = resolve(srcDir, 'colorMode')
 
-  // Token sets that live in $themes.json for Tokens Studio / Figma sync
-  // but should not be processed by Style Dictionary (e.g., composite styles)
-  const sdExclude = new Set(['foundation/textStyles'])
+  // ── Foundation build ─────────────────────────────────────────────────
+  const sdFoundation = new StyleDictionary({
+    source: foundationFiles,
+    preprocessors: ['tokens-studio'],
+    platforms: {
+      css: {
+        transformGroup: 'tokens-studio',
+        transforms: ['name/kebab', 'reva/size/pxToRem'],
+        prefix: 'reva',
+        buildPath: `${distDir}/css/`,
+        files: [
+          {
+            destination: 'tokens-foundation.css',
+            format: 'css/variables',
+            options: { outputReferences: true },
+          },
+        ],
+      },
+      ...nonCssPlatforms(distDir, 'foundation'),
+    },
+  })
 
-  for (const theme of $themes) {
-    const source = Object.entries(theme.selectedTokenSets)
-      .filter(([set, status]) => status !== 'disabled' && !sdExclude.has(set))
-      .map(([tokenset]) => resolve(srcDir, `${tokenset}.json`))
+  await sdFoundation.cleanAllPlatforms()
+  await sdFoundation.buildAllPlatforms()
+  console.log('✓ Built theme: foundation')
+
+  // ── Light / dark builds ──────────────────────────────────────────────
+  // Foundation files are `source` (available for reference resolution but
+  // not output). The colorMode file is the only `include` that gets output.
+  for (const mode of ['light', 'dark'] as const) {
+    const colorModeFile = resolve(colorModeDir, `${mode}.json`)
 
     const sd = new StyleDictionary({
-      source,
+      source: [colorModeFile],
+      include: foundationFiles,
       preprocessors: ['tokens-studio'],
       platforms: {
         css: {
           transformGroup: 'tokens-studio',
-          transforms: ['name/kebab'],
+          transforms: ['name/kebab', 'reva/size/pxToRem'],
           prefix: 'reva',
           buildPath: `${distDir}/css/`,
           files: [
             {
-              destination: `tokens-${theme.name}.css`,
+              destination: `tokens-${mode}.css`,
               format: 'css/variables',
               options: { outputReferences: true },
             },
           ],
         },
-
-        ts: {
-          transformGroup: 'tokens-studio',
-          transforms: ['name/camel'],
-          buildPath: `${distDir}/ts/`,
-          files: [
-            {
-              destination: `tokens-${theme.name}.ts`,
-              format: 'javascript/es6',
-            },
-          ],
-        },
-
-        json: {
-          transformGroup: 'tokens-studio',
-          transforms: ['name/kebab'],
-          buildPath: `${distDir}/json/`,
-          files: [
-            {
-              destination: `tokens-${theme.name}.json`,
-              format: 'json/nested',
-            },
-          ],
-        },
-
-        'json-mobile': {
-          transformGroup: 'tokens-studio',
-          transforms: ['name/camel'],
-          buildPath: `${distDir}/json-mobile/`,
-          files: [
-            {
-              destination: `tokens-${theme.name}.json`,
-              format: 'json/flat',
-            },
-          ],
-        },
+        ...nonCssPlatforms(distDir, mode),
       },
     })
 
     await sd.cleanAllPlatforms()
     await sd.buildAllPlatforms()
-    console.log(`✓ Built theme: ${theme.name}`)
-
-    // Post-processing: generate W3C DTCG-compliant JSON per theme
-    const themeSources = Object.entries(theme.selectedTokenSets)
-      .filter(([, status]) => status !== 'disabled')
-      .map(([tokenset]) => resolve(srcDir, `${tokenset}.json`))
-    const dtcgSourceFiles = await Promise.all(
-      themeSources.map(async (f) => JSON.parse(await readFile(f, 'utf-8'))),
-    )
-    const resolvedJson = JSON.parse(
-      await readFile(
-        resolve(distDir, `json/tokens-${theme.name}.json`),
-        'utf-8',
-      ),
-    )
-    const dtcgOutput = buildDtcgOutput(dtcgSourceFiles, resolvedJson)
-
-    await mkdir(resolve(distDir, 'json-dtcg'), { recursive: true })
-    await writeFile(
-      resolve(distDir, `json-dtcg/tokens-${theme.name}.json`),
-      JSON.stringify(dtcgOutput, null, 2),
-    )
-    console.log(`✓ Built DTCG: ${theme.name}`)
+    console.log(`✓ Built theme: ${mode}`)
   }
 
-  // Post-processing: generate Panda CSS-compatible output
-  const foundationFiles = [
-    'foundation/colors.json',
-    'foundation/spacing.json',
-    'foundation/sizes.json',
-    'foundation/typography.json',
-    'foundation/radii.json',
-    'foundation/blurs.json',
-    'foundation/durations.json',
-    'foundation/aspectRatios.json',
-    'foundation/borderWidths.json',
-    'foundation/opacity.json',
-    'foundation/cursors.json',
-    'foundation/zIndex.json',
-    'foundation/shadows.json',
-  ]
+  // ── DTCG post-processing ─────────────────────────────────────────────
+  // Foundation DTCG
   const foundationSources = await Promise.all(
-    foundationFiles.map(async (f) =>
-      JSON.parse(await readFile(resolve(srcDir, f), 'utf-8')),
-    ),
+    foundationFiles.map(async (f) => JSON.parse(await readFile(f, 'utf-8'))),
   )
-  // Resolved JSON output needed for composite values (e.g., shadows)
-  const lightDtcg = JSON.parse(
+  const foundationResolved = JSON.parse(
+    await readFile(resolve(distDir, 'json/tokens-foundation.json'), 'utf-8'),
+  )
+  const foundationDtcg = buildDtcgOutput(foundationSources, foundationResolved)
+
+  await mkdir(resolve(distDir, 'json-dtcg'), { recursive: true })
+  await writeFile(
+    resolve(distDir, 'json-dtcg/tokens-foundation.json'),
+    JSON.stringify(foundationDtcg, null, 2),
+  )
+  console.log('✓ Built DTCG: foundation')
+
+  // Light / dark DTCG
+  for (const mode of ['light', 'dark'] as const) {
+    const colorModeSource = JSON.parse(
+      await readFile(resolve(colorModeDir, `${mode}.json`), 'utf-8'),
+    )
+    const allSources = [...foundationSources, colorModeSource]
+    const resolvedJson = JSON.parse(
+      await readFile(resolve(distDir, `json/tokens-${mode}.json`), 'utf-8'),
+    )
+    const dtcgOutput = buildDtcgOutput(allSources, resolvedJson)
+
+    await writeFile(
+      resolve(distDir, `json-dtcg/tokens-${mode}.json`),
+      JSON.stringify(dtcgOutput, null, 2),
+    )
+    console.log(`✓ Built DTCG: ${mode}`)
+  }
+
+  // ── Panda CSS output ─────────────────────────────────────────────────
+  const lightResolved = JSON.parse(
     await readFile(resolve(distDir, 'json/tokens-light.json'), 'utf-8'),
   )
-  const pandaTokens = buildPandaTokens(foundationSources, lightDtcg)
+  const pandaTokens = buildPandaTokens(foundationSources, lightResolved)
 
   const lightSemantic = JSON.parse(
-    await readFile(resolve(srcDir, 'colorMode/light.json'), 'utf-8'),
+    await readFile(resolve(colorModeDir, 'light.json'), 'utf-8'),
   )
   const darkSemantic = JSON.parse(
-    await readFile(resolve(srcDir, 'colorMode/dark.json'), 'utf-8'),
+    await readFile(resolve(colorModeDir, 'dark.json'), 'utf-8'),
   )
   const pandaSemanticTokens = buildPandaSemanticTokens(
     lightSemantic,

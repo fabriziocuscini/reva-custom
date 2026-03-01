@@ -8,9 +8,9 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-body);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--reva-font-weights-medium);
   line-height: 1;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: var(--reva-letter-spacings-wide);
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
@@ -39,21 +39,21 @@
 
 .button--sm {
   min-height: var(--button-size-sm);
-  font-size: var(--font-size-xs);
-  padding-inline: var(--spacing-2);
-  border-radius: var(--radius-sm);
+  font-size: var(--reva-font-sizes-2xs);
+  padding-inline: var(--reva-spacing-2);
+  border-radius: var(--reva-radii-xs);
 }
 
 .button--md {
   min-height: var(--button-size-md);
-  font-size: var(--font-size-sm);
-  padding-inline: var(--spacing-4);
-  border-radius: var(--radius-md);
+  font-size: var(--reva-font-sizes-sm);
+  padding-inline: var(--reva-spacing-4);
+  border-radius: var(--reva-radii-sm);
 }
 
 .button--lg {
   min-height: var(--button-size-lg);
-  font-size: var(--font-size-md);
-  padding-inline: var(--spacing-6);
-  border-radius: var(--radius-lg);
+  font-size: var(--reva-font-sizes-md);
+  padding-inline: var(--reva-spacing-6);
+  border-radius: var(--reva-radii-md);
 }

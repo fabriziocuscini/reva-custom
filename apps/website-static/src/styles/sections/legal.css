@@ -1,8 +1,8 @@
 .legal {
-  padding-top: var(--spacing-20);
+  padding-top: var(--reva-spacing-20);
 
   @media (--screen-lg) {
-    padding-top: var(--spacing-40);
+    padding-top: var(--reva-spacing-40);
   }
 
   &__content {
@@ -10,42 +10,42 @@
   }
 
   &__content h1 {
-    margin-bottom: var(--spacing-30);
+    margin-bottom: var(--reva-spacing-30);
   }
 
   &__content h2,
   &__content h3 {
     font-family: var(--font-body);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-compact);
+    font-weight: var(--reva-font-weights-semibold);
+    line-height: var(--reva-line-heights-compact);
     letter-spacing: 0;
   }
 
   &__content h2 {
-    font-size: var(--font-size-2xl);
-    margin-top: var(--spacing-10);
-    margin-bottom: var(--spacing-4);
+    font-size: var(--reva-font-sizes-2xl);
+    margin-top: var(--reva-spacing-10);
+    margin-bottom: var(--reva-spacing-4);
   }
 
   &__content h3 {
-    font-size: var(--font-size-xl);
-    margin-top: var(--spacing-8);
-    margin-bottom: var(--spacing-3);
+    font-size: var(--reva-font-sizes-xl);
+    margin-top: var(--reva-spacing-8);
+    margin-bottom: var(--reva-spacing-3);
   }
 
   &__content p {
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--reva-spacing-4);
   }
 
   &__content ol {
-    margin-bottom: var(--spacing-4);
-    padding-left: var(--spacing-6);
+    margin-bottom: var(--reva-spacing-4);
+    padding-left: var(--reva-spacing-6);
   }
 
   &__content li {
-    margin-bottom: var(--spacing-2);
-    line-height: var(--line-height-normal);
-    letter-spacing: var(--letter-spacing-wide);
+    margin-bottom: var(--reva-spacing-2);
+    line-height: var(--reva-line-heights-normal);
+    letter-spacing: var(--reva-letter-spacings-wide);
   }
 
   &__content a {

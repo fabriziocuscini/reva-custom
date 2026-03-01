@@ -9,16 +9,16 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: var(--radius-section-card-lg);
-    padding: var(--spacing-10);
+    padding: var(--reva-spacing-10);
     @media (--screen-sm) {
-      padding: var(--spacing-12);
+      padding: var(--reva-spacing-12);
     }
     @media (--screen-md) {
-      padding-block: var(--spacing-16);
+      padding-block: var(--reva-spacing-16);
     }
     @media (--screen-lg) {
       height: 800px;
-      padding: var(--spacing-20);
+      padding: var(--reva-spacing-20);
     }
   }
 
@@ -29,7 +29,7 @@
 
   &__title {
     color: inherit;
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--reva-font-weights-regular);
   }
 
   /* --- Badge Group --- */
@@ -41,25 +41,25 @@
     @media (--screen-sm) {
       display: inline-flex;
     }
-    gap: var(--spacing-3);
-    background: var(--color-white-a5);
-    border: 1px solid var(--color-white-a20);
-    border-radius: var(--radius-full);
-    padding: var(--spacing-1) var(--spacing-4) var(--spacing-1) var(--spacing-1);
+    gap: var(--reva-spacing-3);
+    background: var(--reva-colors-common-white-a5);
+    border: 1px solid var(--reva-colors-common-white-a20);
+    border-radius: var(--reva-radii-full);
+    padding: var(--reva-spacing-1) var(--reva-spacing-4) var(--reva-spacing-1) var(--reva-spacing-1);
   }
 
   &__badge {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-2);
-    background: var(--color-black-a20);
-    border: 1px solid var(--color-white-a20);
-    border-radius: var(--radius-full);
-    padding: 6px var(--spacing-3) 6px var(--spacing-2);
+    gap: var(--reva-spacing-2);
+    background: var(--reva-colors-common-black-a20);
+    border: 1px solid var(--reva-colors-common-white-a20);
+    border-radius: var(--reva-radii-full);
+    padding: 6px var(--reva-spacing-3) 6px var(--reva-spacing-2);
     font-family: var(--font-body);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    letter-spacing: var(--letter-spacing-loose);
+    font-size: var(--reva-font-sizes-2xs);
+    font-weight: var(--reva-font-weights-medium);
+    letter-spacing: var(--reva-letter-spacings-loose);
     white-space: nowrap;
     color: var(--color-text-inverted-default);
   }
@@ -74,7 +74,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: var(--radius-full);
+      border-radius: var(--reva-radii-full);
       background-color: var(--color-brand-burgundy);
       opacity: 0.2;
     }
@@ -86,16 +86,16 @@
       left: 4px;
       width: 8px;
       height: 8px;
-      border-radius: var(--radius-full);
+      border-radius: var(--reva-radii-full);
       background-color: var(--color-brand-burgundy);
     }
   }
 
   &__badge-label {
     font-family: var(--font-body);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    letter-spacing: var(--letter-spacing-loose);
+    font-size: var(--reva-font-sizes-2xs);
+    font-weight: var(--reva-font-weights-medium);
+    letter-spacing: var(--reva-letter-spacings-loose);
     white-space: nowrap;
     color: var(--color-text-inverted-muted);
   }
@@ -108,20 +108,20 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-4);
+    gap: var(--reva-spacing-4);
   }
 
   &__feature {
     display: flex;
     align-items: center;
-    gap: var(--spacing-4);
+    gap: var(--reva-spacing-4);
     font-family: var(--font-mono);
-    font-size: var(--font-size-2xs);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--reva-font-sizes-3xs);
+    font-weight: var(--reva-font-weights-regular);
+    line-height: var(--reva-line-heights-relaxed);
 
     @media (--screen-sm) {
-      font-size: var(--font-size-xs);
+      font-size: var(--reva-font-sizes-2xs);
     }
   }
 
@@ -136,7 +136,7 @@
   &__paragraph {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--reva-spacing-2);
   }
 
   &__overline {
@@ -144,10 +144,10 @@
   }
 
   &__description {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-normal);
-    letter-spacing: var(--letter-spacing-normal);
+    font-size: var(--reva-font-sizes-lg);
+    font-weight: var(--reva-font-weights-regular);
+    line-height: var(--reva-line-heights-normal);
+    letter-spacing: var(--reva-letter-spacings-normal);
     color: var(--color-text-inverted-muted);
     max-width: 600px;
   }

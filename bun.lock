@@ -80,6 +80,7 @@
       "name": "@reva/website-static",
       "devDependencies": {
         "@malobre/vite-plugin-posthtml": "^0.1.1",
+        "@reva/tokens": "workspace:*",
         "postcss-custom-media": "^12.0.0",
         "postcss-nested": "^7.0.2",
         "posthtml-component": "^2.3.0",
