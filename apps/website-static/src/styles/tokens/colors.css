@@ -21,7 +21,7 @@
   /* --- common aliases --- */
   --color-black: var(--reva-colors-black);
   --color-white: var(--reva-colors-white);
-  --color-transparent: var(--reva-colors-common-white-transparent);
+  --color-transparent: var(--reva-colors-white-transparent);
 
   /* --- semantic --- */
   --color-bg: var(--color-brand-porcelain);
@@ -30,11 +30,11 @@
   --color-focus: var(--color-brand-gold);
 
   /* --- text --- */
-  --color-text: var(--reva-colors-common-black-a90);
-  --color-text-muted: var(--reva-colors-common-black-a50);
-  --color-text-placeholder: var(--reva-colors-common-black-a35);
-  --color-text-inverted-default: var(--reva-colors-common-white-solid);
-  --color-text-inverted-muted: var(--reva-colors-common-white-a70);
+  --color-text: var(--reva-colors-black-a90);
+  --color-text-muted: var(--reva-colors-black-a50);
+  --color-text-placeholder: var(--reva-colors-black-a35);
+  --color-text-inverted-default: var(--reva-colors-white-solid);
+  --color-text-inverted-muted: var(--reva-colors-white-a70);
   --color-text-success: var(--reva-colors-green-800);
   --color-text-error: var(--reva-colors-red-800);
 
