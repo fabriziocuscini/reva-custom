@@ -2,7 +2,7 @@
 
 :root {
   /* --- brand aliases (pointing to @reva/tokens palette stops) --- */
-  --color-brand-primary: var(--reva-colors-amber-600);
+  --color-brand-primary: var(--reva-colors-gold-600);
   --color-brand-accent: var(--reva-colors-gold-500);
   --color-brand-secondary: var(--reva-colors-wine-800);
   --color-brand-muted: var(--reva-colors-olive-600);
@@ -28,8 +28,8 @@
   --color-text-placeholder: var(--reva-colors-black-a35);
   --color-text-inverted-default: var(--reva-colors-white-solid);
   --color-text-inverted-muted: var(--reva-colors-white-a70);
-  --color-text-success: var(--reva-colors-green-800);
-  --color-text-error: var(--reva-colors-red-800);
+  --color-text-success: var(--reva-colors-fern-600);
+  --color-text-error: var(--reva-colors-wine-600);
 
   /* --- surface --- */
   --color-surface: var(--reva-colors-olive-50);

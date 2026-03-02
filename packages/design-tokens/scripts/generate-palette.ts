@@ -17,7 +17,7 @@ import chroma from "chroma-js";
 // ---------------------------------------------------------------------------
 
 interface PaletteConfig {
-  /** Human-readable name, used as the token group key (e.g. "teal") */
+  /** Human-readable name, used as the token group key (e.g. "amber") */
   name: string;
   /**
    * The anchor colour defined in OKLCH: [lightness 0–1, chroma 0–0.4, hue 0–360].
@@ -230,11 +230,6 @@ function toDTCG(steps: PaletteStep[]): Record<string, { $value: string }> {
 
 const PALETTES: PaletteConfig[] = [
   {
-    name: "teal",
-    anchor: [0.704, 0.14, 182.503],
-    // anchorStep defaults to 500
-  },
-  {
     name: "amber",
     anchor: [0.5707, 0.1291, 63.932], // Reva Amber #AB6400
     anchorStep: 600,
@@ -287,29 +282,6 @@ const PALETTES: PaletteConfig[] = [
     },
   },
 
-  // -----------------------------------------------------------------------
-  // Refined TW palettes — same hue & chroma, standardised L=0.704 midpoint
-  // -----------------------------------------------------------------------
-  {
-    name: "yellow",
-    anchor: [0.704, 0.1617, 86.039], // TW Yellow 500 hue & chroma, standardised L
-  },
-  {
-    name: "orange",
-    anchor: [0.704, 0.1867, 47.601], // TW Orange 500 hue & chroma, standardised L
-  },
-  {
-    name: "red",
-    anchor: [0.704, 0.2079, 25.334], // TW Red 500 hue & chroma, standardised L
-  },
-  {
-    name: "green",
-    anchor: [0.704, 0.1920, 149.577], // TW Green 500 hue & chroma, standardised L
-  },
-  {
-    name: "sky",
-    anchor: [0.704, 0.1478, 237.314], // TW Sky 500 hue & chroma, standardised L
-  },
   {
     name: "gray",
     anchor: [0.5555, 0.0000, 0], // TW Gray 500 — pure achromatic
