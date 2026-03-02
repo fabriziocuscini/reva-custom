@@ -108,37 +108,37 @@
     },
     "wine": {
       "50": {
-        "$value": "#fffafb"
+        "$value": "#f9ecee"
       },
       "100": {
-        "$value": "#faeaec"
+        "$value": "#f2d9dd"
       },
       "200": {
-        "$value": "#eeced2"
+        "$value": "#e6b3ba"
       },
       "300": {
-        "$value": "#e0afb5"
+        "$value": "#d98c98"
       },
       "400": {
-        "$value": "#db949e"
+        "$value": "#cc6675"
       },
       "500": {
-        "$value": "#d68591"
+        "$value": "#bf4053"
       },
       "600": {
-        "$value": "#a15e68"
+        "$value": "#993342"
       },
       "700": {
-        "$value": "#6c3d44"
+        "$value": "#732632"
       },
       "800": {
-        "$value": "#460819"
+        "$value": "#4d1921"
       },
       "900": {
-        "$value": "#241315"
+        "$value": "#260d11"
       },
       "950": {
-        "$value": "#180206"
+        "$value": "#1b090c"
       }
     },
     "yellow": {
