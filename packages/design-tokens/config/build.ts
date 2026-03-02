@@ -85,7 +85,7 @@ function nonCssPlatforms(distDir: string, name: string) {
         },
       ],
     },
-  } as const
+  }
 }
 
 async function build() {
