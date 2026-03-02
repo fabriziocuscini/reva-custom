@@ -43,7 +43,7 @@
   }
 
   &__title {
-    color: var(--color-brand-amber);
+    color: var(--color-brand-primary);
     font-size: var(--reva-font-sizes-4xl);
     @media (--screen-lg) {
       font-size: var(--reva-font-sizes-6xl);

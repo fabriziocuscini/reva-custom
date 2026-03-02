@@ -4,7 +4,7 @@
   &__card {
     position: relative;
     overflow: clip;
-    background-color: var(--color-brand-coffee-bean);
+    background-color: var(--reva-colors-wine-950);
     background-image: url('/images/section-infra-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -75,7 +75,7 @@
       position: absolute;
       inset: 0;
       border-radius: var(--reva-radii-full);
-      background-color: var(--color-brand-burgundy);
+      background-color: var(--color-brand-secondary);
       opacity: 0.2;
     }
 
@@ -87,7 +87,7 @@
       width: 8px;
       height: 8px;
       border-radius: var(--reva-radii-full);
-      background-color: var(--color-brand-burgundy);
+      background-color: var(--color-brand-secondary);
     }
   }
 

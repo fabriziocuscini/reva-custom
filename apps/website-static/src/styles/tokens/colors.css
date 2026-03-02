@@ -2,32 +2,25 @@
 
 :root {
   /* --- brand aliases (pointing to @reva/tokens palette stops) --- */
-  --color-brand-gold: var(--reva-colors-gold-500);
-  --color-brand-amber: var(--reva-colors-amber-600);
-  --color-brand-burgundy: var(--reva-colors-wine-800);
-  --color-brand-coffee-bean: var(--reva-colors-wine-950);
-  --color-brand-olive: var(--reva-colors-olive-600);
-  --color-brand-soft-linen: var(--reva-colors-olive-100);
-  --color-brand-porcelain: var(--reva-colors-olive-50);
+  --color-brand-primary: var(--reva-colors-amber-600);
+  --color-brand-accent: var(--reva-colors-gold-500);
+  --color-brand-secondary: var(--reva-colors-wine-800);
+  --color-brand-muted: var(--reva-colors-olive-600);
 
   /* --- brand opacity (only steps actually used, via color-mix) --- */
-  --color-brand-gold-a30: color-mix(in srgb, var(--color-brand-gold) 30%, transparent);
-  --color-brand-amber-a5: color-mix(in srgb, var(--color-brand-amber) 5%, transparent);
-  --color-brand-amber-a10: color-mix(in srgb, var(--color-brand-amber) 10%, transparent);
-  --color-brand-amber-a15: color-mix(in srgb, var(--color-brand-amber) 15%, transparent);
-  --color-brand-amber-a90: color-mix(in srgb, var(--color-brand-amber) 90%, transparent);
-  --color-brand-amber-a95: color-mix(in srgb, var(--color-brand-amber) 95%, transparent);
-
-  /* --- common aliases --- */
-  --color-black: var(--reva-colors-black);
-  --color-white: var(--reva-colors-white);
-  --color-transparent: var(--reva-colors-white-transparent);
+  --color-brand-accent-a30: color-mix(in srgb, var(--color-brand-accent) 30%, transparent);
+  --color-brand-primary-a5: color-mix(in srgb, var(--color-brand-primary) 5%, transparent);
+  --color-brand-primary-a10: color-mix(in srgb, var(--color-brand-primary) 10%, transparent);
+  --color-brand-primary-a15: color-mix(in srgb, var(--color-brand-primary) 15%, transparent);
+  --color-brand-primary-a90: color-mix(in srgb, var(--color-brand-primary) 90%, transparent);
+  --color-brand-primary-a95: color-mix(in srgb, var(--color-brand-primary) 95%, transparent);
 
   /* --- semantic --- */
-  --color-bg: var(--color-brand-porcelain);
-  --color-primary: var(--color-brand-amber);
-  --color-primary-hover: var(--color-brand-amber-a90);
-  --color-focus: var(--color-brand-gold);
+  --color-bg: var(--reva-colors-olive-50);
+  --color-primary: var(--color-brand-primary);
+  --color-primary-hover: var(--color-brand-primary-a90);
+  --color-focus: var(--color-brand-accent);
+  --color-text-selection: var(--color-brand-accent-a30);
 
   /* --- text --- */
   --color-text: var(--reva-colors-black-a90);
@@ -39,6 +32,6 @@
   --color-text-error: var(--reva-colors-red-800);
 
   /* --- surface --- */
-  --color-surface: var(--color-brand-porcelain);
-  --color-surface-emphasized: var(--color-brand-soft-linen);
+  --color-surface: var(--reva-colors-olive-50);
+  --color-surface-emphasized: var(--reva-colors-olive-100);
 }

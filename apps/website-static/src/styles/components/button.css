@@ -14,7 +14,7 @@
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
-  background-color: var(--color-brand-amber);
+  background-color: var(--color-brand-primary);
   color: var(--color-text-inverted-default);
   transition:
     background-color 0.15s ease,
@@ -22,12 +22,12 @@
 
   &:hover {
     color: var(--color-text-inverted-default);
-    background-color: var(--color-brand-amber-a90);
+    background-color: var(--color-brand-primary-a90);
   }
 
   &:active {
     color: var(--color-text-inverted-default);
-    background-color: var(--color-brand-amber-a95);
+    background-color: var(--color-brand-primary-a95);
   }
 
   &:focus-visible {

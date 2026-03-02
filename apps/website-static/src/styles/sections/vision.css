@@ -1,7 +1,7 @@
 .vision {
   &__card {
     position: relative;
-    background-color: var(--color-brand-olive);
+    background-color: var(--color-brand-muted);
     background-image: url('/images/mesh-gradients/section-vision-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;

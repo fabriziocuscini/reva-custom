@@ -10,8 +10,7 @@ html {
 
 body {
   color: var(--color-text);
-  background: linear-gradient(to bottom, var(--reva-colors-olive-200), var(--color-brand-porcelain))
-    no-repeat;
+  background: linear-gradient(to bottom, var(--reva-colors-olive-200), var(--color-bg)) no-repeat;
   background-size: 100% 100vh;
   background-color: var(--color-bg);
 }
@@ -31,7 +30,7 @@ a {
 }
 
 ::selection {
-  background-color: var(--color-brand-gold-a30);
+  background-color: var(--color-text-selection);
 }
 
 .skip-link {

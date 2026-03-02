@@ -10,7 +10,7 @@
   max-width: 22.5rem; /* 360px */
   height: 4rem; /* 64px */
   padding: var(--reva-spacing-2); /* 8px */
-  background-color: var(--color-brand-porcelain);
+  background-color: var(--color-surface);
   border: 1px solid var(--reva-colors-black-a10);
   border-radius: var(--reva-radii-full);
   transition: outline-color 0.2s ease;
@@ -52,19 +52,19 @@
     width: 3rem; /* 48px */
     height: 3rem; /* 48px */
     padding: 0;
-    color: var(--color-brand-amber);
-    background-color: var(--color-brand-amber-a5);
+    color: var(--color-brand-primary);
+    background-color: var(--color-brand-primary-a5);
     border: none;
     border-radius: var(--reva-radii-full);
     cursor: pointer;
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--color-brand-amber-a10);
+      background-color: var(--color-brand-primary-a10);
     }
 
     &:active {
-      background-color: var(--color-brand-amber-a15);
+      background-color: var(--color-brand-primary-a15);
     }
 
     &:focus-visible {
