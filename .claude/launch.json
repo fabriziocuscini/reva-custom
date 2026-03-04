@@ -1,0 +1,36 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:docs"],
+      "port": 3000
+    },
+    {
+      "name": "website",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:website"],
+      "port": 5173
+    },
+    {
+      "name": "advisor-portal",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:advisor"],
+      "port": 5174
+    },
+    {
+      "name": "client-portal",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:client"],
+      "port": 5175
+    },
+    {
+      "name": "palette-generator",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:palette-generator"],
+      "port": 5176,
+      "autoPort": true
+    }
+  ]
+}
