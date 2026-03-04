@@ -41,19 +41,19 @@
     },
     "fg": {
       "default": {
-        "$value": "{colors.olive.900}",
+        "$value": "{colors.stone.900}",
         "$description": "Primary text, headings"
       },
       "muted": {
-        "$value": "{colors.olive.600}",
+        "$value": "{colors.stone.600}",
         "$description": "Secondary text, labels"
       },
       "subtle": {
-        "$value": "{colors.olive.400}",
+        "$value": "{colors.stone.400}",
         "$description": "Helper text, captions"
       },
       "placeholder": {
-        "$value": "{colors.olive.350}",
+        "$value": "{colors.stone.350}",
         "$description": "Input placeholders"
       },
       "link": {
@@ -85,15 +85,15 @@
     },
     "border": {
       "default": {
-        "$value": "{colors.olive.200}",
+        "$value": "{colors.stone.200}",
         "$description": "Standard borders"
       },
       "muted": {
-        "$value": "{colors.olive.150}",
+        "$value": "{colors.stone.150}",
         "$description": "Softer borders, dividers"
       },
       "subtle": {
-        "$value": "{colors.olive.100}",
+        "$value": "{colors.stone.100}",
         "$description": "Barely-there separators"
       }
     },
