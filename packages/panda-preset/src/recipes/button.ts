@@ -24,15 +24,15 @@ export const button = defineRecipe({
     },
     _focus: {
       outline: '2px solid',
-      outlineColor: 'brand.solid',
+      outlineColor: 'brand.bg.solid',
       outlineOffset: '2px',
     },
   },
   variants: {
     variant: {
       solid: {
-        bg: 'brand.solid',
-        color: 'fg.onBrand',
+        bg: 'brand.bg.solid',
+        color: 'brand.fg.onSolid',
         _hover: {
           opacity: 0.9,
         },
@@ -43,14 +43,14 @@ export const button = defineRecipe({
         borderColor: 'border.default',
         color: 'fg.default',
         _hover: {
-          bg: 'bg.subtle',
+          bg: 'neutral.bg.subtle',
         },
       },
       ghost: {
         bg: 'transparent',
         color: 'fg.default',
         _hover: {
-          bg: 'bg.subtle',
+          bg: 'neutral.bg.subtle',
         },
       },
     },

@@ -41,24 +41,24 @@
     },
     "fg": {
       "default": {
-        "$value": "{colors.stone.900}",
+        "$value": "{colors.olive.900}",
         "$description": "Primary text, headings"
       },
       "muted": {
-        "$value": "{colors.stone.550}",
+        "$value": "{colors.olive.600}",
         "$description": "Secondary text, labels"
       },
       "subtle": {
-        "$value": "{colors.stone.400}",
+        "$value": "{colors.olive.400}",
         "$description": "Helper text, captions"
       },
       "placeholder": {
-        "$value": "{colors.black.alpha.a35}",
+        "$value": "{colors.olive.350}",
         "$description": "Input placeholders"
       },
       "link": {
-        "$value": "{colors.primary.fg}",
-        "$description": "Link text"
+        "$value": "{colors.accent.fg.default}",
+        "$description": "Link text (alias of accent.fg.default)"
       },
       "onColor": {
         "default": {
@@ -74,7 +74,7 @@
           "$description": "Tertiary text on solid fills"
         },
         "disabled": {
-          "$value": "{colors.white.alpha.a25}",
+          "$value": "{colors.white.alpha.a30}",
           "$description": "Disabled text on solid fills"
         },
         "placeholder": {
@@ -85,384 +85,352 @@
     },
     "border": {
       "default": {
-        "$value": "{colors.stone.150}",
+        "$value": "{colors.olive.200}",
         "$description": "Standard borders"
       },
       "muted": {
-        "$value": "{colors.stone.100}",
+        "$value": "{colors.olive.150}",
         "$description": "Softer borders, dividers"
       },
       "subtle": {
-        "$value": "{colors.stone.50}",
+        "$value": "{colors.olive.100}",
         "$description": "Barely-there separators"
       }
     },
     "brand": {
-      "subtle": {
-        "$value": "{colors.gold.100}",
-        "$description": "Soft brand tint: banners, highlights"
-      },
-      "muted": {
-        "$value": "{colors.gold.200}",
-        "$description": "Hover on subtle, soft fills"
-      },
-      "emphasized": {
-        "$value": "{colors.gold.300}",
-        "$description": "Active/selected brand elements"
-      },
-      "solid": {
-        "default": {
+      "bg": {
+        "subtle": {
+          "$value": "{colors.gold.100}",
+          "$description": "Soft brand tint: banners, highlights"
+        },
+        "muted": {
+          "$value": "{colors.gold.200}",
+          "$description": "Soft fills, hover on subtle"
+        },
+        "emphasized": {
+          "$value": "{colors.gold.300}",
+          "$description": "Active, selected, pressed brand elements"
+        },
+        "solid": {
           "$value": "{colors.gold.600}",
           "$description": "Solid brand fill"
-        },
-        "hover": {
+        }
+      },
+      "fg": {
+        "default": {
           "$value": "{colors.gold.700}",
-          "$description": "Hover on solid brand"
+          "$description": "Brand-coloured text and icons"
+        },
+        "emphasized": {
+          "$value": "{colors.gold.900}",
+          "$description": "High-contrast brand text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on brand solid fills"
         }
       },
       "border": {
-        "default": {
-          "$value": "{colors.gold.500}",
-          "$description": "Brand-tinted borders"
-        },
         "subtle": {
           "$value": "{colors.gold.300}",
           "$description": "Faint brand separator"
-        }
-      },
-      "focusRing": {
-        "$value": "{colors.gold.500}",
-        "$description": "Focus ring on brand elements"
-      },
-      "fg": {
-        "$value": "{colors.gold.700}",
-        "$description": "Brand-coloured text and icons"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on brand solid fills"
-      }
-    },
-    "primary": {
-      "subtle": {
-        "$value": "{colors.amber.100}",
-        "$description": "Soft primary tint"
-      },
-      "muted": {
-        "$value": "{colors.amber.200}",
-        "$description": "Hover on subtle, soft fills"
-      },
-      "emphasized": {
-        "$value": "{colors.amber.300}",
-        "$description": "Active/selected/pressed CTA state"
-      },
-      "solid": {
-        "default": {
-          "$value": "{colors.amber.600}",
-          "$description": "Primary CTA, solid fill"
         },
-        "hover": {
-          "$value": "{colors.amber.700}",
-          "$description": "Hover on solid primary"
-        }
-      },
-      "border": {
         "default": {
-          "$value": "{colors.amber.500}",
-          "$description": "Primary-tinted borders"
+          "$value": "{colors.gold.400}",
+          "$description": "Brand-tinted borders"
         },
-        "subtle": {
-          "$value": "{colors.amber.300}",
-          "$description": "Faint primary separator"
+        "focusRing": {
+          "$value": "{colors.gold.500}",
+          "$description": "Focus ring on brand elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.amber.500}",
-        "$description": "Focus ring on primary elements"
-      },
-      "fg": {
-        "$value": "{colors.amber.700}",
-        "$description": "Primary-coloured text, links"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on primary solid fills"
       }
     },
     "accent": {
-      "subtle": {
-        "$value": "{colors.olive.100}",
-        "$description": "Soft accent tint"
-      },
-      "muted": {
-        "$value": "{colors.olive.200}",
-        "$description": "Hover on subtle, soft fills"
-      },
-      "emphasized": {
-        "$value": "{colors.olive.300}",
-        "$description": "Active/selected accent state"
-      },
-      "solid": {
-        "default": {
-          "$value": "{colors.olive.600}",
-          "$description": "Solid accent fill"
+      "bg": {
+        "subtle": {
+          "$value": "{colors.amber.100}",
+          "$description": "Soft accent tint"
         },
-        "hover": {
-          "$value": "{colors.olive.700}",
-          "$description": "Hover on solid accent"
+        "muted": {
+          "$value": "{colors.amber.200}",
+          "$description": "Soft fills, hover on subtle"
+        },
+        "emphasized": {
+          "$value": "{colors.amber.300}",
+          "$description": "Active, selected accent state"
+        },
+        "solid": {
+          "$value": "{colors.amber.600}",
+          "$description": "Solid accent fill: primary buttons, CTAs"
+        }
+      },
+      "fg": {
+        "default": {
+          "$value": "{colors.amber.700}",
+          "$description": "Accent-coloured text, links"
+        },
+        "emphasized": {
+          "$value": "{colors.amber.900}",
+          "$description": "High-contrast accent text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on accent solid fills"
         }
       },
       "border": {
+        "subtle": {
+          "$value": "{colors.amber.300}",
+          "$description": "Faint accent separator"
+        },
         "default": {
-          "$value": "{colors.olive.500}",
+          "$value": "{colors.amber.400}",
           "$description": "Accent-tinted borders"
         },
-        "subtle": {
-          "$value": "{colors.olive.300}",
-          "$description": "Faint accent separator"
+        "focusRing": {
+          "$value": "{colors.amber.500}",
+          "$description": "Focus ring on accent elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.olive.500}",
-        "$description": "Focus ring on accent elements"
-      },
-      "fg": {
-        "$value": "{colors.olive.700}",
-        "$description": "Accent-coloured text and icons"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on accent solid fills"
       }
     },
     "neutral": {
-      "subtle": {
-        "$value": "{colors.stone.100}",
-        "$description": "Barely visible tint, hover states"
-      },
-      "muted": {
-        "$value": "{colors.stone.200}",
-        "$description": "Soft neutral fills"
-      },
-      "emphasized": {
-        "$value": "{colors.stone.300}",
-        "$description": "Active/selected neutral elements"
-      },
-      "solid": {
-        "default": {
-          "$value": "{colors.stone.900}",
-          "$description": "Inverted/solid neutral fills"
+      "bg": {
+        "subtle": {
+          "$value": "{colors.olive.100}",
+          "$description": "Barely visible tint, hover states"
         },
-        "hover": {
-          "$value": "{colors.stone.800}",
-          "$description": "Hover on solid neutral"
+        "muted": {
+          "$value": "{colors.olive.200}",
+          "$description": "Soft neutral fills"
+        },
+        "emphasized": {
+          "$value": "{colors.olive.300}",
+          "$description": "Active, selected neutral elements"
+        },
+        "solid": {
+          "$value": "{colors.olive.900}",
+          "$description": "Inverted/solid neutral fills"
+        }
+      },
+      "fg": {
+        "default": {
+          "$value": "{colors.olive.900}",
+          "$description": "Neutral text"
+        },
+        "emphasized": {
+          "$value": "{colors.olive.950}",
+          "$description": "Maximum contrast neutral text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on neutral solid fills"
         }
       },
       "border": {
+        "subtle": {
+          "$value": "{colors.olive.200}",
+          "$description": "Subtle neutral separators"
+        },
         "default": {
-          "$value": "{colors.stone.300}",
+          "$value": "{colors.olive.300}",
           "$description": "Standard neutral borders"
         },
-        "subtle": {
-          "$value": "{colors.stone.200}",
-          "$description": "Subtle neutral separators"
+        "focusRing": {
+          "$value": "{colors.olive.400}",
+          "$description": "Focus ring on neutral elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.stone.400}",
-        "$description": "Focus ring on neutral elements"
-      },
-      "fg": {
-        "$value": "{colors.stone.900}",
-        "$description": "Neutral text"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on neutral solid fills"
       }
     },
     "error": {
-      "subtle": {
-        "$value": "{colors.mulberry.100}",
-        "$description": "Error banner bg, form field tint"
-      },
-      "muted": {
-        "$value": "{colors.mulberry.200}",
-        "$description": "Hover on error subtle"
-      },
-      "emphasized": {
-        "$value": "{colors.mulberry.300}",
-        "$description": "Active/selected error state"
-      },
-      "solid": {
-        "default": {
+      "bg": {
+        "subtle": {
+          "$value": "{colors.mulberry.100}",
+          "$description": "Error banner bg, form field tint"
+        },
+        "muted": {
+          "$value": "{colors.mulberry.200}",
+          "$description": "Soft error fills"
+        },
+        "emphasized": {
+          "$value": "{colors.mulberry.300}",
+          "$description": "Active, selected error state"
+        },
+        "solid": {
           "$value": "{colors.mulberry.600}",
           "$description": "Solid error fill, destructive buttons"
-        },
-        "hover": {
+        }
+      },
+      "fg": {
+        "default": {
           "$value": "{colors.mulberry.700}",
-          "$description": "Hover on solid error"
+          "$description": "Error text, validation messages"
+        },
+        "emphasized": {
+          "$value": "{colors.mulberry.900}",
+          "$description": "High-contrast error text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on error solid fills"
         }
       },
       "border": {
-        "default": {
-          "$value": "{colors.mulberry.500}",
-          "$description": "Error borders, validation rings"
-        },
         "subtle": {
           "$value": "{colors.mulberry.300}",
           "$description": "Faint error separator"
+        },
+        "default": {
+          "$value": "{colors.mulberry.400}",
+          "$description": "Error borders, validation rings"
+        },
+        "focusRing": {
+          "$value": "{colors.mulberry.500}",
+          "$description": "Focus ring on error elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.mulberry.500}",
-        "$description": "Focus ring on error elements"
-      },
-      "fg": {
-        "$value": "{colors.mulberry.700}",
-        "$description": "Error text, validation messages"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on error solid fills"
       }
     },
     "warning": {
-      "subtle": {
-        "$value": "{colors.copper.100}",
-        "$description": "Warning banner bg"
-      },
-      "muted": {
-        "$value": "{colors.copper.200}",
-        "$description": "Hover on warning subtle"
-      },
-      "emphasized": {
-        "$value": "{colors.copper.300}",
-        "$description": "Active/selected warning state"
-      },
-      "solid": {
-        "default": {
+      "bg": {
+        "subtle": {
+          "$value": "{colors.copper.100}",
+          "$description": "Warning banner bg"
+        },
+        "muted": {
+          "$value": "{colors.copper.200}",
+          "$description": "Soft warning fills"
+        },
+        "emphasized": {
+          "$value": "{colors.copper.300}",
+          "$description": "Active, selected warning state"
+        },
+        "solid": {
           "$value": "{colors.copper.600}",
           "$description": "Solid warning fill"
-        },
-        "hover": {
+        }
+      },
+      "fg": {
+        "default": {
           "$value": "{colors.copper.700}",
-          "$description": "Hover on solid warning"
+          "$description": "Warning text"
+        },
+        "emphasized": {
+          "$value": "{colors.copper.900}",
+          "$description": "High-contrast warning text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on warning solid fills"
         }
       },
       "border": {
-        "default": {
-          "$value": "{colors.copper.500}",
-          "$description": "Warning borders"
-        },
         "subtle": {
           "$value": "{colors.copper.300}",
           "$description": "Faint warning separator"
+        },
+        "default": {
+          "$value": "{colors.copper.400}",
+          "$description": "Warning borders"
+        },
+        "focusRing": {
+          "$value": "{colors.copper.500}",
+          "$description": "Focus ring on warning elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.copper.500}",
-        "$description": "Focus ring on warning elements"
-      },
-      "fg": {
-        "$value": "{colors.copper.700}",
-        "$description": "Warning text"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on warning solid fills"
       }
     },
     "success": {
-      "subtle": {
-        "$value": "{colors.fern.100}",
-        "$description": "Success banner bg"
-      },
-      "muted": {
-        "$value": "{colors.fern.200}",
-        "$description": "Hover on success subtle"
-      },
-      "emphasized": {
-        "$value": "{colors.fern.300}",
-        "$description": "Active/selected success state"
-      },
-      "solid": {
-        "default": {
+      "bg": {
+        "subtle": {
+          "$value": "{colors.fern.100}",
+          "$description": "Success banner bg"
+        },
+        "muted": {
+          "$value": "{colors.fern.200}",
+          "$description": "Soft success fills"
+        },
+        "emphasized": {
+          "$value": "{colors.fern.300}",
+          "$description": "Active, selected success state"
+        },
+        "solid": {
           "$value": "{colors.fern.600}",
           "$description": "Solid success fill"
-        },
-        "hover": {
+        }
+      },
+      "fg": {
+        "default": {
           "$value": "{colors.fern.700}",
-          "$description": "Hover on solid success"
+          "$description": "Success text"
+        },
+        "emphasized": {
+          "$value": "{colors.fern.900}",
+          "$description": "High-contrast success text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on success solid fills"
         }
       },
       "border": {
-        "default": {
-          "$value": "{colors.fern.500}",
-          "$description": "Success borders"
-        },
         "subtle": {
           "$value": "{colors.fern.300}",
           "$description": "Faint success separator"
+        },
+        "default": {
+          "$value": "{colors.fern.400}",
+          "$description": "Success borders"
+        },
+        "focusRing": {
+          "$value": "{colors.fern.500}",
+          "$description": "Focus ring on success elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.fern.500}",
-        "$description": "Focus ring on success elements"
-      },
-      "fg": {
-        "$value": "{colors.fern.700}",
-        "$description": "Success text"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on success solid fills"
       }
     },
     "info": {
-      "subtle": {
-        "$value": "{colors.cobalt.100}",
-        "$description": "Info banner bg"
-      },
-      "muted": {
-        "$value": "{colors.cobalt.200}",
-        "$description": "Hover on info subtle"
-      },
-      "emphasized": {
-        "$value": "{colors.cobalt.300}",
-        "$description": "Active/selected info state"
-      },
-      "solid": {
-        "default": {
+      "bg": {
+        "subtle": {
+          "$value": "{colors.cobalt.100}",
+          "$description": "Info banner bg"
+        },
+        "muted": {
+          "$value": "{colors.cobalt.200}",
+          "$description": "Soft info fills"
+        },
+        "emphasized": {
+          "$value": "{colors.cobalt.300}",
+          "$description": "Active, selected info state"
+        },
+        "solid": {
           "$value": "{colors.cobalt.600}",
           "$description": "Solid info fill"
-        },
-        "hover": {
+        }
+      },
+      "fg": {
+        "default": {
           "$value": "{colors.cobalt.700}",
-          "$description": "Hover on solid info"
+          "$description": "Info text"
+        },
+        "emphasized": {
+          "$value": "{colors.cobalt.900}",
+          "$description": "High-contrast info text"
+        },
+        "onSolid": {
+          "$value": "{colors.white.solid}",
+          "$description": "Text on info solid fills"
         }
       },
       "border": {
-        "default": {
-          "$value": "{colors.cobalt.500}",
-          "$description": "Info borders"
-        },
         "subtle": {
           "$value": "{colors.cobalt.300}",
           "$description": "Faint info separator"
+        },
+        "default": {
+          "$value": "{colors.cobalt.400}",
+          "$description": "Info borders"
+        },
+        "focusRing": {
+          "$value": "{colors.cobalt.500}",
+          "$description": "Focus ring on info elements"
         }
-      },
-      "focusRing": {
-        "$value": "{colors.cobalt.500}",
-        "$description": "Focus ring on info elements"
-      },
-      "fg": {
-        "$value": "{colors.cobalt.700}",
-        "$description": "Info text"
-      },
-      "contrast": {
-        "$value": "{colors.white.solid}",
-        "$description": "Text on info solid fills"
       }
     },
     "misc": {
