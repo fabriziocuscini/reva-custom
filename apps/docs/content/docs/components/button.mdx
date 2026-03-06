@@ -1,11 +1,13 @@
 ---
 title: Button
-description: A button component with solid, outline, and ghost variants.
+description: A button component with solid, subtle, outline, and ghost variants across six color palettes.
 ---
 
 import ButtonDefault, { code as defaultCode } from '@/examples/button/default'
 import ButtonVariants, { code as variantsCode } from '@/examples/button/variants'
 import ButtonSizes, { code as sizesCode } from '@/examples/button/sizes'
+import ButtonColors, { code as colorsCode } from '@/examples/button/colors'
+import ButtonDisabled, { code as disabledCode } from '@/examples/button/disabled'
 
 <ComponentPreview code={defaultCode}>
   <ButtonDefault />
@@ -21,25 +23,42 @@ import { Button } from '@reva/ui'
 
 ### Variants
 
-The Button supports three visual styles: `solid` (default), `outline`, and `ghost`.
+The Button supports four visual styles: `solid` (default), `subtle`, `outline`, and `ghost`.
 
 <ComponentPreview code={variantsCode}>
   <ButtonVariants />
 </ComponentPreview>
 
+### Colors
+
+Six color palettes are available: `accent` (default), `neutral`, `error`, `success`, `warning`, and `info`.
+
+<ComponentPreview code={colorsCode}>
+  <ButtonColors />
+</ComponentPreview>
+
 ### Sizes
 
-Three sizes are available: `sm`, `md` (default), and `lg`.
+Four sizes are available: `xs`, `sm`, `md` (default), and `lg`.
 
 <ComponentPreview code={sizesCode}>
   <ButtonSizes />
+</ComponentPreview>
+
+### Disabled
+
+Use the `disabled` prop to prevent interaction.
+
+<ComponentPreview code={disabledCode}>
+  <ButtonDisabled />
 </ComponentPreview>
 
 ## Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `variant` | `'solid' \| 'outline' \| 'ghost'` | `'solid'` | Visual style |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Button size |
+| `variant` | `'solid' \| 'subtle' \| 'outline' \| 'ghost'` | `'solid'` | Visual style |
+| `color` | `'accent' \| 'neutral' \| 'error' \| 'success' \| 'warning' \| 'info'` | `'accent'` | Color palette |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Button size |
 | `className` | `string` | — | Additional CSS classes |
 | `disabled` | `boolean` | `false` | Disable the button |

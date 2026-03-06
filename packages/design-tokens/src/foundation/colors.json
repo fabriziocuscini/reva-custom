@@ -304,6 +304,10 @@
         "$value": "#120900"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#e2a33600",
+          "$description": "Gold, fully transparent (0%)"
+        },
         "a5": {
           "$value": "#e2a3360d"
         },
