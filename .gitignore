@@ -7,6 +7,9 @@ build/
 .next/
 out/
 
+# Next.js (auto-generated, regenerated on dev/build)
+next-env.d.ts
+
 # Turborepo
 .turbo/
 
