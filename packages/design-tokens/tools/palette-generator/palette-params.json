@@ -1,13 +1,13 @@
 {
   "amber": {
-    "L_max": 0.99,
-    "L_min": 0.1,
+    "L_max": 0.985,
+    "L_min": 0.15,
     "L_ease": 1,
     "C_taper_light": 8,
-    "C_taper_dark": 40,
-    "C_ease": 1.2,
-    "H_shift_light": 0,
-    "H_shift_dark": -20,
+    "C_taper_dark": 25,
+    "C_ease": 1.3,
+    "H_shift_light": 20,
+    "H_shift_dark": -22,
     "H_ease": 1.2,
     "dist_ease": 1
   },

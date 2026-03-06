@@ -17,6 +17,7 @@
     "foundation/cursors",
     "foundation/shadows",
     "colorMode/light",
-    "colorMode/dark"
+    "colorMode/dark",
+    "component/button"
   ]
 }

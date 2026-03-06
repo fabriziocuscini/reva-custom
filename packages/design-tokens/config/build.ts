@@ -47,6 +47,23 @@ async function getFoundationFiles(srcDir: string): Promise<string[]> {
     .map((f) => resolve(dir, f))
 }
 
+/**
+ * Discovers component token files. Component tokens reference semantic tokens
+ * and are mode-agnostic — they resolve differently per color mode.
+ */
+async function getComponentFiles(srcDir: string): Promise<string[]> {
+  const dir = resolve(srcDir, 'component')
+  try {
+    const entries = await readdir(dir)
+    return entries
+      .filter((f) => f.endsWith('.json'))
+      .sort()
+      .map((f) => resolve(dir, f))
+  } catch {
+    return [] // component/ directory may not exist yet
+  }
+}
+
 /** Shared SD platform config for non-CSS platforms (keep px values). */
 function nonCssPlatforms(distDir: string, name: string) {
   return {
@@ -93,6 +110,7 @@ async function build() {
   const distDir = resolve(import.meta.dirname, '..', 'dist')
 
   const foundationFiles = await getFoundationFiles(srcDir)
+  const componentFiles = await getComponentFiles(srcDir)
   const colorModeDir = resolve(srcDir, 'colorMode')
 
   // ── Foundation build ─────────────────────────────────────────────────
@@ -128,7 +146,7 @@ async function build() {
     const colorModeFile = resolve(colorModeDir, `${mode}.json`)
 
     const sd = new StyleDictionary({
-      source: [colorModeFile],
+      source: [colorModeFile, ...componentFiles],
       include: foundationFiles,
       preprocessors: ['tokens-studio'],
       platforms: {
@@ -176,7 +194,10 @@ async function build() {
     const colorModeSource = JSON.parse(
       await readFile(resolve(colorModeDir, `${mode}.json`), 'utf-8'),
     )
-    const allSources = [...foundationSources, colorModeSource]
+    const componentSources = await Promise.all(
+      componentFiles.map(async (f) => JSON.parse(await readFile(f, 'utf-8'))),
+    )
+    const allSources = [...foundationSources, colorModeSource, ...componentSources]
     const resolvedJson = JSON.parse(
       await readFile(resolve(distDir, `json/tokens-${mode}.json`), 'utf-8'),
     )

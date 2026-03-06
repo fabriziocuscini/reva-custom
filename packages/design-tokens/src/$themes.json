@@ -126,7 +126,8 @@
       "foundation/breakpoints": "enabled",
       "foundation/borderWidths": "enabled",
       "foundation/opacity": "enabled",
-      "foundation/shadows": "enabled"
+      "foundation/shadows": "enabled",
+      "component/button": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:27:305",
     "$figmaModeId": "27:3",
@@ -649,7 +650,8 @@
       "foundation/opacity": "source",
       "foundation/shadows": "source",
       "foundation/textStyles": "source",
-      "colorMode/light": "enabled"
+      "colorMode/light": "enabled",
+      "component/button": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:27:502",
     "$figmaModeId": "27:6",
@@ -782,7 +784,8 @@
       "foundation/opacity": "source",
       "foundation/shadows": "source",
       "foundation/textStyles": "source",
-      "colorMode/dark": "enabled"
+      "colorMode/dark": "enabled",
+      "component/button": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:27:502",
     "$figmaModeId": "27:7",
@@ -1008,7 +1011,8 @@
     },
     "selectedTokenSets": {
       "foundation/typography": "enabled",
-      "foundation/textStyles": "enabled"
+      "foundation/textStyles": "enabled",
+      "component/button": "enabled"
     },
     "group": "Typography",
     "$figmaCollectionId": "VariableCollectionId:33:117",
