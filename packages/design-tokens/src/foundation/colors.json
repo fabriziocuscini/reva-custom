@@ -60,6 +60,10 @@
         "$value": "#160602"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#d78d3f00",
+          "$description": "Amber, fully transparent (0%)"
+        },
         "a5": {
           "$value": "#d78d3f0d"
         },
