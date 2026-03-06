@@ -42,8 +42,8 @@
       display: inline-flex;
     }
     gap: var(--reva-spacing-3);
-    background: var(--reva-colors-white-a5);
-    border: 1px solid var(--reva-colors-white-a20);
+    background: var(--reva-colors-white-alpha-a5);
+    border: 1px solid var(--reva-colors-white-alpha-a20);
     border-radius: var(--reva-radii-full);
     padding: var(--reva-spacing-1) var(--reva-spacing-4) var(--reva-spacing-1) var(--reva-spacing-1);
   }
@@ -52,8 +52,8 @@
     display: inline-flex;
     align-items: center;
     gap: var(--reva-spacing-2);
-    background: var(--reva-colors-black-a20);
-    border: 1px solid var(--reva-colors-white-a20);
+    background: var(--reva-colors-black-alpha-a20);
+    border: 1px solid var(--reva-colors-white-alpha-a20);
     border-radius: var(--reva-radii-full);
     padding: 6px var(--reva-spacing-3) 6px var(--reva-spacing-2);
     font-family: var(--font-body);
