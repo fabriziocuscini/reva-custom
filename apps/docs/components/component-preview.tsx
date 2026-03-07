@@ -10,18 +10,7 @@ export function ComponentPreview({ children, code }: ComponentPreviewProps) {
   return (
     <Tabs items={['Preview', 'Code']}>
       <Tab value="Preview">
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: '1rem',
-            padding: '2rem',
-            border: '1px solid var(--fd-border)',
-            borderRadius: '0.5rem',
-            background: 'var(--colors-bg-surface)',
-          }}
-        >
+        <div className="flex flex-wrap items-center gap-4 p-8 ">
           {children}
         </div>
       </Tab>

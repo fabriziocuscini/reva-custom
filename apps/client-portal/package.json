@@ -7,7 +7,7 @@
     "build": "panda codegen --clean && tsc -b && vite build",
     "dev": "panda codegen --clean && vite",
     "preview": "vite preview",
-    "codegen": "panda codegen --clean && "
+    "codegen": "panda codegen --clean"
   },
   "dependencies": {
     "@reva/ui": "workspace:*",

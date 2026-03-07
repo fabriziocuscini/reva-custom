@@ -1,6 +1,10 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/solar.css';
+@import 'fumadocs-ui/css/vitepress.css';
 @import 'fumadocs-ui/css/preset.css';
+
+:root {
+  --fd-layout-width: 100vw;
+}
 
 @layer reset, panda_base, panda_tokens, panda_recipes, panda_utilities;
 @import '../styled-system/styles.css';
