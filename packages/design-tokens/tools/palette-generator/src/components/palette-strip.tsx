@@ -2,17 +2,18 @@ import { copyToClipboard } from '@/lib/clipboard'
 import { MAIN_STEPS } from '@/lib/constants'
 import type { PaletteStep } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { Check, Columns2 } from 'lucide-react'
 import { useState } from 'react'
+
+const EMPTY_SET = new Set<number>()
 
 interface PaletteStripProps {
   palette: PaletteStep[]
   showLabels?: boolean
   labelsOnly?: boolean
   roundedTop?: boolean
-  /** Step number currently being compared (highlighted with ring) */
-  compareStep?: number | null
-  /** Called on swatch click instead of copy-to-clipboard when provided */
-  onSwatchClick?: (step: number) => void
+  compareSteps?: Set<number>
+  onCompareToggle?: (step: number) => void
 }
 
 export function PaletteStrip({
@@ -20,8 +21,8 @@ export function PaletteStrip({
   showLabels = true,
   labelsOnly = false,
   roundedTop = true,
-  compareStep,
-  onSwatchClick,
+  compareSteps = EMPTY_SET,
+  onCompareToggle,
 }: PaletteStripProps) {
   const [copiedStep, setCopiedStep] = useState<number | null>(null)
 
@@ -59,24 +60,47 @@ export function PaletteStrip({
             key={item.step}
             type="button"
             onClick={() => {
-              if (onSwatchClick) {
-                onSwatchClick(item.step)
-              } else {
-                copyToClipboard(item.hex)
-                setCopiedStep(item.step)
-                setTimeout(() => setCopiedStep(null), 900)
-              }
+              copyToClipboard(item.hex)
+              setCopiedStep(item.step)
+              setTimeout(() => setCopiedStep(null), 1000)
             }}
             className={cn(
-              'flex-1 h-10 md:h-12 lg:h-16 relative cursor-pointer border-0 p-0',
-              compareStep === item.step && 'ring-2 ring-inset ring-foreground/50',
+              'group/swatch flex-1 h-10 md:h-12 lg:h-16 relative cursor-pointer border-0 p-0',
+              compareSteps.has(item.step) && 'ring-2 ring-inset ring-foreground/50',
             )}
             style={{ backgroundColor: item.hex }}
-            title={onSwatchClick ? `Compare ${item.hex}` : `Click to copy ${item.hex}`}
+            title={`Click to copy ${item.hex}`}
           >
+            {/* Copy feedback — check icon with fade-in-out */}
             {copiedStep === item.step && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/55 text-white text-[9px] font-bold font-mono tracking-wider">
-                Copied
+              <div
+                key={`copied-${item.step}-${Date.now()}`}
+                className="absolute inset-0 flex items-center justify-center bg-black/50 text-white pointer-events-none"
+                style={{ animation: 'fade-in-out 1s ease-in-out forwards' }}
+              >
+                <Check className="size-4" strokeWidth={3} />
+              </div>
+            )}
+
+            {/* Hover compare button — top-right corner */}
+            {onCompareToggle && copiedStep !== item.step && (
+              <div
+                className={cn(
+                  'absolute top-0.5 right-0.5 flex items-center justify-center rounded size-6',
+                  'opacity-0 group-hover/swatch:opacity-100 transition-opacity',
+                  'text-white/70 hover:bg-black/40 hover:text-white',
+                  compareSteps.has(item.step) && 'opacity-100 text-white',
+                )}
+                role="button"
+                tabIndex={-1}
+                title={compareSteps.has(item.step) ? 'Remove from compare' : 'Compare'}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onCompareToggle(item.step)
+                }}
+                onPointerDown={(e) => e.stopPropagation()}
+              >
+                <Columns2 className="size-4" strokeWidth={2} />
               </div>
             )}
           </button>

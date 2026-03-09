@@ -23,7 +23,7 @@ import { fetchPalettes } from '@/lib/api'
 import { DEFAULT_PARAMS, DISTRIBUTION_PARAM } from '@/lib/constants'
 import type { Preset } from '@/lib/types'
 import { Check, LoaderCircle, Moon, RotateCcw, Save, Sun } from 'lucide-react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 /** Convert API response to the Preset shape used by usePalette */
 function toPresets(apiPresets: PalettePreset[]): Preset[] {
@@ -101,8 +101,8 @@ function PaletteEditor({
   const [saveDialogOpen, setSaveDialogOpen] = useState(false)
   const [savedFlash, setSavedFlash] = useState(false)
   const [showAlpha, setShowAlpha] = useState(false)
-  const [compareStep, setCompareStep] = useState<number | null>(null)
-  const [benchmarkHex, setBenchmarkHex] = useState('#000000')
+  const [compareSteps, setCompareSteps] = useState<Set<number>>(new Set())
+  const [benchmarkHexes, setBenchmarkHexes] = useState<Map<number, string>>(new Map())
   const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const showSavedFlash = useCallback(() => {
@@ -146,27 +146,67 @@ function PaletteEditor({
     [save, presets, midpointHex, params, onPresetsChange, selectPreset, showSavedFlash],
   )
 
-  // Compare panel — derive live hex for the selected step
-  const compareHex =
-    compareStep !== null ? (palette.find((s) => s.step === compareStep)?.hex ?? null) : null
-
-  const handleSwatchClick = useCallback(
-    (step: number) => {
-      const item = palette.find((s) => s.step === step)
-      if (!item) return
-      if (compareStep === null) {
-        // First open — seed benchmark with the swatch's current colour
-        setBenchmarkHex(item.hex)
-      }
-      setCompareStep(step)
-    },
-    [palette, compareStep],
+  const compareEntries = useMemo(
+    () =>
+      Array.from(compareSteps)
+        .map((step) => {
+          const item = palette.find((s) => s.step === step)
+          if (!item) return null
+          return {
+            step: item.step,
+            hex: item.hex,
+            benchmarkHex: benchmarkHexes.get(step) ?? item.hex,
+          }
+        })
+        .filter((e) => e !== null),
+    [palette, compareSteps, benchmarkHexes],
   )
 
-  // Wrap selectPreset so switching presets auto-closes compare panel
+  const handleCompareToggle = useCallback(
+    (step: number) => {
+      setCompareSteps((prev) => {
+        const next = new Set(prev)
+        if (next.has(step)) {
+          next.delete(step)
+          setBenchmarkHexes((m) => {
+            const nm = new Map(m)
+            nm.delete(step)
+            return nm
+          })
+        } else {
+          const item = palette.find((s) => s.step === step)
+          if (item) {
+            setBenchmarkHexes((m) => new Map(m).set(step, item.hex))
+          }
+          next.add(step)
+        }
+        return next
+      })
+    },
+    [palette],
+  )
+
+  const handleBenchmarkChange = useCallback((step: number, hex: string) => {
+    setBenchmarkHexes((m) => new Map(m).set(step, hex))
+  }, [])
+
+  const handleRemoveCompareStep = useCallback((step: number) => {
+    setCompareSteps((prev) => {
+      const next = new Set(prev)
+      next.delete(step)
+      return next
+    })
+    setBenchmarkHexes((m) => {
+      const nm = new Map(m)
+      nm.delete(step)
+      return nm
+    })
+  }, [])
+
   const handleSelectPreset = useCallback(
     (name: string) => {
-      setCompareStep(null)
+      setCompareSteps(new Set())
+      setBenchmarkHexes(new Map())
       selectPreset(name)
     },
     [selectPreset],
@@ -209,8 +249,9 @@ function PaletteEditor({
 
       if (e.key === 'Escape') {
         e.preventDefault()
-        if (compareStep !== null) {
-          setCompareStep(null)
+        if (compareSteps.size > 0) {
+          setCompareSteps(new Set())
+          setBenchmarkHexes(new Map())
         } else {
           resetParams()
         }
@@ -228,7 +269,7 @@ function PaletteEditor({
     isSaving,
     handleSave,
     resetParams,
-    compareStep,
+    compareSteps,
   ])
 
   const isCustomHex = activePreset === null
@@ -354,8 +395,8 @@ function PaletteEditor({
                         palette={palette}
                         showLabels={false}
                         roundedTop={!showAlpha}
-                        compareStep={compareStep}
-                        onSwatchClick={handleSwatchClick}
+                        compareSteps={compareSteps}
+                        onCompareToggle={handleCompareToggle}
                       />
                     </TabsContent>
                     <TabsContent value="gradient" className="mt-0">
@@ -428,13 +469,15 @@ function PaletteEditor({
       />
 
       {/* Compare panel — floating, draggable */}
-      {compareStep !== null && compareHex !== null && (
+      {compareEntries.length > 0 && (
         <ComparePanel
-          step={compareStep}
-          paletteHex={compareHex}
-          benchmarkHex={benchmarkHex}
-          onBenchmarkChange={setBenchmarkHex}
-          onClose={() => setCompareStep(null)}
+          entries={compareEntries}
+          onBenchmarkChange={handleBenchmarkChange}
+          onRemoveStep={handleRemoveCompareStep}
+          onClose={() => {
+            setCompareSteps(new Set())
+            setBenchmarkHexes(new Map())
+          }}
         />
       )}
     </TooltipProvider>
