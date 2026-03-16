@@ -369,123 +369,119 @@
     },
     "olive": {
       "50": {
-        "$value": "#FCFAF2"
+        "$value": "#FCFBF6"
       },
       "100": {
-        "$value": "#F1EFE4"
+        "$value": "#F5F4EB"
       },
       "150": {
-        "$value": "#E6E3D5"
+        "$value": "#EEECDE"
       },
       "200": {
-        "$value": "#DBD8C7"
+        "$value": "#E6E4D1"
       },
       "250": {
-        "$value": "#D0CCB8"
+        "$value": "#DEDBC3"
       },
       "300": {
-        "$value": "#C4BFA8"
+        "$value": "#D5D0B4"
       },
       "350": {
-        "$value": "#B8B298"
+        "$value": "#CAC5A3"
       },
       "400": {
-        "$value": "#ABA587"
+        "$value": "#BEB88F"
       },
       "450": {
-        "$value": "#9D9675"
+        "$value": "#AFA677"
       },
       "500": {
-        "$value": "#8A825C"
+        "$value": "#8A7D42"
       },
       "550": {
-        "$value": "#726B4D"
+        "$value": "#625629"
       },
       "600": {
-        "$value": "#605A41"
+        "$value": "#514722"
       },
       "650": {
-        "$value": "#514C38"
+        "$value": "#453C1D"
       },
       "700": {
-        "$value": "#433F2F"
+        "$value": "#3B3319"
       },
       "750": {
-        "$value": "#363327"
+        "$value": "#322B17"
       },
       "800": {
-        "$value": "#2A281F"
+        "$value": "#2A2514"
       },
       "850": {
-        "$value": "#1F1D18"
+        "$value": "#221E12"
       },
       "900": {
-        "$value": "#151411"
+        "$value": "#1C1910"
       },
       "950": {
-        "$value": "#0B0B0B"
+        "$value": "#16140E"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#8a825c00",
-          "$description": "Olive, fully transparent (0%)"
-        },
         "a5": {
-          "$value": "#8a825c0d"
+          "$value": "#8a7d420d"
         },
         "a10": {
-          "$value": "#8a825c1a"
+          "$value": "#8a7d421a"
         },
         "a15": {
-          "$value": "#8a825c26"
+          "$value": "#8a7d4226"
         },
         "a20": {
-          "$value": "#8a825c33"
+          "$value": "#8a7d4233"
         },
         "a25": {
-          "$value": "#8a825c40"
+          "$value": "#8a7d4240"
         },
         "a30": {
-          "$value": "#8a825c4d"
+          "$value": "#8a7d424d"
         },
         "a35": {
-          "$value": "#8a825c59"
+          "$value": "#8a7d4259"
         },
         "a40": {
-          "$value": "#8a825c66"
+          "$value": "#8a7d4266"
         },
         "a45": {
-          "$value": "#8a825c73"
+          "$value": "#8a7d4273"
         },
         "a50": {
-          "$value": "#8a825c80"
+          "$value": "#8a7d4280"
         },
         "a55": {
-          "$value": "#8a825c8c"
+          "$value": "#8a7d428c"
         },
         "a60": {
-          "$value": "#8a825c99"
+          "$value": "#8a7d4299"
         },
         "a65": {
-          "$value": "#8a825ca6"
+          "$value": "#8a7d42a6"
         },
         "a70": {
-          "$value": "#8a825cb3"
+          "$value": "#8a7d42b3"
         },
         "a75": {
-          "$value": "#8a825cbf"
+          "$value": "#8a7d42bf"
         },
         "a80": {
-          "$value": "#8a825ccc"
+          "$value": "#8a7d42cc"
         },
         "a85": {
-          "$value": "#8a825cd9"
+          "$value": "#8a7d42d9"
         },
         "a90": {
-          "$value": "#8a825ce6"
+          "$value": "#8a7d42e6"
         },
         "a95": {
-          "$value": "#8a825cf2"
+          "$value": "#8a7d42f2"
         }
       }
     },
