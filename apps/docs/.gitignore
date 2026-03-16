@@ -1,3 +1,6 @@
 .next
 .source
 styled-system
+
+# Next.js (auto-generated, regenerated on dev/build)
+next-env.d.ts
