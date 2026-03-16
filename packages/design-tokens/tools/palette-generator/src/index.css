@@ -6,7 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: var(--color-olive-100);
+  --background: var(--color-olive-50);
   --foreground: oklch(0.153 0.006 107.1);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.153 0.006 107.1);
@@ -41,9 +41,9 @@
 }
 
 .dark {
-  --background: oklch(0.153 0.006 107.1);
+  --background: var(--color-stone-900);
   --foreground: oklch(0.988 0.003 106.5);
-  --card: oklch(0.228 0.013 107.4);
+  --card: var(--color-stone-800);
   --card-foreground: oklch(0.988 0.003 106.5);
   --popover: oklch(0.228 0.013 107.4);
   --popover-foreground: oklch(0.988 0.003 106.5);
