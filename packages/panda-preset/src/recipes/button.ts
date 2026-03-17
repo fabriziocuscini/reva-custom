@@ -24,7 +24,7 @@ export const button = defineRecipe({
     },
     _focus: {
       outline: '2px solid',
-      outlineColor: 'colorPalette.border.focusRing',
+      outlineColor: 'colorPalette.focusRing',
       outlineOffset: '2px',
     },
   },
@@ -39,10 +39,10 @@ export const button = defineRecipe({
     },
     variant: {
       solid: {
-        bg: 'colorPalette.bg.solid',
-        color: 'colorPalette.fg.onSolid',
+        bg: 'colorPalette.solid.default',
+        color: 'colorPalette.contrast',
         _hover: {
-          bg: 'colorPalette.bg.emphasized',
+          bg: 'colorPalette.solid.strong',
         },
       },
       subtle: {
@@ -53,16 +53,16 @@ export const button = defineRecipe({
         },
       },
       outline: {
-        bg: 'colorPalette.alpha.transparent',
+        bg: 'transparent',
         borderColor: 'colorPalette.border.default',
         color: 'colorPalette.fg.default',
         _hover: {
           bg: 'colorPalette.bg.subtle',
-          borderColor: 'colorPalette.fg.default',
+          borderColor: 'colorPalette.border.strong',
         },
       },
       ghost: {
-        bg: 'colorPalette.alpha.transparent',
+        bg: 'transparent',
         color: 'colorPalette.fg.default',
         _hover: {
           bg: 'colorPalette.bg.subtle',

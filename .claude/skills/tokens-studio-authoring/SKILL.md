@@ -296,11 +296,10 @@ Two special files sit alongside the token set files:
 ```jsonc
 {
   "tokenSetOrder": [
-    "primitive/color",
-    "primitive/dimension",
-    "semantic/color",
-    "theme/light",
-    "theme/dark",
+    "foundation/colors",
+    "foundation/spacing",
+    "colorMode/light",
+    "colorMode/dark",
   ],
 }
 ```
@@ -317,9 +316,10 @@ cascade, similar to CSS specificity).
     "id": "some-uuid",
     "name": "Light",
     "selectedTokenSets": {
-      "primitive/color": "source",
-      "semantic/color": "enabled",
-      "theme/light": "enabled",
+      "foundation/colors": "source",
+      "foundation/spacing": "source",
+      "colorMode/light": "enabled",
+      "colorMode/dark": "disabled",
     },
   },
 ]

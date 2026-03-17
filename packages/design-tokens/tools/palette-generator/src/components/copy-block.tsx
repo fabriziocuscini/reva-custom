@@ -21,12 +21,14 @@ export function CopyBlock({ palette, paletteName, midpointHex }: CopyBlockProps)
       .map((item) => `${indent}"${item.step}": {\n${indent}  "$value": "${item.hex}"\n${indent}}`)
       .join(',\n')
 
+    const transparent = `${indent}  "transparent": {\n${indent}    "$value": "#${base}00"\n${indent}  }`
+
     const alphas = ALPHA_STEPS.map(
       (step) =>
         `${indent}  "a${step}": {\n${indent}    "$value": "#${base}${ALPHA_SUFFIXES[step]}"\n${indent}  }`,
     ).join(',\n')
 
-    return `    "${paletteName}": {\n${steps},\n${indent}"alpha": {\n${alphas}\n${indent}}\n    }`
+    return `    "${paletteName}": {\n${steps},\n${indent}"alpha": {\n${transparent},\n${alphas}\n${indent}}\n    }`
   }, [palette, paletteName, midpointHex])
 
   const handleCopy = () => {

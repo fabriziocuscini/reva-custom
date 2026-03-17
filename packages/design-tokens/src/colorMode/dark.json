@@ -97,52 +97,190 @@
         "$description": "Barely-there separators"
       }
     },
-    "brand": {
+    "neutral": {
+      "canvas": {
+        "$value": "{colors.olive.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.olive.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
       "bg": {
         "subtle": {
-          "$value": "{colors.gold.900}",
-          "$description": "Soft brand tint: banners, highlights"
+          "$value": "{colors.olive.850}",
+          "$description": "Interactive component fill, resting"
         },
         "muted": {
-          "$value": "{colors.gold.800}",
-          "$description": "Soft fills, hover on subtle"
+          "$value": "{colors.olive.800}",
+          "$description": "Interactive component fill, intensified"
         },
         "emphasized": {
-          "$value": "{colors.gold.700}",
-          "$description": "Active, selected, pressed brand elements"
+          "$value": "{colors.olive.750}",
+          "$description": "Interactive component fill, most intense"
+        }
+      },
+      "border": {
+        "subtle": {
+          "$value": "{colors.olive.700}",
+          "$description": "Non-interactive borders: cards, dividers"
         },
-        "solid": {
-          "$value": "{colors.gold.500}",
-          "$description": "Solid brand fill"
+        "default": {
+          "$value": "{colors.olive.650}",
+          "$description": "Interactive component borders"
+        },
+        "strong": {
+          "$value": "{colors.olive.600}",
+          "$description": "Emphasized borders, focus rings"
+        }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.olive.500}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.olive.450}",
+          "$description": "Intensified solid fill"
         }
       },
       "fg": {
+        "subtle": {
+          "$value": "{colors.olive.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
         "default": {
-          "$value": "{colors.gold.400}",
-          "$description": "Brand-coloured text and icons"
+          "$value": "{colors.olive.350}",
+          "$description": "Standard readable palette-tinted text"
         },
         "emphasized": {
-          "$value": "{colors.gold.100}",
-          "$description": "High-contrast brand text"
+          "$value": "{colors.olive.200}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.olive.600}",
+        "$description": "Focus ring (alias of border.strong)"
+      },
+      "alpha": {
+        "transparent": {
+          "$value": "{colors.white.transparent}",
+          "$description": "Neutral alpha: fully transparent"
         },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on brand solid fills"
+        "a1": {
+          "$value": "{colors.white.alpha.a5}",
+          "$description": "Neutral alpha: intensity 1"
+        },
+        "a2": {
+          "$value": "{colors.white.alpha.a10}",
+          "$description": "Neutral alpha: intensity 2"
+        },
+        "a3": {
+          "$value": "{colors.white.alpha.a15}",
+          "$description": "Neutral alpha: intensity 3"
+        },
+        "a4": {
+          "$value": "{colors.white.alpha.a20}",
+          "$description": "Neutral alpha: intensity 4"
+        },
+        "a5": {
+          "$value": "{colors.white.alpha.a25}",
+          "$description": "Neutral alpha: intensity 5"
+        },
+        "a6": {
+          "$value": "{colors.white.alpha.a30}",
+          "$description": "Neutral alpha: intensity 6"
+        },
+        "a7": {
+          "$value": "{colors.white.alpha.a40}",
+          "$description": "Neutral alpha: intensity 7"
+        },
+        "a8": {
+          "$value": "{colors.white.alpha.a50}",
+          "$description": "Neutral alpha: intensity 8"
+        },
+        "a9": {
+          "$value": "{colors.white.alpha.a60}",
+          "$description": "Neutral alpha: intensity 9"
+        },
+        "a10": {
+          "$value": "{colors.white.alpha.a80}",
+          "$description": "Neutral alpha: intensity 10"
+        }
+      }
+    },
+    "brand": {
+      "canvas": {
+        "$value": "{colors.gold.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.gold.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
+      "bg": {
+        "subtle": {
+          "$value": "{colors.gold.850}",
+          "$description": "Interactive component fill, resting"
+        },
+        "muted": {
+          "$value": "{colors.gold.800}",
+          "$description": "Interactive component fill, intensified"
+        },
+        "emphasized": {
+          "$value": "{colors.gold.750}",
+          "$description": "Interactive component fill, most intense"
         }
       },
       "border": {
         "subtle": {
           "$value": "{colors.gold.700}",
-          "$description": "Faint brand separator"
+          "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.gold.600}",
-          "$description": "Brand-tinted borders"
+          "$value": "{colors.gold.650}",
+          "$description": "Interactive component borders"
         },
-        "focusRing": {
-          "$value": "{colors.gold.500}",
-          "$description": "Focus ring on brand elements"
+        "strong": {
+          "$value": "{colors.gold.600}",
+          "$description": "Emphasized borders, focus rings"
         }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.gold.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.gold.400}",
+          "$description": "Intensified solid fill"
+        }
+      },
+      "fg": {
+        "subtle": {
+          "$value": "{colors.gold.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
+        "default": {
+          "$value": "{colors.gold.300}",
+          "$description": "Standard readable palette-tinted text"
+        },
+        "emphasized": {
+          "$value": "{colors.gold.150}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.gold.600}",
+        "$description": "Focus ring (alias of border.strong)"
       },
       "alpha": {
         "transparent": {
@@ -192,51 +330,73 @@
       }
     },
     "accent": {
+      "canvas": {
+        "$value": "{colors.amber.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.amber.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
       "bg": {
         "subtle": {
-          "$value": "{colors.amber.900}",
-          "$description": "Soft accent tint"
+          "$value": "{colors.amber.850}",
+          "$description": "Interactive component fill, resting"
         },
         "muted": {
           "$value": "{colors.amber.800}",
-          "$description": "Soft fills, hover on subtle"
+          "$description": "Interactive component fill, intensified"
         },
         "emphasized": {
-          "$value": "{colors.amber.700}",
-          "$description": "Active, selected accent state"
-        },
-        "solid": {
-          "$value": "{colors.amber.500}",
-          "$description": "Solid accent fill: primary buttons, CTAs"
-        }
-      },
-      "fg": {
-        "default": {
-          "$value": "{colors.amber.400}",
-          "$description": "Accent-coloured text, links"
-        },
-        "emphasized": {
-          "$value": "{colors.amber.100}",
-          "$description": "High-contrast accent text"
-        },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on accent solid fills"
+          "$value": "{colors.amber.750}",
+          "$description": "Interactive component fill, most intense"
         }
       },
       "border": {
         "subtle": {
           "$value": "{colors.amber.700}",
-          "$description": "Faint accent separator"
+          "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.amber.600}",
-          "$description": "Accent-tinted borders"
+          "$value": "{colors.amber.650}",
+          "$description": "Interactive component borders"
         },
-        "focusRing": {
-          "$value": "{colors.amber.500}",
-          "$description": "Focus ring on accent elements"
+        "strong": {
+          "$value": "{colors.amber.600}",
+          "$description": "Emphasized borders, focus rings"
         }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.amber.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.amber.400}",
+          "$description": "Intensified solid fill"
+        }
+      },
+      "fg": {
+        "subtle": {
+          "$value": "{colors.amber.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
+        "default": {
+          "$value": "{colors.amber.300}",
+          "$description": "Standard readable palette-tinted text"
+        },
+        "emphasized": {
+          "$value": "{colors.amber.150}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.amber.600}",
+        "$description": "Focus ring (alias of border.strong)"
       },
       "alpha": {
         "transparent": {
@@ -285,146 +445,74 @@
         }
       }
     },
-    "neutral": {
-      "bg": {
-        "subtle": {
-          "$value": "{colors.stone.900}",
-          "$description": "Barely visible tint, hover states"
-        },
-        "muted": {
-          "$value": "{colors.stone.800}",
-          "$description": "Soft neutral fills"
-        },
-        "emphasized": {
-          "$value": "{colors.stone.700}",
-          "$description": "Active, selected neutral elements"
-        },
-        "solid": {
-          "$value": "{colors.stone.100}",
-          "$description": "Inverted/solid neutral fills"
-        }
-      },
-      "fg": {
-        "default": {
-          "$value": "{colors.stone.100}",
-          "$description": "Neutral text"
-        },
-        "emphasized": {
-          "$value": "{colors.stone.50}",
-          "$description": "Maximum contrast neutral text"
-        },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on neutral solid fills"
-        }
-      },
-      "border": {
-        "subtle": {
-          "$value": "{colors.stone.800}",
-          "$description": "Subtle neutral separators"
-        },
-        "default": {
-          "$value": "{colors.stone.700}",
-          "$description": "Standard neutral borders"
-        },
-        "focusRing": {
-          "$value": "{colors.stone.600}",
-          "$description": "Focus ring on neutral elements"
-        }
-      },
-      "alpha": {
-        "transparent": {
-          "$value": "{colors.white.transparent}",
-          "$description": "Neutral alpha: fully transparent"
-        },
-        "a1": {
-          "$value": "{colors.white.alpha.a5}",
-          "$description": "Neutral alpha: intensity 1"
-        },
-        "a2": {
-          "$value": "{colors.white.alpha.a10}",
-          "$description": "Neutral alpha: intensity 2"
-        },
-        "a3": {
-          "$value": "{colors.white.alpha.a15}",
-          "$description": "Neutral alpha: intensity 3"
-        },
-        "a4": {
-          "$value": "{colors.white.alpha.a20}",
-          "$description": "Neutral alpha: intensity 4"
-        },
-        "a5": {
-          "$value": "{colors.white.alpha.a25}",
-          "$description": "Neutral alpha: intensity 5"
-        },
-        "a6": {
-          "$value": "{colors.white.alpha.a30}",
-          "$description": "Neutral alpha: intensity 6"
-        },
-        "a7": {
-          "$value": "{colors.white.alpha.a40}",
-          "$description": "Neutral alpha: intensity 7"
-        },
-        "a8": {
-          "$value": "{colors.white.alpha.a50}",
-          "$description": "Neutral alpha: intensity 8"
-        },
-        "a9": {
-          "$value": "{colors.white.alpha.a60}",
-          "$description": "Neutral alpha: intensity 9"
-        },
-        "a10": {
-          "$value": "{colors.white.alpha.a80}",
-          "$description": "Neutral alpha: intensity 10"
-        }
-      }
-    },
     "error": {
+      "canvas": {
+        "$value": "{colors.mulberry.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.mulberry.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
       "bg": {
         "subtle": {
-          "$value": "{colors.mulberry.900}",
-          "$description": "Error banner bg, form field tint"
+          "$value": "{colors.mulberry.850}",
+          "$description": "Interactive component fill, resting"
         },
         "muted": {
           "$value": "{colors.mulberry.800}",
-          "$description": "Soft error fills"
+          "$description": "Interactive component fill, intensified"
         },
         "emphasized": {
-          "$value": "{colors.mulberry.700}",
-          "$description": "Active, selected error state"
-        },
-        "solid": {
-          "$value": "{colors.mulberry.500}",
-          "$description": "Solid error fill, destructive buttons"
-        }
-      },
-      "fg": {
-        "default": {
-          "$value": "{colors.mulberry.400}",
-          "$description": "Error text, validation messages"
-        },
-        "emphasized": {
-          "$value": "{colors.mulberry.100}",
-          "$description": "High-contrast error text"
-        },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on error solid fills"
+          "$value": "{colors.mulberry.750}",
+          "$description": "Interactive component fill, most intense"
         }
       },
       "border": {
         "subtle": {
           "$value": "{colors.mulberry.700}",
-          "$description": "Faint error separator"
+          "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.mulberry.600}",
-          "$description": "Error borders, validation rings"
+          "$value": "{colors.mulberry.650}",
+          "$description": "Interactive component borders"
         },
-        "focusRing": {
-          "$value": "{colors.mulberry.500}",
-          "$description": "Focus ring on error elements"
+        "strong": {
+          "$value": "{colors.mulberry.600}",
+          "$description": "Emphasized borders, focus rings"
         }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.mulberry.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.mulberry.400}",
+          "$description": "Intensified solid fill"
+        }
+      },
+      "fg": {
+        "subtle": {
+          "$value": "{colors.mulberry.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
+        "default": {
+          "$value": "{colors.mulberry.300}",
+          "$description": "Standard readable palette-tinted text"
+        },
+        "emphasized": {
+          "$value": "{colors.mulberry.150}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.mulberry.600}",
+        "$description": "Focus ring (alias of border.strong)"
       },
       "alpha": {
         "transparent": {
@@ -474,51 +562,73 @@
       }
     },
     "warning": {
+      "canvas": {
+        "$value": "{colors.copper.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.copper.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
       "bg": {
         "subtle": {
-          "$value": "{colors.copper.900}",
-          "$description": "Warning banner bg"
+          "$value": "{colors.copper.850}",
+          "$description": "Interactive component fill, resting"
         },
         "muted": {
           "$value": "{colors.copper.800}",
-          "$description": "Soft warning fills"
+          "$description": "Interactive component fill, intensified"
         },
         "emphasized": {
-          "$value": "{colors.copper.700}",
-          "$description": "Active, selected warning state"
-        },
-        "solid": {
-          "$value": "{colors.copper.500}",
-          "$description": "Solid warning fill"
-        }
-      },
-      "fg": {
-        "default": {
-          "$value": "{colors.copper.400}",
-          "$description": "Warning text"
-        },
-        "emphasized": {
-          "$value": "{colors.copper.100}",
-          "$description": "High-contrast warning text"
-        },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on warning solid fills"
+          "$value": "{colors.copper.750}",
+          "$description": "Interactive component fill, most intense"
         }
       },
       "border": {
         "subtle": {
           "$value": "{colors.copper.700}",
-          "$description": "Faint warning separator"
+          "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.copper.600}",
-          "$description": "Warning borders"
+          "$value": "{colors.copper.650}",
+          "$description": "Interactive component borders"
         },
-        "focusRing": {
-          "$value": "{colors.copper.500}",
-          "$description": "Focus ring on warning elements"
+        "strong": {
+          "$value": "{colors.copper.600}",
+          "$description": "Emphasized borders, focus rings"
         }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.copper.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.copper.400}",
+          "$description": "Intensified solid fill"
+        }
+      },
+      "fg": {
+        "subtle": {
+          "$value": "{colors.copper.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
+        "default": {
+          "$value": "{colors.copper.300}",
+          "$description": "Standard readable palette-tinted text"
+        },
+        "emphasized": {
+          "$value": "{colors.copper.150}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.copper.600}",
+        "$description": "Focus ring (alias of border.strong)"
       },
       "alpha": {
         "transparent": {
@@ -568,51 +678,73 @@
       }
     },
     "success": {
+      "canvas": {
+        "$value": "{colors.fern.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.fern.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
       "bg": {
         "subtle": {
-          "$value": "{colors.fern.900}",
-          "$description": "Success banner bg"
+          "$value": "{colors.fern.850}",
+          "$description": "Interactive component fill, resting"
         },
         "muted": {
           "$value": "{colors.fern.800}",
-          "$description": "Soft success fills"
+          "$description": "Interactive component fill, intensified"
         },
         "emphasized": {
-          "$value": "{colors.fern.700}",
-          "$description": "Active, selected success state"
-        },
-        "solid": {
-          "$value": "{colors.fern.500}",
-          "$description": "Solid success fill"
-        }
-      },
-      "fg": {
-        "default": {
-          "$value": "{colors.fern.400}",
-          "$description": "Success text"
-        },
-        "emphasized": {
-          "$value": "{colors.fern.100}",
-          "$description": "High-contrast success text"
-        },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on success solid fills"
+          "$value": "{colors.fern.750}",
+          "$description": "Interactive component fill, most intense"
         }
       },
       "border": {
         "subtle": {
           "$value": "{colors.fern.700}",
-          "$description": "Faint success separator"
+          "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.fern.600}",
-          "$description": "Success borders"
+          "$value": "{colors.fern.650}",
+          "$description": "Interactive component borders"
         },
-        "focusRing": {
-          "$value": "{colors.fern.500}",
-          "$description": "Focus ring on success elements"
+        "strong": {
+          "$value": "{colors.fern.600}",
+          "$description": "Emphasized borders, focus rings"
         }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.fern.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.fern.400}",
+          "$description": "Intensified solid fill"
+        }
+      },
+      "fg": {
+        "subtle": {
+          "$value": "{colors.fern.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
+        "default": {
+          "$value": "{colors.fern.300}",
+          "$description": "Standard readable palette-tinted text"
+        },
+        "emphasized": {
+          "$value": "{colors.fern.150}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.fern.600}",
+        "$description": "Focus ring (alias of border.strong)"
       },
       "alpha": {
         "transparent": {
@@ -662,51 +794,73 @@
       }
     },
     "info": {
+      "canvas": {
+        "$value": "{colors.cobalt.950}",
+        "$description": "Page/section tinted background"
+      },
+      "surface": {
+        "$value": "{colors.cobalt.900}",
+        "$description": "Subtle panels, sidebars, table stripes"
+      },
       "bg": {
         "subtle": {
-          "$value": "{colors.cobalt.900}",
-          "$description": "Info banner bg"
+          "$value": "{colors.cobalt.850}",
+          "$description": "Interactive component fill, resting"
         },
         "muted": {
           "$value": "{colors.cobalt.800}",
-          "$description": "Soft info fills"
+          "$description": "Interactive component fill, intensified"
         },
         "emphasized": {
-          "$value": "{colors.cobalt.700}",
-          "$description": "Active, selected info state"
-        },
-        "solid": {
-          "$value": "{colors.cobalt.500}",
-          "$description": "Solid info fill"
-        }
-      },
-      "fg": {
-        "default": {
-          "$value": "{colors.cobalt.400}",
-          "$description": "Info text"
-        },
-        "emphasized": {
-          "$value": "{colors.cobalt.100}",
-          "$description": "High-contrast info text"
-        },
-        "onSolid": {
-          "$value": "{colors.white.solid}",
-          "$description": "Text on info solid fills"
+          "$value": "{colors.cobalt.750}",
+          "$description": "Interactive component fill, most intense"
         }
       },
       "border": {
         "subtle": {
           "$value": "{colors.cobalt.700}",
-          "$description": "Faint info separator"
+          "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.cobalt.600}",
-          "$description": "Info borders"
+          "$value": "{colors.cobalt.650}",
+          "$description": "Interactive component borders"
         },
-        "focusRing": {
-          "$value": "{colors.cobalt.500}",
-          "$description": "Focus ring on info elements"
+        "strong": {
+          "$value": "{colors.cobalt.600}",
+          "$description": "Emphasized borders, focus rings"
         }
+      },
+      "solid": {
+        "default": {
+          "$value": "{colors.cobalt.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.cobalt.400}",
+          "$description": "Intensified solid fill"
+        }
+      },
+      "fg": {
+        "subtle": {
+          "$value": "{colors.cobalt.500}",
+          "$description": "Dim tinted text: placeholders, annotations"
+        },
+        "default": {
+          "$value": "{colors.cobalt.300}",
+          "$description": "Standard readable palette-tinted text"
+        },
+        "emphasized": {
+          "$value": "{colors.cobalt.150}",
+          "$description": "High-contrast text: headings, key numbers"
+        }
+      },
+      "contrast": {
+        "$value": "{colors.white.solid}",
+        "$description": "Text on solid fills"
+      },
+      "focusRing": {
+        "$value": "{colors.cobalt.600}",
+        "$description": "Focus ring (alias of border.strong)"
       },
       "alpha": {
         "transparent": {

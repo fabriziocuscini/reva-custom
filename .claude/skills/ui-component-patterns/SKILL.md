@@ -1,6 +1,6 @@
 ---
 name: ui-component-patterns
-description: Component implementation patterns for the Reva design system using Ark UI + Panda CSS. Covers token architecture (Panda plural namespace, three-layer system), the styled() pattern for single-element components (Park UI approach), slot recipes and createStyleContext for compound components, data-attribute conditions, variant conventions, file structure across @reva/panda-preset and @reva/ui, and forbidden patterns. Auto-invoke when creating, editing, or reviewing any component, recipe, or styled wrapper.
+description: Component implementation patterns for the Reva design system using Ark UI + Panda CSS. Covers token architecture (Panda plural namespace, two-layer system), the styled() pattern for single-element components (Park UI approach), slot recipes and createStyleContext for compound components, data-attribute conditions, variant conventions, file structure across @reva/panda-preset and @reva/ui, and forbidden patterns. Auto-invoke when creating, editing, or reviewing any component, recipe, or styled wrapper.
 ---
 
 # Reva Component Patterns: Ark UI + Panda CSS
@@ -105,7 +105,7 @@ export const accordion = defineSlotRecipe({
 
 ## Token Architecture
 
-The token system has three layers. Each layer has strict rules about where it can be used.
+The token system has two layers. Each layer has strict rules about where it can be used.
 
 **Token source files use Panda-aligned plural namespace keys:** `colors`, `spacing`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`. This convention matches Panda CSS categories exactly, eliminating namespace mapping between token sources and the preset.
 
@@ -124,16 +124,10 @@ Lives in `packages/design-tokens/src/foundation/`.
 ### Semantic layer
 
 Maps foundation tokens to roles, supports light/dark mode switching.
-Examples: `colors.fg.default`, `colors.fg.subtle`, `colors.bg.surface`, `colors.border.default`, `colors.brand.solid`, `colors.status.error`.
-Lives in `packages/design-tokens/src/semantic/`.
+Examples: `colors.fg.default`, `colors.fg.subtle`, `colors.bg.surface`, `colors.border.default`, `colors.brand.solid.default`, `colors.error.border.default`.
+Lives in `packages/design-tokens/src/colorMode/` (light.json, dark.json).
 
-**Mandatory for all colour styling.** These are the only colour tokens used in recipes. In recipe style objects, reference them without the `colors.` prefix (e.g., `color: 'fg.default'`, `bg: 'bg.surface'`).
-
-### Component layer
-
-Component-specific overrides, used sparingly.
-Examples: `component.button.primary.solid.bg`, `component.input.border.focus`.
-Only create component-layer tokens when a semantic token genuinely does not fit. Must reference semantic tokens.
+**Mandatory for all colour styling.** These are the only colour tokens used in recipes. In recipe style objects, reference them without the `colors.` prefix (e.g., `color: 'fg.default'`, `bg: 'bg.surface'`). Per-palette tokens use subgroup paths: `brand.solid.default`, `error.border.default`, `fg.subtle`, `solid.default`.
 
 ```typescript
 // Correct: semantic colour tokens + direct foundation non-colour tokens
@@ -145,9 +139,9 @@ itemTrigger: {
   py: '4',             // spacing foundation token (direct, allowed)
   rounded: 'md',       // radius foundation token (direct, allowed)
   textStyle: 'sm',     // typography token
-  _open: { color: 'brand.solid' },
-  _disabled: { color: 'fg.disabled', opacity: 0.5 },
-  _invalid: { borderColor: 'status.error' },
+  _open: { color: 'brand.solid.default' },
+  _disabled: { color: 'fg.subtle', opacity: 0.5 },
+  _invalid: { borderColor: 'error.border.default' },
 }
 
 // NEVER: raw CSS values in recipes
@@ -235,13 +229,13 @@ Ark UI exposes interactive state via `data-*` attributes. Panda CSS has built-in
 ```typescript
 // Common Ark UI data attributes and their Panda CSS conditions
 itemTrigger: {
-  _open: { color: 'brand.solid' },                    // data-state="open"
-  _closed: { color: 'fg.muted' },                     // data-state="closed"
-  _disabled: { opacity: 0.4, cursor: 'not-allowed' }, // data-disabled
-  _highlighted: { bg: 'bg.subtle' },                   // data-highlighted (Select, Menu)
-  _checked: { bg: 'brand.solid' },                     // data-checked (Checkbox, Radio)
-  _focus: { outline: 'none', ring: '2px' },            // data-focus
-  _invalid: { borderColor: 'status.error' },           // data-invalid
+  _open: { color: 'brand.solid.default' },            // data-state="open"
+  _closed: { color: 'fg.subtle' },                     // data-state="closed"
+  _disabled: { opacity: 0.4, cursor: 'not-allowed' },   // data-disabled
+  _highlighted: { bg: 'bg.subtle' },                  // data-highlighted (Select, Menu)
+  _checked: { bg: 'brand.solid.default' },             // data-checked (Checkbox, Radio)
+  _focus: { outline: 'none', ring: '2px' },           // data-focus
+  _invalid: { borderColor: 'error.border.default' },   // data-invalid
 }
 ```
 
@@ -328,7 +322,26 @@ export const button = defineRecipe({
   base: {
     /* ... */
   },
-  variants: { variant: { solid: {}, outline: {} }, size: { sm: {}, md: {} } },
+  variants: {
+    variant: {
+      solid: {
+        bg: 'colorPalette.solid.default',
+        color: 'colorPalette.contrast',
+        _focus: { outlineColor: 'colorPalette.focusRing' },
+      },
+      outline: {
+        bg: 'transparent',
+        borderColor: 'colorPalette.border.default',
+        color: 'colorPalette.fg.default',
+        _hover: {
+          borderColor: 'colorPalette.border.strong',
+        },
+        _focus: { outlineColor: 'colorPalette.focusRing' },
+      },
+      // subtle, ghost...
+    },
+    size: { sm: {}, md: {} },
+  },
   defaultVariants: { variant: 'solid', size: 'md' },
 })
 ```
@@ -516,7 +529,7 @@ color: 'neutral.900'
 bg: 'neutral.50'
 
 // Styling based on element tags instead of data attributes
-'& button': { color: 'brand.solid' }
+'& button': { color: 'brand.solid.default' }
 
 // Using defineSlotRecipe for single-element components
 // Use defineRecipe/cva for single elements, defineSlotRecipe for multi-part

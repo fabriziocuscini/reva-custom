@@ -60,6 +60,9 @@
         "$value": "#280D02"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#d78d3f00"
+        },
         "a5": {
           "$value": "#d78d3f0d"
         },
@@ -178,6 +181,9 @@
         "$value": "#0C140B"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#61ab5400"
+        },
         "a5": {
           "$value": "#61ab540d"
         },
@@ -296,6 +302,9 @@
         "$value": "#221200"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#e2a33600"
+        },
         "a5": {
           "$value": "#e2a3360d"
         },
@@ -414,6 +423,9 @@
         "$value": "#16140E"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#8a7d4200"
+        },
         "a5": {
           "$value": "#8a7d420d"
         },
@@ -532,6 +544,9 @@
         "$value": "#190F09"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#d2763b00"
+        },
         "a5": {
           "$value": "#d2763b0d"
         },
@@ -650,6 +665,9 @@
         "$value": "#0C1218"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#4286bd00"
+        },
         "a5": {
           "$value": "#4286bd0d"
         },
@@ -768,6 +786,9 @@
         "$value": "#1B0D0E"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#bf485300"
+        },
         "a5": {
           "$value": "#bf48530d"
         },
@@ -886,6 +907,9 @@
         "$value": "#0B0B0B"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#73737300"
+        },
         "a5": {
           "$value": "#7373730d"
         },
@@ -1004,6 +1028,9 @@
         "$value": "#121111"
       },
       "alpha": {
+        "transparent": {
+          "$value": "#78716c00"
+        },
         "a5": {
           "$value": "#78716c0d"
         },

@@ -33,6 +33,7 @@ Authored in [Tokens Studio](https://tokens.studio/) DTCG format (`$value`, `$typ
   - [Aspect Ratios](#aspect-ratios)
   - [Cursors](#cursors)
   - [Breakpoints](#breakpoints)
+- [Semantic Layer](#semantic-layer)
 - [Output Formats](#output-formats)
 - [Build](#build)
 - [How Panda CSS Consumes Tokens](#how-panda-css-consumes-tokens)
@@ -42,17 +43,16 @@ Authored in [Tokens Studio](https://tokens.studio/) DTCG format (`$value`, `$typ
 
 ## Token Architecture
 
-Tokens are organised in three layers:
+Tokens are organised in two layers:
 
-| Layer          | Purpose                                                           | Usage in code                                                           |
-| -------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| **Foundation** | Raw, context-free values (colours, spacing, radii, etc.)          | Only in the semantic layer or Panda preset — never in app code directly |
-| **Semantic**   | Contextual aliases (`fg.default`, `bg.surface`, `brand.solid`)    | In recipes and app code via Panda token paths                           |
-| **Component**  | Rare, component-specific overrides when semantic tokens don't fit | Must reference semantic tokens                                          |
+| Layer          | Purpose                                                        | Usage in code                                                           |
+| -------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Foundation** | Raw, context-free values (colours, spacing, radii, etc.)       | Only in the semantic layer or Panda preset — never in app code directly |
+| **Semantic**   | Contextual aliases (`fg.default`, `bg.surface`, `brand.solid`)   | In recipes and app code via Panda token paths                           |
 
 Colour foundation tokens are **never used directly** in recipes or app code — always go through the semantic layer. Non-colour foundation tokens (spacing, radii, z-index, etc.) may be used directly.
 
-> **Note:** This document covers the **foundation layer** only. Semantic and component layer documentation is forthcoming.
+> **Note:** The foundation layer is documented below. See the [Semantic Layer](#semantic-layer) section for the color mode token system.
 
 ---
 
@@ -68,7 +68,7 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 
 ### Colour Palettes
 
-- Each palette is a group of 11 stops: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`.
+- Each palette is a group of 19 stops: `50`, `100`, `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500`, `550`, `600`, `650`, `700`, `750`, `800`, `850`, `900`, `950`.
 - `50` is the lightest tint; `950` is the darkest shade.
 - `500` is the primary reference swatch for each hue.
 - `black` and `white` sit directly under `colors` with full alpha ramps (`transparent`, `a5`–`a95`, `solid`).
@@ -85,27 +85,12 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 
 ```
 src/
-├── foundation/
-│   ├── colors.json          # Colour palettes and common colours
-│   ├── spacing.json         # Spatial scale (padding, margins, gaps)
-│   ├── sizes.json           # Width/height sizing scale
-│   ├── containerSizes.json  # Container max-widths
-│   ├── typography.json      # Font families, sizes, weights, letter spacing, line heights
-│   ├── textStyles.json      # Composite text style tokens (marketing + product)
-│   ├── radii.json           # Border radius scale
-│   ├── shadows.json         # Elevation box shadows
-│   ├── borderWidths.json    # Border width scale
-│   ├── blurs.json           # Blur radius scale
-│   ├── opacity.json         # Opacity values
-│   ├── durations.json       # Animation/transition timing
-│   ├── zIndex.json          # Stacking order
-│   ├── aspectRatios.json    # Common aspect ratios
-│   ├── cursors.json         # Cursor values for interactive elements
-│   └── breakpoints.json     # Responsive breakpoints
-├── semantic/
-│   ├── colors.json          # Light mode colour assignments
-│   └── colors-dark.json     # Dark mode colour assignments
-└── component/               # (future)
+├── foundation/          # all foundation token files
+├── colorMode/
+│   ├── light.json       # Light mode semantic colour assignments
+│   └── dark.json        # Dark mode semantic colour assignments
+├── $metadata.json
+└── $themes.json
 ```
 
 ---
@@ -118,13 +103,13 @@ src/
 **Panda category:** `colors`
 **DTCG type:** `color`
 
-The colour system provides neutral palettes, accent/brand palettes, and common black/white with alpha ramps. All palettes follow an 11-stop scale from `50` (lightest) to `950` (darkest).
+The colour system provides neutral palettes, accent/brand palettes, and common black/white with alpha ramps. All palettes follow a 19-stop scale from `50` (lightest) to `950` (darkest).
 
 > Colour foundation tokens must **never** be used directly in recipes or app code. Always reference them through the semantic layer.
 
 #### Palettes
 
-Each palette provides 11 stops: `50`, `100`, `200`–`900`, `950`. The `500` stop is the primary reference swatch.
+Each palette provides 19 stops: `50`, `100`, `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500`, `550`, `600`, `650`, `700`, `750`, `800`, `850`, `900`, `950`. The `500` stop is the primary reference swatch.
 
 | Palette    | Token prefix    | Description                                  |
 | ---------- | --------------- | -------------------------------------------- |
@@ -616,6 +601,49 @@ Responsive breakpoints used by Panda's `theme.breakpoints` config. These are **n
 | `breakpoints.lg`  | `1024px` | Tablets in landscape, small laptops |
 | `breakpoints.xl`  | `1536px` | Standard desktop monitors           |
 | `breakpoints.2xl` | `1920px` | Full HD screens and above           |
+
+---
+
+## Semantic Layer
+
+Semantic colour tokens assign foundation palette stops to named roles (canvas, surface, fg.default, etc.) per light/dark mode. Each semantic palette (neutral, accent, brand, error, warning, success, info) has the same token shape. Names describe visual weight, not interaction state — platform-agnostic. All palettes are consumed via Panda's `colorPalette.*` system.
+
+### Per-palette token shape
+
+- **Root-level:** `canvas`, `surface`, `contrast`, `focusRing`
+- **Subgroups:** `bg.{subtle,muted,emphasized}`, `border.{subtle,default,strong}`, `solid.{default,strong}`, `fg.{subtle,default,emphasized}`
+- **Unchanged:** `alpha.{transparent,a1-a10}`
+
+### Semantic-to-foundation mapping
+
+| Token | Group | Radix step | Use case | Neutral light | Neutral dark | Chromatic light | Chromatic dark |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `canvas` | root | 1 | Page/section tinted background | .50 | .950 | .50 | .950 |
+| `surface` | root | 2 | Subtle panels, sidebars, table stripes | .100 | .900 | .100 | .900 |
+| `bg.subtle` | bg | 3 | Interactive component fill, resting | .150 | .850 | .150 | .850 |
+| `bg.muted` | bg | 4 | Interactive component fill, intensified | .200 | .800 | .200 | .800 |
+| `bg.emphasized` | bg | 5 | Interactive component fill, most intense | .250 | .750 | .250 | .750 |
+| `border.subtle` | border | 6 | Non-interactive borders: cards, dividers | .300 | .700 | .300 | .700 |
+| `border.default` | border | 7 | Interactive component borders | .350 | .650 | .350 | .650 |
+| `border.strong` | border | 8 | Emphasized borders, focus rings | .400 | .600 | .400 | .600 |
+| `solid.default` | solid | 9 | Solid fills: buttons, CTAs, badges | .500 | .500 | .600 | .450 |
+| `solid.strong` | solid | 10 | Intensified solid fill | .550 | .450 | .650 | .400 |
+| `fg.subtle` | fg | -- | Dim tinted text: placeholders, annotations | .500 | .500 | .500 | .500 |
+| `fg.default` | fg | 11 | Standard readable palette-tinted text | .650 | .350 | .700 | .300 |
+| `fg.emphasized` | fg | 12 | High-contrast text: headings, key numbers | .800 | .200 | .850 | .150 |
+| `contrast` | root | -- | Text on solid fills (white for most palettes) | white | white | white | white |
+| `focusRing` | root | -- | Focus ring (alias of `border.strong`) | .400 | .600 | .400 | .600 |
+
+### Key patterns
+
+- Backgrounds, borders, `fg.subtle`, and `focusRing` are identical between neutral and chromatic palettes.
+- Solid fills shift +100 (light) for chromatic palettes to ensure white text contrast.
+- `fg.default` / `fg.emphasized` shift +50 (light) for chromatic palettes for WCAG compliance.
+- Intra-group increments are always 50 steps.
+
+### Global tokens
+
+Non-palette-specific tokens remain unchanged: `bg.*` (canvas, surface, overlay, translucent), `fg.*` (default, muted, subtle, placeholder, link, onColor.*), and `border.*` (default, muted, subtle).
 
 ---
 
