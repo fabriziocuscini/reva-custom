@@ -10,6 +10,19 @@ const PARAMS_JSON_PATH = path.resolve(import.meta.dirname, 'palette-params.json'
 // Special palettes that don't use numeric step keys
 const EXCLUDED_PALETTES = new Set(['black', 'white'])
 
+// Color-wheel order: chromatic (red → orange → yellow → green → blue → purple), then neutrals
+const PALETTE_ORDER: string[] = [
+  'mulberry',
+  'copper',
+  'amber',
+  'gold',
+  'fern',
+  'cobalt',
+  'gray',
+  'stone',
+  'olive',
+]
+
 function generateAlphaTokens(midpointHex: string): Record<string, { $value: string }> {
   const base = midpointHex.replace('#', '').toLowerCase()
   const result: Record<string, { $value: string }> = {}
@@ -94,9 +107,14 @@ export function paletteApiPlugin(): Plugin {
               })
             }
 
-            palettes.sort((a, b) =>
-              (a as { name: string }).name.localeCompare((b as { name: string }).name),
-            )
+            palettes.sort((a, b) => {
+              const ai = PALETTE_ORDER.indexOf((a as { name: string }).name)
+              const bi = PALETTE_ORDER.indexOf((b as { name: string }).name)
+              const oa = ai === -1 ? PALETTE_ORDER.length : ai
+              const ob = bi === -1 ? PALETTE_ORDER.length : bi
+              if (oa !== ob) return oa - ob
+              return (a as { name: string }).name.localeCompare((b as { name: string }).name)
+            })
             json(res, 200, { palettes })
           } catch (err) {
             json(res, 500, {

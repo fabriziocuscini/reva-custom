@@ -12,6 +12,8 @@ interface PaletteStripProps {
   showLabels?: boolean
   labelsOnly?: boolean
   roundedTop?: boolean
+  rounded?: boolean
+  compact?: boolean
   compareSteps?: Set<number>
   onCompareToggle?: (step: number) => void
 }
@@ -21,6 +23,8 @@ export function PaletteStrip({
   showLabels = true,
   labelsOnly = false,
   roundedTop = true,
+  rounded = true,
+  compact = false,
   compareSteps = EMPTY_SET,
   onCompareToggle,
 }: PaletteStripProps) {
@@ -52,9 +56,12 @@ export function PaletteStrip({
     )
   }
 
+  const rounding = !rounded ? '' : roundedTop ? 'rounded-lg' : 'rounded-b-lg'
+  const swatchHeight = compact ? 'h-8' : 'h-10 md:h-12 lg:h-16'
+
   return (
     <div>
-      <div className={`flex overflow-hidden ${roundedTop ? 'rounded-lg' : 'rounded-b-lg'}`}>
+      <div className={`flex overflow-hidden ${rounding}`}>
         {palette.map((item) => (
           <button
             key={item.step}
@@ -64,7 +71,7 @@ export function PaletteStrip({
               setCopiedStep(item.step)
               setTimeout(() => setCopiedStep(null), 1000)
             }}
-            className="group/swatch flex-1 h-10 md:h-12 lg:h-16 relative cursor-pointer border-0 p-0"
+            className={`group/swatch flex-1 ${swatchHeight} relative cursor-pointer border-0 p-0`}
             style={{ backgroundColor: item.hex }}
             title={`Click to copy ${item.hex}`}
           >

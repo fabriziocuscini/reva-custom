@@ -1,3 +1,4 @@
+import { AllPalettesPanel } from '@/components/all-palettes-panel'
 import { AlphaStrip } from '@/components/alpha-strip'
 import { ChromaPanel } from '@/components/chroma-panel'
 import { ColorPickerInput } from '@/components/color-picker-input'
@@ -110,6 +111,8 @@ function PaletteEditor({
 
   const { dark, toggle } = useTheme()
 
+  const [viewAll, setViewAll] = useState(false)
+  const [displayMode, setDisplayMode] = useState<'palette' | 'gradient'>('palette')
   const [saveDialogOpen, setSaveDialogOpen] = useState(false)
   const [savedFlash, setSavedFlash] = useState(false)
   const [showAlpha, setShowAlpha] = useState(false)
@@ -270,12 +273,28 @@ function PaletteEditor({
 
   const handleSelectPreset = useCallback(
     (name: string) => {
+      setViewAll(false)
       setCompareSteps(new Set())
       setBenchmarkHexes(new Map())
       selectPreset(name)
     },
     [selectPreset],
   )
+
+  const handleToggleViewAll = useCallback(() => {
+    setViewAll(true)
+    setPaletteDocked(false)
+  }, [])
+
+  const handleExitViewAll = useCallback(() => {
+    const target = activePreset ?? lastPreset ?? presets[0]?.name
+    if (target) {
+      setViewAll(false)
+      setCompareSteps(new Set())
+      setBenchmarkHexes(new Map())
+      selectPreset(target)
+    }
+  }, [activePreset, lastPreset, presets, selectPreset])
 
   // Keyboard shortcuts: ⌘Z undo, ⌘⇧Z redo, D toggle dark mode, ⌘S save
   useEffect(() => {
@@ -375,8 +394,8 @@ function PaletteEditor({
   return (
     <TooltipProvider>
       <div className="flex min-h-screen">
-        {/* Palette docked left */}
-        {paletteDocked && validHex && palette.length > 0 && (
+        {/* Palette docked left — hidden in viewAll mode */}
+        {!viewAll && paletteDocked && validHex && palette.length > 0 && (
           <div className="w-80 shrink-0 h-screen sticky top-0 border-r border-border overflow-y-auto bg-card flex flex-col">
             <div className="flex items-center justify-between px-3 py-2 shrink-0">
               <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground select-none">
@@ -502,15 +521,21 @@ function PaletteEditor({
             </div>
 
             {/* Preset row + tabs scope */}
-            <Tabs defaultValue="palette">
+            <Tabs
+              value={displayMode}
+              onValueChange={(v) => setDisplayMode(v as 'palette' | 'gradient')}
+            >
               <div className="mb-4 flex items-center gap-3">
                 <PresetBar
                   presets={presets}
                   activePreset={activePreset}
+                  viewAll={viewAll}
                   onSelectPreset={handleSelectPreset}
+                  onToggleViewAll={handleToggleViewAll}
+                  onExitViewAll={handleExitViewAll}
                 />
                 <div className="ml-auto flex items-center gap-3 shrink-0">
-                  {!paletteDocked && (
+                  {(!paletteDocked || viewAll) && (
                     <div className="flex items-center gap-1.5">
                       <Label htmlFor="show-alpha" className="text-[10px] text-muted-foreground">
                         Show alpha
@@ -518,7 +543,7 @@ function PaletteEditor({
                       <Switch id="show-alpha" checked={showAlpha} onCheckedChange={setShowAlpha} />
                     </div>
                   )}
-                  {!paletteDocked && (
+                  {(!paletteDocked || viewAll) && (
                     <TabsList>
                       <TabsTrigger value="palette">Palette</TabsTrigger>
                       <TabsTrigger value="gradient">Gradient</TabsTrigger>
@@ -528,8 +553,19 @@ function PaletteEditor({
                 </div>
               </div>
 
-              {/* Main output — single column */}
-              {validHex && palette.length > 0 && (
+              {/* All palettes view */}
+              {viewAll && (
+                <AllPalettesPanel
+                  presets={presets}
+                  customPalette={palette}
+                  customHex={midpointHex}
+                  showAlpha={showAlpha}
+                  displayMode={displayMode}
+                />
+              )}
+
+              {/* Single palette view */}
+              {!viewAll && validHex && palette.length > 0 && (
                 <div className="flex flex-col gap-4 min-w-0">
                   {/* Palette strip */}
                   {!paletteDocked && (
@@ -569,7 +605,6 @@ function PaletteEditor({
                               <TooltipContent>Reset all parameters</TooltipContent>
                             </Tooltip>
                           )}
-                          {/* Save / Save As — scoped to active palette */}
                           {isCustomHex ? (
                             <Button
                               variant="ghost"
@@ -689,15 +724,15 @@ function PaletteEditor({
           </div>
         </div>
 
-        {/* Docked right */}
-        {comparePanelOpen && dockSide === 'right' && comparePanelNode}
+        {/* Docked right — hidden in viewAll mode */}
+        {!viewAll && comparePanelOpen && dockSide === 'right' && comparePanelNode}
       </div>
 
-      {/* Floating panel (not docked) */}
-      {comparePanelOpen && dockSide === null && comparePanelNode}
+      {/* Floating panel (not docked) — hidden in viewAll mode */}
+      {!viewAll && comparePanelOpen && dockSide === null && comparePanelNode}
 
       {/* Drop zone overlay — right side only */}
-      {dragOverZone === 'right' && (
+      {!viewAll && dragOverZone === 'right' && (
         <div
           className="fixed inset-y-0 right-0 z-40 pointer-events-none opacity-100 transition-opacity duration-150"
           style={{ width: DROP_ZONE_WIDTH }}
