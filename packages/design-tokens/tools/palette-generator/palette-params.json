@@ -75,7 +75,7 @@
     "L_max": 0.985,
     "L_min": 0.18,
     "L_ease": 0.7,
-    "C_taper_light": 5,
+    "C_taper_light": 2,
     "C_taper_dark": 15,
     "C_ease": 0.7,
     "H_shift_light": 0,

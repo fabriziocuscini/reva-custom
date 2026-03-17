@@ -731,31 +731,31 @@
     },
     "mulberry": {
       "50": {
-        "$value": "#FFF8F8"
+        "$value": "#FCF9F9"
       },
       "100": {
-        "$value": "#FCEAEA"
+        "$value": "#F9EBEB"
       },
       "150": {
-        "$value": "#F8DCDC"
+        "$value": "#F6DDDD"
       },
       "200": {
-        "$value": "#F4CDCD"
+        "$value": "#F1CECE"
       },
       "250": {
-        "$value": "#EFBDBE"
+        "$value": "#EDBEBE"
       },
       "300": {
-        "$value": "#E9ADAE"
+        "$value": "#E7AEAE"
       },
       "350": {
-        "$value": "#E29B9D"
+        "$value": "#E19C9D"
       },
       "400": {
-        "$value": "#DA878A"
+        "$value": "#DA888A"
       },
       "450": {
-        "$value": "#D17074"
+        "$value": "#D07075"
       },
       "500": {
         "$value": "#BF4853"
