@@ -121,67 +121,63 @@
     },
     "fern": {
       "50": {
-        "$value": "#F6FCF5"
+        "$value": "#F9FBF9"
       },
       "100": {
-        "$value": "#E6F3E3"
+        "$value": "#EDF4EC"
       },
       "150": {
-        "$value": "#D5EAD1"
+        "$value": "#E1EEDE"
       },
       "200": {
-        "$value": "#C5E1BF"
+        "$value": "#D4E7D0"
       },
       "250": {
-        "$value": "#B4D8AE"
+        "$value": "#C6E0C1"
       },
       "300": {
-        "$value": "#A4CF9C"
+        "$value": "#B8D9B2"
       },
       "350": {
-        "$value": "#94C68A"
+        "$value": "#A8D0A1"
       },
       "400": {
-        "$value": "#83BD79"
+        "$value": "#97C78E"
       },
       "450": {
-        "$value": "#72B467"
+        "$value": "#83BC78"
       },
       "500": {
         "$value": "#61AB54"
       },
       "550": {
-        "$value": "#56974A"
+        "$value": "#4D8743"
       },
       "600": {
-        "$value": "#4B8441"
+        "$value": "#417139"
       },
       "650": {
-        "$value": "#407137"
+        "$value": "#375F30"
       },
       "700": {
-        "$value": "#355E2E"
+        "$value": "#2F5029"
       },
       "750": {
-        "$value": "#2B4D25"
+        "$value": "#274122"
       },
       "800": {
-        "$value": "#213C1D"
+        "$value": "#1F351C"
       },
       "850": {
-        "$value": "#182B14"
+        "$value": "#192916"
       },
       "900": {
-        "$value": "#0F1C0C"
+        "$value": "#121E10"
       },
       "950": {
-        "$value": "#070D06"
+        "$value": "#0C140B"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#61ab5400",
-          "$description": "Fern, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#61ab540d"
         },
@@ -479,67 +475,63 @@
     },
     "copper": {
       "50": {
-        "$value": "#FFF9F5"
+        "$value": "#FCFAF8"
       },
       "100": {
-        "$value": "#FDEADF"
+        "$value": "#F9EFEA"
       },
       "150": {
-        "$value": "#F8DBCB"
+        "$value": "#F7E4DA"
       },
       "200": {
-        "$value": "#F4CDB7"
+        "$value": "#F4D9CB"
       },
       "250": {
-        "$value": "#EFBFA4"
+        "$value": "#F1CEBA"
       },
       "300": {
-        "$value": "#EAB090"
+        "$value": "#EDC1A8"
       },
       "350": {
-        "$value": "#E4A27C"
+        "$value": "#E9B495"
       },
       "400": {
-        "$value": "#DE9367"
+        "$value": "#E4A580"
       },
       "450": {
-        "$value": "#D88552"
+        "$value": "#DD9367"
       },
       "500": {
         "$value": "#D2763B"
       },
       "550": {
-        "$value": "#BA6834"
+        "$value": "#A65E30"
       },
       "600": {
-        "$value": "#A25B2E"
+        "$value": "#8B4F29"
       },
       "650": {
-        "$value": "#8B4E27"
+        "$value": "#754324"
       },
       "700": {
-        "$value": "#754121"
+        "$value": "#62381F"
       },
       "750": {
-        "$value": "#5F351B"
+        "$value": "#512F1A"
       },
       "800": {
-        "$value": "#4A2915"
+        "$value": "#412615"
       },
       "850": {
-        "$value": "#361E0F"
+        "$value": "#321E11"
       },
       "900": {
-        "$value": "#241309"
+        "$value": "#25160D"
       },
       "950": {
-        "$value": "#120904"
+        "$value": "#190F09"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#d2763b00",
-          "$description": "Copper, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#d2763b0d"
         },
@@ -601,67 +593,63 @@
     },
     "cobalt": {
       "50": {
-        "$value": "#F6FBFF"
+        "$value": "#F9FAFB"
       },
       "100": {
-        "$value": "#E1EEF9"
+        "$value": "#EAF1F7"
       },
       "150": {
-        "$value": "#CEE1F2"
+        "$value": "#DBE7F2"
       },
       "200": {
-        "$value": "#BAD3EA"
+        "$value": "#CCDDED"
       },
       "250": {
-        "$value": "#A6C6E3"
+        "$value": "#BCD3E7"
       },
       "300": {
-        "$value": "#93BADC"
+        "$value": "#AAC8E2"
       },
       "350": {
-        "$value": "#7FADD4"
+        "$value": "#98BCDB"
       },
       "400": {
-        "$value": "#6CA0CD"
+        "$value": "#83AED4"
       },
       "450": {
-        "$value": "#5793C5"
+        "$value": "#6B9FCB"
       },
       "500": {
         "$value": "#4286BD"
       },
       "550": {
-        "$value": "#3B77A7"
+        "$value": "#366B96"
       },
       "600": {
-        "$value": "#346892"
+        "$value": "#2E5A7E"
       },
       "650": {
-        "$value": "#2C597E"
+        "$value": "#284C6B"
       },
       "700": {
-        "$value": "#264B6A"
+        "$value": "#234059"
       },
       "750": {
-        "$value": "#1F3D57"
+        "$value": "#1D364A"
       },
       "800": {
-        "$value": "#183044"
+        "$value": "#192C3C"
       },
       "850": {
-        "$value": "#122332"
+        "$value": "#14232F"
       },
       "900": {
-        "$value": "#0B1721"
+        "$value": "#101A23"
       },
       "950": {
-        "$value": "#060C12"
+        "$value": "#0C1218"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#4286bd00",
-          "$description": "Cobalt, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#4286bd0d"
         },
@@ -844,64 +832,60 @@
         "$value": "#FAFAFA"
       },
       "100": {
-        "$value": "#EAEAEA"
+        "$value": "#F2F2F2"
       },
       "150": {
-        "$value": "#DADADA"
+        "$value": "#E9E9E9"
       },
       "200": {
-        "$value": "#CBCBCB"
+        "$value": "#E0E0E0"
       },
       "250": {
-        "$value": "#BCBCBC"
+        "$value": "#D6D6D6"
       },
       "300": {
-        "$value": "#ADADAD"
+        "$value": "#CBCBCB"
       },
       "350": {
-        "$value": "#9E9E9E"
+        "$value": "#BFBFBF"
       },
       "400": {
-        "$value": "#8F8F8F"
+        "$value": "#B0B0B0"
       },
       "450": {
-        "$value": "#818181"
+        "$value": "#9E9E9E"
       },
       "500": {
         "$value": "#737373"
       },
       "550": {
-        "$value": "#666666"
-      },
-      "600": {
-        "$value": "#595959"
-      },
-      "650": {
         "$value": "#4D4D4D"
       },
+      "600": {
+        "$value": "#3E3E3E"
+      },
+      "650": {
+        "$value": "#333333"
+      },
       "700": {
-        "$value": "#414141"
-      },
-      "750": {
-        "$value": "#353535"
-      },
-      "800": {
         "$value": "#2A2A2A"
       },
+      "750": {
+        "$value": "#222222"
+      },
+      "800": {
+        "$value": "#1C1C1C"
+      },
       "850": {
-        "$value": "#1F1F1F"
+        "$value": "#151515"
       },
       "900": {
-        "$value": "#151515"
+        "$value": "#101010"
       },
       "950": {
         "$value": "#0B0B0B"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#73737300",
-          "$description": "Gray, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#7373730d"
         },
@@ -963,67 +947,63 @@
     },
     "stone": {
       "50": {
-        "$value": "#FAFAF9"
+        "$value": "#FCFCFB"
       },
       "100": {
-        "$value": "#EBEAE9"
+        "$value": "#F4F3F2"
       },
       "150": {
-        "$value": "#DCDAD8"
+        "$value": "#ECEAE8"
       },
       "200": {
-        "$value": "#CDCAC8"
+        "$value": "#E4E0DE"
       },
       "250": {
-        "$value": "#BEBBB8"
+        "$value": "#DAD6D3"
       },
       "300": {
-        "$value": "#B0ABA8"
+        "$value": "#CFCBC8"
       },
       "350": {
-        "$value": "#A29C99"
+        "$value": "#C4BEBA"
       },
       "400": {
-        "$value": "#938E8A"
+        "$value": "#B6AFAB"
       },
       "450": {
-        "$value": "#867F7B"
+        "$value": "#A39D98"
       },
       "500": {
         "$value": "#78716C"
       },
       "550": {
-        "$value": "#6A6460"
+        "$value": "#544E4A"
       },
       "600": {
-        "$value": "#5D5854"
+        "$value": "#46413D"
       },
       "650": {
-        "$value": "#504C48"
+        "$value": "#3B3633"
       },
       "700": {
-        "$value": "#44403D"
+        "$value": "#322E2B"
       },
       "750": {
-        "$value": "#383432"
+        "$value": "#2A2725"
       },
       "800": {
-        "$value": "#2C2928"
+        "$value": "#23211F"
       },
       "850": {
-        "$value": "#211F1D"
+        "$value": "#1D1B1A"
       },
       "900": {
-        "$value": "#161514"
+        "$value": "#171615"
       },
       "950": {
-        "$value": "#0C0B0A"
+        "$value": "#121111"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#78716c00",
-          "$description": "Stone, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#78716c0d"
         },
