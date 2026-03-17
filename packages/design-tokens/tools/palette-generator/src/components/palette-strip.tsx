@@ -1,14 +1,15 @@
-import { copyToClipboard } from '@/lib/clipboard'
+import { SwatchDetailDialog } from '@/components/swatch-detail-dialog'
 import { MAIN_STEPS } from '@/lib/constants'
 import type { PaletteStep } from '@/lib/types'
 import { cn } from '@/lib/utils'
-import { Check, Minus, Plus } from 'lucide-react'
+import { Minus, Plus } from 'lucide-react'
 import { useState } from 'react'
 
 const EMPTY_SET = new Set<number>()
 
 interface PaletteStripProps {
   palette: PaletteStep[]
+  paletteName?: string
   showLabels?: boolean
   labelsOnly?: boolean
   roundedTop?: boolean
@@ -20,6 +21,7 @@ interface PaletteStripProps {
 
 export function PaletteStrip({
   palette,
+  paletteName = '',
   showLabels = true,
   labelsOnly = false,
   roundedTop = true,
@@ -28,7 +30,7 @@ export function PaletteStrip({
   compareSteps = EMPTY_SET,
   onCompareToggle,
 }: PaletteStripProps) {
-  const [copiedStep, setCopiedStep] = useState<number | null>(null)
+  const [selectedStep, setSelectedStep] = useState<PaletteStep | null>(null)
 
   if (labelsOnly) {
     return (
@@ -66,28 +68,13 @@ export function PaletteStrip({
           <button
             key={item.step}
             type="button"
-            onClick={() => {
-              copyToClipboard(item.hex)
-              setCopiedStep(item.step)
-              setTimeout(() => setCopiedStep(null), 1000)
-            }}
+            onClick={() => setSelectedStep(item)}
             className={`group/swatch flex-1 ${swatchHeight} relative cursor-pointer border-0 p-0`}
             style={{ backgroundColor: item.hex }}
-            title={`Click to copy ${item.hex}`}
+            title={`${item.hex} — click for details`}
           >
-            {/* Copy feedback — check icon with fade-in-out */}
-            {copiedStep === item.step && (
-              <div
-                key={`copied-${item.step}-${Date.now()}`}
-                className="absolute inset-0 flex items-center justify-center bg-black/50 text-white pointer-events-none"
-                style={{ animation: 'fade-in-out 1s ease-in-out forwards' }}
-              >
-                <Check className="size-4" strokeWidth={3} />
-              </div>
-            )}
-
             {/* Hover compare button — top-right corner */}
-            {onCompareToggle && copiedStep !== item.step && (
+            {onCompareToggle && (
               <div
                 className={cn(
                   'absolute top-0.5 right-0.5 flex items-center justify-center rounded size-6',
@@ -133,6 +120,15 @@ export function PaletteStrip({
           ))}
         </div>
       )}
+
+      <SwatchDetailDialog
+        step={selectedStep}
+        paletteName={paletteName}
+        open={selectedStep !== null}
+        onOpenChange={(open) => {
+          if (!open) setSelectedStep(null)
+        }}
+      />
     </div>
   )
 }

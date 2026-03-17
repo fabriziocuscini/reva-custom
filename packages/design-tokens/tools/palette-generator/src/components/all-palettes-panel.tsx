@@ -77,6 +77,7 @@ export function AllPalettesPanel({
                 {displayMode === 'palette' ? (
                   <PaletteStrip
                     palette={row.palette}
+                    paletteName={row.displayName}
                     showLabels={false}
                     roundedTop={false}
                     rounded={false}

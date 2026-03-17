@@ -659,6 +659,11 @@ function PaletteEditor({
                         <TabsContent value="palette" className="mt-0">
                           <PaletteStrip
                             palette={palette}
+                            paletteName={
+                              activePreset
+                                ? (presets.find((p) => p.name === activePreset)?.displayName ?? '')
+                                : 'Custom'
+                            }
                             showLabels={false}
                             roundedTop={!showAlpha}
                             compareSteps={compareSteps}
