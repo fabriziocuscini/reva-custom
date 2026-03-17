@@ -243,67 +243,63 @@
     },
     "gold": {
       "50": {
-        "$value": "#FFF9F2"
+        "$value": "#FFFCF9"
       },
       "100": {
-        "$value": "#FDF0DD"
+        "$value": "#FDF4E9"
       },
       "150": {
-        "$value": "#FBE6C9"
+        "$value": "#FAEDDA"
       },
       "200": {
-        "$value": "#F8DCB4"
+        "$value": "#F7E4CA"
       },
       "250": {
-        "$value": "#F6D3A0"
+        "$value": "#F4DCBA"
       },
       "300": {
-        "$value": "#F3C98C"
+        "$value": "#F0D3A8"
       },
       "350": {
-        "$value": "#EFBF77"
+        "$value": "#EDC995"
       },
       "400": {
-        "$value": "#ECB662"
+        "$value": "#EABF80"
       },
       "450": {
-        "$value": "#E7AC4C"
+        "$value": "#E6B366"
       },
       "500": {
         "$value": "#E2A336"
       },
       "550": {
-        "$value": "#C98F26"
+        "$value": "#BD872C"
       },
       "600": {
-        "$value": "#B07B19"
+        "$value": "#A37322"
       },
       "650": {
-        "$value": "#98690E"
+        "$value": "#8D6118"
       },
       "700": {
-        "$value": "#7F5704"
+        "$value": "#78510E"
       },
       "750": {
-        "$value": "#684500"
+        "$value": "#654204"
       },
       "800": {
-        "$value": "#513500"
+        "$value": "#533400"
       },
       "850": {
-        "$value": "#3A2500"
+        "$value": "#422800"
       },
       "900": {
-        "$value": "#261700"
+        "$value": "#311D00"
       },
       "950": {
-        "$value": "#120900"
+        "$value": "#221200"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#e2a33600",
-          "$description": "Gold, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#e2a3360d"
         },
