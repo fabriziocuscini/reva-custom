@@ -1,15 +1,15 @@
 {
   "amber": {
-    "L_max": 0.985,
-    "L_min": 0.15,
-    "L_ease": 1,
+    "L_max": 0.99,
+    "L_min": 0.2,
+    "L_ease": 0.9,
     "C_taper_light": 8,
-    "C_taper_dark": 25,
-    "C_ease": 1.3,
-    "H_shift_light": 20,
-    "H_shift_dark": -22,
-    "H_ease": 1.2,
-    "dist_ease": 1
+    "C_taper_dark": 40,
+    "C_ease": 0.8,
+    "H_shift_light": 15,
+    "H_shift_dark": -20,
+    "H_ease": 0.7,
+    "dist_ease": 0.7
   },
   "olive": {
     "L_max": 0.988,

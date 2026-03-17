@@ -3,67 +3,63 @@
     "$type": "color",
     "amber": {
       "50": {
-        "$value": "#FDFAF2"
+        "$value": "#FFFBF5"
       },
       "100": {
-        "$value": "#F9EEDC"
+        "$value": "#FAF1E3"
       },
       "150": {
-        "$value": "#F5E3C6"
+        "$value": "#F5E6D2"
       },
       "200": {
-        "$value": "#F2D7B0"
+        "$value": "#F0DCC0"
       },
       "250": {
-        "$value": "#EFCB9C"
+        "$value": "#EBD1AE"
       },
       "300": {
-        "$value": "#EBBE87"
+        "$value": "#E7C59B"
       },
       "350": {
-        "$value": "#E7B274"
+        "$value": "#E2B988"
       },
       "400": {
-        "$value": "#E3A561"
+        "$value": "#DEAC74"
       },
       "450": {
-        "$value": "#DE994F"
+        "$value": "#DA9F5D"
       },
       "500": {
         "$value": "#D78D3F"
       },
       "550": {
-        "$value": "#C17A32"
+        "$value": "#BD783B"
       },
       "600": {
-        "$value": "#AB6929"
+        "$value": "#A76734"
       },
       "650": {
-        "$value": "#955821"
+        "$value": "#92582C"
       },
       "700": {
-        "$value": "#7F481B"
+        "$value": "#7E4925"
       },
       "750": {
-        "$value": "#693815"
+        "$value": "#6C3B1D"
       },
       "800": {
-        "$value": "#532A10"
+        "$value": "#5A2F15"
       },
       "850": {
-        "$value": "#3E1D0A"
+        "$value": "#48230E"
       },
       "900": {
-        "$value": "#2A1106"
+        "$value": "#381707"
       },
       "950": {
-        "$value": "#160602"
+        "$value": "#280D02"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#d78d3f00",
-          "$description": "Amber, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#d78d3f0d"
         },
