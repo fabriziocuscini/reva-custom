@@ -72,10 +72,6 @@
     "half": {
       "$value": "2px",
       "$description": "Smallest spacing unit (2px)"
-    },
-    "1_half": {
-      "$value": "6px",
-      "$description": "Between base and 2 (6px)"
     }
   }
 }
