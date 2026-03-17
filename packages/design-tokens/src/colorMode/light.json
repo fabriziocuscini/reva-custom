@@ -37,6 +37,16 @@
           "$value": "{colors.white.alpha.a40}",
           "$description": "Medium frost"
         }
+      },
+      "card": {
+        "default": {
+          "$value": "{colors.white.solid}",
+          "$description": "Card background"
+        },
+        "emphasized": {
+          "$value": "{colors.olive.100}",
+          "$description": "Emphasized card background"
+        }
       }
     },
     "fg": {
@@ -57,8 +67,8 @@
         "$description": "Input placeholders"
       },
       "link": {
-        "$value": "{colors.accent.fg.default}",
-        "$description": "Link text (alias of accent.fg.default)"
+        "$value": "{colors.amber.700}",
+        "$description": "Link text"
       },
       "onColor": {
         "default": {
@@ -136,11 +146,11 @@
       },
       "solid": {
         "default": {
-          "$value": "{colors.olive.500}",
+          "$value": "{colors.olive.700}",
           "$description": "Solid fills: buttons, CTAs, badges"
         },
         "strong": {
-          "$value": "{colors.olive.550}",
+          "$value": "{colors.olive.750}",
           "$description": "Intensified solid fill"
         }
       },
