@@ -73,15 +73,15 @@
   },
   "mulberry": {
     "L_max": 0.985,
-    "L_min": 0.15,
-    "L_ease": 1,
-    "C_taper_light": 8,
+    "L_min": 0.18,
+    "L_ease": 0.7,
+    "C_taper_light": 5,
     "C_taper_dark": 15,
-    "C_ease": 1,
+    "C_ease": 0.7,
     "H_shift_light": 0,
     "H_shift_dark": 0,
     "H_ease": 1,
-    "dist_ease": 1
+    "dist_ease": 0.7
   },
   "stone": {
     "L_max": 0.985,

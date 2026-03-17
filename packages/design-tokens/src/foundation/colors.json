@@ -734,64 +734,60 @@
         "$value": "#FFF8F8"
       },
       "100": {
-        "$value": "#FDE4E4"
+        "$value": "#FCEAEA"
       },
       "150": {
-        "$value": "#F7D0D0"
+        "$value": "#F8DCDC"
       },
       "200": {
-        "$value": "#F1BDBE"
+        "$value": "#F4CDCD"
       },
       "250": {
-        "$value": "#EAAAAB"
+        "$value": "#EFBDBE"
       },
       "300": {
-        "$value": "#E29799"
+        "$value": "#E9ADAE"
       },
       "350": {
-        "$value": "#DA8487"
+        "$value": "#E29B9D"
       },
       "400": {
-        "$value": "#D27175"
+        "$value": "#DA878A"
       },
       "450": {
-        "$value": "#C95D64"
+        "$value": "#D17074"
       },
       "500": {
         "$value": "#BF4853"
       },
       "550": {
-        "$value": "#AA404A"
+        "$value": "#983B43"
       },
       "600": {
-        "$value": "#953941"
+        "$value": "#813339"
       },
       "650": {
-        "$value": "#803138"
+        "$value": "#6D2C31"
       },
       "700": {
-        "$value": "#6C2A2F"
+        "$value": "#5C262A"
       },
       "750": {
-        "$value": "#592226"
+        "$value": "#4D2123"
       },
       "800": {
-        "$value": "#461B1E"
+        "$value": "#3F1B1D"
       },
       "850": {
-        "$value": "#341416"
+        "$value": "#321718"
       },
       "900": {
-        "$value": "#240E0F"
+        "$value": "#261213"
       },
       "950": {
-        "$value": "#140708"
+        "$value": "#1B0D0E"
       },
       "alpha": {
-        "transparent": {
-          "$value": "#bf485300",
-          "$description": "Mulberry, fully transparent (0%)"
-        },
         "a5": {
           "$value": "#bf48530d"
         },
