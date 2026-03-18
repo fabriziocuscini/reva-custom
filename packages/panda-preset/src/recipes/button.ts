@@ -39,10 +39,10 @@ export const button = defineRecipe({
     },
     variant: {
       solid: {
-        bg: 'colorPalette.solid.default',
-        color: 'colorPalette.contrast',
+        bg: 'colorPalette.bg.solid',
+        color: 'colorPalette.fg.onSolid',
         _hover: {
-          bg: 'colorPalette.solid.strong',
+          bg: 'colorPalette.bg.strong',
         },
       },
       subtle: {

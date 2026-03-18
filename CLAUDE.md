@@ -72,36 +72,36 @@ bun run format:check  # Check formatting
 
 - **Panda-aligned plural namespace**: `colors`, `spacing`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`. Matches Panda CSS category names for zero-mapping between token source and Panda preset.
 - **Two layers**: foundation → semantic (recipes reference semantic tokens directly via Panda's `colorPalette.*`)
-- **Colour foundation tokens NEVER in recipes or app code** — always go through the semantic layer. Per-palette semantic structure: root-level `canvas`, `surface`, `contrast`, `focusRing`; `bg.{subtle,muted,emphasized}` for interactive component fills; `border.{subtle,default,strong}`; `solid.{default,strong}` for high-impact fills; `fg.{subtle,default,emphasized}`; `alpha.{transparent,a1-a10}`. In recipe style objects, omit the `colors.` prefix — Panda auto-maps CSS properties to token categories (e.g., `bg: 'bg.surface'`, not `bg: 'colors.bg.surface'`)
+- **Colour foundation tokens NEVER in recipes or app code** — always go through the semantic layer. Per-palette semantic structure: root-level `canvas`, `surface`, `solid` (.500 midpoint), `focusRing`; `bg.{subtle,muted,emphasized,solid,strong}` for component fills; `border.{subtle,default,strong}`; `fg.{default,highContrast,onSolid}`; `alpha.{transparent,a50-a950}`. In recipe style objects, omit the `colors.` prefix — Panda auto-maps CSS properties to token categories (e.g., `bg: 'bg.surface'`, not `bg: 'colors.bg.surface'`)
 - **Non-colour foundation tokens** (spacing, radii, borders, z-indices, durations, easings) MAY be used directly in recipes (`py: '4'`, `rounded: 'md'`)
 - **DTCG format**: Always use `$value`, `$type`, `$description` (dollar-prefixed keys). No comments in JSON source files.
 - **Token pipeline**: `@reva/tokens` builds Panda-compatible JSON (`dist/panda/`) that `@reva/panda-preset` imports directly — no hardcoded values in the preset.
 
 ### Semantic token reference (per-palette)
 
-| Token | Group | Radix step | Use case | Neutral light | Neutral dark | Chromatic light | Chromatic dark |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `canvas` | root | 1 | Page/section tinted background | .50 | .950 | .50 | .950 |
-| `surface` | root | 2 | Subtle panels, sidebars, table stripes | .100 | .900 | .100 | .900 |
-| `bg.subtle` | bg | 3 | Interactive component fill, resting | .150 | .850 | .150 | .850 |
-| `bg.muted` | bg | 4 | Interactive component fill, intensified | .200 | .800 | .200 | .800 |
-| `bg.emphasized` | bg | 5 | Interactive component fill, most intense | .250 | .750 | .250 | .750 |
-| `border.subtle` | border | 6 | Non-interactive borders: cards, dividers | .300 | .700 | .300 | .700 |
-| `border.default` | border | 7 | Interactive component borders | .350 | .650 | .350 | .650 |
-| `border.strong` | border | 8 | Emphasized borders, focus rings | .400 | .600 | .400 | .600 |
-| `solid.default` | solid | 9 | Solid fills: buttons, CTAs, badges | .500 | .500 | .600 | .450 |
-| `solid.strong` | solid | 10 | Intensified solid fill | .550 | .450 | .650 | .400 |
-| `fg.subtle` | fg | -- | Dim tinted text: placeholders, annotations | .500 | .500 | .500 | .500 |
-| `fg.default` | fg | 11 | Standard readable palette-tinted text | .650 | .350 | .700 | .300 |
-| `fg.emphasized` | fg | 12 | High-contrast text: headings, key numbers | .800 | .200 | .850 | .150 |
-| `contrast` | root | -- | Text on solid fills (white for most palettes) | white | white | white | white |
-| `focusRing` | root | -- | Focus ring (alias of `border.strong`) | .400 | .600 | .400 | .600 |
+| Token              | Group  | Use case                                                   | Neutral light | Neutral dark | Chromatic light | Chromatic dark |
+| ------------------ | ------ | ---------------------------------------------------------- | ------------- | ------------ | --------------- | -------------- |
+| `canvas`           | root   | Page/section tinted background                             | .50           | .950         | .50             | .950           |
+| `surface`          | root   | Subtle panels, sidebars, table stripes                     | .100          | .900         | .100            | .900           |
+| `solid`            | root   | Reference midpoint (.500) for charts, indicators           | .500          | .500         | .500            | .500           |
+| `focusRing`        | root   | Focus ring (alias of `border.strong`)                      | .400          | .600         | .400            | .600           |
+| `bg.subtle`        | bg     | Interactive component fill, resting                        | .150          | .850         | .150            | .850           |
+| `bg.muted`         | bg     | Interactive component fill, intensified                    | .200          | .800         | .200            | .800           |
+| `bg.emphasized`    | bg     | Interactive component fill, most intense                   | .250          | .750         | .250            | .750           |
+| `bg.solid`         | bg     | Solid fill: buttons, CTAs, badges                          | .700          | .200         | .600            | .450           |
+| `bg.strong`        | bg     | Intensified solid fill                                     | .750          | .150         | .650            | .400           |
+| `border.subtle`    | border | Non-interactive borders: cards, dividers                   | .300          | .700         | .300            | .700           |
+| `border.default`   | border | Interactive component borders                              | .350          | .650         | .350            | .650           |
+| `border.strong`    | border | Emphasized borders, focus rings                            | .400          | .600         | .400            | .600           |
+| `fg.default`       | fg     | Standard readable palette-tinted text                      | .650          | .350         | .700            | .300           |
+| `fg.highContrast`  | fg     | High-contrast text: headings, key numbers                  | .800          | .200         | .850            | .150           |
+| `fg.onSolid`       | fg     | Text on solid fills (white in light; palette .900 in dark) | white         | .900         | white           | .900           |
+| `alpha.a50`-`a950` | alpha  | Non-linear opacity ramp (4%-95%)                           | --            | --           | --              | --             |
 
 ### Recipe token paths
 
 - Global: `bg: 'bg.surface'`, `color: 'fg.default'`
-- Brand/accent variants: `_open: { color: 'brand.solid.default' }` (was `brand.solid`)
-- In recipes with `colorPalette`: `bg: 'colorPalette.solid.default'` (was `colorPalette.bg.solid`), `color: 'colorPalette.contrast'` (was `colorPalette.fg.onSolid`), `outlineColor: 'colorPalette.focusRing'` (was `colorPalette.border.focusRing`)
+- In recipes with `colorPalette`: `bg: 'colorPalette.bg.solid'`, `color: 'colorPalette.fg.onSolid'`, `_hover: { bg: 'colorPalette.bg.strong' }`, `outlineColor: 'colorPalette.focusRing'`
 
 ## Key Architectural Decisions
 

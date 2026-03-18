@@ -116,6 +116,10 @@
         "$value": "{colors.olive.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.olive.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.olive.850}",
@@ -128,6 +132,14 @@
         "emphasized": {
           "$value": "{colors.olive.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.olive.200}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.olive.150}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -144,33 +156,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.olive.200}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.olive.150}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.olive.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.olive.350}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.olive.200}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.olive.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.olive.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.olive.600}",
@@ -236,6 +234,10 @@
         "$value": "{colors.gold.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.gold.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.gold.850}",
@@ -248,6 +250,14 @@
         "emphasized": {
           "$value": "{colors.gold.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.gold.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.gold.400}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -264,33 +274,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.gold.450}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.gold.400}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.gold.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.gold.300}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.gold.150}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.gold.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.gold.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.gold.600}",
@@ -356,6 +352,10 @@
         "$value": "{colors.amber.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.amber.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.amber.850}",
@@ -368,6 +368,14 @@
         "emphasized": {
           "$value": "{colors.amber.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.amber.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.amber.400}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -384,33 +392,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.amber.450}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.amber.400}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.amber.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.amber.300}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.amber.150}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.amber.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.amber.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.amber.600}",
@@ -476,6 +470,10 @@
         "$value": "{colors.mulberry.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.mulberry.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.mulberry.850}",
@@ -488,6 +486,14 @@
         "emphasized": {
           "$value": "{colors.mulberry.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.mulberry.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.mulberry.400}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -504,33 +510,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.mulberry.450}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.mulberry.400}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.mulberry.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.mulberry.300}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.mulberry.150}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.mulberry.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.mulberry.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.mulberry.600}",
@@ -596,6 +588,10 @@
         "$value": "{colors.copper.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.copper.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.copper.850}",
@@ -608,6 +604,14 @@
         "emphasized": {
           "$value": "{colors.copper.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.copper.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.copper.400}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -624,33 +628,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.copper.450}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.copper.400}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.copper.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.copper.300}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.copper.150}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.copper.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.copper.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.copper.600}",
@@ -716,6 +706,10 @@
         "$value": "{colors.fern.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.fern.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.fern.850}",
@@ -728,6 +722,14 @@
         "emphasized": {
           "$value": "{colors.fern.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.fern.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.fern.400}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -744,33 +746,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.fern.450}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.fern.400}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.fern.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.fern.300}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.fern.150}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.fern.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.fern.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.fern.600}",
@@ -836,6 +824,10 @@
         "$value": "{colors.cobalt.900}",
         "$description": "Subtle panels, sidebars, table stripes"
       },
+      "solid": {
+        "$value": "{colors.cobalt.500}",
+        "$description": "Reference midpoint: charts, indicators, decorative fills"
+      },
       "bg": {
         "subtle": {
           "$value": "{colors.cobalt.850}",
@@ -848,6 +840,14 @@
         "emphasized": {
           "$value": "{colors.cobalt.750}",
           "$description": "Interactive component fill, most intense"
+        },
+        "solid": {
+          "$value": "{colors.cobalt.450}",
+          "$description": "Solid fills: buttons, CTAs, badges"
+        },
+        "strong": {
+          "$value": "{colors.cobalt.400}",
+          "$description": "Intensified solid fill"
         }
       },
       "border": {
@@ -864,33 +864,19 @@
           "$description": "Emphasized borders, focus rings"
         }
       },
-      "solid": {
-        "default": {
-          "$value": "{colors.cobalt.450}",
-          "$description": "Solid fills: buttons, CTAs, badges"
-        },
-        "strong": {
-          "$value": "{colors.cobalt.400}",
-          "$description": "Intensified solid fill"
-        }
-      },
       "fg": {
-        "solid": {
-          "$value": "{colors.cobalt.500}",
-          "$description": "Reference solid: charts, indicators, decorative fills"
-        },
         "default": {
           "$value": "{colors.cobalt.300}",
           "$description": "Standard readable palette-tinted text"
         },
-        "emphasized": {
+        "highContrast": {
           "$value": "{colors.cobalt.150}",
           "$description": "High-contrast text: headings, key numbers"
+        },
+        "onSolid": {
+          "$value": "{colors.cobalt.900}",
+          "$description": "Text on solid fills"
         }
-      },
-      "contrast": {
-        "$value": "{colors.cobalt.900}",
-        "$description": "Text on solid fills"
       },
       "focusRing": {
         "$value": "{colors.cobalt.600}",

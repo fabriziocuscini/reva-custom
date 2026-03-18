@@ -48,7 +48,7 @@ Tokens are organised in two layers:
 | Layer          | Purpose                                                        | Usage in code                                                           |
 | -------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Foundation** | Raw, context-free values (colours, spacing, radii, etc.)       | Only in the semantic layer or Panda preset — never in app code directly |
-| **Semantic**   | Contextual aliases (`fg.default`, `bg.surface`, `brand.solid`)   | In recipes and app code via Panda token paths                           |
+| **Semantic**   | Contextual aliases (`fg.default`, `bg.surface`, `brand.solid`) | In recipes and app code via Panda token paths                           |
 
 Colour foundation tokens are **never used directly** in recipes or app code — always go through the semantic layer. Non-colour foundation tokens (spacing, radii, z-index, etc.) may be used directly.
 
@@ -610,40 +610,42 @@ Semantic colour tokens assign foundation palette stops to named roles (canvas, s
 
 ### Per-palette token shape
 
-- **Root-level:** `canvas`, `surface`, `contrast`, `focusRing`
-- **Subgroups:** `bg.{subtle,muted,emphasized}`, `border.{subtle,default,strong}`, `solid.{default,strong}`, `fg.{subtle,default,emphasized}`
-- **Unchanged:** `alpha.{transparent,a1-a10}`
+- **Root-level:** `canvas`, `surface`, `solid` (.500 midpoint), `focusRing`
+- **bg:** `subtle`, `muted`, `emphasized`, `solid`, `strong`
+- **border:** `subtle`, `default`, `strong`
+- **fg:** `default`, `highContrast`, `onSolid`
+- **alpha:** `transparent`, `a50`-`a950` (non-linear Chakra-inspired opacity ramp: 4%, 6%, 8%, 15%, 25%, 35%, 45%, 60%, 75%, 85%, 95%)
 
 ### Semantic-to-foundation mapping
 
-| Token | Group | Radix step | Use case | Neutral light | Neutral dark | Chromatic light | Chromatic dark |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `canvas` | root | 1 | Page/section tinted background | .50 | .950 | .50 | .950 |
-| `surface` | root | 2 | Subtle panels, sidebars, table stripes | .100 | .900 | .100 | .900 |
-| `bg.subtle` | bg | 3 | Interactive component fill, resting | .150 | .850 | .150 | .850 |
-| `bg.muted` | bg | 4 | Interactive component fill, intensified | .200 | .800 | .200 | .800 |
-| `bg.emphasized` | bg | 5 | Interactive component fill, most intense | .250 | .750 | .250 | .750 |
-| `border.subtle` | border | 6 | Non-interactive borders: cards, dividers | .300 | .700 | .300 | .700 |
-| `border.default` | border | 7 | Interactive component borders | .350 | .650 | .350 | .650 |
-| `border.strong` | border | 8 | Emphasized borders, focus rings | .400 | .600 | .400 | .600 |
-| `solid.default` | solid | 9 | Solid fills: buttons, CTAs, badges | .500 | .500 | .600 | .450 |
-| `solid.strong` | solid | 10 | Intensified solid fill | .550 | .450 | .650 | .400 |
-| `fg.subtle` | fg | -- | Dim tinted text: placeholders, annotations | .500 | .500 | .500 | .500 |
-| `fg.default` | fg | 11 | Standard readable palette-tinted text | .650 | .350 | .700 | .300 |
-| `fg.emphasized` | fg | 12 | High-contrast text: headings, key numbers | .800 | .200 | .850 | .150 |
-| `contrast` | root | -- | Text on solid fills (white for most palettes) | white | white | white | white |
-| `focusRing` | root | -- | Focus ring (alias of `border.strong`) | .400 | .600 | .400 | .600 |
+| Token             | Group  | Use case                                                   | Neutral light | Neutral dark | Chromatic light | Chromatic dark |
+| ----------------- | ------ | ---------------------------------------------------------- | ------------- | ------------ | --------------- | -------------- |
+| `canvas`          | root   | Page/section tinted background                             | .50           | .950         | .50             | .950           |
+| `surface`         | root   | Subtle panels, sidebars, table stripes                     | .100          | .900         | .100            | .900           |
+| `solid`           | root   | Reference midpoint (.500) for charts, indicators           | .500          | .500         | .500            | .500           |
+| `focusRing`       | root   | Focus ring (alias of `border.strong`)                      | .400          | .600         | .400            | .600           |
+| `bg.subtle`       | bg     | Interactive component fill, resting                        | .150          | .850         | .150            | .850           |
+| `bg.muted`        | bg     | Interactive component fill, intensified                    | .200          | .800         | .200            | .800           |
+| `bg.emphasized`   | bg     | Interactive component fill, most intense                   | .250          | .750         | .250            | .750           |
+| `bg.solid`        | bg     | Solid fill: buttons, CTAs, badges                          | .700          | .200         | .600            | .450           |
+| `bg.strong`       | bg     | Intensified solid fill                                     | .750          | .150         | .650            | .400           |
+| `border.subtle`   | border | Non-interactive borders: cards, dividers                   | .300          | .700         | .300            | .700           |
+| `border.default`  | border | Interactive component borders                              | .350          | .650         | .350            | .650           |
+| `border.strong`   | border | Emphasized borders, focus rings                            | .400          | .600         | .400            | .600           |
+| `fg.default`      | fg     | Standard readable palette-tinted text                      | .650          | .350         | .700            | .300           |
+| `fg.highContrast` | fg     | High-contrast text: headings, key numbers                  | .800          | .200         | .850            | .150           |
+| `fg.onSolid`      | fg     | Text on solid fills (white in light; palette .900 in dark) | white         | .900         | white           | .900           |
 
 ### Key patterns
 
-- Backgrounds, borders, `fg.subtle`, and `focusRing` are identical between neutral and chromatic palettes.
-- Solid fills shift +100 (light) for chromatic palettes to ensure white text contrast.
-- `fg.default` / `fg.emphasized` shift +50 (light) for chromatic palettes for WCAG compliance.
-- Intra-group increments are always 50 steps.
+- Backgrounds, borders, and `focusRing` are identical between neutral and chromatic palettes.
+- Neutral `bg.solid`/`bg.strong` use darker steps (.700/.750 light) for an inverted look; chromatic use .600/.650.
+- `fg.default` / `fg.highContrast` shift +50 (light) for chromatic palettes for WCAG compliance.
+- Intra-group increments are always 50 steps within each visual-weight progression.
 
 ### Global tokens
 
-Non-palette-specific tokens remain unchanged: `bg.*` (canvas, surface, overlay, translucent), `fg.*` (default, muted, subtle, placeholder, link, onColor.*), and `border.*` (default, muted, subtle).
+Non-palette-specific tokens remain unchanged: `bg.*` (canvas, surface, overlay, translucent), `fg.*` (default, muted, subtle, placeholder, link, onColor._), and `border._` (default, muted, subtle).
 
 ---
 
