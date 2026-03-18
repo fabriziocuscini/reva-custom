@@ -63,8 +63,17 @@
         "transparent": {
           "$value": "#d78d3f00"
         },
+        "a4": {
+          "$value": "#d78d3f0a"
+        },
         "a5": {
           "$value": "#d78d3f0d"
+        },
+        "a6": {
+          "$value": "#d78d3f0f"
+        },
+        "a8": {
+          "$value": "#d78d3f14"
         },
         "a10": {
           "$value": "#d78d3f1a"
@@ -184,8 +193,17 @@
         "transparent": {
           "$value": "#61ab5400"
         },
+        "a4": {
+          "$value": "#61ab540a"
+        },
         "a5": {
           "$value": "#61ab540d"
+        },
+        "a6": {
+          "$value": "#61ab540f"
+        },
+        "a8": {
+          "$value": "#61ab5414"
         },
         "a10": {
           "$value": "#61ab541a"
@@ -305,8 +323,17 @@
         "transparent": {
           "$value": "#e2a33600"
         },
+        "a4": {
+          "$value": "#e2a3360a"
+        },
         "a5": {
           "$value": "#e2a3360d"
+        },
+        "a6": {
+          "$value": "#e2a3360f"
+        },
+        "a8": {
+          "$value": "#e2a33614"
         },
         "a10": {
           "$value": "#e2a3361a"
@@ -426,8 +453,17 @@
         "transparent": {
           "$value": "#8a7d4200"
         },
+        "a4": {
+          "$value": "#8a7d420a"
+        },
         "a5": {
           "$value": "#8a7d420d"
+        },
+        "a6": {
+          "$value": "#8a7d420f"
+        },
+        "a8": {
+          "$value": "#8a7d4214"
         },
         "a10": {
           "$value": "#8a7d421a"
@@ -547,8 +583,17 @@
         "transparent": {
           "$value": "#d2763b00"
         },
+        "a4": {
+          "$value": "#d2763b0a"
+        },
         "a5": {
           "$value": "#d2763b0d"
+        },
+        "a6": {
+          "$value": "#d2763b0f"
+        },
+        "a8": {
+          "$value": "#d2763b14"
         },
         "a10": {
           "$value": "#d2763b1a"
@@ -668,8 +713,17 @@
         "transparent": {
           "$value": "#4286bd00"
         },
+        "a4": {
+          "$value": "#4286bd0a"
+        },
         "a5": {
           "$value": "#4286bd0d"
+        },
+        "a6": {
+          "$value": "#4286bd0f"
+        },
+        "a8": {
+          "$value": "#4286bd14"
         },
         "a10": {
           "$value": "#4286bd1a"
@@ -789,8 +843,17 @@
         "transparent": {
           "$value": "#bf485300"
         },
+        "a4": {
+          "$value": "#bf48530a"
+        },
         "a5": {
           "$value": "#bf48530d"
+        },
+        "a6": {
+          "$value": "#bf48530f"
+        },
+        "a8": {
+          "$value": "#bf485314"
         },
         "a10": {
           "$value": "#bf48531a"
@@ -910,8 +973,17 @@
         "transparent": {
           "$value": "#73737300"
         },
+        "a4": {
+          "$value": "#7373730a"
+        },
         "a5": {
           "$value": "#7373730d"
+        },
+        "a6": {
+          "$value": "#7373730f"
+        },
+        "a8": {
+          "$value": "#73737314"
         },
         "a10": {
           "$value": "#7373731a"
@@ -1031,8 +1103,17 @@
         "transparent": {
           "$value": "#78716c00"
         },
+        "a4": {
+          "$value": "#78716c0a"
+        },
         "a5": {
           "$value": "#78716c0d"
+        },
+        "a6": {
+          "$value": "#78716c0f"
+        },
+        "a8": {
+          "$value": "#78716c14"
         },
         "a10": {
           "$value": "#78716c1a"
@@ -1100,9 +1181,18 @@
         "$description": "Pure black"
       },
       "alpha": {
+        "a4": {
+          "$value": "#0000000a"
+        },
         "a5": {
           "$value": "#0000000d",
           "$description": "Black with very low opacity (5%)"
+        },
+        "a6": {
+          "$value": "#0000000f"
+        },
+        "a8": {
+          "$value": "#00000014"
         },
         "a10": {
           "$value": "#0000001a",
@@ -1188,9 +1278,18 @@
         "$description": "Pure white"
       },
       "alpha": {
+        "a4": {
+          "$value": "#ffffff0a"
+        },
         "a5": {
           "$value": "#ffffff0d",
           "$description": "White with very low opacity (5%)"
+        },
+        "a6": {
+          "$value": "#ffffff0f"
+        },
+        "a8": {
+          "$value": "#ffffff14"
         },
         "a10": {
           "$value": "#ffffff1a",

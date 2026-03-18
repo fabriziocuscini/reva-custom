@@ -12,8 +12,15 @@ export const ALPHA_STEPS = [
   5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95,
 ] as const
 
+export const ALPHA_EXPORT_STEPS = [
+  4, 5, 6, 8, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95,
+] as const
+
 export const ALPHA_SUFFIXES: Record<number, string> = {
+  4: '0a',
   5: '0d',
+  6: '0f',
+  8: '14',
   10: '1a',
   15: '26',
   20: '33',

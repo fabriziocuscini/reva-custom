@@ -181,45 +181,49 @@
           "$value": "{colors.black.transparent}",
           "$description": "Neutral alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.black.alpha.a5}",
-          "$description": "Neutral alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.black.alpha.a4}",
+          "$description": "Neutral alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.black.alpha.a10}",
-          "$description": "Neutral alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.black.alpha.a6}",
+          "$description": "Neutral alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.black.alpha.a8}",
+          "$description": "Neutral alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.black.alpha.a15}",
-          "$description": "Neutral alpha: intensity 3"
+          "$description": "Neutral alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.black.alpha.a20}",
-          "$description": "Neutral alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.black.alpha.a25}",
-          "$description": "Neutral alpha: intensity 5"
+          "$description": "Neutral alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.black.alpha.a30}",
-          "$description": "Neutral alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.black.alpha.a35}",
+          "$description": "Neutral alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.black.alpha.a40}",
-          "$description": "Neutral alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.black.alpha.a45}",
+          "$description": "Neutral alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.black.alpha.a50}",
-          "$description": "Neutral alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.black.alpha.a60}",
-          "$description": "Neutral alpha: intensity 9"
+          "$description": "Neutral alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.black.alpha.a80}",
-          "$description": "Neutral alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.black.alpha.a75}",
+          "$description": "Neutral alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.black.alpha.a85}",
+          "$description": "Neutral alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.black.alpha.a95}",
+          "$description": "Neutral alpha: 95%"
         }
       }
     },
@@ -297,45 +301,49 @@
           "$value": "{colors.gold.alpha.transparent}",
           "$description": "Brand alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.gold.alpha.a5}",
-          "$description": "Brand alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.gold.alpha.a4}",
+          "$description": "Brand alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.gold.alpha.a10}",
-          "$description": "Brand alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.gold.alpha.a6}",
+          "$description": "Brand alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.gold.alpha.a8}",
+          "$description": "Brand alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.gold.alpha.a15}",
-          "$description": "Brand alpha: intensity 3"
+          "$description": "Brand alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.gold.alpha.a20}",
-          "$description": "Brand alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.gold.alpha.a25}",
-          "$description": "Brand alpha: intensity 5"
+          "$description": "Brand alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.gold.alpha.a30}",
-          "$description": "Brand alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.gold.alpha.a35}",
+          "$description": "Brand alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.gold.alpha.a40}",
-          "$description": "Brand alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.gold.alpha.a45}",
+          "$description": "Brand alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.gold.alpha.a50}",
-          "$description": "Brand alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.gold.alpha.a60}",
-          "$description": "Brand alpha: intensity 9"
+          "$description": "Brand alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.gold.alpha.a80}",
-          "$description": "Brand alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.gold.alpha.a75}",
+          "$description": "Brand alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.gold.alpha.a85}",
+          "$description": "Brand alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.gold.alpha.a95}",
+          "$description": "Brand alpha: 95%"
         }
       }
     },
@@ -413,45 +421,49 @@
           "$value": "{colors.amber.alpha.transparent}",
           "$description": "Accent alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.amber.alpha.a5}",
-          "$description": "Accent alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.amber.alpha.a4}",
+          "$description": "Accent alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.amber.alpha.a10}",
-          "$description": "Accent alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.amber.alpha.a6}",
+          "$description": "Accent alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.amber.alpha.a8}",
+          "$description": "Accent alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.amber.alpha.a15}",
-          "$description": "Accent alpha: intensity 3"
+          "$description": "Accent alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.amber.alpha.a20}",
-          "$description": "Accent alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.amber.alpha.a25}",
-          "$description": "Accent alpha: intensity 5"
+          "$description": "Accent alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.amber.alpha.a30}",
-          "$description": "Accent alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.amber.alpha.a35}",
+          "$description": "Accent alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.amber.alpha.a40}",
-          "$description": "Accent alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.amber.alpha.a45}",
+          "$description": "Accent alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.amber.alpha.a50}",
-          "$description": "Accent alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.amber.alpha.a60}",
-          "$description": "Accent alpha: intensity 9"
+          "$description": "Accent alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.amber.alpha.a80}",
-          "$description": "Accent alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.amber.alpha.a75}",
+          "$description": "Accent alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.amber.alpha.a85}",
+          "$description": "Accent alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.amber.alpha.a95}",
+          "$description": "Accent alpha: 95%"
         }
       }
     },
@@ -529,45 +541,49 @@
           "$value": "{colors.mulberry.alpha.transparent}",
           "$description": "Error alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.mulberry.alpha.a5}",
-          "$description": "Error alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.mulberry.alpha.a4}",
+          "$description": "Error alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.mulberry.alpha.a10}",
-          "$description": "Error alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.mulberry.alpha.a6}",
+          "$description": "Error alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.mulberry.alpha.a8}",
+          "$description": "Error alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.mulberry.alpha.a15}",
-          "$description": "Error alpha: intensity 3"
+          "$description": "Error alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.mulberry.alpha.a20}",
-          "$description": "Error alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.mulberry.alpha.a25}",
-          "$description": "Error alpha: intensity 5"
+          "$description": "Error alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.mulberry.alpha.a30}",
-          "$description": "Error alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.mulberry.alpha.a35}",
+          "$description": "Error alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.mulberry.alpha.a40}",
-          "$description": "Error alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.mulberry.alpha.a45}",
+          "$description": "Error alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.mulberry.alpha.a50}",
-          "$description": "Error alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.mulberry.alpha.a60}",
-          "$description": "Error alpha: intensity 9"
+          "$description": "Error alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.mulberry.alpha.a80}",
-          "$description": "Error alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.mulberry.alpha.a75}",
+          "$description": "Error alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.mulberry.alpha.a85}",
+          "$description": "Error alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.mulberry.alpha.a95}",
+          "$description": "Error alpha: 95%"
         }
       }
     },
@@ -645,45 +661,49 @@
           "$value": "{colors.copper.alpha.transparent}",
           "$description": "Warning alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.copper.alpha.a5}",
-          "$description": "Warning alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.copper.alpha.a4}",
+          "$description": "Warning alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.copper.alpha.a10}",
-          "$description": "Warning alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.copper.alpha.a6}",
+          "$description": "Warning alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.copper.alpha.a8}",
+          "$description": "Warning alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.copper.alpha.a15}",
-          "$description": "Warning alpha: intensity 3"
+          "$description": "Warning alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.copper.alpha.a20}",
-          "$description": "Warning alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.copper.alpha.a25}",
-          "$description": "Warning alpha: intensity 5"
+          "$description": "Warning alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.copper.alpha.a30}",
-          "$description": "Warning alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.copper.alpha.a35}",
+          "$description": "Warning alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.copper.alpha.a40}",
-          "$description": "Warning alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.copper.alpha.a45}",
+          "$description": "Warning alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.copper.alpha.a50}",
-          "$description": "Warning alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.copper.alpha.a60}",
-          "$description": "Warning alpha: intensity 9"
+          "$description": "Warning alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.copper.alpha.a80}",
-          "$description": "Warning alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.copper.alpha.a75}",
+          "$description": "Warning alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.copper.alpha.a85}",
+          "$description": "Warning alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.copper.alpha.a95}",
+          "$description": "Warning alpha: 95%"
         }
       }
     },
@@ -761,45 +781,49 @@
           "$value": "{colors.fern.alpha.transparent}",
           "$description": "Success alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.fern.alpha.a5}",
-          "$description": "Success alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.fern.alpha.a4}",
+          "$description": "Success alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.fern.alpha.a10}",
-          "$description": "Success alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.fern.alpha.a6}",
+          "$description": "Success alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.fern.alpha.a8}",
+          "$description": "Success alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.fern.alpha.a15}",
-          "$description": "Success alpha: intensity 3"
+          "$description": "Success alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.fern.alpha.a20}",
-          "$description": "Success alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.fern.alpha.a25}",
-          "$description": "Success alpha: intensity 5"
+          "$description": "Success alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.fern.alpha.a30}",
-          "$description": "Success alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.fern.alpha.a35}",
+          "$description": "Success alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.fern.alpha.a40}",
-          "$description": "Success alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.fern.alpha.a45}",
+          "$description": "Success alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.fern.alpha.a50}",
-          "$description": "Success alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.fern.alpha.a60}",
-          "$description": "Success alpha: intensity 9"
+          "$description": "Success alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.fern.alpha.a80}",
-          "$description": "Success alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.fern.alpha.a75}",
+          "$description": "Success alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.fern.alpha.a85}",
+          "$description": "Success alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.fern.alpha.a95}",
+          "$description": "Success alpha: 95%"
         }
       }
     },
@@ -877,45 +901,49 @@
           "$value": "{colors.cobalt.alpha.transparent}",
           "$description": "Info alpha: fully transparent"
         },
-        "a1": {
-          "$value": "{colors.cobalt.alpha.a5}",
-          "$description": "Info alpha: intensity 1"
+        "a50": {
+          "$value": "{colors.cobalt.alpha.a4}",
+          "$description": "Info alpha: 4%"
         },
-        "a2": {
-          "$value": "{colors.cobalt.alpha.a10}",
-          "$description": "Info alpha: intensity 2"
+        "a100": {
+          "$value": "{colors.cobalt.alpha.a6}",
+          "$description": "Info alpha: 6%"
         },
-        "a3": {
+        "a200": {
+          "$value": "{colors.cobalt.alpha.a8}",
+          "$description": "Info alpha: 8%"
+        },
+        "a300": {
           "$value": "{colors.cobalt.alpha.a15}",
-          "$description": "Info alpha: intensity 3"
+          "$description": "Info alpha: 15%"
         },
-        "a4": {
-          "$value": "{colors.cobalt.alpha.a20}",
-          "$description": "Info alpha: intensity 4"
-        },
-        "a5": {
+        "a400": {
           "$value": "{colors.cobalt.alpha.a25}",
-          "$description": "Info alpha: intensity 5"
+          "$description": "Info alpha: 25%"
         },
-        "a6": {
-          "$value": "{colors.cobalt.alpha.a30}",
-          "$description": "Info alpha: intensity 6"
+        "a500": {
+          "$value": "{colors.cobalt.alpha.a35}",
+          "$description": "Info alpha: 35%"
         },
-        "a7": {
-          "$value": "{colors.cobalt.alpha.a40}",
-          "$description": "Info alpha: intensity 7"
+        "a600": {
+          "$value": "{colors.cobalt.alpha.a45}",
+          "$description": "Info alpha: 45%"
         },
-        "a8": {
-          "$value": "{colors.cobalt.alpha.a50}",
-          "$description": "Info alpha: intensity 8"
-        },
-        "a9": {
+        "a700": {
           "$value": "{colors.cobalt.alpha.a60}",
-          "$description": "Info alpha: intensity 9"
+          "$description": "Info alpha: 60%"
         },
-        "a10": {
-          "$value": "{colors.cobalt.alpha.a80}",
-          "$description": "Info alpha: intensity 10"
+        "a800": {
+          "$value": "{colors.cobalt.alpha.a75}",
+          "$description": "Info alpha: 75%"
+        },
+        "a900": {
+          "$value": "{colors.cobalt.alpha.a85}",
+          "$description": "Info alpha: 85%"
+        },
+        "a950": {
+          "$value": "{colors.cobalt.alpha.a95}",
+          "$description": "Info alpha: 95%"
         }
       }
     },

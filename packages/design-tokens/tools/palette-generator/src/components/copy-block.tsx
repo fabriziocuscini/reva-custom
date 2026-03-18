@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { copyToClipboard } from '@/lib/clipboard'
-import { ALPHA_STEPS, ALPHA_SUFFIXES } from '@/lib/constants'
+import { ALPHA_EXPORT_STEPS, ALPHA_SUFFIXES } from '@/lib/constants'
 import type { PaletteStep } from '@/lib/types'
 import { useMemo, useState } from 'react'
 
@@ -23,7 +23,7 @@ export function CopyBlock({ palette, paletteName, midpointHex }: CopyBlockProps)
 
     const transparent = `${indent}  "transparent": {\n${indent}    "$value": "#${base}00"\n${indent}  }`
 
-    const alphas = ALPHA_STEPS.map(
+    const alphas = ALPHA_EXPORT_STEPS.map(
       (step) =>
         `${indent}  "a${step}": {\n${indent}    "$value": "#${base}${ALPHA_SUFFIXES[step]}"\n${indent}  }`,
     ).join(',\n')
