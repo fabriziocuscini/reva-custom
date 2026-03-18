@@ -178,51 +178,51 @@
       },
       "alpha": {
         "transparent": {
-          "$value": "{colors.white.transparent}",
+          "$value": "{colors.olive.alpha.transparent}",
           "$description": "Neutral alpha: fully transparent"
         },
         "a50": {
-          "$value": "{colors.white.alpha.a4}",
+          "$value": "{colors.olive.alpha.a4}",
           "$description": "Neutral alpha: 4%"
         },
         "a100": {
-          "$value": "{colors.white.alpha.a6}",
+          "$value": "{colors.olive.alpha.a6}",
           "$description": "Neutral alpha: 6%"
         },
         "a200": {
-          "$value": "{colors.white.alpha.a8}",
+          "$value": "{colors.olive.alpha.a8}",
           "$description": "Neutral alpha: 8%"
         },
         "a300": {
-          "$value": "{colors.white.alpha.a15}",
+          "$value": "{colors.olive.alpha.a15}",
           "$description": "Neutral alpha: 15%"
         },
         "a400": {
-          "$value": "{colors.white.alpha.a25}",
+          "$value": "{colors.olive.alpha.a25}",
           "$description": "Neutral alpha: 25%"
         },
         "a500": {
-          "$value": "{colors.white.alpha.a35}",
+          "$value": "{colors.olive.alpha.a35}",
           "$description": "Neutral alpha: 35%"
         },
         "a600": {
-          "$value": "{colors.white.alpha.a45}",
+          "$value": "{colors.olive.alpha.a45}",
           "$description": "Neutral alpha: 45%"
         },
         "a700": {
-          "$value": "{colors.white.alpha.a60}",
+          "$value": "{colors.olive.alpha.a60}",
           "$description": "Neutral alpha: 60%"
         },
         "a800": {
-          "$value": "{colors.white.alpha.a75}",
+          "$value": "{colors.olive.alpha.a75}",
           "$description": "Neutral alpha: 75%"
         },
         "a900": {
-          "$value": "{colors.white.alpha.a85}",
+          "$value": "{colors.olive.alpha.a85}",
           "$description": "Neutral alpha: 85%"
         },
         "a950": {
-          "$value": "{colors.white.alpha.a95}",
+          "$value": "{colors.olive.alpha.a95}",
           "$description": "Neutral alpha: 95%"
         }
       }
