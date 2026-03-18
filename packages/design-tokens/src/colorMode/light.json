@@ -59,7 +59,7 @@
         "$description": "Secondary text, labels"
       },
       "subtle": {
-        "$value": "{colors.stone.400}",
+        "$value": "{colors.stone.500}",
         "$description": "Helper text, captions"
       },
       "placeholder": {
@@ -155,9 +155,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.olive.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.olive.650}",
@@ -271,9 +271,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.gold.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.gold.700}",
@@ -387,9 +387,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.amber.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.amber.700}",
@@ -503,9 +503,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.mulberry.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.mulberry.700}",
@@ -619,9 +619,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.copper.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.copper.700}",
@@ -735,9 +735,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.fern.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.fern.700}",
@@ -851,9 +851,9 @@
         }
       },
       "fg": {
-        "subtle": {
+        "solid": {
           "$value": "{colors.cobalt.500}",
-          "$description": "Dim tinted text: placeholders, annotations"
+          "$description": "Reference solid: charts, indicators, decorative fills"
         },
         "default": {
           "$value": "{colors.cobalt.700}",

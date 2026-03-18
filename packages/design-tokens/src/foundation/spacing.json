@@ -1,9 +1,5 @@
 {
   "spacing": {
-    "0": {
-      "$value": "0px",
-      "$description": "No spacing"
-    },
     "1": {
       "$value": "4px",
       "$description": "Base spacing unit (4px)"
