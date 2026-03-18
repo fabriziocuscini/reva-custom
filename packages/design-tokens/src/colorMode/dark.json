@@ -132,15 +132,15 @@
       },
       "border": {
         "subtle": {
-          "$value": "{colors.olive.700}",
+          "$value": "{colors.stone.700}",
           "$description": "Non-interactive borders: cards, dividers"
         },
         "default": {
-          "$value": "{colors.olive.650}",
+          "$value": "{colors.stone.650}",
           "$description": "Interactive component borders"
         },
         "strong": {
-          "$value": "{colors.olive.600}",
+          "$value": "{colors.stone.600}",
           "$description": "Emphasized borders, focus rings"
         }
       },
