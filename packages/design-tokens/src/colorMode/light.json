@@ -55,11 +55,11 @@
         "$description": "Primary text, headings"
       },
       "muted": {
-        "$value": "{colors.stone.600}",
+        "$value": "{colors.stone.500}",
         "$description": "Secondary text, labels"
       },
       "subtle": {
-        "$value": "{colors.stone.500}",
+        "$value": "{colors.stone.450}",
         "$description": "Helper text, captions"
       },
       "placeholder": {
