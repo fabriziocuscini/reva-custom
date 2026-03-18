@@ -63,7 +63,7 @@
         "$description": "Helper text, captions"
       },
       "placeholder": {
-        "$value": "{colors.stone.650}",
+        "$value": "{colors.stone.600}",
         "$description": "Input placeholders"
       },
       "link": {
@@ -949,15 +949,12 @@
     },
     "misc": {
       "transparent": {
-        "$type": "color",
         "$value": "{colors.black.transparent}"
       },
       "whiteToBlack": {
-        "$type": "color",
         "$value": "{colors.black.solid}"
       },
       "blackToWhite": {
-        "$type": "color",
         "$value": "{colors.white.solid}"
       }
     }

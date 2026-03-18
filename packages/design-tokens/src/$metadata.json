@@ -1,5 +1,7 @@
 {
   "tokenSetOrder": [
+    "colorMode/light",
+    "colorMode/dark",
     "foundation/colors",
     "foundation/spacing",
     "foundation/sizes",
@@ -15,8 +17,6 @@
     "foundation/borderWidths",
     "foundation/opacity",
     "foundation/cursors",
-    "foundation/shadows",
-    "colorMode/light",
-    "colorMode/dark"
+    "foundation/shadows"
   ]
 }
