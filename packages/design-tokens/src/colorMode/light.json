@@ -10,6 +10,10 @@
         "$value": "{colors.white.solid}",
         "$description": "Cards, form inputs, modals, content panels"
       },
+      "card": {
+        "$value": "{colors.olive.100}",
+        "$description": "Cards, panels, elevated content"
+      },
       "overlay": {
         "default": {
           "$value": "{colors.black.alpha.a60}",
@@ -36,16 +40,6 @@
         "muted": {
           "$value": "{colors.white.alpha.a40}",
           "$description": "Medium frost"
-        }
-      },
-      "card": {
-        "default": {
-          "$value": "{colors.white.solid}",
-          "$description": "Card background"
-        },
-        "emphasized": {
-          "$value": "{colors.olive.100}",
-          "$description": "Emphasized card background"
         }
       }
     },

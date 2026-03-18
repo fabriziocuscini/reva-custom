@@ -3,12 +3,16 @@
     "$type": "color",
     "bg": {
       "canvas": {
-        "$value": "{colors.stone.900}",
+        "$value": "{colors.stone.850}",
         "$description": "Page/screen background"
       },
       "surface": {
-        "$value": "{colors.stone.850}",
+        "$value": "{colors.stone.750}",
         "$description": "Cards, form inputs, modals, content panels"
+      },
+      "card": {
+        "$value": "{colors.stone.800}",
+        "$description": "Cards, panels, elevated content"
       },
       "overlay": {
         "default": {
@@ -36,16 +40,6 @@
         "muted": {
           "$value": "{colors.white.alpha.a40}",
           "$description": "Medium frost"
-        }
-      },
-      "card": {
-        "default": {
-          "$value": "{colors.stone.850}",
-          "$description": "Card background"
-        },
-        "emphasized": {
-          "$value": "{colors.stone.800}",
-          "$description": "Emphasized card background"
         }
       }
     },
