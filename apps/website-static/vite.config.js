@@ -5,9 +5,6 @@ import { defineConfig } from 'vite'
 import FullReload from 'vite-plugin-full-reload'
 
 export default defineConfig({
-  server: {
-    host: '127.0.0.1',
-  },
   build: {
     rollupOptions: {
       input: {

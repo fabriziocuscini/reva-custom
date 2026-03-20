@@ -5,32 +5,35 @@
       "name": "docs",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev:docs"],
-      "port": 3000,
+      "url": "https://docs.revaos.localhost",
       "autoPort": true
     },
     {
       "name": "website",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev:website"],
-      "port": 5173
+      "url": "https://website.revaos.localhost",
+      "autoPort": true
     },
     {
       "name": "advisor-portal",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev:advisor"],
-      "port": 5174
+      "url": "https://advisor.revaos.localhost",
+      "autoPort": true
     },
     {
       "name": "client-portal",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev:client"],
-      "port": 5175
+      "url": "https://client.revaos.localhost",
+      "autoPort": true
     },
     {
       "name": "palette-generator",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev:palette-generator"],
-      "port": 5176,
+      "url": "https://colors.revaos.localhost",
       "autoPort": true
     }
   ]

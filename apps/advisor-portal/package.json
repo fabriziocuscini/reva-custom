@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "panda codegen --clean && tsc -b && vite build",
-    "dev": "panda codegen --clean && vite",
+    "dev": "panda codegen --clean && portless advisor.revaos vite",
     "preview": "vite preview",
     "codegen": "panda codegen --clean"
   },

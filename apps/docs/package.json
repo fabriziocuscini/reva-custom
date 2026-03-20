@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && next build",
-    "dev": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && next dev --turbopack",
+    "dev": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && portless docs.revaos next dev --turbopack",
     "codegen": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css"
   },
   "dependencies": {

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "portless website.revaos vite",
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write .",
