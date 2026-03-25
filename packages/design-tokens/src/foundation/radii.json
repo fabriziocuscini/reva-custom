@@ -1,10 +1,6 @@
 {
   "radii": {
     "$type": "dimension",
-    "none": {
-      "$value": "0",
-      "$description": "No border radius for square elements"
-    },
     "2xs": {
       "$value": "2px",
       "$description": "Extra small radius for subtle rounding on small elements"

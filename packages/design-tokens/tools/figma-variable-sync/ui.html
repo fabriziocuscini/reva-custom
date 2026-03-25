@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        font-size: 12px;
+        color: var(--figma-color-text, #333);
+        background: var(--figma-color-bg, #fff);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        gap: 12px;
+      }
+      h2 {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      label {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--figma-color-text-secondary, #666);
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid var(--figma-color-border, #e0e0e0);
+        border-radius: 6px;
+        font-size: 12px;
+        font-family: "Geist Mono", "SF Mono", monospace;
+        background: var(--figma-color-bg-secondary, #f5f5f5);
+        color: var(--figma-color-text, #333);
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      input[type="text"]:focus {
+        border-color: var(--figma-color-border-brand, #0d99ff);
+      }
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          opacity 0.15s,
+          background 0.15s;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      .btn-primary {
+        background: var(--figma-color-bg-brand, #0d99ff);
+        color: #fff;
+      }
+      .btn-primary:hover:not(:disabled) {
+        opacity: 0.9;
+      }
+      .btn-watch {
+        background: var(--figma-color-bg-secondary, #eee);
+        color: var(--figma-color-text, #333);
+        border: 1px solid var(--figma-color-border, #ddd);
+      }
+      .btn-watch.active {
+        background: #16a34a;
+        color: #fff;
+        border-color: #16a34a;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .status {
+        font-size: 11px;
+        color: var(--figma-color-text-secondary, #888);
+        flex: 1;
+      }
+      .progress-bar {
+        height: 3px;
+        background: var(--figma-color-border, #e0e0e0);
+        border-radius: 2px;
+        overflow: hidden;
+        display: none;
+      }
+      .progress-bar.visible {
+        display: block;
+      }
+      .progress-fill {
+        height: 100%;
+        background: var(--figma-color-bg-brand, #0d99ff);
+        border-radius: 2px;
+        width: 0%;
+        transition: width 0.2s;
+      }
+      .log {
+        flex: 1;
+        overflow-y: auto;
+        background: var(--figma-color-bg-secondary, #f7f7f7);
+        border: 1px solid var(--figma-color-border, #e5e5e5);
+        border-radius: 6px;
+        padding: 10px;
+        font-family: "Geist Mono", "SF Mono", monospace;
+        font-size: 11px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        color: var(--figma-color-text-secondary, #555);
+      }
+      .meta {
+        font-size: 10px;
+        color: var(--figma-color-text-tertiary, #aaa);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Reva Token Sync</h2>
+
+    <div class="field">
+      <label for="url">Manifest URL</label>
+      <input
+        type="text"
+        id="url"
+        value="http://localhost:3456/variables-manifest.json"
+        placeholder="http://localhost:3456/variables-manifest.json"
+      />
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="sync" onclick="doSync()">
+        Sync Now
+      </button>
+      <button class="btn-watch" id="watch" onclick="toggleWatch()">
+        Watch
+      </button>
+      <span class="status" id="status"></span>
+    </div>
+
+    <div class="progress-bar" id="progressBar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="log" id="log">Ready. Click Sync Now or Watch to auto-sync on changes.</div>
+
+    <div class="meta">
+      Code is source of truth · Reads
+      <code>variables-manifest.json</code>
+    </div>
+
+    <script>
+      var logEl = document.getElementById("log");
+      var statusEl = document.getElementById("status");
+      var syncBtn = document.getElementById("sync");
+      var watchBtn = document.getElementById("watch");
+      var progressBar = document.getElementById("progressBar");
+      var progressFill = document.getElementById("progressFill");
+
+      var syncing = false;
+      var watching = false;
+      var watchTimer = null;
+      var lastManifestText = null;
+      var POLL_INTERVAL = 5000;
+
+      function appendLog(msg) {
+        logEl.textContent += msg + "\n";
+        logEl.scrollTop = logEl.scrollHeight;
+      }
+
+      function setStatus(msg) {
+        statusEl.textContent = msg;
+      }
+
+      function setBusy(busy) {
+        syncing = busy;
+        syncBtn.disabled = busy;
+        syncBtn.textContent = busy ? "Syncing…" : "Sync Now";
+        progressBar.className = busy
+          ? "progress-bar visible"
+          : "progress-bar";
+      }
+
+      async function fetchManifest() {
+        var url = document.getElementById("url").value.trim();
+        if (!url) return null;
+        var resp = await fetch(url);
+        if (!resp.ok)
+          throw new Error("HTTP " + resp.status + " " + resp.statusText);
+        return await resp.text();
+      }
+
+      function sendSync(manifest) {
+        parent.postMessage(
+          { pluginMessage: { type: "sync", manifest: manifest } },
+          "*",
+        );
+      }
+
+      async function doSync() {
+        if (syncing) return;
+        logEl.textContent = "";
+        var url = document.getElementById("url").value.trim();
+        appendLog("Fetching manifest from:\n" + url + "\n");
+        setBusy(true);
+        setStatus("Fetching…");
+        progressFill.style.width = "0%";
+
+        try {
+          var text = await fetchManifest();
+          var manifest = JSON.parse(text);
+          lastManifestText = text;
+
+          if (!manifest.collections || !manifest.collections.length) {
+            throw new Error("No collections found in manifest");
+          }
+
+          var totalVars = manifest.collections.reduce(function (s, c) {
+            return s + c.variables.length;
+          }, 0);
+          appendLog(
+            "✓ Loaded manifest v" +
+              manifest.version +
+              " — " +
+              manifest.collections.length +
+              " collections, " +
+              totalVars +
+              " variables\n",
+          );
+          setStatus("Syncing…");
+          sendSync(manifest);
+        } catch (err) {
+          appendLog("✗ Error: " + err.message);
+          setStatus("Failed");
+          setBusy(false);
+        }
+      }
+
+      function toggleWatch() {
+        watching = !watching;
+        watchBtn.textContent = watching ? "Watching…" : "Watch";
+        watchBtn.className = watching ? "btn-watch active" : "btn-watch";
+
+        if (watching) {
+          appendLog("\n● Watch started — polling every " + (POLL_INTERVAL / 1000) + "s");
+          setStatus("Watching…");
+          poll();
+          watchTimer = setInterval(poll, POLL_INTERVAL);
+        } else {
+          clearInterval(watchTimer);
+          watchTimer = null;
+          appendLog("○ Watch stopped");
+          setStatus("");
+        }
+      }
+
+      async function poll() {
+        if (syncing) return;
+        try {
+          var text = await fetchManifest();
+
+          if (lastManifestText && text === lastManifestText) return;
+
+          if (lastManifestText) {
+            appendLog("\n⟳ Manifest changed — auto-syncing…");
+          } else {
+            appendLog("\n⟳ First poll — syncing…");
+          }
+
+          lastManifestText = text;
+          var manifest = JSON.parse(text);
+
+          if (!manifest.collections || !manifest.collections.length) return;
+
+          var totalVars = manifest.collections.reduce(function (s, c) {
+            return s + c.variables.length;
+          }, 0);
+          appendLog(
+            "✓ Loaded v" +
+              manifest.version +
+              " — " +
+              manifest.collections.length +
+              " collections, " +
+              totalVars +
+              " vars\n",
+          );
+
+          setBusy(true);
+          setStatus("Auto-syncing…");
+          progressFill.style.width = "0%";
+          sendSync(manifest);
+        } catch (err) {
+          // Server not running or unreachable — silently retry next poll
+        }
+      }
+
+      onmessage = function (event) {
+        var msg = event.data.pluginMessage;
+        if (!msg) return;
+
+        if (msg.type === "log") {
+          appendLog(msg.message);
+        } else if (msg.type === "progress") {
+          var pct = Math.round((msg.current / msg.total) * 100);
+          progressFill.style.width = pct + "%";
+          setStatus(msg.collection + ": " + msg.current + "/" + msg.total);
+        } else if (msg.type === "done") {
+          setBusy(false);
+          setStatus(watching ? "Watching… (synced ✓)" : "Done ✓");
+        } else if (msg.type === "error") {
+          setBusy(false);
+          setStatus(watching ? "Watching… (error)" : "Error");
+        }
+      };
+    </script>
+  </body>
+</html>

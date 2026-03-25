@@ -5,16 +5,21 @@
   "type": "module",
   "scripts": {
     "build": "bun run config/build.ts",
-    "tokens:build": "bun run config/build.ts"
+    "tokens:build": "bun run config/build.ts",
+    "figma:sync-code": "bun run scripts/figma-sync-code.ts",
+    "tokens:watch": "bun run config/watch.ts",
+    "tokens:serve": "bunx serve dist/figma -l 3456 --cors"
   },
   "exports": {
     "./css/*": "./dist/css/*",
     "./ts/*": "./dist/ts/*",
     "./json-mobile/*": "./dist/json-mobile/*",
     "./panda/tokens": "./dist/panda/tokens.json",
-    "./panda/semantic-tokens": "./dist/panda/semantic-tokens.json"
+    "./panda/semantic-tokens": "./dist/panda/semantic-tokens.json",
+    "./figma/manifest": "./dist/figma/variables-manifest.json"
   },
   "devDependencies": {
+    "@types/bun": "^1.3.11",
     "@types/chroma-js": "^3.1.2",
     "@types/node": "^22",
     "chroma-js": "^3.2.0",

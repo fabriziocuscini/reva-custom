@@ -2,6 +2,8 @@ import chroma from 'chroma-js'
 import { mkdir, readdir, readFile, writeFile } from 'fs/promises'
 import { resolve } from 'path'
 import StyleDictionary from 'style-dictionary'
+import { figmaCollections } from './figma-collections'
+import { type JsonObject, buildFigmaManifest } from './figma-format'
 import { buildPandaSemanticTokens, buildPandaTokens } from './panda-format'
 
 // ── Custom transforms ────────────────────────────────────────────────────
@@ -205,6 +207,44 @@ async function build() {
     JSON.stringify(pandaSemanticTokens, null, 2),
   )
   console.log('✓ Built Panda CSS output')
+
+  // ── Figma variables manifest ──────────────────────────────────────────
+  const sourcesByPath = new Map<string, JsonObject>()
+
+  const foundationDir = resolve(srcDir, 'foundation')
+  const foundationEntries = await readdir(foundationDir)
+  for (const entry of foundationEntries) {
+    if (!entry.endsWith('.json')) continue
+    const json = JSON.parse(await readFile(resolve(foundationDir, entry), 'utf-8'))
+    sourcesByPath.set(`foundation/${entry.replace('.json', '')}`, json)
+  }
+
+  // Merge all non-excluded foundation files into 'foundation' aggregate key
+  const foundationAggregate: JsonObject = {}
+  for (const entry of foundationEntries) {
+    if (!entry.endsWith('.json')) continue
+    const excludeSet = new Set(
+      figmaCollections.find((c) => c.name === 'Foundation')?.excludeFiles ?? [],
+    )
+    if (excludeSet.has(entry)) continue
+    const json = JSON.parse(await readFile(resolve(foundationDir, entry), 'utf-8'))
+    Object.assign(foundationAggregate, json)
+  }
+  sourcesByPath.set('foundation', foundationAggregate)
+
+  for (const mode of ['light', 'dark'] as const) {
+    const json = JSON.parse(await readFile(resolve(colorModeDir, `${mode}.json`), 'utf-8'))
+    sourcesByPath.set(`colorMode/${mode}`, json)
+  }
+
+  const figmaManifest = buildFigmaManifest(figmaCollections, sourcesByPath)
+
+  await mkdir(resolve(distDir, 'figma'), { recursive: true })
+  await writeFile(
+    resolve(distDir, 'figma/variables-manifest.json'),
+    JSON.stringify(figmaManifest, null, 2),
+  )
+  console.log('✓ Built Figma variables manifest')
 }
 
 build().catch((err) => {

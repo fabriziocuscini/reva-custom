@@ -1,0 +1,12 @@
+{
+  "name": "Reva Token Sync",
+  "id": "reva-token-sync-dev",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": ["*"],
+    "reasoning": "Fetches the variables manifest from a local dev server or remote URL to sync design tokens into Figma variables."
+  }
+}
