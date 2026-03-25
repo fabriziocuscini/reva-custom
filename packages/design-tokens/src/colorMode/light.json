@@ -938,15 +938,5 @@
         "$value": "{colors.black.solid}"
       }
     }
-  },
-  "misc": {
-    "lightMode": {
-      "$type": "boolean",
-      "$value": "true"
-    },
-    "darkMode": {
-      "$type": "boolean",
-      "$value": "false"
-    }
   }
 }

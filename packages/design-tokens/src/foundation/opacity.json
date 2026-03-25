@@ -1,16 +1,16 @@
 {
   "opacity": {
-    "$type": "opacity",
+    "$type": "number",
     "disabled": {
-      "$value": "30%",
+      "$value": 0.3,
       "$description": "Opacity for disabled elements"
     },
     "placeholder": {
-      "$value": "50%",
+      "$value": 0.5,
       "$description": "Opacity for placeholder text in inputs"
     },
     "overlay": {
-      "$value": "70%",
+      "$value": 0.7,
       "$description": "Opacity for modal and dialog backdrop overlays"
     }
   }

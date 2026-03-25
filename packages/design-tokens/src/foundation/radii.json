@@ -1,6 +1,6 @@
 {
   "radii": {
-    "$type": "borderRadius",
+    "$type": "dimension",
     "none": {
       "$value": "0",
       "$description": "No border radius for square elements"

@@ -214,12 +214,14 @@ function toExportSteps(steps: PaletteStep[]): PaletteStep[] {
 
 /**
  * Produce DTCG-format token object for a palette.
- * Output shape: { "50": { "$value": "#hex" }, ... }
+ * Output shape: { "50": { "$value": "oklch(...)" }, ... }
  */
 function toDTCG(steps: PaletteStep[]): Record<string, { $value: string }> {
   const result: Record<string, { $value: string }> = {}
   for (const s of toExportSteps(steps)) {
-    result[String(s.step)] = { $value: s.hex }
+    result[String(s.step)] = {
+      $value: `oklch(${s.oklch.l} ${s.oklch.c} ${s.oklch.h})`,
+    }
   }
   return result
 }
