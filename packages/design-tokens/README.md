@@ -2,7 +2,7 @@
 
 Platform-agnostic, multi-themeable design tokens for the Reva design system.
 
-Authored in [Tokens Studio](https://tokens.studio/) DTCG format (`$value`, `$type`, `$description`) and transformed via [Style Dictionary v4](https://styledictionary.com/) + `@tokens-studio/sd-transforms` into multiple output formats.
+Authored in [W3C DTCG](https://design-tokens.github.io/community-group/format/) format (`$value`, `$type`, `$description`) with colours in oklch(). Transformed via [Style Dictionary v4](https://styledictionary.com/) and custom build scripts into multiple output formats. Code is the source of truth; Figma variables are synced one-way (code → Figma) via a custom development plugin.
 
 ## Table of Contents
 
@@ -35,7 +35,8 @@ Authored in [Tokens Studio](https://tokens.studio/) DTCG format (`$value`, `$typ
   - [Breakpoints](#breakpoints)
 - [Semantic Layer](#semantic-layer)
 - [Output Formats](#output-formats)
-- [Build](#build)
+- [Scripts](#scripts)
+- [Figma Sync](#figma-sync)
 - [How Panda CSS Consumes Tokens](#how-panda-css-consumes-tokens)
 - [Source of Truth](#source-of-truth)
 
@@ -71,6 +72,7 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 - Each palette is a group of 19 stops: `50`, `100`, `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500`, `550`, `600`, `650`, `700`, `750`, `800`, `850`, `900`, `950`.
 - `50` is the lightest tint; `950` is the darkest shade.
 - `500` is the primary reference swatch for each hue.
+- Colour values are authored in **oklch()** for perceptual uniformity and wide-gamut support. The build pipeline converts them to hex for CSS and other platforms.
 - `black` and `white` sit directly under `colors` with full alpha ramps (`transparent`, `a5`–`a95`, `solid`).
 
 ### Typography
@@ -89,8 +91,6 @@ src/
 ├── colorMode/
 │   ├── light.json       # Light mode semantic colour assignments
 │   └── dark.json        # Dark mode semantic colour assignments
-├── $metadata.json
-└── $themes.json
 ```
 
 ---
@@ -103,7 +103,7 @@ src/
 **Panda category:** `colors`
 **DTCG type:** `color`
 
-The colour system provides neutral palettes, accent/brand palettes, and common black/white with alpha ramps. All palettes follow a 19-stop scale from `50` (lightest) to `950` (darkest).
+The colour system provides neutral palettes, accent/brand palettes, and common black/white with alpha ramps. All palettes follow a 19-stop scale from `50` (lightest) to `950` (darkest). Values are authored in oklch() for perceptual uniformity.
 
 > Colour foundation tokens must **never** be used directly in recipes or app code. Always reference them through the semantic layer.
 
@@ -278,7 +278,7 @@ Container max-widths used by Panda's `theme.containerSizes` config. These are **
 
 #### Font Families
 
-**DTCG type:** `fontFamilies`
+**DTCG type:** `fontFamily`
 
 | Token           | Value              | Description                      |
 | --------------- | ------------------ | -------------------------------- |
@@ -289,7 +289,7 @@ Container max-widths used by Panda's `theme.containerSizes` config. These are **
 
 #### Font Sizes
 
-**DTCG type:** `fontSizes`
+**DTCG type:** `dimension`
 
 | Token           | Value  | Description            |
 | --------------- | ------ | ---------------------- |
@@ -308,7 +308,7 @@ Container max-widths used by Panda's `theme.containerSizes` config. These are **
 
 #### Font Weights
 
-**DTCG type:** `fontWeights`
+**DTCG type:** `fontWeight`
 
 | Token                  | Value | Description     |
 | ---------------------- | ----- | --------------- |
@@ -319,21 +319,23 @@ Container max-widths used by Panda's `theme.containerSizes` config. These are **
 
 #### Letter Spacings
 
-**DTCG type:** `letterSpacing`
+**DTCG type:** `dimension`
 
-| Token                     | Value | Typical usage                 |
-| ------------------------- | ----- | ----------------------------- |
-| `letterSpacings.dense`    | `-2%` | Display headings (40-64px)    |
-| `letterSpacings.tight`    | `-1%` | Large headings (24-32px)      |
-| `letterSpacings.normal`   | `0%`  | Body copy (20-24px)           |
-| `letterSpacings.relaxed`  | `1%`  | Body text (18px)              |
-| `letterSpacings.wide`     | `2%`  | Smaller body text (14-16px)   |
-| `letterSpacings.loose`    | `4%`  | Footnotes and captions (12px) |
-| `letterSpacings.spacious` | `10%` | Uppercase labels (12px)       |
+| Token                     | Value     | Typical usage                 |
+| ------------------------- | --------- | ----------------------------- |
+| `letterSpacings.dense`    | `-0.02em` | Display headings (40-64px)    |
+| `letterSpacings.tight`    | `-0.01em` | Large headings (24-32px)      |
+| `letterSpacings.normal`   | `0em`     | Body copy (20-24px)           |
+| `letterSpacings.relaxed`  | `0.01em`  | Body text (18px)              |
+| `letterSpacings.wide`     | `0.02em`  | Smaller body text (14-16px)   |
+| `letterSpacings.loose`    | `0.04em`  | Footnotes and captions (12px) |
+| `letterSpacings.spacious` | `0.1em`   | Uppercase labels (12px)       |
+
+> **Note:** `lineHeights` and `letterSpacings` are excluded from Figma variables because Figma's FLOAT variable type is unitless — binding to line-height or letter-spacing always interprets values as pixels, with no way to hint percentage. These tokens are available in all other output formats (CSS, TS, JSON, Panda).
 
 #### Line Heights
 
-**DTCG type:** `lineHeights`
+**DTCG type:** `number`
 
 | Token                 | Value  | Typical usage                     |
 | --------------------- | ------ | --------------------------------- |
@@ -413,13 +415,12 @@ Product styles use `Inter Tight` (sans-serif) for both headings and body.
 
 **Source:** `src/foundation/radii.json`
 **Panda category:** `radii`
-**DTCG type:** `borderRadius`
+**DTCG type:** `dimension`
 
 Border radius scale from sharp corners to full pill/circle shapes.
 
 | Token        | Value    | Description                                 |
 | ------------ | -------- | ------------------------------------------- |
-| `radii.none` | `0`      | No border radius (square corners)           |
 | `radii.2xs`  | `2px`    | Subtle rounding on small elements           |
 | `radii.xs`   | `4px`    | Gentle rounding on compact components       |
 | `radii.sm`   | `6px`    | Standard rounding on most UI elements       |
@@ -436,7 +437,7 @@ Border radius scale from sharp corners to full pill/circle shapes.
 
 **Source:** `src/foundation/shadows.json`
 **Panda category:** `shadows`
-**DTCG type:** `boxShadow`
+**DTCG type:** `shadow`
 
 Elevation shadows using layered drop shadows. All shadows use `colors.black` alpha references (`a5`, `a10`, `a25`). Multi-layer shadows combine a primary distance shadow with a tighter contact shadow for realism.
 
@@ -474,14 +475,13 @@ Elevation shadows using layered drop shadows. All shadows use `colors.black` alp
 
 Blur radius scale for backdrop filters, glassmorphism, and soft focus effects.
 
-| Token        | Value  | Description                                          |
-| ------------ | ------ | ---------------------------------------------------- |
-| `blurs.none` | `0px`  | No blur (crisp edges)                                |
-| `blurs.xs`   | `2px`  | Ultra-subtle softening on fine details               |
-| `blurs.sm`   | `4px`  | Gentle softening on tooltips and small overlays      |
-| `blurs.md`   | `8px`  | Balanced softness on shadows and card surfaces       |
-| `blurs.lg`   | `16px` | Visible softening on modal backdrops and dropdowns   |
-| `blurs.xl`   | `24px` | Strong softness for glassmorphism and heavy overlays |
+| Token      | Value  | Description                                          |
+| ---------- | ------ | ---------------------------------------------------- |
+| `blurs.xs` | `2px`  | Ultra-subtle softening on fine details               |
+| `blurs.sm` | `4px`  | Gentle softening on tooltips and small overlays      |
+| `blurs.md` | `8px`  | Balanced softness on shadows and card surfaces       |
+| `blurs.lg` | `16px` | Visible softening on modal backdrops and dropdowns   |
+| `blurs.xl` | `24px` | Strong softness for glassmorphism and heavy overlays |
 
 ---
 
@@ -489,15 +489,15 @@ Blur radius scale for backdrop filters, glassmorphism, and soft focus effects.
 
 **Source:** `src/foundation/opacity.json`
 **Panda category:** `opacity`
-**DTCG type:** `opacity`
+**DTCG type:** `number`
 
 Named opacity values for common UI states.
 
 | Token                 | Value | Description                        |
 | --------------------- | ----- | ---------------------------------- |
-| `opacity.disabled`    | `30%` | Disabled elements                  |
-| `opacity.placeholder` | `50%` | Placeholder text in inputs         |
-| `opacity.overlay`     | `70%` | Modal and dialog backdrop overlays |
+| `opacity.disabled`    | `0.3` | Disabled elements                  |
+| `opacity.placeholder` | `0.5` | Placeholder text in inputs         |
+| `opacity.overlay`     | `0.7` | Modal and dialog backdrop overlays |
 
 ---
 
@@ -505,7 +505,7 @@ Named opacity values for common UI states.
 
 **Source:** `src/foundation/durations.json`
 **Panda category:** `durations`
-**DTCG type:** `dimension`
+**DTCG type:** `duration`
 
 Animation and transition timing scale.
 
@@ -651,21 +651,88 @@ Non-palette-specific tokens remain unchanged: `bg.*` (canvas, surface, overlay, 
 
 ## Output Formats
 
-| Format                | Path                                                        | Description                                         |
-| --------------------- | ----------------------------------------------------------- | --------------------------------------------------- |
-| CSS custom properties | `dist/css/tokens-{theme}.css`                               | `--reva-{category}-{name}` variables                |
-| TypeScript constants  | `dist/ts/tokens-{theme}.ts`                                 | Named exports (`colorsBrand500`, `spacing4`)        |
-| JSON (nested)         | `dist/json/tokens-{theme}.json`                             | Nested structure with resolved values               |
-| JSON (flat, mobile)   | `dist/json-mobile/tokens-{theme}.json`                      | Flat camelCase keys for React Native                |
-| W3C DTCG JSON         | `dist/json-dtcg/tokens-{theme}.json`                        | Standards-compliant `$value`/`$type` output         |
-| Panda CSS             | `dist/panda/tokens.json`, `dist/panda/semantic-tokens.json` | `{ value }` format consumed by `@reva/panda-preset` |
+| Format                | Path                                                        | Description                                               |
+| --------------------- | ----------------------------------------------------------- | --------------------------------------------------------- |
+| CSS custom properties | `dist/css/tokens-{theme}.css`                               | `--reva-{category}-{name}` variables                      |
+| TypeScript constants  | `dist/ts/tokens-{theme}.ts`                                 | Named exports (`colorsBrand500`, `spacing4`)              |
+| JSON (nested)         | `dist/json/tokens-{theme}.json`                             | Nested structure with resolved values                     |
+| JSON (flat, mobile)   | `dist/json-mobile/tokens-{theme}.json`                      | Flat camelCase keys for React Native                      |
+| Panda CSS             | `dist/panda/tokens.json`, `dist/panda/semantic-tokens.json` | `{ value }` format consumed by `@reva/panda-preset`       |
+| Figma manifest        | `dist/figma/variables-manifest.json`                        | Figma Plugin API–ready collection/variable/mode structure |
 
-## Build
+---
+
+## Scripts
+
+All scripts run from the `packages/design-tokens` directory.
+
+| Script         | Command                | Description                                                                 |
+| -------------- | ---------------------- | --------------------------------------------------------------------------- |
+| `tokens:lint`  | `bun run tokens:lint`  | Validates all source JSON against W3C DTCG spec and Reva conventions        |
+| `tokens:build` | `bun run tokens:build` | Lints then builds all output formats (CSS, TS, JSON, Panda, Figma manifest) |
+| `tokens:watch` | `bun run tokens:watch` | Watches `src/` for `.json` changes → auto lint + build (200ms debounce)     |
+| `tokens:serve` | `bun run tokens:serve` | Serves `dist/figma/` on `localhost:3456` for the Figma plugin to fetch      |
+
+### Live development workflow
+
+Run two terminals in parallel:
 
 ```bash
-bun run tokens:build    # Build all output formats
-bun run build           # Same, via Turborepo
+bun run tokens:watch   # Tab 1: watches src/, auto lint + build on save
+bun run tokens:serve   # Tab 2: serves manifest on localhost:3456
 ```
+
+With the Figma plugin in Watch mode, the end-to-end flow is:
+
+1. Edit a `.json` token file (manually or via Cursor)
+2. `tokens:watch` detects the save, lints, rebuilds (~600ms)
+3. The serve process hosts the updated manifest
+4. The Figma plugin polls every 5s, detects the change, auto-syncs variables
+
+Save to Figma variables updated in under 6 seconds, zero clicks.
+
+---
+
+## Figma Sync
+
+### Architecture
+
+Figma sync is **one-way: code → Figma**. A custom Figma development plugin at `tools/figma-variable-sync/` reads the `variables-manifest.json` and creates/updates/deletes Figma variables to mirror the token source exactly.
+
+### Figma collections
+
+The manifest maps token groups to three Figma variable collections:
+
+| Collection     | Modes           | Sources                                                              |
+| -------------- | --------------- | -------------------------------------------------------------------- |
+| **Foundation** | `foundation`    | All foundation tokens except typography, text styles, and shadows    |
+| **Typography** | `typography`    | `fonts`, `fontSizes`, `fontWeights` (not lineHeights/letterSpacings) |
+| **Color mode** | `light`, `dark` | Semantic colour tokens from `colorMode/light.json` and `dark.json`   |
+
+### Value conversions (code → Figma)
+
+| Source format   | Figma format           | Example                            |
+| --------------- | ---------------------- | ---------------------------------- |
+| `oklch()`       | `{ r, g, b, a }` (0–1) | `oklch(0.7 0.1 150)` → RGBA object |
+| `16px`          | `16` (FLOAT)           | Dimension to number                |
+| `1.5rem`        | `24` (FLOAT)           | rem × 16                           |
+| `200ms`         | `200` (FLOAT)          | Duration to number                 |
+| `0.7` (opacity) | `70` (FLOAT)           | × 100 for Figma's 0–100 scale      |
+| `{ref.path}`    | Variable alias         | Semantic → foundation reference    |
+
+### Excluded from Figma variables
+
+- **`lineHeights`** and **`letterSpacings`** — Figma FLOAT variables are unitless; binding them to text properties always uses px, making percentage-based values unusable.
+- **`shadows`** — Composite type, not representable as a single Figma variable.
+- **`textStyles`** — Composite typography type.
+
+### Plugin usage
+
+1. In Figma, go to **Plugins → Development → Reva Token Sync**
+2. Ensure `tokens:serve` is running (`localhost:3456`)
+3. Click **Sync Now** for a one-time sync, or **Watch** for auto-polling every 5 seconds
+
+---
 
 ## How Panda CSS Consumes Tokens
 
@@ -673,6 +740,8 @@ bun run build           # Same, via Turborepo
 
 `breakpoints` and `containerSizes` are defined directly in the preset as flat maps — they are Panda theme config, not token categories.
 
+---
+
 ## Source of Truth
 
-Code is the source of truth — tokens are authored here and synced bidirectionally with Figma via the Tokens Studio plugin. Never create Figma variables manually.
+Code is the source of truth. Tokens are authored as DTCG JSON in `src/`, linted, built, and synced one-way to Figma. Never create Figma variables manually — they will be deleted on the next sync.
