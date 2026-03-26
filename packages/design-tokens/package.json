@@ -9,7 +9,8 @@
     "figma:sync-code": "bun run scripts/figma-sync-code.ts",
     "tokens:watch": "bun run config/watch.ts",
     "tokens:lint": "bun run config/lint.ts",
-    "tokens:serve": "bunx serve dist/figma -l 3456 --cors"
+    "tokens:serve": "portless tokens.revaos bunx serve dist/figma --cors",
+    "dev": "bun run tokens:build && (trap 'kill 0' EXIT; bun run tokens:watch & bun run tokens:serve & wait)"
   },
   "exports": {
     "./css/*": "./dist/css/*",

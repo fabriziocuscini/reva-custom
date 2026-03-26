@@ -200,6 +200,7 @@ async function build() {
       componentFiles.some((f) => token.filePath === f)
 
     const sdComponents = new StyleDictionary({
+      log: { verbosity: 'silent', warnings: 'disabled' },
       source: componentFiles,
       include: foundationFiles,
       platforms: {
