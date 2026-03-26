@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "bun run config/build.ts",
-    "tokens:build": "bun run config/build.ts",
+    "build": "bun run config/lint.ts && bun run config/build.ts",
+    "tokens:build": "bun run config/lint.ts && bun run config/build.ts",
     "figma:sync-code": "bun run scripts/figma-sync-code.ts",
     "tokens:watch": "bun run config/watch.ts",
     "tokens:lint": "bun run config/lint.ts",
