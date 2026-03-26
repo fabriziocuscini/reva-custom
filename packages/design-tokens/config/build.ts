@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import StyleDictionary from 'style-dictionary'
 import { figmaCollections } from './figma-collections'
 import { type JsonObject, buildFigmaManifest } from './figma-format'
-import { buildPandaSemanticTokens, buildPandaTokens } from './panda-format'
+import { buildComponentSpecs, buildPandaSemanticTokens, buildPandaTokens } from './panda-format'
 
 // ── Custom transforms ────────────────────────────────────────────────────
 
@@ -74,7 +74,7 @@ async function getFoundationFiles(srcDir: string): Promise<string[]> {
 }
 
 async function getComponentFiles(srcDir: string): Promise<string[]> {
-  const dir = resolve(srcDir, 'component')
+  const dir = resolve(srcDir, 'components')
   try {
     const entries = await readdir(dir)
     return entries
@@ -89,7 +89,11 @@ async function getComponentFiles(srcDir: string): Promise<string[]> {
 const CSS_TRANSFORMS = ['name/kebab', 'reva/size/pxToRem', 'reva/shadow/css']
 const NON_CSS_TRANSFORMS = ['reva/color/oklchToHex', 'reva/shadow/css']
 
-function nonCssPlatforms(distDir: string, name: string) {
+function nonCssPlatforms(
+  distDir: string,
+  name: string,
+  filter?: (token: { filePath: string }) => boolean,
+) {
   return {
     ts: {
       transforms: [...NON_CSS_TRANSFORMS, 'name/camel'],
@@ -98,6 +102,7 @@ function nonCssPlatforms(distDir: string, name: string) {
         {
           destination: `tokens-${name}.ts`,
           format: 'javascript/es6',
+          ...(filter && { filter }),
         },
       ],
     },
@@ -109,6 +114,7 @@ function nonCssPlatforms(distDir: string, name: string) {
         {
           destination: `tokens-${name}.json`,
           format: 'json/nested',
+          ...(filter && { filter }),
         },
       ],
     },
@@ -120,6 +126,7 @@ function nonCssPlatforms(distDir: string, name: string) {
         {
           destination: `tokens-${name}.json`,
           format: 'json/flat',
+          ...(filter && { filter }),
         },
       ],
     },
@@ -163,7 +170,7 @@ async function build() {
     const colorModeFile = resolve(colorModeDir, `${mode}.json`)
 
     const sd = new StyleDictionary({
-      source: [colorModeFile, ...componentFiles],
+      source: [colorModeFile],
       include: foundationFiles,
       platforms: {
         css: {
@@ -186,6 +193,40 @@ async function build() {
     await sd.buildAllPlatforms()
     console.log(`✓ Built theme: ${mode}`)
   }
+
+  // ── Component build ────────────────────────────────────────────────
+  if (componentFiles.length > 0) {
+    const isComponentToken = (token: { filePath: string }) =>
+      componentFiles.some((f) => token.filePath === f)
+
+    const sdComponents = new StyleDictionary({
+      source: componentFiles,
+      include: foundationFiles,
+      platforms: {
+        css: {
+          transforms: CSS_TRANSFORMS,
+          prefix: 'reva',
+          buildPath: `${distDir}/css/`,
+          files: [
+            {
+              destination: 'tokens-components.css',
+              format: 'css/variables',
+              filter: isComponentToken,
+              options: { outputReferences: true },
+            },
+          ],
+        },
+        ...nonCssPlatforms(distDir, 'components', isComponentToken),
+      },
+    })
+
+    await sdComponents.cleanAllPlatforms()
+    await sdComponents.buildAllPlatforms()
+    console.log('✓ Built theme: components')
+  }
+
+  await buildComponentSpecs(componentFiles, distDir)
+  console.log('✓ Built component specs for Panda')
 
   // ── Panda CSS output ─────────────────────────────────────────────────
   const foundationSources = await Promise.all(
@@ -235,6 +276,16 @@ async function build() {
   for (const mode of ['light', 'dark'] as const) {
     const json = JSON.parse(await readFile(resolve(colorModeDir, `${mode}.json`), 'utf-8'))
     sourcesByPath.set(`colorMode/${mode}`, json)
+  }
+
+  // Merge component files into a 'components' aggregate key
+  if (componentFiles.length > 0) {
+    const componentsAggregate: JsonObject = {}
+    for (const file of componentFiles) {
+      const json = JSON.parse(await readFile(file, 'utf-8'))
+      Object.assign(componentsAggregate, json)
+    }
+    sourcesByPath.set('components', componentsAggregate)
   }
 
   const figmaManifest = buildFigmaManifest(figmaCollections, sourcesByPath)
