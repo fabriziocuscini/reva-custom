@@ -718,11 +718,7 @@ function PaletteEditor({
                   </Card>
 
                   {/* Copy block */}
-                  <CopyBlock
-                    palette={palette}
-                    paletteName={activePreset ?? 'custom'}
-                    midpointHex={midpointHex}
-                  />
+                  <CopyBlock palette={palette} paletteName={activePreset ?? 'custom'} />
                 </div>
               )}
             </Tabs>
