@@ -1,6 +1,6 @@
 {
   "durations": {
-    "$type": "dimension",
+    "$type": "duration",
     "fastest": {
       "$value": "50ms",
       "$description": "Fastest speed for instant feedback and micro-interactions"

@@ -44,17 +44,19 @@ export const ALPHA_SUFFIXES: Record<number, string> = {
 export const DEFAULT_PARAMS: PaletteParams = {
   L_max: 0.985,
   L_min: 0.15,
-  L_ease: 1.0,
+  L_ease_light: 1.0,
+  L_ease_dark: 1.0,
   C_taper_light: 8,
   C_taper_dark: 15,
-  C_ease: 1.0,
+  C_ease_light: 1.0,
+  C_ease_dark: 1.0,
   H_shift_light: 0,
   H_shift_dark: 0,
-  H_ease: 1.0,
-  dist_ease: 1.0,
+  H_ease_light: 1.0,
+  H_ease_dark: 1.0,
 }
 
-export const LIGHTNESS_PARAMS: ParamConfig[] = [
+export const LIGHTNESS_PARAMS_LIGHT: ParamConfig[] = [
   {
     key: 'L_max',
     label: 'L max',
@@ -65,6 +67,18 @@ export const LIGHTNESS_PARAMS: ParamConfig[] = [
     description: 'How close to white the lightest step gets',
   },
   {
+    key: 'L_ease_light',
+    label: 'Easing',
+    min: 0.2,
+    max: 1.8,
+    step: 0.1,
+    default: 1.0,
+    description: '< 1 = fast change near anchor, > 1 = holds anchor longer',
+  },
+]
+
+export const LIGHTNESS_PARAMS_DARK: ParamConfig[] = [
+  {
     key: 'L_min',
     label: 'L min',
     min: 0.05,
@@ -74,20 +88,20 @@ export const LIGHTNESS_PARAMS: ParamConfig[] = [
     description: 'How close to black the darkest step gets',
   },
   {
-    key: 'L_ease',
-    label: 'Easing factor',
-    min: 0.5,
-    max: 1.5,
+    key: 'L_ease_dark',
+    label: 'Easing',
+    min: 0.2,
+    max: 1.8,
     step: 0.1,
     default: 1.0,
     description: '< 1 = fast change near anchor, > 1 = holds anchor longer',
   },
 ]
 
-export const CHROMA_PARAMS: ParamConfig[] = [
+export const CHROMA_PARAMS_LIGHT: ParamConfig[] = [
   {
     key: 'C_taper_light',
-    label: 'Light-end taper',
+    label: 'Taper',
     min: 2,
     max: 40,
     step: 1,
@@ -96,8 +110,20 @@ export const CHROMA_PARAMS: ParamConfig[] = [
     description: '% of midpoint chroma retained at step 50',
   },
   {
+    key: 'C_ease_light',
+    label: 'Easing',
+    min: 0.2,
+    max: 1.8,
+    step: 0.1,
+    default: 1.0,
+    description: '< 1 = fast taper, > 1 = holds peak chroma longer',
+  },
+]
+
+export const CHROMA_PARAMS_DARK: ParamConfig[] = [
+  {
     key: 'C_taper_dark',
-    label: 'Dark-end taper',
+    label: 'Taper',
     min: 2,
     max: 40,
     step: 1,
@@ -106,20 +132,20 @@ export const CHROMA_PARAMS: ParamConfig[] = [
     description: '% of midpoint chroma retained at step 950',
   },
   {
-    key: 'C_ease',
-    label: 'Easing factor',
-    min: 0.5,
-    max: 1.5,
+    key: 'C_ease_dark',
+    label: 'Easing',
+    min: 0.2,
+    max: 1.8,
     step: 0.1,
     default: 1.0,
     description: '< 1 = fast taper, > 1 = holds peak chroma longer',
   },
 ]
 
-export const HUE_PARAMS: ParamConfig[] = [
+export const HUE_PARAMS_LIGHT: ParamConfig[] = [
   {
     key: 'H_shift_light',
-    label: 'Light-end shift',
+    label: 'Shift',
     min: -30,
     max: 30,
     step: 1,
@@ -128,8 +154,20 @@ export const HUE_PARAMS: ParamConfig[] = [
     description: 'Hue rotation in degrees toward the lightest step',
   },
   {
+    key: 'H_ease_light',
+    label: 'Easing',
+    min: 0.2,
+    max: 1.8,
+    step: 0.1,
+    default: 1.0,
+    description: '< 1 = fast shift near anchor, > 1 = holds anchor hue longer',
+  },
+]
+
+export const HUE_PARAMS_DARK: ParamConfig[] = [
+  {
     key: 'H_shift_dark',
-    label: 'Dark-end shift',
+    label: 'Shift',
     min: -30,
     max: 30,
     step: 1,
@@ -138,22 +176,12 @@ export const HUE_PARAMS: ParamConfig[] = [
     description: 'Hue rotation in degrees toward the darkest step',
   },
   {
-    key: 'H_ease',
-    label: 'Easing factor',
-    min: 0.5,
-    max: 1.5,
+    key: 'H_ease_dark',
+    label: 'Easing',
+    min: 0.2,
+    max: 1.8,
     step: 0.1,
     default: 1.0,
     description: '< 1 = fast shift near anchor, > 1 = holds anchor hue longer',
   },
 ]
-
-export const DISTRIBUTION_PARAM: ParamConfig = {
-  key: 'dist_ease',
-  label: 'Easing factor',
-  min: 0.5,
-  max: 1.5,
-  step: 0.1,
-  default: 1.0,
-  description: 'Sets both lightness and chroma easing together',
-}

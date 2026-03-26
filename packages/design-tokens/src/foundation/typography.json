@@ -1,6 +1,6 @@
 {
   "fonts": {
-    "$type": "fontFamilies",
+    "$type": "fontFamily",
     "text": {
       "$value": "Inter Tight",
       "$description": "Primary sans-serif for body text"
@@ -19,7 +19,7 @@
     }
   },
   "fontSizes": {
-    "$type": "fontSizes",
+    "$type": "dimension",
     "3xs": {
       "$value": "11px",
       "$description": "Smallest text size (11px)"
@@ -70,71 +70,71 @@
     }
   },
   "fontWeights": {
-    "$type": "fontWeights",
+    "$type": "fontWeight",
     "regular": {
-      "$value": "400",
+      "$value": 400,
       "$description": "Regular weight"
     },
     "medium": {
-      "$value": "500",
+      "$value": 500,
       "$description": "Medium weight"
     },
     "semibold": {
-      "$value": "600",
+      "$value": 600,
       "$description": "Semibold weight"
     },
     "bold": {
-      "$value": "700",
+      "$value": 700,
       "$description": "Bold weight"
     }
   },
   "letterSpacings": {
-    "$type": "letterSpacing",
+    "$type": "dimension",
     "dense": {
-      "$value": "-2%",
+      "$value": "-0.02em",
       "$description": "Tightest tracking for display headings (40–64px)"
     },
     "tight": {
-      "$value": "-1%",
+      "$value": "-0.01em",
       "$description": "Tight tracking for large headings (24–32px)"
     },
     "normal": {
-      "$value": "0%",
+      "$value": "0em",
       "$description": "Neutral tracking for body copy (20–24px)"
     },
     "relaxed": {
-      "$value": "1%",
+      "$value": "0.01em",
       "$description": "Slightly open tracking for body text (18px)"
     },
     "wide": {
-      "$value": "2%",
+      "$value": "0.02em",
       "$description": "Open tracking for smaller body text (14–16px)"
     },
     "loose": {
-      "$value": "4%",
+      "$value": "0.04em",
       "$description": "Loose tracking for footnotes and captions (12px)"
     },
     "spacious": {
-      "$value": "10%",
+      "$value": "0.1em",
       "$description": "Very open tracking for uppercase labels (12px)"
     }
   },
   "lineHeights": {
-    "$type": "lineHeights",
+    "$type": "number",
     "tight": {
-      "$value": "1.15",
+      "$value": 1.15,
       "$description": "Tight leading for display headings (48–64px)"
     },
     "compact": {
-      "$value": "1.2",
+      "$value": 1.2,
       "$description": "Compact leading for section headings (40px)"
     },
     "normal": {
-      "$value": "1.3",
+      "$value": 1.3,
       "$description": "Standard leading for body text and subtitles (12–24px)"
     },
     "relaxed": {
-      "$value": "1.4",
+      "$value": 1.4,
       "$description": "Relaxed leading for smaller body text and UI elements"
     }
   }

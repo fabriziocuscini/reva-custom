@@ -17,6 +17,7 @@
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "tokens:build": "turbo run tokens:build",
+    "tokens:lint": "bun run --filter @reva/tokens tokens:lint",
     "codegen": "turbo run codegen",
     "dev:palette-generator": "cd packages/design-tokens/tools/palette-generator && bun run dev",
     "format": "prettier --write .",

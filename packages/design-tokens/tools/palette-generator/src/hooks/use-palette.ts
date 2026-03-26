@@ -50,11 +50,6 @@ export function usePalette(presets: Preset[]) {
     }
   }, [midpointHex, params, validHex])
 
-  const isDiverged =
-    params.L_ease !== params.dist_ease ||
-    params.C_ease !== params.dist_ease ||
-    params.H_ease !== params.dist_ease
-
   const baseParams = activePreset
     ? (presets.find((p) => p.name === activePreset)?.params ?? DEFAULT_PARAMS)
     : DEFAULT_PARAMS
@@ -77,20 +72,6 @@ export function usePalette(presets: Preset[]) {
     (key: keyof PaletteParams, value: number) => {
       history.record(paramsRef.current)
       setParams((prev) => ({ ...prev, [key]: value }))
-    },
-    [history],
-  )
-
-  const updateDistribution = useCallback(
-    (value: number) => {
-      history.record(paramsRef.current)
-      setParams((prev) => ({
-        ...prev,
-        L_ease: value,
-        C_ease: value,
-        H_ease: value,
-        dist_ease: value,
-      }))
     },
     [history],
   )
@@ -138,35 +119,62 @@ export function usePalette(presets: Preset[]) {
     }
   }, [history, presets])
 
-  const resetLightness = useCallback(() => {
-    history.record(paramsRef.current)
-    setParams((prev) => ({
-      ...prev,
-      L_max: DEFAULT_PARAMS.L_max,
-      L_min: DEFAULT_PARAMS.L_min,
-      L_ease: DEFAULT_PARAMS.L_ease,
-    }))
-  }, [history])
+  const getBaseParams = useCallback((): PaletteParams => {
+    if (!activePresetRef.current) return DEFAULT_PARAMS
+    return presets.find((p) => p.name === activePresetRef.current)?.params ?? DEFAULT_PARAMS
+  }, [presets])
 
-  const resetChroma = useCallback(() => {
+  const resetLightnessLight = useCallback(() => {
     history.record(paramsRef.current)
-    setParams((prev) => ({
-      ...prev,
-      C_taper_light: DEFAULT_PARAMS.C_taper_light,
-      C_taper_dark: DEFAULT_PARAMS.C_taper_dark,
-      C_ease: DEFAULT_PARAMS.C_ease,
-    }))
-  }, [history])
+    const base = getBaseParams()
+    setParams((prev) => ({ ...prev, L_max: base.L_max, L_ease_light: base.L_ease_light }))
+  }, [history, getBaseParams])
 
-  const resetHue = useCallback(() => {
+  const resetLightnessDark = useCallback(() => {
     history.record(paramsRef.current)
+    const base = getBaseParams()
+    setParams((prev) => ({ ...prev, L_min: base.L_min, L_ease_dark: base.L_ease_dark }))
+  }, [history, getBaseParams])
+
+  const resetChromaLight = useCallback(() => {
+    history.record(paramsRef.current)
+    const base = getBaseParams()
     setParams((prev) => ({
       ...prev,
-      H_shift_light: DEFAULT_PARAMS.H_shift_light,
-      H_shift_dark: DEFAULT_PARAMS.H_shift_dark,
-      H_ease: DEFAULT_PARAMS.H_ease,
+      C_taper_light: base.C_taper_light,
+      C_ease_light: base.C_ease_light,
     }))
-  }, [history])
+  }, [history, getBaseParams])
+
+  const resetChromaDark = useCallback(() => {
+    history.record(paramsRef.current)
+    const base = getBaseParams()
+    setParams((prev) => ({
+      ...prev,
+      C_taper_dark: base.C_taper_dark,
+      C_ease_dark: base.C_ease_dark,
+    }))
+  }, [history, getBaseParams])
+
+  const resetHueLight = useCallback(() => {
+    history.record(paramsRef.current)
+    const base = getBaseParams()
+    setParams((prev) => ({
+      ...prev,
+      H_shift_light: base.H_shift_light,
+      H_ease_light: base.H_ease_light,
+    }))
+  }, [history, getBaseParams])
+
+  const resetHueDark = useCallback(() => {
+    history.record(paramsRef.current)
+    const base = getBaseParams()
+    setParams((prev) => ({
+      ...prev,
+      H_shift_dark: base.H_shift_dark,
+      H_ease_dark: base.H_ease_dark,
+    }))
+  }, [history, getBaseParams])
 
   const undo = useCallback(() => {
     const restored = history.undo(paramsRef.current)
@@ -213,19 +221,20 @@ export function usePalette(presets: Preset[]) {
     params,
     palette,
     validHex,
-    isDiverged,
     isModified,
     hasUnsavedChanges,
     isSaving,
     saveError,
     updateParam,
-    updateDistribution,
     selectPreset,
     setCustomHex,
     resetParams,
-    resetLightness,
-    resetChroma,
-    resetHue,
+    resetLightnessLight,
+    resetLightnessDark,
+    resetChromaLight,
+    resetChromaDark,
+    resetHueLight,
+    resetHueDark,
     undo,
     redo,
     save,

@@ -7,29 +7,44 @@ import { useMemo, useState } from 'react'
 interface CopyBlockProps {
   palette: PaletteStep[]
   paletteName: string
-  midpointHex: string
 }
 
-export function CopyBlock({ palette, paletteName, midpointHex }: CopyBlockProps) {
+function formatOklch(L: number, C: number, H: number, alpha?: number): string {
+  const base = `oklch(${L.toFixed(4)} ${C.toFixed(4)} ${H.toFixed(2)}`
+  if (alpha !== undefined) return `${base} / ${alpha})`
+  return `${base})`
+}
+
+export function CopyBlock({ palette, paletteName }: CopyBlockProps) {
   const [copied, setCopied] = useState(false)
 
   const text = useMemo(() => {
     const indent = '      '
-    const base = midpointHex.replace('#', '').toLowerCase()
+
+    const midpoint = palette.find((s) => s.isMidpoint)
 
     const steps = palette
-      .map((item) => `${indent}"${item.step}": {\n${indent}  "$value": "${item.hex}"\n${indent}}`)
+      .map(
+        (item) =>
+          `${indent}"${item.step}": {\n${indent}  "$value": "${formatOklch(item.L, item.C, item.H)}"\n${indent}}`,
+      )
       .join(',\n')
 
-    const transparent = `${indent}  "transparent": {\n${indent}    "$value": "#${base}00"\n${indent}  }`
+    let alphaBlock = ''
+    if (midpoint) {
+      const transparent = `${indent}  "transparent": {\n${indent}    "$value": "${formatOklch(midpoint.L, midpoint.C, midpoint.H, 0)}"\n${indent}  }`
 
-    const alphas = ALPHA_EXPORT_STEPS.map(
-      (step) =>
-        `${indent}  "a${step}": {\n${indent}    "$value": "#${base}${ALPHA_SUFFIXES[step]}"\n${indent}  }`,
-    ).join(',\n')
+      const alphas = ALPHA_EXPORT_STEPS.map((step) => {
+        const hexByte = parseInt(ALPHA_SUFFIXES[step], 16)
+        const alpha = Number((hexByte / 255).toFixed(3))
+        return `${indent}  "a${step}": {\n${indent}    "$value": "${formatOklch(midpoint.L, midpoint.C, midpoint.H, alpha)}"\n${indent}  }`
+      }).join(',\n')
 
-    return `    "${paletteName}": {\n${steps},\n${indent}"alpha": {\n${transparent},\n${alphas}\n${indent}}\n    }`
-  }, [palette, paletteName, midpointHex])
+      alphaBlock = `,\n${indent}"alpha": {\n${transparent},\n${alphas}\n${indent}}`
+    }
+
+    return `    "${paletteName}": {\n${steps}${alphaBlock}\n    }`
+  }, [palette, paletteName])
 
   const handleCopy = () => {
     copyToClipboard(text)

@@ -8,8 +8,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.6xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 1 — regular"
         },
@@ -18,8 +18,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.6xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 1 — medium (default)"
         },
@@ -28,8 +28,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.6xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 1 — semibold"
         },
@@ -38,8 +38,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.6xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 1 — bold"
         }
@@ -50,8 +50,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 2 — regular"
         },
@@ -60,8 +60,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 2 — medium (default)"
         },
@@ -70,8 +70,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 2 — semibold"
         },
@@ -80,8 +80,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "115%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.tight}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 2 — bold"
         }
@@ -92,8 +92,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 3 — regular"
         },
@@ -102,8 +102,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 3 — medium (default)"
         },
@@ -112,8 +112,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 3 — semibold"
         },
@@ -122,8 +122,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "-2%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.dense}"
           },
           "$description": "Marketing heading 3 — bold"
         }
@@ -134,8 +134,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing heading 4 — regular"
         },
@@ -144,8 +144,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing heading 4 — medium"
         },
@@ -154,8 +154,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing heading 4 — semibold (default)"
         },
@@ -164,8 +164,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing heading 4 — bold"
         }
@@ -176,8 +176,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing heading 5 — regular"
         },
@@ -186,8 +186,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing heading 5 — medium"
         },
@@ -196,8 +196,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing heading 5 — semibold (default)"
         },
@@ -206,8 +206,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing heading 5 — bold"
         }
@@ -218,8 +218,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "140%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.relaxed}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing heading 6 — regular"
         },
@@ -228,8 +228,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "140%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.relaxed}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing heading 6 — medium"
         },
@@ -238,8 +238,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "140%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.relaxed}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing heading 6 — semibold (default)"
         },
@@ -248,8 +248,8 @@
             "fontFamily": "{fonts.serif}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "140%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.relaxed}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing heading 6 — bold"
         }
@@ -260,8 +260,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "10%",
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.spacious}",
             "textCase": "uppercase"
           },
           "$description": "Marketing overline — regular"
@@ -271,8 +271,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "10%",
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.spacious}",
             "textCase": "uppercase"
           },
           "$description": "Marketing overline — medium (default)"
@@ -282,8 +282,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "10%",
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.spacious}",
             "textCase": "uppercase"
           },
           "$description": "Marketing overline — semibold"
@@ -293,8 +293,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "10%",
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.spacious}",
             "textCase": "uppercase"
           },
           "$description": "Marketing overline — bold"
@@ -308,8 +308,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing lead 1 — regular (default)"
         },
@@ -318,8 +318,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing lead 1 — medium"
         },
@@ -328,8 +328,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing lead 1 — semibold (default)"
         },
@@ -338,8 +338,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Marketing lead 1 — bold"
         }
@@ -350,8 +350,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing lead 2 — regular (default)"
         },
@@ -360,8 +360,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing lead 2 — medium"
         },
@@ -370,8 +370,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing lead 2 — semibold (default)"
         },
@@ -380,8 +380,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Marketing lead 2 — bold"
         }
@@ -392,8 +392,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing body — regular (default)"
         },
@@ -402,8 +402,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing body — medium"
         },
@@ -412,8 +412,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing body — semibold (default)"
         },
@@ -422,8 +422,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing body — bold"
         }
@@ -434,8 +434,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing caption — regular (default)"
         },
@@ -444,8 +444,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing caption — medium (default)"
         },
@@ -454,8 +454,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing caption — semibold"
         },
@@ -464,8 +464,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Marketing caption — bold (default)"
         }
@@ -476,8 +476,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Marketing footnote — regular"
         },
@@ -486,8 +486,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Marketing footnote — medium (default)"
         },
@@ -496,8 +496,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Marketing footnote — semibold"
         },
@@ -506,8 +506,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Marketing footnote — bold (default)"
         }
@@ -523,8 +523,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 1 — regular"
         },
@@ -533,8 +533,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 1 — medium (default)"
         },
@@ -543,8 +543,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 1 — semibold"
         },
@@ -553,8 +553,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.5xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 1 — bold"
         }
@@ -565,8 +565,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 2 — regular"
         },
@@ -575,8 +575,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 2 — medium"
         },
@@ -585,8 +585,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 2 — semibold (default)"
         },
@@ -595,8 +595,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.4xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 2 — bold"
         }
@@ -607,8 +607,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.3xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 3 — regular"
         },
@@ -617,8 +617,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.3xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 3 — medium"
         },
@@ -627,8 +627,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.3xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 3 — semibold (default)"
         },
@@ -637,8 +637,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.3xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 3 — bold"
         }
@@ -649,8 +649,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 4 — regular"
         },
@@ -659,8 +659,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 4 — medium"
         },
@@ -669,8 +669,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 4 — semibold (default)"
         },
@@ -679,8 +679,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 4 — bold"
         }
@@ -691,8 +691,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 5 — regular"
         },
@@ -701,8 +701,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 5 — medium"
         },
@@ -711,8 +711,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 5 — semibold (default)"
         },
@@ -721,8 +721,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 5 — bold"
         }
@@ -733,8 +733,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 6 — regular"
         },
@@ -743,8 +743,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 6 — medium"
         },
@@ -753,8 +753,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 6 — semibold (default)"
         },
@@ -763,8 +763,8 @@
             "fontFamily": "{fonts.display}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "120%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.compact}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product heading 6 — bold"
         }
@@ -777,8 +777,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 2 — regular (default)"
         },
@@ -787,8 +787,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 2 — medium"
         },
@@ -797,8 +797,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 2 — semibold (default)"
         },
@@ -807,8 +807,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 2 — bold"
         }
@@ -819,8 +819,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 1 — regular (default)"
         },
@@ -829,8 +829,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 1 — medium"
         },
@@ -839,8 +839,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 1 — semibold (default)"
         },
@@ -849,8 +849,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xl}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "0%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.normal}"
           },
           "$description": "Product lead 1 — bold"
         }
@@ -861,8 +861,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 2 — regular (default)"
         },
@@ -871,8 +871,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 2 — medium"
         },
@@ -881,8 +881,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 2 — semibold (default)"
         },
@@ -891,8 +891,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.lg}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 2 — bold"
         }
@@ -903,8 +903,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 1 — regular (default)"
         },
@@ -913,8 +913,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 1 — medium"
         },
@@ -923,8 +923,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 1 — semibold (default)"
         },
@@ -933,8 +933,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.md}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "1%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.relaxed}"
           },
           "$description": "Product body 1 — bold"
         }
@@ -945,8 +945,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 2 — regular (default)"
         },
@@ -955,8 +955,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 2 — medium"
         },
@@ -965,8 +965,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 2 — semibold (default)"
         },
@@ -975,8 +975,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.sm}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 2 — bold"
         }
@@ -987,8 +987,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xs}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 1 — regular"
         },
@@ -997,8 +997,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xs}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 1 — medium (default)"
         },
@@ -1007,8 +1007,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xs}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 1 — semibold"
         },
@@ -1017,8 +1017,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.xs}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "2%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.wide}"
           },
           "$description": "Product caption 1 — bold (default)"
         }
@@ -1029,8 +1029,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 2 — regular"
         },
@@ -1039,8 +1039,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 2 — medium (default)"
         },
@@ -1049,8 +1049,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 2 — semibold"
         },
@@ -1059,8 +1059,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.2xs}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 2 — bold (default)"
         }
@@ -1071,8 +1071,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.3xs}",
             "fontWeight": "{fontWeights.regular}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 1 — regular"
         },
@@ -1081,8 +1081,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.3xs}",
             "fontWeight": "{fontWeights.medium}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 1 — medium (default)"
         },
@@ -1091,8 +1091,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.3xs}",
             "fontWeight": "{fontWeights.semibold}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 1 — semibold"
         },
@@ -1101,8 +1101,8 @@
             "fontFamily": "{fonts.text}",
             "fontSize": "{fontSizes.3xs}",
             "fontWeight": "{fontWeights.bold}",
-            "lineHeight": "130%",
-            "letterSpacing": "4%"
+            "lineHeight": "{lineHeights.normal}",
+            "letterSpacing": "{letterSpacings.loose}"
           },
           "$description": "Product footnote 1 — bold (default)"
         }

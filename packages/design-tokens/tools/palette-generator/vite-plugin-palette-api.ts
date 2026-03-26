@@ -1,11 +1,15 @@
+import type { Oklch } from 'culori'
+import { converter, formatHex, parse } from 'culori'
 import fs from 'node:fs/promises'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import path from 'node:path'
 import type { Plugin } from 'vite'
-import { ALPHA_STEPS, ALPHA_SUFFIXES } from './src/lib/constants'
+import { ALPHA_EXPORT_STEPS, ALPHA_SUFFIXES } from './src/lib/constants'
 
 const COLORS_JSON_PATH = path.resolve(import.meta.dirname, '../../src/foundation/colors.json')
 const PARAMS_JSON_PATH = path.resolve(import.meta.dirname, 'palette-params.json')
+
+const toOklch = converter('oklch')
 
 // Special palettes that don't use numeric step keys
 const EXCLUDED_PALETTES = new Set(['black', 'white'])
@@ -23,11 +27,43 @@ const PALETTE_ORDER: string[] = [
   'olive',
 ]
 
+/** Convert any CSS colour string (OKLCH, HEX, etc.) to uppercase HEX. */
+function toHex(color: string): string {
+  if (/^#[0-9a-fA-F]{6}$/i.test(color)) return color.toUpperCase()
+  const parsed = parse(color)
+  if (!parsed) return color
+  return (formatHex(parsed) ?? '#000000').toUpperCase()
+}
+
+/** Format an OKLCH colour for token file output. */
+function formatOklchToken(oklch: Oklch, alpha?: number): string {
+  const L = oklch.l.toFixed(4)
+  const C = oklch.c.toFixed(4)
+  const H = (oklch.h ?? 0).toFixed(2)
+  if (alpha !== undefined) return `oklch(${L} ${C} ${H} / ${alpha})`
+  return `oklch(${L} ${C} ${H})`
+}
+
+/** Convert a HEX colour string to OKLCH token format. */
+function hexToOklchToken(hex: string): string {
+  const parsed = parse(hex)
+  if (!parsed) return hex
+  const oklch = toOklch(parsed)
+  return formatOklchToken(oklch)
+}
+
 function generateAlphaTokens(midpointHex: string): Record<string, { $value: string }> {
-  const base = midpointHex.replace('#', '').toLowerCase()
-  const result: Record<string, { $value: string }> = {}
-  for (const step of ALPHA_STEPS) {
-    result[`a${step}`] = { $value: `#${base}${ALPHA_SUFFIXES[step]}` }
+  const parsed = parse(midpointHex)
+  if (!parsed) return {}
+  const oklch = toOklch(parsed)
+
+  const result: Record<string, { $value: string }> = {
+    transparent: { $value: formatOklchToken(oklch, 0) },
+  }
+  for (const step of ALPHA_EXPORT_STEPS) {
+    const hexByte = parseInt(ALPHA_SUFFIXES[step], 16)
+    const alpha = Number((hexByte / 255).toFixed(3))
+    result[`a${step}`] = { $value: formatOklchToken(oklch, alpha) }
   }
   return result
 }
@@ -90,18 +126,18 @@ export function paletteApiPlugin(): Plugin {
               const midpointEntry = paletteObj['500'] as { $value: string } | undefined
               if (!midpointEntry?.$value) continue
 
-              // Collect numeric step values
+              // Collect numeric step values, converting to HEX for the UI
               const steps: Record<string, string> = {}
               for (const [key, val] of Object.entries(paletteObj)) {
                 if (/^\d+$/.test(key)) {
-                  steps[key] = (val as { $value: string }).$value
+                  steps[key] = toHex((val as { $value: string }).$value)
                 }
               }
 
               palettes.push({
                 name,
                 displayName: titleCase(name),
-                hex: midpointEntry.$value,
+                hex: toHex(midpointEntry.$value),
                 steps,
                 params: paramsData[name] ?? null,
               })
@@ -151,12 +187,11 @@ export function paletteApiPlugin(): Plugin {
               return
             }
 
-            // Build the palette object
+            // Build the palette object — store as OKLCH in the token file
             const paletteObj: Record<string, unknown> = {}
-            // Sort steps numerically
             const sortedSteps = [...body.steps].sort((a, b) => a.step - b.step)
             for (const { step, hex } of sortedSteps) {
-              paletteObj[step.toString()] = { $value: hex }
+              paletteObj[step.toString()] = { $value: hexToOklchToken(hex) }
             }
             paletteObj['alpha'] = generateAlphaTokens(midpointStep.hex)
 

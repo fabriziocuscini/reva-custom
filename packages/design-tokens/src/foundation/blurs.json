@@ -1,10 +1,6 @@
 {
   "blurs": {
     "$type": "dimension",
-    "none": {
-      "$value": "0px",
-      "$description": "No blur for crisp, sharp edges on elements that require maximum clarity"
-    },
     "xs": {
       "$value": "2px",
       "$description": "Extra small blur for ultra-subtle softening on fine details, icons, or delicate layered elements"

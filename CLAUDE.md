@@ -10,7 +10,7 @@ Reva is a design system, component library, and application platform for AI-enab
 - **Package manager**: Bun (`bun install`, `bun run build`, `bun run dev`)
 - **Language**: TypeScript (strict mode, no `any`)
 - **Components**: Ark UI (headless) + Panda CSS (styling)
-- **Design tokens**: Tokens Studio (DTCG format) → Style Dictionary v4 + `@tokens-studio/sd-transforms` → CSS / TS / W3C JSON / React Native
+- **Design tokens**: DTCG JSON (oklch colours) → Style Dictionary v4 + custom transforms → CSS / TS / JSON / React Native / Panda / Figma manifest
 - **Package builds**: tsdown (dual CJS/ESM + `.d.ts`)
 - **Web framework**: Next.js (docs, future website), Vite (portal apps)
 - **Mobile**: React Native + Expo (future)
@@ -48,7 +48,7 @@ reva/
 
 ## Package Details
 
-- **@reva/tokens** (`packages/design-tokens`): Authored in Tokens Studio DTCG format (`$value`, `$type`, `$description`). Transformed via Style Dictionary v4 with `@tokens-studio/sd-transforms` into CSS custom properties, TypeScript constants, W3C DTCG JSON, and React Native JSON. Code is source of truth; Figma syncs bidirectionally via Tokens Studio plugin.
+- **@reva/tokens** (`packages/design-tokens`): Authored in W3C DTCG format (`$value`, `$type`, `$description`) with colours in oklch(). Transformed via Style Dictionary v4 and custom build scripts (`config/build.ts`) into CSS custom properties, TypeScript constants, JSON, React Native JSON, Panda CSS JSON, and a Figma variables manifest. Includes a custom linter (`config/lint.ts`) that validates against DTCG spec and Reva conventions, and a watch script (`config/watch.ts`) for live development. Code is source of truth; Figma syncs one-way (code → Figma) via a custom dev plugin at `tools/figma-variable-sync/`.
 - **@reva/website-static** (`apps/reva-website`): Current static marketing site (Vite + PostCSS + PostHTML). Will be updated to consume CSS custom properties from `@reva/tokens` once the token package is published. A more complex Next.js `website` app will eventually replace it.
 - **@reva/panda-preset** (`packages/panda-preset`): Bridges design tokens into Panda CSS. Defines base Reva theme, client themes (white-labelling), light/dark mode conditions (`data-color-mode` attribute), and component recipes (currently: Button). Does NOT include `@pandacss/preset-panda` (Panda's opinionated tokens); `@pandacss/preset-base` (utility mappings) is auto-included.
 - **@reva/ui** (`packages/ui`): Anatomy-first, fully typed, accessible-by-default React components built on Ark UI and Panda CSS. Uses Panda `styled()` for single-element components (`styled(ark.<element>, recipe)`) and `createStyleContext` for compound slot recipes. Currently ships Button; more components to follow.
@@ -62,7 +62,10 @@ bun run build         # Build all packages (Turborepo)
 bun run dev           # Start development (Turborepo, persistent)
 bun run lint          # Lint all packages
 bun run typecheck     # Type-check all packages
-bun run tokens:build  # Build design tokens only
+bun run tokens:lint   # Validate token source JSON against DTCG spec + Reva conventions
+bun run tokens:build  # Lint then build design tokens (all output formats)
+bun run tokens:watch  # Watch src/ → auto lint + build on .json changes
+bun run tokens:serve  # Serve dist/figma/ on localhost:3456 for Figma plugin
 bun run codegen       # Run Panda CSS codegen
 bun run format        # Format all files with Prettier
 bun run format:check  # Check formatting
@@ -75,7 +78,9 @@ bun run format:check  # Check formatting
 - **Colour foundation tokens NEVER in recipes or app code** — always go through the semantic layer. Per-palette semantic structure: root-level `canvas`, `surface`, `solid` (.500 midpoint), `focusRing`; `bg.{subtle,muted,emphasized,solid,strong}` for component fills; `border.{subtle,default,strong}`; `fg.{default,highContrast,onSolid}`; `alpha.{transparent,a50-a950}`. In recipe style objects, omit the `colors.` prefix — Panda auto-maps CSS properties to token categories (e.g., `bg: 'bg.surface'`, not `bg: 'colors.bg.surface'`)
 - **Non-colour foundation tokens** (spacing, radii, borders, z-indices, durations, easings) MAY be used directly in recipes (`py: '4'`, `rounded: 'md'`)
 - **DTCG format**: Always use `$value`, `$type`, `$description` (dollar-prefixed keys). No comments in JSON source files.
-- **Token pipeline**: `@reva/tokens` builds Panda-compatible JSON (`dist/panda/`) that `@reva/panda-preset` imports directly — no hardcoded values in the preset.
+- **Token pipeline**: `@reva/tokens` builds Panda-compatible JSON (`dist/panda/`) that `@reva/panda-preset` imports directly — no hardcoded values in the preset. Also builds a Figma variables manifest (`dist/figma/variables-manifest.json`) for one-way sync to Figma.
+- **Colour format**: Source tokens use oklch() for perceptual uniformity and wide-gamut support. Custom Style Dictionary transforms convert oklch → hex for CSS and oklch → RGBA for Figma.
+- **Token linting**: `tokens:lint` validates all source JSON against W3C DTCG spec and Reva conventions before every build. Runs automatically in `tokens:build` and `tokens:watch`.
 
 ### Semantic token reference (per-palette)
 
@@ -109,7 +114,7 @@ bun run format:check  # Check formatting
 - **No `@pandacss/preset-panda`** — we own all token definitions. Consuming apps use `presets: [revaPreset]` only.
 - **`@pandacss/preset-base` auto-included** — provides utility mappings (`bg` → `background`, `p` → `padding`). Do NOT use `eject: true`.
 - **Light/dark orthogonal to brand theme** — colour mode set via `data-color-mode` attribute on `<html>`, brand theme set via `data-panda-theme`
-- **Code is source of truth for tokens** — never create Figma variables manually; go code-first
+- **Code is source of truth for tokens** — never create Figma variables manually; go code-first. Figma sync is one-way (code → Figma) via a custom dev plugin that reads a variables manifest from `localhost:3456`. The plugin deletes stale variables and collections on every sync.
 - **Anatomy-first components** — always derive slots from Ark UI anatomy via `anatomyKeys()`, never hardcode
 - **Root config files use relative paths** — `.prettierrc.mjs` and `eslint.config.mjs` re-export from `./packages/config/` via relative path (not `@reva/config` specifier) due to Bun workspace hoisting behaviour
 - **Docs site hybrid CSS** — Tailwind v4 handles the Fumadocs shell; Panda CSS handles component styling. PostCSS only runs `@tailwindcss/postcss` (no Panda PostCSS plugin). Panda CSS is generated via `panda cssgen --outfile styled-system/styles.css` and imported after explicit `@layer` declarations (`panda_base`, `panda_tokens`, `panda_recipes`, `panda_utilities`).
@@ -121,7 +126,7 @@ bun run format:check  # Check formatting
 
 ```
 @reva/config        → no build (exports raw config files)
-@reva/tokens        → Style Dictionary → dist/
+@reva/tokens        → lint → Style Dictionary + custom transforms → dist/ (CSS, TS, JSON, Panda, Figma manifest)
 @reva/panda-preset  → tsdown → dist/
 @reva/ui            → panda codegen → styled-system/ → tsdown → dist/
 @reva/docs          → panda codegen + panda cssgen → styled-system/ → next build

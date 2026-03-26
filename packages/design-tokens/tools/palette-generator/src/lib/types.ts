@@ -17,14 +17,16 @@ export interface PaletteStep {
 export interface PaletteParams {
   L_max: number
   L_min: number
-  L_ease: number
+  L_ease_light: number
+  L_ease_dark: number
   C_taper_light: number
   C_taper_dark: number
-  C_ease: number
+  C_ease_light: number
+  C_ease_dark: number
   H_shift_light: number
   H_shift_dark: number
-  H_ease: number
-  dist_ease: number
+  H_ease_light: number
+  H_ease_dark: number
 }
 
 export interface Preset {

@@ -1,43 +1,39 @@
 {
   "shadows": {
-    "$type": "boxShadow",
+    "$type": "shadow",
     "2xs": {
       "$value": {
         "color": "{colors.black.alpha.a5}",
-        "x": "0",
-        "y": "1",
-        "blur": "0",
-        "spread": "0",
-        "type": "dropShadow"
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "0px",
+        "spread": "0px"
       }
     },
     "xs": {
       "$value": {
         "color": "{colors.black.alpha.a5}",
-        "x": "0",
-        "y": "1",
-        "blur": "2",
-        "spread": "0",
-        "type": "dropShadow"
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0px"
       }
     },
     "sm": {
       "$value": [
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "1",
-          "blur": "3",
-          "spread": "0",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "3px",
+          "spread": "0px"
         },
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "1",
-          "blur": "2",
-          "spread": "-1",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "-1px"
         }
       ]
     },
@@ -45,19 +41,17 @@
       "$value": [
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "4",
-          "blur": "6",
-          "spread": "-1",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-1px"
         },
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "2",
-          "blur": "4",
-          "spread": "-2",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "4px",
+          "spread": "-2px"
         }
       ]
     },
@@ -65,19 +59,17 @@
       "$value": [
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "10",
-          "blur": "15",
-          "spread": "-3",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "10px",
+          "blur": "15px",
+          "spread": "-3px"
         },
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "4",
-          "blur": "6",
-          "spread": "-4",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-4px"
         }
       ]
     },
@@ -85,30 +77,27 @@
       "$value": [
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "20",
-          "blur": "25",
-          "spread": "-5",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "20px",
+          "blur": "25px",
+          "spread": "-5px"
         },
         {
           "color": "{colors.black.alpha.a10}",
-          "x": "0",
-          "y": "8",
-          "blur": "10",
-          "spread": "-6",
-          "type": "dropShadow"
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "10px",
+          "spread": "-6px"
         }
       ]
     },
     "2xl": {
       "$value": {
         "color": "{colors.black.alpha.a25}",
-        "x": "0",
-        "y": "25",
-        "blur": "50",
-        "spread": "-12",
-        "type": "dropShadow"
+        "offsetX": "0px",
+        "offsetY": "25px",
+        "blur": "50px",
+        "spread": "-12px"
       }
     }
   }
