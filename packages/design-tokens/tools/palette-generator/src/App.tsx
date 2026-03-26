@@ -13,7 +13,6 @@ import { SaveDialog } from '@/components/save-dialog'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
-import { Slider } from '@/components/ui/slider'
 import { Switch } from '@/components/ui/switch'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
@@ -22,7 +21,7 @@ import { usePalette } from '@/hooks/use-palette'
 import { useTheme } from '@/hooks/use-theme'
 import type { PalettePreset } from '@/lib/api'
 import { fetchPalettes } from '@/lib/api'
-import { DEFAULT_PARAMS, DISTRIBUTION_PARAM } from '@/lib/constants'
+import { DEFAULT_PARAMS } from '@/lib/constants'
 import type { Preset } from '@/lib/types'
 import {
   ArrowDown,
@@ -92,18 +91,19 @@ function PaletteEditor({
     params,
     palette,
     validHex,
-    isDiverged,
     isModified,
     hasUnsavedChanges,
     isSaving,
     updateParam,
-    updateDistribution,
     selectPreset,
     setCustomHex,
     resetParams,
-    resetLightness,
-    resetChroma,
-    resetHue,
+    resetLightnessLight,
+    resetLightnessDark,
+    resetChromaLight,
+    resetChromaDark,
+    resetHueLight,
+    resetHueDark,
     undo,
     redo,
     save,
@@ -473,21 +473,6 @@ function PaletteEditor({
                 </Button>
               </div>
             </div>
-            <div className="px-3 shrink-0">
-              <div
-                className="mt-3 mb-4 transition-opacity duration-150"
-                style={{ opacity: isDiverged ? 0.5 : 1 }}
-                onDoubleClick={() => updateDistribution(DISTRIBUTION_PARAM.default)}
-              >
-                <Slider
-                  value={[params.dist_ease]}
-                  onValueChange={([v]) => updateDistribution(v)}
-                  min={DISTRIBUTION_PARAM.min}
-                  max={DISTRIBUTION_PARAM.max}
-                  step={DISTRIBUTION_PARAM.step}
-                />
-              </div>
-            </div>
             <div className="px-3 pb-3 flex-1 overflow-y-auto min-h-0">
               <DockedPaletteStrip
                 palette={
@@ -639,19 +624,6 @@ function PaletteEditor({
                               </TooltipContent>
                             </Tooltip>
                           )}
-                          <div
-                            className="w-32 transition-opacity duration-150"
-                            style={{ opacity: isDiverged ? 0.5 : 1 }}
-                            onDoubleClick={() => updateDistribution(DISTRIBUTION_PARAM.default)}
-                          >
-                            <Slider
-                              value={[params.dist_ease]}
-                              onValueChange={([v]) => updateDistribution(v)}
-                              min={DISTRIBUTION_PARAM.min}
-                              max={DISTRIBUTION_PARAM.max}
-                              step={DISTRIBUTION_PARAM.step}
-                            />
-                          </div>
                         </div>
                       </CardHeader>
                       <CardContent>
@@ -689,7 +661,8 @@ function PaletteEditor({
                     palette={palette}
                     midpointHex={midpointHex}
                     onUpdateParam={updateParam}
-                    onReset={resetLightness}
+                    onResetLight={resetLightnessLight}
+                    onResetDark={resetLightnessDark}
                   />
 
                   {/* Chroma panel — sliders + chart */}
@@ -698,7 +671,8 @@ function PaletteEditor({
                     palette={palette}
                     midpointHex={midpointHex}
                     onUpdateParam={updateParam}
-                    onReset={resetChroma}
+                    onResetLight={resetChromaLight}
+                    onResetDark={resetChromaDark}
                   />
 
                   {/* Hue panel — sliders + chart */}
@@ -707,7 +681,8 @@ function PaletteEditor({
                     palette={palette}
                     midpointHex={midpointHex}
                     onUpdateParam={updateParam}
-                    onReset={resetHue}
+                    onResetLight={resetHueLight}
+                    onResetDark={resetHueDark}
                   />
 
                   {/* Values table */}
