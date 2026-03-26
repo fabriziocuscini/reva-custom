@@ -1,5 +1,25 @@
 {
   "mcpServers": {
+    "chakra-ui": {
+      "command": "npx",
+      "args": ["-y", "@chakra-ui/react-mcp"]
+    },
+    "ark-ui": {
+      "command": "npx",
+      "args": ["-y", "@ark-ui/mcp"]
+    },
+    "fumadocs": {
+      "command": "npx",
+      "args": ["fumadocs-mcp"]
+    },
+    "figma-console": {
+      "command": "npx",
+      "args": ["-y", "figma-console-mcp@latest"],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "",
+        "ENABLE_MCP_APPS": "true"
+      }
+    },
     "panda": {
       "command": "node",
       "args": ["packages/ui/node_modules/.bin/panda", "mcp", "--cwd", "packages/ui"]

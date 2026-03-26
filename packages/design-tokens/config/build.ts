@@ -200,7 +200,8 @@ async function build() {
       componentFiles.some((f) => token.filePath === f)
 
     const sdComponents = new StyleDictionary({
-      log: { verbosity: 'silent', warnings: 'disabled' },
+      // silent breaks clean when outputs are missing (SD 4.4 cleanFile still calls unlink).
+      log: { warnings: 'disabled' },
       source: componentFiles,
       include: foundationFiles,
       platforms: {
