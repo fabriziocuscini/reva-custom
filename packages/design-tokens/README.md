@@ -1,6 +1,6 @@
 # @reva/tokens
 
-Platform-agnostic, multi-themeable design tokens for the Reva design system.
+Platform-agnostic, multi-themeable design tokens for Reva's design system.
 
 Authored in [W3C DTCG](https://design-tokens.github.io/community-group/format/) format (`$value`, `$type`, `$description`) with colours in oklch(). Transformed via [Style Dictionary v4](https://styledictionary.com/) and custom build scripts into multiple output formats. Code is the source of truth; Figma variables are synced one-way (code → Figma) via a custom development plugin.
 
@@ -44,14 +44,15 @@ Authored in [W3C DTCG](https://design-tokens.github.io/community-group/format/) 
 
 ## Token Architecture
 
-Tokens are organised in two layers:
+Tokens are organised in three layers:
 
 | Layer          | Purpose                                                        | Usage in code                                                           |
 | -------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Foundation** | Raw, context-free values (colours, spacing, radii, etc.)       | Only in the semantic layer or Panda preset — never in app code directly |
 | **Semantic**   | Contextual aliases (`fg.default`, `bg.surface`, `brand.solid`) | In recipes and app code via Panda token paths                           |
+| **Component**  | Per-component metrics (height, padding, font-size, radius)     | Imported by recipes via `@reva/tokens/panda/components/*`               |
 
-Colour foundation tokens are **never used directly** in recipes or app code — always go through the semantic layer. Non-colour foundation tokens (spacing, radii, z-index, etc.) may be used directly.
+Colour foundation tokens are **never used directly** in recipes or app code — always go through the semantic layer. Non-colour foundation tokens (spacing, radii, z-index, etc.) may be used directly. Component tokens reference foundation tokens and are built into per-component recipe spec JSON.
 
 > **Note:** The foundation layer is documented below. See the [Semantic Layer](#semantic-layer) section for the color mode token system.
 
@@ -61,11 +62,11 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 
 ### General Rules
 
-- **Panda-aligned plural namespaces** — Token set names match Panda CSS category names (`colors`, `spacing`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`). This gives zero-mapping between the token source and the Panda preset.
+- **Panda-aligned plural namespaces** — Token set names match Panda CSS category names (`colors`, `spacing`, `sizes`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`, `letterSpacings`, `borderWidths`, `blurs`, `opacity`, `durations`, `zIndex`, `aspectRatios`, `cursors`). This gives zero-mapping between the token source and the Panda preset. Additionally, `containerSizes` and `breakpoints` are authored as DTCG files but consumed as Panda flat maps.
 - **DTCG format** — Every token uses the dollar-prefixed keys `$value`, `$type`, and `$description`. No comments in JSON source files.
 - **Flat numeric scales** — Spacing, sizes, and z-index use numeric or named keys (`0`, `1`, `2`, `sm`, `md`, `lg`). No nesting beyond the top-level category.
 - **T-shirt sizing** — Non-linear scales use t-shirt names: `2xs`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, etc.
-- **Half-step names** — Sizes and spacing include half-steps using underscored names: `half` (0.5), `1_half` (1.5), `2_half` (2.5), etc.
+- **Half-step names** — Sizes include half-steps using underscored names: `half` (0.5), `1_half` (1.5), `2_half` (2.5), etc. Spacing uses `half` (2px) as its smallest unit.
 
 ### Colour Palettes
 
@@ -73,7 +74,8 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 - `50` is the lightest tint; `950` is the darkest shade.
 - `500` is the primary reference swatch for each hue.
 - Colour values are authored in **oklch()** for perceptual uniformity and wide-gamut support. The build pipeline converts them to hex for CSS and other platforms.
-- `black` and `white` sit directly under `colors` with full alpha ramps (`transparent`, `a5`–`a95`, `solid`).
+- Each chromatic palette also includes a per-hue **alpha ramp** (`transparent`, `a4`, `a5`, `a6`, `a8`, `a10`, `a15`, `a20`, `a25`–`a95` in 5% steps) using the palette's `.500` colour at varying opacities.
+- `black` and `white` sit directly under `colors` with `transparent`, `solid`, and the same alpha ramp structure.
 
 ### Typography
 
@@ -87,10 +89,12 @@ Colour foundation tokens are **never used directly** in recipes or app code — 
 
 ```
 src/
-├── foundation/          # all foundation token files
+├── foundation/          # All foundation token files (16 files)
 ├── colorMode/
 │   ├── light.json       # Light mode semantic colour assignments
 │   └── dark.json        # Dark mode semantic colour assignments
+└── components/
+    └── button.json      # Button component metrics (height, padding, font-size, radius)
 ```
 
 ---
@@ -111,25 +115,21 @@ The colour system provides neutral palettes, accent/brand palettes, and common b
 
 Each palette provides 19 stops: `50`, `100`, `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500`, `550`, `600`, `650`, `700`, `750`, `800`, `850`, `900`, `950`. The `500` stop is the primary reference swatch.
 
-| Palette    | Token prefix    | Description                                  |
-| ---------- | --------------- | -------------------------------------------- |
-| **gray**   | `colors.gray`   | Pure neutral with no undertone               |
-| **stone**  | `colors.stone`  | Warm neutral with a slight brown undertone   |
-| **zinc**   | `colors.zinc`   | Cool neutral with a slight blue undertone    |
-| **gold**   | `colors.gold`   | Reva brand colour — warm gold                |
-| **olive**  | `colors.olive`  | Earthy yellow-green for secondary brand use  |
-| **wine**   | `colors.wine`   | Muted rose-burgundy for secondary brand use  |
-| **amber**  | `colors.amber`  | Warm orange-brown for warnings and accents   |
-| **yellow** | `colors.yellow` | Bright yellow for caution and highlights     |
-| **orange** | `colors.orange` | Vivid orange for attention and accents       |
-| **red**    | `colors.red`    | Vivid red for errors and destructive actions |
-| **green**  | `colors.green`  | Vivid green for success and positive states  |
-| **teal**   | `colors.teal`   | Blue-green for informational accents         |
-| **sky**    | `colors.sky`    | Light blue for informational and link states |
+| Palette        | Token prefix        | Semantic role | Description                                   |
+| -------------- | ------------------- | ------------- | --------------------------------------------- |
+| **gray**       | `colors.gray`       | —             | Pure neutral with no undertone                |
+| **stone**      | `colors.stone`      | —             | Warm neutral with a slight brown undertone    |
+| **olive**      | `colors.olive`      | `neutral`     | Earthy yellow-green for neutral UI            |
+| **gold**       | `colors.gold`       | `brand`       | Reva brand colour — warm gold                 |
+| **amber**      | `colors.amber`      | `accent`      | Warm orange-brown for primary accents         |
+| **copper**     | `colors.copper`     | `warning`     | Warm copper for warnings and caution          |
+| **fern**       | `colors.fern`       | `success`     | Natural green for success and positive states |
+| **cobalt**     | `colors.cobalt`     | `info`        | Cool blue for informational states            |
+| **mulberry**   | `colors.mulberry`   | `error`       | Muted rose-burgundy for errors and danger     |
 
 #### Black & White
 
-`colors.black` and `colors.white` each provide a full alpha ramp at every 5% step (`transparent`, `a5`–`a95`, `solid`) for overlays, shadows, and layered effects.
+`colors.black` and `colors.white` each provide `transparent`, `solid`, and a non-linear alpha ramp (`a4`, `a5`, `a6`, `a8`, `a10`, `a15`, `a20`, `a25`–`a95` in 5% steps) for overlays, shadows, and layered effects.
 
 | Token          | Value                  | Description      |
 | -------------- | ---------------------- | ---------------- |
@@ -146,27 +146,25 @@ Each palette provides 19 stops: `50`, `100`, `150`, `200`, `250`, `300`, `350`, 
 
 A 4px base-unit spatial scale for padding, margins, and gaps. Multipliers skip non-standard values to encourage consistent rhythm.
 
-| Token            | Value   | Description                       |
-| ---------------- | ------- | --------------------------------- |
-| `spacing.0`      | `0px`   | No spacing                        |
-| `spacing.half`   | `2px`   | Smallest spacing unit (0.5x base) |
-| `spacing.1`      | `4px`   | Base spacing unit                 |
-| `spacing.1_half` | `6px`   | Between base and 2 (1.5x base)    |
-| `spacing.2`      | `8px`   | 2x base                           |
-| `spacing.3`      | `12px`  | 3x base                           |
-| `spacing.4`      | `16px`  | 4x base                           |
-| `spacing.5`      | `20px`  | 5x base                           |
-| `spacing.6`      | `24px`  | 6x base                           |
-| `spacing.8`      | `32px`  | 8x base                           |
-| `spacing.10`     | `40px`  | 10x base                          |
-| `spacing.12`     | `48px`  | 12x base                          |
-| `spacing.16`     | `64px`  | 16x base                          |
-| `spacing.20`     | `80px`  | 20x base                          |
-| `spacing.24`     | `96px`  | 24x base                          |
-| `spacing.30`     | `120px` | 30x base                          |
-| `spacing.40`     | `160px` | 40x base                          |
-| `spacing.50`     | `200px` | 50x base                          |
-| `spacing.60`     | `240px` | 60x base                          |
+| Token          | Value   | Description                       |
+| -------------- | ------- | --------------------------------- |
+| `spacing.half` | `2px`   | Smallest spacing unit (0.5x base) |
+| `spacing.1`    | `4px`   | Base spacing unit                 |
+| `spacing.2`    | `8px`   | 2x base                           |
+| `spacing.3`    | `12px`  | 3x base                           |
+| `spacing.4`    | `16px`  | 4x base                           |
+| `spacing.5`    | `20px`  | 5x base                           |
+| `spacing.6`    | `24px`  | 6x base                           |
+| `spacing.8`    | `32px`  | 8x base                           |
+| `spacing.10`   | `40px`  | 10x base                          |
+| `spacing.12`   | `48px`  | 12x base                          |
+| `spacing.16`   | `64px`  | 16x base                          |
+| `spacing.20`   | `80px`  | 20x base                          |
+| `spacing.24`   | `96px`  | 24x base                          |
+| `spacing.30`   | `120px` | 30x base                          |
+| `spacing.40`   | `160px` | 40x base                          |
+| `spacing.50`   | `200px` | 50x base                          |
+| `spacing.60`   | `240px` | 60x base                          |
 
 ---
 
@@ -178,7 +176,7 @@ A 4px base-unit spatial scale for padding, margins, and gaps. Multipliers skip n
 
 A comprehensive sizing scale for widths and heights. Includes a numeric scale with half-step granularity, named large sizes in rem, viewport units, and intrinsic CSS sizing keywords.
 
-> Because we omit `@pandacss/preset-panda`, the preset maps `sizes: pandaTokens.spacing` so that `h`, `w`, `minH`, `maxH` utilities resolve to token values instead of raw pixel values.
+> Because we omit `@pandacss/preset-panda`, Panda has no built-in `sizes`. This dedicated token file provides the full scale, emitted as a proper Panda token category so `h`, `w`, `minH`, `maxH` utilities resolve to token values.
 
 #### Numeric Scale
 
@@ -606,7 +604,20 @@ Responsive breakpoints used by Panda's `theme.breakpoints` config. These are **n
 
 ## Semantic Layer
 
-Semantic colour tokens assign foundation palette stops to named roles (canvas, surface, fg.default, etc.) per light/dark mode. Each semantic palette (neutral, accent, brand, error, warning, success, info) has the same token shape. Names describe visual weight, not interaction state — platform-agnostic. All palettes are consumed via Panda's `colorPalette.*` system.
+Semantic colour tokens assign foundation palette stops to named roles (canvas, surface, fg.default, etc.) per light/dark mode. Each semantic palette has the same token shape. Names describe visual weight, not interaction state — platform-agnostic. All palettes are consumed via Panda's `colorPalette.*` system.
+
+### Semantic palettes and their foundation mappings
+
+| Semantic palette | Foundation palette | Purpose                              |
+| ---------------- | ------------------ | ------------------------------------ |
+| `neutral`        | `olive`            | Neutral UI: backgrounds, borders     |
+| `brand`          | `gold`             | Reva brand colour                    |
+| `accent`         | `amber`            | Primary interactive accent           |
+| `error`          | `mulberry`         | Errors and destructive actions       |
+| `warning`        | `copper`           | Warnings and caution                 |
+| `success`        | `fern`             | Success and positive states          |
+| `info`           | `cobalt`           | Informational states                 |
+| `misc`           | —                  | Utility tokens (transparent, white↔black swaps) |
 
 ### Per-palette token shape
 
@@ -614,7 +625,7 @@ Semantic colour tokens assign foundation palette stops to named roles (canvas, s
 - **bg:** `subtle`, `muted`, `emphasized`, `solid`, `strong`
 - **border:** `subtle`, `default`, `strong`
 - **fg:** `default`, `highContrast`, `onSolid`
-- **alpha:** `transparent`, `a50`-`a950` (non-linear Chakra-inspired opacity ramp: 4%, 6%, 8%, 15%, 25%, 35%, 45%, 60%, 75%, 85%, 95%)
+- **alpha:** `transparent`, `a50`, `a100`, `a200`, `a300`, `a400`, `a500`, `a600`, `a700`, `a800`, `a900`, `a950` (non-linear opacity ramp: 4%, 6%, 8%, 15%, 25%, 35%, 45%, 60%, 75%, 85%, 95%)
 
 ### Semantic-to-foundation mapping
 
@@ -645,20 +656,25 @@ Semantic colour tokens assign foundation palette stops to named roles (canvas, s
 
 ### Global tokens
 
-Non-palette-specific tokens remain unchanged: `bg.*` (canvas, surface, overlay, translucent), `fg.*` (default, muted, subtle, placeholder, link, onColor._), and `border._` (default, muted, subtle).
+Non-palette-specific tokens sit at the root of the semantic colour tree:
+
+- **`bg`**: `canvas`, `surface`, `card`, `overlay.{default,muted,subtle}`, `translucent.{default,subtle,muted}`
+- **`fg`**: `default`, `muted`, `subtle`, `placeholder`, `link`, `onColor.{default,muted,subtle,disabled,placeholder}`
+- **`border`**: `default`, `muted`, `subtle`
 
 ---
 
 ## Output Formats
 
-| Format                | Path                                                        | Description                                               |
-| --------------------- | ----------------------------------------------------------- | --------------------------------------------------------- |
-| CSS custom properties | `dist/css/tokens-{theme}.css`                               | `--reva-{category}-{name}` variables                      |
-| TypeScript constants  | `dist/ts/tokens-{theme}.ts`                                 | Named exports (`colorsBrand500`, `spacing4`)              |
-| JSON (nested)         | `dist/json/tokens-{theme}.json`                             | Nested structure with resolved values                     |
-| JSON (flat, mobile)   | `dist/json-mobile/tokens-{theme}.json`                      | Flat camelCase keys for React Native                      |
-| Panda CSS             | `dist/panda/tokens.json`, `dist/panda/semantic-tokens.json` | `{ value }` format consumed by `@reva/panda-preset`       |
-| Figma manifest        | `dist/figma/variables-manifest.json`                        | Figma Plugin API–ready collection/variable/mode structure |
+| Format                  | Path                                                        | Description                                               |
+| ----------------------- | ----------------------------------------------------------- | --------------------------------------------------------- |
+| CSS custom properties   | `dist/css/tokens-{theme}.css`                               | `--reva-{category}-{name}` variables                      |
+| TypeScript constants    | `dist/ts/tokens-{theme}.ts`                                 | Named exports (`colorsBrand500`, `spacing4`)              |
+| JSON (nested)           | `dist/json/tokens-{theme}.json`                             | Nested structure with resolved values                     |
+| JSON (flat, mobile)     | `dist/json-mobile/tokens-{theme}.json`                      | Flat camelCase keys for React Native                      |
+| Panda CSS               | `dist/panda/tokens.json`, `dist/panda/semantic-tokens.json` | `{ value }` format consumed by `@reva/panda-preset`       |
+| Panda component specs   | `dist/panda/components/{name}.json`                         | Per-component recipe metrics (refs resolved to token keys) |
+| Figma manifest          | `dist/figma/variables-manifest.json`                        | Figma Plugin API–ready collection/variable/mode structure |
 
 ---
 
@@ -701,13 +717,14 @@ Figma sync is **one-way: code → Figma**. A custom Figma development plugin at 
 
 ### Figma collections
 
-The manifest maps token groups to three Figma variable collections:
+The manifest maps token groups to four Figma variable collections:
 
-| Collection     | Modes           | Sources                                                              |
-| -------------- | --------------- | -------------------------------------------------------------------- |
-| **Foundation** | `foundation`    | All foundation tokens except typography, text styles, and shadows    |
-| **Typography** | `typography`    | `fonts`, `fontSizes`, `fontWeights` (not lineHeights/letterSpacings) |
-| **Color mode** | `light`, `dark` | Semantic colour tokens from `colorMode/light.json` and `dark.json`   |
+| Collection      | Modes           | Sources                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------- |
+| **Foundation**  | `foundation`    | All foundation tokens except typography, text styles, and shadows    |
+| **Typography**  | `typography`    | `fonts`, `fontSizes`, `fontWeights` (not lineHeights/letterSpacings) |
+| **Color mode**  | `light`, `dark` | Semantic colour tokens from `colorMode/light.json` and `dark.json`   |
+| **Components**  | `components`    | Component-specific tokens from `src/components/`                     |
 
 ### Value conversions (code → Figma)
 
@@ -736,7 +753,7 @@ The manifest maps token groups to three Figma variable collections:
 
 ## How Panda CSS Consumes Tokens
 
-`@reva/panda-preset` imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` and passes them to `defineTokens` / `defineSemanticTokens`.
+`@reva/panda-preset` imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` and passes them to `defineTokens` / `defineSemanticTokens`. Component recipes import per-component spec JSON from `@reva/tokens/panda/components/*` for sizing and spacing metrics.
 
 `breakpoints` and `containerSizes` are defined directly in the preset as flat maps — they are Panda theme config, not token categories.
 

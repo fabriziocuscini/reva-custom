@@ -1,0 +1,323 @@
+{
+  "button": {
+    "size": {
+      "2xs": {
+        "height": {
+          "$value": "{sizes.6}",
+          "$type": "dimension",
+          "$description": "24px"
+        },
+        "minWidth": {
+          "$value": "{sizes.6}",
+          "$type": "dimension",
+          "$description": "24px — icon-only square"
+        },
+        "px": {
+          "$value": "{spacing.2}",
+          "$type": "dimension",
+          "$description": "8px"
+        },
+        "gap": {
+          "$value": "{spacing.1}",
+          "$type": "dimension",
+          "$description": "4px"
+        },
+        "radius": {
+          "$value": "{radii.xs}",
+          "$type": "dimension",
+          "$description": "4px"
+        },
+        "fontSize": {
+          "$value": "{fontSizes.2xs}",
+          "$type": "dimension",
+          "$description": "12px"
+        },
+        "lineHeight": {
+          "$value": "{lineHeights.normal}",
+          "$type": "number",
+          "$description": "1.3"
+        },
+        "iconSize": {
+          "$value": "{sizes.3}",
+          "$type": "dimension",
+          "$description": "12px"
+        },
+        "spinnerSize": {
+          "$value": "{sizes.3}",
+          "$type": "dimension",
+          "$description": "12px"
+        }
+      },
+      "xs": {
+        "height": {
+          "$value": "{sizes.7}",
+          "$type": "dimension",
+          "$description": "28px"
+        },
+        "minWidth": {
+          "$value": "{sizes.7}",
+          "$type": "dimension",
+          "$description": "28px"
+        },
+        "px": {
+          "$value": "{spacing.2}",
+          "$type": "dimension",
+          "$description": "8px"
+        },
+        "gap": {
+          "$value": "{spacing.1}",
+          "$type": "dimension",
+          "$description": "4px"
+        },
+        "radius": {
+          "$value": "{radii.sm}",
+          "$type": "dimension",
+          "$description": "6px"
+        },
+        "fontSize": {
+          "$value": "{fontSizes.xs}",
+          "$type": "dimension",
+          "$description": "13px"
+        },
+        "lineHeight": {
+          "$value": "{lineHeights.normal}",
+          "$type": "number",
+          "$description": "1.3"
+        },
+        "iconSize": {
+          "$value": "{sizes.3_half}",
+          "$type": "dimension",
+          "$description": "14px"
+        },
+        "spinnerSize": {
+          "$value": "{sizes.3_half}",
+          "$type": "dimension",
+          "$description": "14px"
+        }
+      },
+      "sm": {
+        "height": {
+          "$value": "{sizes.8}",
+          "$type": "dimension",
+          "$description": "32px"
+        },
+        "minWidth": {
+          "$value": "{sizes.8}",
+          "$type": "dimension",
+          "$description": "32px"
+        },
+        "px": {
+          "$value": "{spacing.3}",
+          "$type": "dimension",
+          "$description": "12px"
+        },
+        "gap": {
+          "$value": "{spacing.1}",
+          "$type": "dimension",
+          "$description": "4px"
+        },
+        "radius": {
+          "$value": "{radii.sm}",
+          "$type": "dimension",
+          "$description": "6px"
+        },
+        "fontSize": {
+          "$value": "{fontSizes.xs}",
+          "$type": "dimension",
+          "$description": "13px"
+        },
+        "lineHeight": {
+          "$value": "{lineHeights.normal}",
+          "$type": "number",
+          "$description": "1.3"
+        },
+        "iconSize": {
+          "$value": "{sizes.4}",
+          "$type": "dimension",
+          "$description": "16px"
+        },
+        "spinnerSize": {
+          "$value": "{sizes.4}",
+          "$type": "dimension",
+          "$description": "16px"
+        }
+      },
+      "md": {
+        "height": {
+          "$value": "{sizes.10}",
+          "$type": "dimension",
+          "$description": "40px"
+        },
+        "minWidth": {
+          "$value": "{sizes.10}",
+          "$type": "dimension",
+          "$description": "40px"
+        },
+        "px": {
+          "$value": "{spacing.4}",
+          "$type": "dimension",
+          "$description": "16px"
+        },
+        "gap": {
+          "$value": "{spacing.2}",
+          "$type": "dimension",
+          "$description": "8px"
+        },
+        "radius": {
+          "$value": "{radii.md}",
+          "$type": "dimension",
+          "$description": "8px"
+        },
+        "fontSize": {
+          "$value": "{fontSizes.sm}",
+          "$type": "dimension",
+          "$description": "14px"
+        },
+        "lineHeight": {
+          "$value": "{lineHeights.normal}",
+          "$type": "number",
+          "$description": "1.3"
+        },
+        "iconSize": {
+          "$value": "{sizes.4}",
+          "$type": "dimension",
+          "$description": "16px"
+        },
+        "spinnerSize": {
+          "$value": "{sizes.4}",
+          "$type": "dimension",
+          "$description": "16px"
+        }
+      },
+      "lg": {
+        "height": {
+          "$value": "{sizes.12}",
+          "$type": "dimension",
+          "$description": "48px"
+        },
+        "minWidth": {
+          "$value": "{sizes.12}",
+          "$type": "dimension",
+          "$description": "48px"
+        },
+        "px": {
+          "$value": "{spacing.5}",
+          "$type": "dimension",
+          "$description": "20px"
+        },
+        "gap": {
+          "$value": "{spacing.2}",
+          "$type": "dimension",
+          "$description": "8px"
+        },
+        "radius": {
+          "$value": "{radii.md}",
+          "$type": "dimension",
+          "$description": "8px"
+        },
+        "fontSize": {
+          "$value": "{fontSizes.md}",
+          "$type": "dimension",
+          "$description": "16px"
+        },
+        "lineHeight": {
+          "$value": "{lineHeights.normal}",
+          "$type": "number",
+          "$description": "1.3"
+        },
+        "iconSize": {
+          "$value": "{sizes.5}",
+          "$type": "dimension",
+          "$description": "20px"
+        },
+        "spinnerSize": {
+          "$value": "{sizes.5}",
+          "$type": "dimension",
+          "$description": "20px"
+        }
+      },
+      "xl": {
+        "height": {
+          "$value": "{sizes.14}",
+          "$type": "dimension",
+          "$description": "56px"
+        },
+        "minWidth": {
+          "$value": "{sizes.14}",
+          "$type": "dimension",
+          "$description": "56px"
+        },
+        "px": {
+          "$value": "{spacing.6}",
+          "$type": "dimension",
+          "$description": "24px"
+        },
+        "gap": {
+          "$value": "{spacing.3}",
+          "$type": "dimension",
+          "$description": "12px"
+        },
+        "radius": {
+          "$value": "{radii.lg}",
+          "$type": "dimension",
+          "$description": "12px"
+        },
+        "fontSize": {
+          "$value": "{fontSizes.lg}",
+          "$type": "dimension",
+          "$description": "18px"
+        },
+        "lineHeight": {
+          "$value": "{lineHeights.normal}",
+          "$type": "number",
+          "$description": "1.3"
+        },
+        "iconSize": {
+          "$value": "{sizes.6}",
+          "$type": "dimension",
+          "$description": "24px"
+        },
+        "spinnerSize": {
+          "$value": "{sizes.6}",
+          "$type": "dimension",
+          "$description": "24px"
+        }
+      }
+    },
+    "fontFamily": {
+      "$value": "{fonts.text}",
+      "$type": "fontFamily",
+      "$description": "Inter Tight"
+    },
+    "fontWeight": {
+      "$value": "{fontWeights.medium}",
+      "$type": "fontWeight",
+      "$description": "500"
+    },
+    "borderWidth": {
+      "$value": "{borderWidths.default}",
+      "$type": "dimension",
+      "$description": "1px — shared across all variants"
+    },
+    "focusRingWidth": {
+      "$value": "{borderWidths.thick}",
+      "$type": "dimension",
+      "$description": "2px"
+    },
+    "focusRingOffset": {
+      "$value": "{borderWidths.thick}",
+      "$type": "dimension",
+      "$description": "2px"
+    },
+    "transitionDuration": {
+      "$value": "{durations.fast}",
+      "$type": "duration",
+      "$description": "150ms"
+    },
+    "disabledOpacity": {
+      "$value": "{opacity.disabled}",
+      "$type": "number",
+      "$description": "0.3"
+    }
+  }
+}

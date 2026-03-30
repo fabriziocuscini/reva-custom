@@ -19,9 +19,33 @@ var SCOPE_MAP = {
   zIndex: [],
 };
 
+var LEAF_SCOPE_MAP = {
+  height: ["WIDTH_HEIGHT"],
+  minWidth: ["WIDTH_HEIGHT"],
+  iconSize: ["WIDTH_HEIGHT"],
+  spinnerSize: ["WIDTH_HEIGHT"],
+  px: ["GAP"],
+  py: ["GAP"],
+  gap: ["GAP"],
+  radius: ["CORNER_RADIUS"],
+  fontSize: ["FONT_SIZE"],
+  lineHeight: ["LINE_HEIGHT"],
+  fontFamily: ["FONT_FAMILY"],
+  fontWeight: ["FONT_WEIGHT"],
+  borderWidth: ["STROKE_FLOAT"],
+  focusRingWidth: ["STROKE_FLOAT"],
+  focusRingOffset: ["STROKE_FLOAT"],
+  disabledOpacity: ["OPACITY"],
+  transitionDuration: [],
+};
+
 function getScopes(name) {
-  var g = name.split("/")[0];
-  return SCOPE_MAP[g] || [];
+  var parts = name.split("/");
+  var g = parts[0];
+  if (SCOPE_MAP[g]) return SCOPE_MAP[g];
+  var leaf = parts[parts.length - 1];
+  if (LEAF_SCOPE_MAP[leaf]) return LEAF_SCOPE_MAP[leaf];
+  return [];
 }
 
 function log(msg) {

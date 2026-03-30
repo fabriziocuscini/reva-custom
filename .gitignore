@@ -61,3 +61,4 @@ Thumbs.db
 # Misc
 *.tsbuildinfo
 *.log
+apps/docs/next-env.d.ts
