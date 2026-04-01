@@ -50,6 +50,9 @@ test-results/
 .DS_Store
 Thumbs.db
 
+# Cursor (hooks state e.g. continual-learning.json, local MCP, workspace settings)
+.cursor/
+
 # Editor
 .vscode/*
 !.vscode/settings.json
