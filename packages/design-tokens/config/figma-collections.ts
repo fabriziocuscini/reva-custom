@@ -27,8 +27,4 @@ export const figmaCollections: FigmaCollectionConfig[] = [
       { name: 'dark', sources: ['colorMode/dark'] },
     ],
   },
-  {
-    name: 'Components',
-    modes: [{ name: 'components', sources: ['components'] }],
-  },
 ]
