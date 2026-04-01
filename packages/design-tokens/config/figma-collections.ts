@@ -18,11 +18,7 @@ export const figmaCollections: FigmaCollectionConfig[] = [
   {
     name: 'Foundation',
     modes: [{ name: 'foundation', sources: ['foundation'] }],
-    excludeFiles: ['typography.json', 'textStyles.json', 'shadows.json'],
-  },
-  {
-    name: 'Typography',
-    modes: [{ name: 'typography', sources: ['foundation/typography'] }],
+    excludeFiles: ['textStyles.json', 'shadows.json'],
   },
   {
     name: 'Color mode',
