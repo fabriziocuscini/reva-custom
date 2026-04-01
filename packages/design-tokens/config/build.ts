@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import StyleDictionary from 'style-dictionary'
 import { figmaCollections } from './figma-collections'
 import { type JsonObject, buildFigmaManifest } from './figma-format'
-import { buildComponentSpecs, buildPandaSemanticTokens, buildPandaTokens } from './panda-format'
+import { buildPandaSemanticTokens, buildPandaTokens } from './panda-format'
 
 // ── Custom transforms ────────────────────────────────────────────────────
 
@@ -73,19 +73,6 @@ async function getFoundationFiles(srcDir: string): Promise<string[]> {
     .map((f) => resolve(dir, f))
 }
 
-async function getComponentFiles(srcDir: string): Promise<string[]> {
-  const dir = resolve(srcDir, 'components')
-  try {
-    const entries = await readdir(dir)
-    return entries
-      .filter((f) => f.endsWith('.json'))
-      .sort()
-      .map((f) => resolve(dir, f))
-  } catch {
-    return []
-  }
-}
-
 const CSS_TRANSFORMS = ['name/kebab', 'reva/size/pxToRem', 'reva/shadow/css']
 const NON_CSS_TRANSFORMS = ['reva/color/oklchToHex', 'reva/shadow/css']
 
@@ -138,7 +125,6 @@ async function build() {
   const distDir = resolve(import.meta.dirname, '..', 'dist')
 
   const foundationFiles = await getFoundationFiles(srcDir)
-  const componentFiles = await getComponentFiles(srcDir)
   const colorModeDir = resolve(srcDir, 'colorMode')
 
   // ── Foundation build ─────────────────────────────────────────────────
@@ -194,42 +180,6 @@ async function build() {
     console.log(`✓ Built theme: ${mode}`)
   }
 
-  // ── Component build ────────────────────────────────────────────────
-  if (componentFiles.length > 0) {
-    const isComponentToken = (token: { filePath: string }) =>
-      componentFiles.some((f) => token.filePath === f)
-
-    const sdComponents = new StyleDictionary({
-      // silent breaks clean when outputs are missing (SD 4.4 cleanFile still calls unlink).
-      log: { warnings: 'disabled' },
-      source: componentFiles,
-      include: foundationFiles,
-      platforms: {
-        css: {
-          transforms: CSS_TRANSFORMS,
-          prefix: 'reva',
-          buildPath: `${distDir}/css/`,
-          files: [
-            {
-              destination: 'tokens-components.css',
-              format: 'css/variables',
-              filter: isComponentToken,
-              options: { outputReferences: true },
-            },
-          ],
-        },
-        ...nonCssPlatforms(distDir, 'components', isComponentToken),
-      },
-    })
-
-    await sdComponents.cleanAllPlatforms()
-    await sdComponents.buildAllPlatforms()
-    console.log('✓ Built theme: components')
-  }
-
-  await buildComponentSpecs(componentFiles, distDir)
-  console.log('✓ Built component specs for Panda')
-
   // ── Panda CSS output ─────────────────────────────────────────────────
   const foundationSources = await Promise.all(
     foundationFiles.map(async (f) => JSON.parse(await readFile(f, 'utf-8'))),
@@ -278,16 +228,6 @@ async function build() {
   for (const mode of ['light', 'dark'] as const) {
     const json = JSON.parse(await readFile(resolve(colorModeDir, `${mode}.json`), 'utf-8'))
     sourcesByPath.set(`colorMode/${mode}`, json)
-  }
-
-  // Merge component files into a 'components' aggregate key
-  if (componentFiles.length > 0) {
-    const componentsAggregate: JsonObject = {}
-    for (const file of componentFiles) {
-      const json = JSON.parse(await readFile(file, 'utf-8'))
-      Object.assign(componentsAggregate, json)
-    }
-    sourcesByPath.set('components', componentsAggregate)
   }
 
   const figmaManifest = buildFigmaManifest(figmaCollections, sourcesByPath)

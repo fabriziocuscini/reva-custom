@@ -3,9 +3,6 @@
  * Used as a post-processing step after SD builds.
  */
 
-import { mkdir, readFile, writeFile } from 'fs/promises'
-import { basename, resolve } from 'path'
-
 type JsonValue = string | number | boolean | null | JsonObject | JsonValue[]
 interface JsonObject {
   [key: string]: JsonValue
@@ -99,67 +96,6 @@ export function buildPandaTokens(sourceFiles: JsonObject[], resolvedDtcg: JsonOb
  */
 export function buildPandaSemanticTokens(lightJson: JsonObject, darkJson: JsonObject): JsonObject {
   return mergeSemanticTrees(lightJson, darkJson)
-}
-
-/**
- * Extracts the last segment of a DTCG `{category.key}` reference.
- * `{sizes.10}` → `"10"`, `{radii.md}` → `"md"`, `{fonts.text}` → `"text"`.
- * Non-reference values (e.g. `"40px"`) pass through as-is.
- */
-function resolveRefToKey(value: JsonValue): JsonValue {
-  if (typeof value === 'string' && /^\{[^{}]+\}$/.test(value)) {
-    const inner = value.slice(1, -1)
-    const lastDot = inner.lastIndexOf('.')
-    return lastDot === -1 ? inner : inner.slice(lastDot + 1)
-  }
-  return value
-}
-
-/**
- * Recursively strips DTCG metadata and resolves references to foundation
- * token keys. Produces a plain object suitable for direct import in recipes.
- */
-function stripDtcgToSpec(node: JsonObject): JsonObject {
-  const result: JsonObject = {}
-  for (const [key, value] of Object.entries(node)) {
-    if (key.startsWith('$')) continue
-    if (isDtcgLeaf(value)) {
-      result[key] = resolveRefToKey((value as JsonObject)['$value'] as JsonValue)
-    } else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      result[key] = stripDtcgToSpec(value as JsonObject)
-    }
-  }
-  return result
-}
-
-/**
- * Reads component source JSON files and writes per-component recipe spec
- * JSON to `dist/panda/components/`. Each spec strips DTCG metadata and
- * resolves references to foundation token keys.
- *
- * Input  (`src/components/button.json`):  `{ "button": { "size": { "md": { "height": { "$value": "{sizes.10}", "$type": "dimension" } } } } }`
- * Output (`dist/panda/components/button.json`): `{ "size": { "md": { "height": "10" } } }`
- */
-export async function buildComponentSpecs(
-  componentFiles: string[],
-  distDir: string,
-): Promise<void> {
-  if (componentFiles.length === 0) return
-
-  const outDir = resolve(distDir, 'panda/components')
-  await mkdir(outDir, { recursive: true })
-
-  for (const file of componentFiles) {
-    const raw = JSON.parse(await readFile(file, 'utf-8')) as JsonObject
-    const componentName = basename(file, '.json')
-    const componentRoot = raw[componentName]
-
-    if (!componentRoot || typeof componentRoot !== 'object' || Array.isArray(componentRoot))
-      continue
-
-    const spec = stripDtcgToSpec(componentRoot as JsonObject)
-    await writeFile(resolve(outDir, `${componentName}.json`), JSON.stringify(spec, null, 2))
-  }
 }
 
 function mergeSemanticTrees(light: JsonObject, dark: JsonObject): JsonObject {

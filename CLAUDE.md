@@ -33,8 +33,7 @@ reva/
 │   ├── design-tokens/         # @reva/tokens — Platform-agnostic, multi-themeable design tokens
 │   │   └── src/
 │   │       ├── foundation/    # Foundation tokens (16 files: colours, spacing, sizes, radii, etc.)
-│   │       ├── colorMode/     # Semantic colour tokens (light.json, dark.json)
-│   │       └── components/    # Component-specific tokens (button.json)
+│   │       └── colorMode/     # Semantic colour tokens (light.json, dark.json)
 │   ├── panda-preset/          # @reva/panda-preset — Panda CSS preset, recipes, text styles
 │   ├── ui/                    # @reva/ui — React component library (Ark UI + Panda CSS)
 │   └── config/                # @reva/config — Shared ESLint, Prettier, TS configs
@@ -52,9 +51,9 @@ reva/
 
 ## Package Details
 
-- **@reva/tokens** (`packages/design-tokens`): Authored in W3C DTCG format (`$value`, `$type`, `$description`) with colours in oklch(). Three-layer architecture: foundation tokens (16 files — colours, spacing, sizes, radii, typography, shadows, etc.), semantic colour tokens (`colorMode/light.json`, `colorMode/dark.json`), and component tokens (`components/button.json`). Transformed via Style Dictionary v4 and custom build scripts (`config/build.ts`) into CSS custom properties, TypeScript constants, JSON, React Native JSON, Panda CSS JSON (foundation + semantic), per-component recipe spec JSON, and a Figma variables manifest. Includes a custom linter (`config/lint.ts`) that validates against DTCG spec and Reva conventions, and a watch script (`config/watch.ts`) for live development. Code is source of truth; Figma syncs one-way (code → Figma) via a custom dev plugin at `tools/figma-variable-sync/`.
+- **@reva/tokens** (`packages/design-tokens`): Authored in W3C DTCG format (`$value`, `$type`, `$description`) with colours in oklch(). Two-layer architecture: foundation tokens (16 files — colours, spacing, sizes, radii, typography, shadows, etc.) and semantic colour tokens (`colorMode/light.json`, `colorMode/dark.json`). Transformed via Style Dictionary v4 and custom build scripts (`config/build.ts`) into CSS custom properties, TypeScript constants, JSON, React Native JSON, Panda CSS JSON (foundation + semantic), and a Figma variables manifest. Includes a custom linter (`config/lint.ts`) that validates against DTCG spec and Reva conventions, and a watch script (`config/watch.ts`) for live development. Code is source of truth; Figma syncs one-way (code → Figma) via a custom dev plugin at `tools/figma-variable-sync/`.
 - **@reva/website-static** (`apps/reva-website`): Current static marketing site (Vite + PostCSS + PostHTML). Will be updated to consume CSS custom properties from `@reva/tokens` once the token package is published. A more complex Next.js `website` app will eventually replace it.
-- **@reva/panda-preset** (`packages/panda-preset`): Bridges design tokens into Panda CSS. Imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` via `defineTokens`/`defineSemanticTokens`. Also imports component token specs (`@reva/tokens/panda/components/*`) for recipe metrics. Defines light/dark mode conditions, component recipes (currently: Button), keyframes, and text styles (marketing + product). Does NOT include `@pandacss/preset-panda` (Panda's opinionated tokens); `@pandacss/preset-base` (utility mappings) is auto-included. Breakpoints and container sizes are hardcoded as flat maps in the preset (not wrapped as `{ value }` tokens).
+- **@reva/panda-preset** (`packages/panda-preset`): Bridges design tokens into Panda CSS. Imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` via `defineTokens`/`defineSemanticTokens`. Recipes use foundation token keys directly for non-colour metrics (spacing, sizes, radii, fontSizes, etc.). Defines light/dark mode conditions, component recipes (currently: Button), keyframes, and text styles (marketing + product). Does NOT include `@pandacss/preset-panda` (Panda's opinionated tokens); `@pandacss/preset-base` (utility mappings) is auto-included. Breakpoints and container sizes are hardcoded as flat maps in the preset (not wrapped as `{ value }` tokens).
 - **@reva/ui** (`packages/ui`): Anatomy-first, fully typed, accessible-by-default React components built on Ark UI and Panda CSS. Uses Panda `styled()` for single-element components (`styled(ark.<element>, recipe)`) and `createStyleContext` for compound slot recipes. Currently ships Button; more components to follow.
 - **@reva/config** (`packages/config`): Shared ESLint 9 flat config (typescript-eslint, @pandacss/eslint-plugin, react, react-hooks, jsx-a11y, simple-import-sort), Prettier config, and base TypeScript configs.
 
@@ -78,11 +77,11 @@ bun run format:check  # Check formatting
 ## Token Rules
 
 - **Panda-aligned plural namespace**: `colors`, `spacing`, `sizes`, `radii`, `shadows`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`, `letterSpacings`, `borderWidths`, `blurs`, `opacity`, `durations`, `zIndex`, `aspectRatios`, `cursors`. Matches Panda CSS category names for zero-mapping between token source and Panda preset. Additionally, `containerSizes` and `breakpoints` are authored as DTCG token files but consumed as Panda flat maps (not `{ value }` wrapped).
-- **Three layers**: foundation → semantic → component (recipes reference semantic colour tokens via Panda's `colorPalette.*`; non-colour metrics like height, padding, font-size come from component token specs)
+- **Two layers**: foundation → semantic. Recipes reference semantic colour tokens via Panda's `colorPalette.*`; non-colour foundation tokens (spacing, sizes, radii, fontSizes, etc.) are used directly in recipes as string keys.
 - **Colour foundation tokens NEVER in recipes or app code** — always go through the semantic layer. Per-palette semantic structure: root-level `canvas`, `surface`, `solid` (.500 midpoint), `focusRing`; `bg.{subtle,muted,emphasized,solid,strong}` for component fills; `border.{subtle,default,strong}`; `fg.{default,highContrast,onSolid}`; `alpha.{transparent,a50,a100,a200,a300,a400,a500,a600,a700,a800,a900,a950}`. Semantic palettes: neutral (→ olive), brand (→ gold), accent (→ amber), error (→ mulberry), warning (→ copper), success (→ fern), info (→ cobalt), misc (utility). In recipe style objects, omit the `colors.` prefix — Panda auto-maps CSS properties to token categories (e.g., `bg: 'bg.surface'`, not `bg: 'colors.bg.surface'`)
 - **Non-colour foundation tokens** (spacing, radii, borders, z-indices, durations, easings) MAY be used directly in recipes (`py: '4'`, `rounded: 'md'`)
 - **DTCG format**: Always use `$value`, `$type`, `$description` (dollar-prefixed keys). No comments in JSON source files.
-- **Token pipeline**: `@reva/tokens` builds Panda-compatible JSON (`dist/panda/tokens.json`, `dist/panda/semantic-tokens.json`) that `@reva/panda-preset` imports directly — no hardcoded values in the preset. Also builds per-component recipe spec JSON (`dist/panda/components/*.json`) that recipes import for sizing/spacing metrics, and a Figma variables manifest (`dist/figma/variables-manifest.json`) for one-way sync to Figma.
+- **Token pipeline**: `@reva/tokens` builds Panda-compatible JSON (`dist/panda/tokens.json`, `dist/panda/semantic-tokens.json`) that `@reva/panda-preset` imports directly — no hardcoded values in the preset, plus a Figma variables manifest (`dist/figma/variables-manifest.json`) for one-way sync to Figma.
 - **Colour format**: Source tokens use oklch() for perceptual uniformity and wide-gamut support. Custom Style Dictionary transforms convert oklch → hex for CSS and oklch → RGBA for Figma.
 - **Token linting**: `tokens:lint` validates all source JSON against W3C DTCG spec and Reva conventions before every build. Runs automatically in `tokens:build` and `tokens:watch`.
 
@@ -130,7 +129,7 @@ bun run format:check  # Check formatting
 
 ```
 @reva/config        → no build (exports raw config files)
-@reva/tokens        → lint → Style Dictionary + custom transforms → dist/ (CSS, TS, JSON, Panda tokens, Panda semantic-tokens, Panda component specs, Figma manifest)
+@reva/tokens        → lint → Style Dictionary + custom transforms → dist/ (CSS, TS, JSON, Panda tokens, Panda semantic-tokens, Figma manifest)
 @reva/panda-preset  → tsdown → dist/
 @reva/ui            → panda codegen → styled-system/ → tsdown → dist/
 @reva/docs          → panda codegen + panda cssgen → styled-system/ → next build

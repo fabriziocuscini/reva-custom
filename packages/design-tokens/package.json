@@ -18,8 +18,7 @@
     "./json-mobile/*": "./dist/json-mobile/*",
     "./panda/tokens": "./dist/panda/tokens.json",
     "./panda/semantic-tokens": "./dist/panda/semantic-tokens.json",
-    "./figma/manifest": "./dist/figma/variables-manifest.json",
-    "./panda/components/*": "./dist/panda/components/*.json"
+    "./figma/manifest": "./dist/figma/variables-manifest.json"
   },
   "devDependencies": {
     "@types/bun": "^1.3.11",

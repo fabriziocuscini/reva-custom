@@ -1,5 +1,4 @@
 import { defineRecipe } from '@pandacss/dev'
-import btn from '@reva/tokens/panda/components/button'
 
 export const button = defineRecipe({
   className: 'button',
@@ -8,25 +7,25 @@ export const button = defineRecipe({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: btn.fontFamily,
-    fontWeight: btn.fontWeight,
-    borderWidth: btn.borderWidth,
+    fontFamily: 'text',
+    fontWeight: 'medium',
+    borderWidth: 'default',
     borderColor: 'transparent',
     cursor: 'pointer',
     transitionProperty: 'background-color, border-color, color, opacity',
-    transitionDuration: btn.transitionDuration,
+    transitionDuration: 'fast',
     transitionTimingFunction: 'ease-in-out',
     whiteSpace: 'nowrap',
     userSelect: 'none',
     _disabled: {
-      opacity: btn.disabledOpacity,
+      opacity: 'disabled',
       cursor: 'not-allowed',
       pointerEvents: 'none',
     },
     _focus: {
-      outline: `${btn.focusRingWidth} solid`,
+      outline: 'thick solid',
       outlineColor: 'colorPalette.focusRing',
-      outlineOffset: btn.focusRingOffset,
+      outlineOffset: 'thick',
     },
   },
   variants: {
@@ -42,16 +41,12 @@ export const button = defineRecipe({
       solid: {
         bg: 'colorPalette.bg.solid',
         color: 'colorPalette.fg.onSolid',
-        _hover: {
-          bg: 'colorPalette.bg.strong',
-        },
+        _hover: { bg: 'colorPalette.bg.strong' },
       },
       subtle: {
         bg: 'colorPalette.bg.subtle',
         color: 'colorPalette.fg.default',
-        _hover: {
-          bg: 'colorPalette.bg.muted',
-        },
+        _hover: { bg: 'colorPalette.bg.muted' },
       },
       outline: {
         bg: 'transparent',
@@ -65,66 +60,16 @@ export const button = defineRecipe({
       ghost: {
         bg: 'transparent',
         color: 'colorPalette.fg.default',
-        _hover: {
-          bg: 'colorPalette.bg.subtle',
-        },
+        _hover: { bg: 'colorPalette.bg.subtle' },
       },
     },
     size: {
-      '2xs': {
-        h: btn.size['2xs'].height,
-        minW: btn.size['2xs'].minWidth,
-        px: btn.size['2xs'].px,
-        gap: btn.size['2xs'].gap,
-        fontSize: btn.size['2xs'].fontSize,
-        lineHeight: btn.size['2xs'].lineHeight,
-        borderRadius: btn.size['2xs'].radius,
-      },
-      xs: {
-        h: btn.size.xs.height,
-        minW: btn.size.xs.minWidth,
-        px: btn.size.xs.px,
-        gap: btn.size.xs.gap,
-        fontSize: btn.size.xs.fontSize,
-        lineHeight: btn.size.xs.lineHeight,
-        borderRadius: btn.size.xs.radius,
-      },
-      sm: {
-        h: btn.size.sm.height,
-        minW: btn.size.sm.minWidth,
-        px: btn.size.sm.px,
-        gap: btn.size.sm.gap,
-        fontSize: btn.size.sm.fontSize,
-        lineHeight: btn.size.sm.lineHeight,
-        borderRadius: btn.size.sm.radius,
-      },
-      md: {
-        h: btn.size.md.height,
-        minW: btn.size.md.minWidth,
-        px: btn.size.md.px,
-        gap: btn.size.md.gap,
-        fontSize: btn.size.md.fontSize,
-        lineHeight: btn.size.md.lineHeight,
-        borderRadius: btn.size.md.radius,
-      },
-      lg: {
-        h: btn.size.lg.height,
-        minW: btn.size.lg.minWidth,
-        px: btn.size.lg.px,
-        gap: btn.size.lg.gap,
-        fontSize: btn.size.lg.fontSize,
-        lineHeight: btn.size.lg.lineHeight,
-        borderRadius: btn.size.lg.radius,
-      },
-      xl: {
-        h: btn.size.xl.height,
-        minW: btn.size.xl.minWidth,
-        px: btn.size.xl.px,
-        gap: btn.size.xl.gap,
-        fontSize: btn.size.xl.fontSize,
-        lineHeight: btn.size.xl.lineHeight,
-        borderRadius: btn.size.xl.radius,
-      },
+      '2xs': { h: '6', minW: '6', px: '2', gap: '1', fontSize: '2xs', lineHeight: 'normal', borderRadius: 'xs' },
+      xs:    { h: '7', minW: '7', px: '2', gap: '1', fontSize: 'xs', lineHeight: 'normal', borderRadius: 'sm' },
+      sm:    { h: '8', minW: '8', px: '3', gap: '1', fontSize: 'xs', lineHeight: 'normal', borderRadius: 'sm' },
+      md:    { h: '10', minW: '10', px: '4', gap: '2', fontSize: 'sm', lineHeight: 'normal', borderRadius: 'md' },
+      lg:    { h: '12', minW: '12', px: '5', gap: '2', fontSize: 'md', lineHeight: 'normal', borderRadius: 'md' },
+      xl:    { h: '14', minW: '14', px: '6', gap: '3', fontSize: 'lg', lineHeight: 'normal', borderRadius: 'lg' },
     },
   },
   defaultVariants: {
