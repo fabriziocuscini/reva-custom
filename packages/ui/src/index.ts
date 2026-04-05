@@ -2,6 +2,7 @@
 export { Button, type ButtonProps } from './components/button'
 
 // Layout components
+export { AbsoluteCenter, type AbsoluteCenterProps } from './components/absolute-center'
 export { Box, type BoxProps } from './components/box'
 export { Flex, type FlexProps } from './components/flex'
 export { Stack, type StackProps } from './components/stack'
