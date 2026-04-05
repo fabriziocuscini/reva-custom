@@ -14,3 +14,4 @@
 - User has multiple MacBook Pros — build failures on one machine often mean stale or missing `dist/` artifacts
 - Text styles in Panda preset (`text-styles.ts`) are manually authored, not auto-generated from the token pipeline
 - The `textStyles.json` source file is excluded from Style Dictionary build via `sdExclude` — renamed collections: `marketing`→`brand`, `body`→`text`
+- `tokens:serve` is only defined on `@reva/tokens` (not the repo root) — run `cd packages/design-tokens && bun run tokens:serve` or `bun run dev:tokens` for watch + serve; the script uses Portless (`tokens.revaos`) to expose `dist/figma/` for the custom Figma plugin
