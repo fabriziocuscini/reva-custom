@@ -4,7 +4,7 @@ import { breakpoints } from './breakpoints'
 import { conditions } from './conditions'
 import { containerSizes } from './container-sizes'
 import { keyframes } from './keyframes'
-import { absoluteCenter, button } from './recipes'
+import { absoluteCenter, button, decorativeBox } from './recipes'
 import { semanticTokens } from './semantic-tokens'
 import { textStyles } from './text-styles'
 import { tokens } from './tokens'
@@ -23,6 +23,7 @@ export const revaPreset = definePreset({
     recipes: {
       absoluteCenter,
       button,
+      decorativeBox,
     },
     keyframes,
     textStyles,

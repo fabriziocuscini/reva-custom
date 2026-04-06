@@ -1,0 +1,31 @@
+---
+title: DecorativeBox
+description: A decorative placeholder block for documentation previews and layout examples.
+---
+
+import DecorativeBoxDefault, { code as defaultCode } from '@/examples/decorative-box/default'
+import DecorativeBoxGrid, { code as gridCode } from '@/examples/decorative-box/grid'
+
+<ComponentPreview code={defaultCode}>
+  <DecorativeBoxDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { DecorativeBox } from '@reva/ui'
+```
+
+## Examples
+
+### Grid placeholders
+
+Use `DecorativeBox` when demonstrating layout structure without final content.
+
+<ComponentPreview code={gridCode}>
+  <DecorativeBoxGrid />
+</ComponentPreview>
+
+## Props
+
+`DecorativeBox` supports the same props as `Box` and other layout primitives from `@reva/ui`.
