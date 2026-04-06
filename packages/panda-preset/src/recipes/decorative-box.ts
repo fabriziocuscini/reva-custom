@@ -3,6 +3,8 @@ import { defineRecipe } from '@pandacss/dev'
 export const decorativeBox = defineRecipe({
   className: 'decorative-box',
   base: {
+    minW: '16',
+    minH: '16',
     h: 'full',
     rounded: 'xs',
     bg: 'neutral.alpha.a200',

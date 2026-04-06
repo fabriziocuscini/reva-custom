@@ -24,7 +24,7 @@ Park UI's architecture matches Reva's conventions exactly.
 | -------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Architecture   | Park UI pattern: recipe in preset, styled wrapper in UI | Matches Reva convention. Recipe is reusable across consuming apps.                 |
 | Recipe type    | `defineRecipe` (single element)                         | Not a compound component — no slots needed.                                        |
-| Variant        | `axis: "horizontal" | "vertical" | "both"`              | Industry standard (Chakra + Park UI agree). Default: `"both"`.                     |
+| Variant        | `axis: "horizontal"                                     | "vertical"                                                                         |
 | RTL support    | `insetStart` + `_rtl` condition                         | Logical property + explicit RTL override, matching both reference implementations. |
 | Styled pattern | `styled(ark.div, absoluteCenter)`                       | North star pattern per component skill. No manual `forwardRef` needed.             |
 | Props type     | `ComponentProps<typeof AbsoluteCenter>`                 | Park UI convention. Recipe variants become props automatically.                    |

@@ -241,8 +241,6 @@ import { DecorativeBox } from '@reva/ui'
 
 Use `DecorativeBox` when demonstrating layout structure without final content.
 
-
-
 ## Props
 
 `DecorativeBox` supports the same props as `Box` and other layout primitives from `@reva/ui`.

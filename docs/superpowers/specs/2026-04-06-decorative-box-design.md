@@ -110,4 +110,3 @@ Expected outcome:
 - Default style uses the specified token mapping (radius/fill/stroke).
 - Docs include at least one working layout/grid placeholder example.
 - Lint/typecheck/docs smoke pass for touched areas.
-
