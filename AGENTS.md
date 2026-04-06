@@ -19,3 +19,5 @@
 - The official Figma MCP `use_figma` runtime cannot load custom fonts (e.g., Inter Tight) — workaround: create styles with default font and bind fontFamily/fontWeight/fontSize variables to override
 - Figma typography and colour variables live in a team library (not local to design files) — import via `figma.variables.importVariableByKeyAsync(key)`
 - `@reva/ui` is the single golden source for all components (layout + interactive) — layout patterns re-exported from Panda codegen today, but facade allows swapping implementations without consumer impact
+- Docs app loads generated Panda CSS via `import './styled-system.css'` in `layout.tsx` (not CSS `@import` in `global.css`) — Turbopack/Tailwind PostCSS can't resolve relative imports to parent directories in dev mode
+- Fumadocs sidebar navigation requires explicit entries in `content/docs/{section}/meta.json` — new docs pages won't appear in the sidebar menu without updating this file
