@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && next build",
-    "dev": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css && portless docs.revaos next dev --turbopack",
-    "codegen": "panda codegen --clean && panda cssgen --outfile styled-system/styles.css"
+    "build": "panda codegen --clean && panda cssgen --outfile app/styled-system.css && next build",
+    "dev": "panda codegen --clean && panda cssgen --outfile app/styled-system.css && portless docs.revaos next dev --turbopack",
+    "codegen": "panda codegen --clean && panda cssgen --outfile app/styled-system.css"
   },
   "dependencies": {
     "@reva/ui": "workspace:*",

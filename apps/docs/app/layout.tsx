@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
 import './global.css'
+import './styled-system.css'
 
 export const metadata: Metadata = {
   title: 'Reva Design System',
