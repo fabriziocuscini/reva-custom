@@ -1,9 +1,9 @@
 import {
-  LinkOverlay as PandaLinkOverlay,
-  type LinkOverlayProps as PandaLinkOverlayProps,
+  LinkOverlay as BaseLinkOverlay,
+  type LinkOverlayProps as BaseLinkOverlayProps,
 } from 'styled-system/jsx'
 
-export interface LinkOverlayProps extends PandaLinkOverlayProps {}
+export interface LinkOverlayProps extends BaseLinkOverlayProps {}
 
-export const LinkOverlay = PandaLinkOverlay
+export const LinkOverlay = BaseLinkOverlay
 LinkOverlay.displayName = 'LinkOverlay'

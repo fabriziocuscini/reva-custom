@@ -1,6 +1,6 @@
-import { Spacer as PandaSpacer, type SpacerProps as PandaSpacerProps } from 'styled-system/jsx'
+import { Spacer as BaseSpacer, type SpacerProps as BaseSpacerProps } from 'styled-system/jsx'
 
-export interface SpacerProps extends PandaSpacerProps {}
+export interface SpacerProps extends BaseSpacerProps {}
 
-export const Spacer = PandaSpacer
+export const Spacer = BaseSpacer
 Spacer.displayName = 'Spacer'

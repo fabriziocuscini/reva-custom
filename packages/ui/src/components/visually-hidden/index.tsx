@@ -1,9 +1,9 @@
 import {
-  VisuallyHidden as PandaVisuallyHidden,
-  type VisuallyHiddenProps as PandaVisuallyHiddenProps,
+  VisuallyHidden as BaseVisuallyHidden,
+  type VisuallyHiddenProps as BaseVisuallyHiddenProps,
 } from 'styled-system/jsx'
 
-export interface VisuallyHiddenProps extends PandaVisuallyHiddenProps {}
+export interface VisuallyHiddenProps extends BaseVisuallyHiddenProps {}
 
-export const VisuallyHidden = PandaVisuallyHidden
+export const VisuallyHidden = BaseVisuallyHidden
 VisuallyHidden.displayName = 'VisuallyHidden'

@@ -1,6 +1,9 @@
-import { HStack as PandaHStack, type HstackProps as PandaHstackProps } from 'styled-system/jsx'
+import { forwardRef } from 'react'
+import { Stack, type StackProps } from '../stack'
 
-export interface HStackProps extends PandaHstackProps {}
+export interface HStackProps extends StackProps {}
 
-export const HStack = PandaHStack
+export const HStack = forwardRef<HTMLDivElement, HStackProps>((props, ref) => (
+  <Stack align="center" {...props} direction="row" ref={ref} />
+))
 HStack.displayName = 'HStack'

@@ -1,6 +1,6 @@
-import { Bleed as PandaBleed, type BleedProps as PandaBleedProps } from 'styled-system/jsx'
+import { Bleed as BaseBleed, type BleedProps as BaseBleedProps } from 'styled-system/jsx'
 
-export interface BleedProps extends PandaBleedProps {}
+export interface BleedProps extends BaseBleedProps {}
 
-export const Bleed = PandaBleed
+export const Bleed = BaseBleed
 Bleed.displayName = 'Bleed'

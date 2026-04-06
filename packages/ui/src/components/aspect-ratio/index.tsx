@@ -1,9 +1,9 @@
 import {
-  AspectRatio as PandaAspectRatio,
-  type AspectRatioProps as PandaAspectRatioProps,
+  AspectRatio as BaseAspectRatio,
+  type AspectRatioProps as BaseAspectRatioProps,
 } from 'styled-system/jsx'
 
-export interface AspectRatioProps extends PandaAspectRatioProps {}
+export interface AspectRatioProps extends BaseAspectRatioProps {}
 
-export const AspectRatio = PandaAspectRatio
+export const AspectRatio = BaseAspectRatio
 AspectRatio.displayName = 'AspectRatio'

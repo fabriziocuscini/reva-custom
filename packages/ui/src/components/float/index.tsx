@@ -1,6 +1,6 @@
-import { Float as PandaFloat, type FloatProps as PandaFloatProps } from 'styled-system/jsx'
+import { Float as BaseFloat, type FloatProps as BaseFloatProps } from 'styled-system/jsx'
 
-export interface FloatProps extends PandaFloatProps {}
+export interface FloatProps extends BaseFloatProps {}
 
-export const Float = PandaFloat
+export const Float = BaseFloat
 Float.displayName = 'Float'

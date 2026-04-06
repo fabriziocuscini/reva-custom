@@ -1,6 +1,6 @@
-import { Cq as PandaCq, type CqProps as PandaCqProps } from 'styled-system/jsx'
+import { Cq as BaseCq, type CqProps as BaseCqProps } from 'styled-system/jsx'
 
-export interface CqProps extends PandaCqProps {}
+export interface CqProps extends BaseCqProps {}
 
-export const Cq = PandaCq
+export const Cq = BaseCq
 Cq.displayName = 'Cq'

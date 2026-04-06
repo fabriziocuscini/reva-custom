@@ -1,9 +1,9 @@
 import {
-  Container as PandaContainer,
-  type ContainerProps as PandaContainerProps,
+  Container as BaseContainer,
+  type ContainerProps as BaseContainerProps,
 } from 'styled-system/jsx'
 
-export interface ContainerProps extends PandaContainerProps {}
+export interface ContainerProps extends BaseContainerProps {}
 
-export const Container = PandaContainer
+export const Container = BaseContainer
 Container.displayName = 'Container'

@@ -1,6 +1,6 @@
-import { Wrap as PandaWrap, type WrapProps as PandaWrapProps } from 'styled-system/jsx'
+import { Wrap as BaseWrap, type WrapProps as BaseWrapProps } from 'styled-system/jsx'
 
-export interface WrapProps extends PandaWrapProps {}
+export interface WrapProps extends BaseWrapProps {}
 
-export const Wrap = PandaWrap
+export const Wrap = BaseWrap
 Wrap.displayName = 'Wrap'

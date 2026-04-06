@@ -1,6 +1,6 @@
-import { Circle as PandaCircle, type CircleProps as PandaCircleProps } from 'styled-system/jsx'
+import { Circle as BaseCircle, type CircleProps as BaseCircleProps } from 'styled-system/jsx'
 
-export interface CircleProps extends PandaCircleProps {}
+export interface CircleProps extends BaseCircleProps {}
 
-export const Circle = PandaCircle
+export const Circle = BaseCircle
 Circle.displayName = 'Circle'

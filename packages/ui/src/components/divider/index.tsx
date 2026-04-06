@@ -1,6 +1,6 @@
-import { Divider as PandaDivider, type DividerProps as PandaDividerProps } from 'styled-system/jsx'
+import { Divider as BaseDivider, type DividerProps as BaseDividerProps } from 'styled-system/jsx'
 
-export interface DividerProps extends PandaDividerProps {}
+export interface DividerProps extends BaseDividerProps {}
 
-export const Divider = PandaDivider
+export const Divider = BaseDivider
 Divider.displayName = 'Divider'

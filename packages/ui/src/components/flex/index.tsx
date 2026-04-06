@@ -1,6 +1,6 @@
-import { Flex as PandaFlex, type FlexProps as PandaFlexProps } from 'styled-system/jsx'
+import { Flex as BaseFlex, type FlexProps as BaseFlexProps } from 'styled-system/jsx'
 
-export interface FlexProps extends PandaFlexProps {}
+export interface FlexProps extends BaseFlexProps {}
 
-export const Flex = PandaFlex
+export const Flex = BaseFlex
 Flex.displayName = 'Flex'

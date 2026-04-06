@@ -1,6 +1,6 @@
-import { Box as PandaBox, type BoxProps as PandaBoxProps } from 'styled-system/jsx'
+import { Box as BaseBox, type BoxProps as BaseBoxProps } from 'styled-system/jsx'
 
-export interface BoxProps extends PandaBoxProps {}
+export interface BoxProps extends BaseBoxProps {}
 
-export const Box = PandaBox
+export const Box = BaseBox
 Box.displayName = 'Box'
