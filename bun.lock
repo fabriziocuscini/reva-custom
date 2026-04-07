@@ -26,7 +26,6 @@
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@vitejs/plugin-react": "^4",
@@ -44,7 +43,6 @@
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@vitejs/plugin-react": "^4",
@@ -67,7 +65,6 @@
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^22",
         "@types/react": "^19",
@@ -140,7 +137,6 @@
       "devDependencies": {
         "@pandacss/dev": "^1",
         "@pandacss/types": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "tsdown": "^0.20.3",

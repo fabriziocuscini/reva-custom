@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^1",
-    "@reva/panda-preset": "workspace:*",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22",
     "@types/react": "^19",

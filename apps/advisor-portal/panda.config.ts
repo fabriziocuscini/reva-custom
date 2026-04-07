@@ -1,5 +1,5 @@
 import { defineConfig } from '@pandacss/dev'
-import { revaPreset, revaGlobalCss } from '@reva/panda-preset'
+import { revaPreset, revaGlobalCss } from '@reva/ui/preset'
 
 export default defineConfig({
   presets: [revaPreset],
