@@ -1,6 +1,6 @@
 {
 	"title": "Design Tokens",
-	"description": "The semantic token system in W3C DTCG format",
+	"description": "The semantic token system",
 	"icon": "Palette",
 	"root": true,
 	"pages": ["index"]

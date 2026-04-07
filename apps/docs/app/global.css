@@ -2,6 +2,14 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+@theme {
+  --color-fd-primary: oklch(0.5907 0.111 75.76);
+}
+
 :root {
-  --fd-layout-width: 1650px;
+  --fd-layout-width: 1440px;
+}
+
+.dark {
+  --color-fd-primary: oklch(0.7577 0.1403 76.71);
 }
