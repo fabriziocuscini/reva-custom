@@ -8,6 +8,7 @@
 - In Figma, prefers variable bindings over hardcoded values for reusable design properties (font family, weight, size) — only hardcode line height and letter spacing
 - Prefers component recipes co-located with component definitions — single place to go when creating or modifying a component (implemented: `@reva/panda-preset` merged into `@reva/ui`)
 - Prefers Fumadocs shared `apps/docs/lib/layout.shared.tsx` with `baseOptions()` for nav (logo, GitHub, links) so docs layouts stay consistent and easy to extend
+- Prefers the standard Fumadocs `CodeBlock` + `Pre` from `fumadocs-ui/components/codeblock` for component previews — not `DynamicCodeBlock` (unnecessary client-side highlighting) or `ServerCodeBlock`
 
 ## Learned Workspace Facts
 
@@ -24,3 +25,6 @@
 - `@reva/ui` is the single golden source for all components (layout + interactive) — layout patterns re-exported from Panda codegen today, but facade allows swapping implementations without consumer impact
 - Docs app loads generated Panda CSS via `import './styled-system.css'` in `layout.tsx` (not CSS `@import` in `global.css`) — Turbopack/Tailwind PostCSS can't resolve relative imports to parent directories in dev mode
 - Fumadocs: list pages in each section's `meta.json` or they won't appear in the sidebar; layout tabs (section switcher) use folders with `"root": true`. Icons and short descriptions in that dropdown come from root `meta.json` (`icon` as a Lucide name string, `description`) plus an `icon()` handler on `loader()` in `apps/docs/lib/source.ts`
+- `@reva/ui` renamed `Divider` → `Separator` — aligns with Ark UI, Chakra v3, and WAI-ARIA; Panda's `Divider` JSX pattern is aliased internally
+- Docs component pages are organised in nested category folders (`components/buttons/`, `components/layout/`) under the "Reva UI" root tab, modeled after Chakra UI
+- Component docs examples pattern: `'use client'`, import from `@reva/ui`, export a `code` string + default function component; files at `apps/docs/examples/<component>/<variant>.tsx`
