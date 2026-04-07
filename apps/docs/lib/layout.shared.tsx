@@ -3,8 +3,8 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
 function Logo() {
   return (
     <svg
-      width={76}
-      height={32}
+      width={66.5}
+      height={28}
       viewBox="0 0 95 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
