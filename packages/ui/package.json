@@ -23,7 +23,8 @@
     "codegen": "panda codegen --clean"
   },
   "dependencies": {
-    "@ark-ui/react": "^5"
+    "@ark-ui/react": "^5",
+    "@reva/tokens": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18 || ^19",

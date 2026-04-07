@@ -135,6 +135,7 @@
       "version": "0.0.0",
       "dependencies": {
         "@ark-ui/react": "^5",
+        "@reva/tokens": "workspace:*",
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
