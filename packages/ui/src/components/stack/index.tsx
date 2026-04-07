@@ -2,7 +2,7 @@ import {
   Stack as BaseStack,
   type StackProps as BaseStackProps,
 } from 'styled-system/jsx'
-import { Divider } from '../divider'
+import { Separator } from '../separator'
 import {
   Children,
   Fragment,
@@ -38,7 +38,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
         : 'horizontal'
     const separatorElement =
       separator === true ? (
-        <Divider orientation={orientation} />
+        <Separator orientation={orientation} />
       ) : (
         cloneElement(separator, { orientation })
       )
