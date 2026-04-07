@@ -1,0 +1,44 @@
+---
+title: Container
+description: Constrains content to a max-width and centres it horizontally.
+---
+
+import ContainerDefault, { code as defaultCode } from '@/examples/container/default'
+import ContainerSizes, { code as sizesCode } from '@/examples/container/sizes'
+import ContainerCenterContent, { code as centerContentCode } from '@/examples/container/center-content'
+
+<ComponentPreview code={defaultCode}>
+  <ContainerDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Container } from '@reva/ui'
+```
+
+## Examples
+
+### Max-width sizes
+
+Use the `maxW` prop to constrain the container to a specific breakpoint width.
+
+<ComponentPreview code={sizesCode}>
+  <ContainerSizes />
+</ComponentPreview>
+
+### Center content
+
+Use the `centerContent` prop to centre content both horizontally and vertically within the container.
+
+<ComponentPreview code={centerContentCode}>
+  <ContainerCenterContent />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `maxW` | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| ...` | — | Maximum width (token key or CSS value) |
+| `centerContent` | `boolean` | `false` | Centre content horizontally and vertically |
+| `className` | `string` | — | Additional CSS classes |
