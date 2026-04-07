@@ -16,6 +16,7 @@ Remove the standalone `Typography` Figma collection and fold typography variable
 **File:** `packages/design-tokens/config/figma-collections.ts`
 
 Two edits:
+
 1. Remove `'typography.json'` from the Foundation collection's `excludeFiles` array.
 2. Delete the entire `Typography` collection entry.
 
@@ -25,11 +26,13 @@ No other files change.
 
 The 20 typography variables currently in the `Typography` collection will move to `Foundation`:
 
-| Group | Count | Figma type |
-|-------|-------|------------|
-| `fonts` | 4 | STRING |
-| `fontSizes` | 12 | FLOAT (px) |
-| `fontWeights` | 4 | FLOAT |
+
+| Group         | Count | Figma type |
+| ------------- | ----- | ---------- |
+| `fonts`       | 4     | STRING     |
+| `fontSizes`   | 12    | FLOAT (px) |
+| `fontWeights` | 4     | FLOAT      |
+
 
 Foundation variable count goes from 535 → ~555.
 
@@ -47,6 +50,7 @@ Foundation variable count goes from 535 → ~555.
 ## After This Change
 
 Running `bun run tokens:build` will produce a Figma manifest with:
+
 - No `Typography` collection
-- Foundation collection containing all typography variables (`fonts/*`, `fontSizes/*`, `fontWeights/*`)
+- Foundation collection containing all typography variables (`fonts/`*, `fontSizes/`*, `fontWeights/*`)
 - A re-sync via the Figma dev plugin will delete the stale `Typography` collection and add the variables to `Foundation`
