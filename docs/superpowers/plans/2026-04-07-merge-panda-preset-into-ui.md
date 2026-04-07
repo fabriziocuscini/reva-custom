@@ -15,6 +15,7 @@
 ### Task 1: Create theme directory and move theme files
 
 **Files:**
+
 - Create: `packages/ui/src/theme/tokens.ts`
 - Create: `packages/ui/src/theme/semantic-tokens.ts`
 - Create: `packages/ui/src/theme/conditions.ts`
@@ -23,8 +24,7 @@
 - Create: `packages/ui/src/theme/text-styles.ts`
 - Create: `packages/ui/src/theme/keyframes.ts`
 - Create: `packages/ui/src/theme/global-css.ts`
-
-- [ ] **Step 1: Create `packages/ui/src/theme/tokens.ts`**
+- **Step 1: Create `packages/ui/src/theme/tokens.ts`**
 
 ```ts
 import { defineTokens } from '@pandacss/dev'
@@ -33,7 +33,7 @@ import pandaTokens from '@reva/tokens/panda/tokens'
 export const tokens = defineTokens(pandaTokens)
 ```
 
-- [ ] **Step 2: Create `packages/ui/src/theme/semantic-tokens.ts`**
+- **Step 2: Create `packages/ui/src/theme/semantic-tokens.ts`**
 
 ```ts
 import { defineSemanticTokens } from '@pandacss/dev'
@@ -42,7 +42,7 @@ import pandaSemanticTokens from '@reva/tokens/panda/semantic-tokens'
 export const semanticTokens = defineSemanticTokens(pandaSemanticTokens)
 ```
 
-- [ ] **Step 3: Create `packages/ui/src/theme/conditions.ts`**
+- **Step 3: Create `packages/ui/src/theme/conditions.ts`**
 
 ```ts
 export const conditions = {
@@ -51,7 +51,7 @@ export const conditions = {
 }
 ```
 
-- [ ] **Step 4: Create `packages/ui/src/theme/breakpoints.ts`**
+- **Step 4: Create `packages/ui/src/theme/breakpoints.ts`**
 
 ```ts
 export const breakpoints = {
@@ -63,7 +63,7 @@ export const breakpoints = {
 }
 ```
 
-- [ ] **Step 5: Create `packages/ui/src/theme/container-sizes.ts`**
+- **Step 5: Create `packages/ui/src/theme/container-sizes.ts`**
 
 ```ts
 export const containerSizes = {
@@ -82,11 +82,11 @@ export const containerSizes = {
 }
 ```
 
-- [ ] **Step 6: Create `packages/ui/src/theme/text-styles.ts`**
+- **Step 6: Create `packages/ui/src/theme/text-styles.ts`**
 
 Copy the full contents of `packages/panda-preset/src/text-styles.ts` (271 lines) verbatim.
 
-- [ ] **Step 7: Create `packages/ui/src/theme/keyframes.ts`**
+- **Step 7: Create `packages/ui/src/theme/keyframes.ts`**
 
 ```ts
 import { defineKeyframes } from '@pandacss/dev'
@@ -111,7 +111,7 @@ export const keyframes = defineKeyframes({
 })
 ```
 
-- [ ] **Step 8: Create `packages/ui/src/theme/global-css.ts`**
+- **Step 8: Create `packages/ui/src/theme/global-css.ts`**
 
 ```ts
 import { defineGlobalStyles } from '@pandacss/dev'
@@ -129,7 +129,7 @@ export const globalCss = defineGlobalStyles({
 })
 ```
 
-- [ ] **Step 9: Commit**
+- **Step 9: Commit**
 
 ```bash
 git add packages/ui/src/theme/
@@ -141,23 +141,23 @@ git commit -m "refactor(ui): add theme directory with files from panda-preset"
 ### Task 2: Move recipes to co-locate with components
 
 **Files:**
+
 - Create: `packages/ui/src/components/button/recipe.ts`
 - Create: `packages/ui/src/components/absolute-center/recipe.ts`
 - Create: `packages/ui/src/components/decorative-box/recipe.ts`
-
-- [ ] **Step 1: Create `packages/ui/src/components/button/recipe.ts`**
+- **Step 1: Create `packages/ui/src/components/button/recipe.ts`**
 
 Copy the full contents of `packages/panda-preset/src/recipes/button.ts` (80 lines) verbatim. The file starts with `import { defineRecipe } from '@pandacss/dev'` — no import path changes needed.
 
-- [ ] **Step 2: Create `packages/ui/src/components/absolute-center/recipe.ts`**
+- **Step 2: Create `packages/ui/src/components/absolute-center/recipe.ts`**
 
 Copy the full contents of `packages/panda-preset/src/recipes/absolute-center.ts` (33 lines) verbatim.
 
-- [ ] **Step 3: Create `packages/ui/src/components/decorative-box/recipe.ts`**
+- **Step 3: Create `packages/ui/src/components/decorative-box/recipe.ts`**
 
 Copy the full contents of `packages/panda-preset/src/recipes/decorative-box.ts` (18 lines) verbatim.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add packages/ui/src/components/*/recipe.ts
@@ -169,10 +169,10 @@ git commit -m "refactor(ui): co-locate recipes with component definitions"
 ### Task 3: Create preset entrypoint and theme assembler
 
 **Files:**
+
 - Create: `packages/ui/src/theme/index.ts`
 - Create: `packages/ui/src/preset.ts`
-
-- [ ] **Step 1: Create `packages/ui/src/theme/index.ts`**
+- **Step 1: Create `packages/ui/src/theme/index.ts`**
 
 This assembles the full Panda preset, importing theme infrastructure from sibling files and recipes from component directories:
 
@@ -209,7 +209,7 @@ export const revaPreset = definePreset({
 })
 ```
 
-- [ ] **Step 2: Create `packages/ui/src/preset.ts`**
+- **Step 2: Create `packages/ui/src/preset.ts`**
 
 This is the public entrypoint for `@reva/ui/preset`:
 
@@ -218,7 +218,7 @@ export { revaPreset } from './theme'
 export { globalCss as revaGlobalCss } from './theme/global-css'
 ```
 
-- [ ] **Step 3: Commit**
+- **Step 3: Commit**
 
 ```bash
 git add packages/ui/src/theme/index.ts packages/ui/src/preset.ts
@@ -230,13 +230,14 @@ git commit -m "refactor(ui): create preset entrypoint and theme assembler"
 ### Task 4: Update `@reva/ui` package configuration
 
 **Files:**
+
 - Modify: `packages/ui/package.json`
 - Modify: `packages/ui/tsdown.config.ts`
 - Modify: `packages/ui/panda.config.ts`
-
-- [ ] **Step 1: Update `packages/ui/package.json`**
+- **Step 1: Update `packages/ui/package.json`**
 
 Changes:
+
 - Add `@reva/tokens` as a dependency
 - Remove `@reva/panda-preset` from devDependencies
 - Add `"./preset"` export entry
@@ -295,7 +296,7 @@ Changes:
 }
 ```
 
-- [ ] **Step 2: Update `packages/ui/tsdown.config.ts`**
+- **Step 2: Update `packages/ui/tsdown.config.ts`**
 
 Add `src/preset.ts` as a second entrypoint and externalise Panda packages:
 
@@ -319,7 +320,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 3: Update `packages/ui/panda.config.ts`**
+- **Step 3: Update `packages/ui/panda.config.ts`**
 
 Change the preset import from `@reva/panda-preset` to the local theme:
 
@@ -336,7 +337,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add packages/ui/package.json packages/ui/tsdown.config.ts packages/ui/panda.config.ts
@@ -348,14 +349,14 @@ git commit -m "refactor(ui): update package config for merged preset"
 ### Task 5: Update consumer app configurations
 
 **Files:**
+
 - Modify: `apps/docs/panda.config.ts`
 - Modify: `apps/docs/package.json`
 - Modify: `apps/advisor-portal/panda.config.ts`
 - Modify: `apps/advisor-portal/package.json`
 - Modify: `apps/client-portal/panda.config.ts`
 - Modify: `apps/client-portal/package.json`
-
-- [ ] **Step 1: Update `apps/docs/panda.config.ts`**
+- **Step 1: Update `apps/docs/panda.config.ts`**
 
 ```ts
 import { defineConfig } from '@pandacss/dev'
@@ -380,11 +381,11 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 2: Update `apps/docs/package.json` — remove `@reva/panda-preset`**
+- **Step 2: Update `apps/docs/package.json` — remove `@reva/panda-preset`**
 
 Remove `"@reva/panda-preset": "workspace:*"` from `devDependencies`. All other entries stay the same.
 
-- [ ] **Step 3: Update `apps/advisor-portal/panda.config.ts`**
+- **Step 3: Update `apps/advisor-portal/panda.config.ts`**
 
 ```ts
 import { defineConfig } from '@pandacss/dev'
@@ -404,11 +405,11 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 4: Update `apps/advisor-portal/package.json` — remove `@reva/panda-preset`**
+- **Step 4: Update `apps/advisor-portal/package.json` — remove `@reva/panda-preset`**
 
 Remove `"@reva/panda-preset": "workspace:*"` from `devDependencies`. All other entries stay the same.
 
-- [ ] **Step 5: Update `apps/client-portal/panda.config.ts`**
+- **Step 5: Update `apps/client-portal/panda.config.ts`**
 
 ```ts
 import { defineConfig } from '@pandacss/dev'
@@ -428,11 +429,11 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 6: Update `apps/client-portal/package.json` — remove `@reva/panda-preset`**
+- **Step 6: Update `apps/client-portal/package.json` — remove `@reva/panda-preset`**
 
 Remove `"@reva/panda-preset": "workspace:*"` from `devDependencies`. All other entries stay the same.
 
-- [ ] **Step 7: Commit**
+- **Step 7: Commit**
 
 ```bash
 git add apps/docs/panda.config.ts apps/docs/package.json \
@@ -446,15 +447,15 @@ git commit -m "refactor(apps): import preset from @reva/ui/preset"
 ### Task 6: Delete `@reva/panda-preset` package
 
 **Files:**
-- Delete: `packages/panda-preset/` (entire directory)
 
-- [ ] **Step 1: Delete the package directory**
+- Delete: `packages/panda-preset/` (entire directory)
+- **Step 1: Delete the package directory**
 
 ```bash
 rm -rf packages/panda-preset
 ```
 
-- [ ] **Step 2: Run `bun install` to regenerate the lockfile**
+- **Step 2: Run `bun install` to regenerate the lockfile**
 
 ```bash
 bun install
@@ -462,7 +463,7 @@ bun install
 
 Expected: lockfile updates cleanly, no resolution errors for `@reva/panda-preset`.
 
-- [ ] **Step 3: Commit**
+- **Step 3: Commit**
 
 ```bash
 git add -A
@@ -473,18 +474,19 @@ git commit -m "refactor: remove @reva/panda-preset package"
 
 ### Task 7: Verify the build
 
-- [ ] **Step 1: Build all packages**
+- **Step 1: Build all packages**
 
 ```bash
 bun run build
 ```
 
 Expected: all packages build successfully. The build order should be:
+
 1. `@reva/tokens` → `dist/`
 2. `@reva/ui` → `styled-system/` (codegen) → `dist/` (tsdown)
 3. Apps → `styled-system/` (codegen) → app builds
 
-- [ ] **Step 2: Run lint**
+- **Step 2: Run lint**
 
 ```bash
 bun run lint
@@ -492,7 +494,7 @@ bun run lint
 
 Expected: no lint errors related to the migration. Pre-existing lint issues (if any) are unrelated.
 
-- [ ] **Step 3: Run typecheck**
+- **Step 3: Run typecheck**
 
 ```bash
 bun run typecheck
@@ -500,7 +502,7 @@ bun run typecheck
 
 Expected: no type errors. The `styled-system/recipes` imports in component files should resolve correctly after codegen since the recipes are now part of the preset that feeds codegen.
 
-- [ ] **Step 4: Commit any fixups if needed**
+- **Step 4: Commit any fixups if needed**
 
 If build/lint/typecheck surfaced issues, fix them and commit:
 
@@ -514,11 +516,11 @@ git commit -m "fix(ui): address build issues from preset merge"
 ### Task 8: Update documentation
 
 **Files:**
+
 - Modify: `CLAUDE.md`
 - Modify: `README.md`
 - Modify: `packages/design-tokens/README.md`
-
-- [ ] **Step 1: Update `CLAUDE.md`**
+- **Step 1: Update `CLAUDE.md`**
 
 Apply the following changes throughout the file:
 
@@ -534,11 +536,11 @@ Apply the following changes throughout the file:
 │ └── config/ # @reva/config — Shared ESLint, Prettier, TS configs
 ```
 
-2. **Package Details** — remove the `@reva/panda-preset` bullet entirely. Update the `@reva/ui` bullet to explain it now includes the preset:
+1. **Package Details** — remove the `@reva/panda-preset` bullet entirely. Update the `@reva/ui` bullet to explain it now includes the preset:
 
 > **@reva/ui** (`packages/ui`): Anatomy-first, fully typed, accessible-by-default React components built on Ark UI and Panda CSS, plus the Reva Panda CSS preset. Exports two entrypoints: `@reva/ui` for React components and `@reva/ui/preset` for the Panda CSS preset (`revaPreset`, `revaGlobalCss`). The preset assembles design tokens from `@reva/tokens`, defines light/dark mode conditions, breakpoints, container sizes, text styles, and keyframes. Recipes are co-located with their component definitions. Uses Panda `styled()` for single-element components (`styled(ark.<element>, recipe)`) and `createStyleContext` for compound slot recipes.
 
-3. **Build Chain** — update to three-step pipeline:
+1. **Build Chain** — update to three-step pipeline:
 
 ```
 @reva/config → no build (exports raw config files)
@@ -548,24 +550,24 @@ Apply the following changes throughout the file:
 portal apps → panda codegen → styled-system/ → tsc -b → vite build
 ```
 
-4. **Key Architectural Decisions** — update the bullet about `@pandacss/preset-panda`:
+1. **Key Architectural Decisions** — update the bullet about `@pandacss/preset-panda`:
 
 > **No `@pandacss/preset-panda`** — we own all token definitions. Consuming apps use `presets: [revaPreset]` (imported from `@reva/ui/preset`) only.
 
-5. **Token Rules** — update the token pipeline bullet:
+1. **Token Rules** — update the token pipeline bullet:
 
 > **Token pipeline**: `@reva/tokens` builds Panda-compatible JSON (`dist/panda/tokens.json`, `dist/panda/semantic-tokens.json`) that `@reva/ui` imports directly into its preset — no hardcoded values in the preset, plus a Figma variables manifest (`dist/figma/variables-manifest.json`) for one-way sync to Figma.
 
-6. Remove any remaining references to `@reva/panda-preset` or `packages/panda-preset`.
+1. Remove any remaining references to `@reva/panda-preset` or `packages/panda-preset`.
 
-- [ ] **Step 2: Update root `README.md`**
+- **Step 2: Update root `README.md`**
 
 1. Remove the `packages/panda-preset` bullet from the Overview section.
 2. Update the `packages/ui` bullet:
 
-> **`packages/ui`** (`@reva/ui`): React component library built on Ark UI (headless) and Panda CSS (styling). Also includes the Reva Panda CSS preset (tokens, conditions, text styles, recipes). Anatomy-first, fully typed, accessible by default.
+> `**packages/ui**` (`@reva/ui`): React component library built on Ark UI (headless) and Panda CSS (styling). Also includes the Reva Panda CSS preset (tokens, conditions, text styles, recipes). Anatomy-first, fully typed, accessible by default.
 
-3. Update the Project Structure tree — remove `panda-preset`:
+1. Update the Project Structure tree — remove `panda-preset`:
 
 ```
 ├── packages/
@@ -577,21 +579,21 @@ portal apps → panda codegen → styled-system/ → tsc -b → vite build
 │   └── config/                # Shared lint, format, TS configs
 ```
 
-4. Update the Current Status paragraph to remove the reference to "Panda CSS preset" as a separate thing.
+1. Update the Current Status paragraph to remove the reference to "Panda CSS preset" as a separate thing.
 
-- [ ] **Step 3: Update `packages/design-tokens/README.md`**
+- **Step 3: Update `packages/design-tokens/README.md`**
 
 1. In the "How Panda CSS Consumes Tokens" section, update the reference from `@reva/panda-preset` to `@reva/ui`:
 
 > `@reva/ui` imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` and passes them to `defineTokens` / `defineSemanticTokens` in its preset assembler.
 
-2. In the Output Formats table, update the Panda CSS row description:
+1. In the Output Formats table, update the Panda CSS row description:
 
 > `{ value }` format consumed by `@reva/ui`'s preset assembler
 
-3. Remove any other references to `@reva/panda-preset`.
+1. Remove any other references to `@reva/panda-preset`.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add CLAUDE.md README.md packages/design-tokens/README.md
@@ -602,7 +604,7 @@ git commit -m "docs: update documentation for panda-preset merge into ui"
 
 ### Task 9: Final verification
 
-- [ ] **Step 1: Full clean build from scratch**
+- **Step 1: Full clean build from scratch**
 
 ```bash
 rm -rf packages/ui/dist packages/ui/styled-system
@@ -612,7 +614,7 @@ bun run build
 
 Expected: everything builds cleanly from scratch.
 
-- [ ] **Step 2: Verify preset entrypoint resolves**
+- **Step 2: Verify preset entrypoint resolves**
 
 ```bash
 bun -e "const p = require.resolve('@reva/ui/preset', { paths: [process.cwd()] }); console.log('Preset entrypoint:', p)"
@@ -620,7 +622,7 @@ bun -e "const p = require.resolve('@reva/ui/preset', { paths: [process.cwd()] })
 
 Expected: resolves to `packages/ui/dist/preset.mjs` or `packages/ui/dist/preset.cjs`.
 
-- [ ] **Step 3: Verify no stale references remain**
+- **Step 3: Verify no stale references remain**
 
 ```bash
 rg "@reva/panda-preset" --type ts --type json --type md
@@ -628,7 +630,7 @@ rg "@reva/panda-preset" --type ts --type json --type md
 
 Expected: zero matches.
 
-- [ ] **Step 4: Run full lint and typecheck**
+- **Step 4: Run full lint and typecheck**
 
 ```bash
 bun run lint && bun run typecheck
@@ -636,9 +638,10 @@ bun run lint && bun run typecheck
 
 Expected: all pass.
 
-- [ ] **Step 5: Commit any final fixups**
+- **Step 5: Commit any final fixups**
 
 ```bash
 git add -A
 git commit -m "fix: final cleanup after panda-preset merge"
 ```
+

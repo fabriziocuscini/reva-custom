@@ -6,6 +6,7 @@
 - Never commit secrets to git — use environment variables or gitignored config (a Figma PAT was accidentally committed once)
 - Wants `.cursor/` fully gitignored (hooks state, MCP config, workspace settings are machine-local)
 - In Figma, prefers variable bindings over hardcoded values for reusable design properties (font family, weight, size) — only hardcode line height and letter spacing
+- Prefers component recipes co-located with component definitions — single place to go when creating or modifying a component (implemented: `@reva/panda-preset` merged into `@reva/ui`)
 
 ## Learned Workspace Facts
 
@@ -13,7 +14,8 @@
 - Portless proxy runs once per boot; individual dev servers (`bun run dev:tokens`, `bun run dev:docs`) register automatically
 - Style Dictionary 4.4.0 bug: `verbosity: 'silent'` causes ENOENT in `cleanFile` on missing output files — use default verbosity with `warnings: 'disabled'`
 - User has multiple MacBook Pros — build failures on one machine often mean stale or missing `dist/` artifacts
-- Text styles in Panda preset (`text-styles.ts`) are manually authored, not auto-generated from the token pipeline
+- `@reva/panda-preset` has been merged into `@reva/ui` — preset, theme files, and recipes live under `packages/ui/src/theme/` and `packages/ui/src/components/*/recipe.ts`; consumers import via `@reva/ui/preset`
+- Text styles in the Panda preset (`packages/ui/src/theme/text-styles.ts`) are manually authored, not auto-generated from the token pipeline
 - The `textStyles.json` source file is excluded from Style Dictionary build via `sdExclude` — renamed collections: `marketing`→`brand`, `body`→`text`
 - `tokens:serve` is only defined on `@reva/tokens` (not the repo root) — run `cd packages/design-tokens && bun run tokens:serve` or `bun run dev:tokens` for watch + serve; the script uses Portless (`tokens.revaos`) to expose `dist/figma/` for the custom Figma plugin
 - The official Figma MCP `use_figma` runtime cannot load custom fonts (e.g., Inter Tight) — workaround: create styles with default font and bind fontFamily/fontWeight/fontSize variables to override
