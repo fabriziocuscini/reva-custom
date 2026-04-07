@@ -677,6 +677,9 @@
     --colors-bg-translucent-default: var(--colors-white-alpha-a60);
     --colors-bg-translucent-subtle: var(--colors-white-alpha-a20);
     --colors-bg-translucent-muted: var(--colors-white-alpha-a40);
+    --colors-bg-subtle: var(--colors-neutral-bg-subtle);
+    --colors-bg-muted: var(--colors-neutral-bg-muted);
+    --colors-bg-emphasized: var(--colors-neutral-bg-emphasized);
     --colors-fg-default: var(--colors-stone-900);
     --colors-fg-muted: var(--colors-stone-500);
     --colors-fg-subtle: var(--colors-stone-450);
@@ -894,6 +897,9 @@
     --colors-bg-translucent-default: var(--colors-white-alpha-a60);
     --colors-bg-translucent-subtle: var(--colors-white-alpha-a20);
     --colors-bg-translucent-muted: var(--colors-white-alpha-a40);
+    --colors-bg-subtle: var(--colors-neutral-bg-subtle);
+    --colors-bg-muted: var(--colors-neutral-bg-muted);
+    --colors-bg-emphasized: var(--colors-neutral-bg-emphasized);
     --colors-fg-default: var(--colors-stone-100);
     --colors-fg-muted: var(--colors-stone-400);
     --colors-fg-subtle: var(--colors-stone-500);
@@ -1513,8 +1519,8 @@
     padding: var(--spacing-4);
 }
 
-  .bg_neutral\.bg\.muted {
-    background: var(--colors-neutral-bg-muted);
+  .bg_bg\.subtle {
+    background: var(--colors-bg-subtle);
 }
 
   .p_6 {

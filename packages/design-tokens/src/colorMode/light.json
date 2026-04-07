@@ -41,6 +41,18 @@
           "$value": "{colors.white.alpha.a40}",
           "$description": "Medium frost"
         }
+      },
+      "subtle": {
+        "$value": "{colors.neutral.bg.subtle}",
+        "$description": "Alias for neutral.bg.subtle"
+      },
+      "muted": {
+        "$value": "{colors.neutral.bg.muted}",
+        "$description": "Alias for neutral.bg.muted"
+      },
+      "emphasized": {
+        "$value": "{colors.neutral.bg.emphasized}",
+        "$description": "Alias for neutral.bg.emphasized"
       }
     },
     "fg": {
