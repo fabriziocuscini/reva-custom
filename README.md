@@ -6,9 +6,8 @@ The digital foundation for the Reva brand and product — design system, compone
 
 This monorepo contains Reva's design system, component library, and product applications:
 
-- **`packages/design-tokens`** (`@reva/tokens`): Platform-agnostic, multi-themeable design token system. Authored in W3C DTCG format with colours in oklch(). Transformed via Style Dictionary v4 and custom build scripts into CSS custom properties, TypeScript constants, JSON, React Native JSON, Panda CSS JSON, and a Figma variables manifest. Includes a component token layer (`src/components/`) for recipe metrics.
-- **`packages/panda-preset`** (`@reva/panda-preset`): Panda CSS preset bridging design tokens into the styling system. Imports foundation and semantic tokens from `@reva/tokens`, defines light/dark mode conditions, component recipes (Button), keyframes, and text styles. Does not include `@pandacss/preset-panda`.
-- **`packages/ui`** (`@reva/ui`): React component library built on Ark UI (headless) and Panda CSS (styling). Anatomy-first, fully typed, accessible by default.
+- **`packages/design-tokens`** (`@reva/tokens`): Platform-agnostic, multi-themeable design token system. Authored in W3C DTCG format with colours in oklch(). Transformed via Style Dictionary v4 and custom build scripts into CSS custom properties, TypeScript constants, JSON, React Native JSON, Panda CSS JSON, and a Figma variables manifest. Two-layer architecture: foundation tokens and semantic colour modes.
+- **`packages/ui`** (`@reva/ui`): React component library built on Ark UI (headless) and Panda CSS (styling). Also includes the Reva Panda CSS preset (tokens, conditions, text styles, recipes). Anatomy-first, fully typed, accessible by default.
 - **`packages/config`** (`@reva/config`): Shared ESLint, Prettier, and TypeScript configurations.
 - **`apps/docs`** (`@reva/docs`): Documentation site built with Fumadocs and Next.js.
 - **`apps/reva-website`** (`@reva/website-static`): Current static marketing site (Vite + PostCSS + PostHTML). Will adopt `@reva/tokens` CSS custom properties once the token package is published.
@@ -59,17 +58,15 @@ reva/
 │   ├── design-tokens/         # Design token system
 │   │   └── src/
 │   │       ├── foundation/    # Foundation tokens (colours, spacing, radii, etc.)
-│   │       ├── colorMode/     # Semantic colour tokens (light.json, dark.json)
-│   │       └── components/    # Component-specific tokens (button.json, etc.)
-│   ├── panda-preset/          # Panda CSS preset and recipes
-│   ├── ui/                    # React component library
+│   │       └── colorMode/     # Semantic colour tokens (light.json, dark.json)
+│   ├── ui/                    # React component library + Panda CSS preset
 │   └── config/                # Shared lint, format, TS configs
 └── turbo.json
 ```
 
 ## Current Status
 
-The design system foundation is in place: tokens (DTCG format, three-layer architecture: foundation, semantic colour modes, component metrics), Panda CSS preset, and the docs site are functional. The UI component library currently ships Button, with more components to follow. One-way code-to-Figma variable sync is operational via a custom dev plugin. Portal apps are scaffolded as minimal placeholders. CI/CD pipelines, end-to-end testing (Playwright), and deployment configuration (Vercel) are planned but not yet set up.
+The design system foundation is in place: tokens (DTCG format, two-layer architecture: foundation, semantic colour modes), UI component library with integrated Panda CSS preset, and the docs site are functional. The UI component library currently ships Button, with more components to follow. One-way code-to-Figma variable sync is operational via a custom dev plugin. Portal apps are scaffolded as minimal placeholders. CI/CD pipelines, end-to-end testing (Playwright), and deployment configuration (Vercel) are planned but not yet set up.
 
 ## Licence
 
