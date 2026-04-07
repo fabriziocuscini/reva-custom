@@ -112,9 +112,9 @@ Each page follows the established pattern from `button.mdx`:
 
 - **Frontmatter**: `title` + `description`
 - **Default `<ComponentPreview>`**: hero example
-- **`## Usage`**: import line from `@reva/ui`
-- **`## Examples`**: 2–3 `###` subsections, each with `<ComponentPreview>`
-- **`## Props`**: markdown table (Prop, Type, Default, Description)
+- `**## Usage**`: import line from `@reva/ui`
+- `**## Examples**`: 2–3 `###` subsections, each with `<ComponentPreview>`
+- `**## Props**`: markdown table (Prop, Type, Default, Description)
 
 ### Example files
 
@@ -179,3 +179,4 @@ No `ComponentPreview`, no example files, no props tables.
 - **SimpleGrid, ScrollArea, Splitter, Group**: not in `@reva/ui` — future additions
 - **Rich examples / advanced patterns**: second pass after initial pages ship
 - **Prop types auto-generation**: manual tables for now
+

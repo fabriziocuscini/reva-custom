@@ -15,11 +15,11 @@
 ### Task 1: Rename Divider → Separator in @reva/ui
 
 **Files:**
+
 - Rename: `packages/ui/src/components/divider/index.tsx` → `packages/ui/src/components/separator/index.tsx`
 - Modify: `packages/ui/src/components/stack/index.tsx`
 - Modify: `packages/ui/src/index.ts`
-
-- [ ] **Step 1: Rename the directory and update the component file**
+- **Step 1: Rename the directory and update the component file**
 
 Rename directory `packages/ui/src/components/divider/` → `packages/ui/src/components/separator/`.
 
@@ -36,7 +36,7 @@ Separator.displayName = 'Separator'
 
 Note: Panda CSS generates the JSX component as `Divider` — we alias it to `Separator` on import. The underlying CSS pattern is unchanged.
 
-- [ ] **Step 2: Update Stack to import Separator**
+- **Step 2: Update Stack to import Separator**
 
 In `packages/ui/src/components/stack/index.tsx`, change line 5:
 
@@ -58,7 +58,7 @@ And update the usage on line 41:
 <Separator orientation={orientation} />
 ```
 
-- [ ] **Step 3: Update package exports**
+- **Step 3: Update package exports**
 
 In `packages/ui/src/index.ts`, change line 22:
 
@@ -70,7 +70,7 @@ export { Divider, type DividerProps } from './components/divider'
 export { Separator, type SeparatorProps } from './components/separator'
 ```
 
-- [ ] **Step 4: Build and verify**
+- **Step 4: Build and verify**
 
 ```bash
 cd packages/ui && bun run build
@@ -78,7 +78,7 @@ cd packages/ui && bun run build
 
 Expected: Build succeeds with no errors. `Separator` and `SeparatorProps` appear in the dist output.
 
-- [ ] **Step 5: Commit**
+- **Step 5: Commit**
 
 ```bash
 git add -A
@@ -93,13 +93,13 @@ Panda's Divider JSX pattern is aliased to Separator on export."
 ### Task 2: Restructure docs into nested category folders
 
 **Files:**
+
 - Modify: `apps/docs/content/docs/components/meta.json`
 - Create: `apps/docs/content/docs/components/buttons/meta.json`
 - Move: `apps/docs/content/docs/components/button.mdx` → `apps/docs/content/docs/components/buttons/button.mdx`
 - Delete: `apps/docs/content/docs/components/decorative-box.mdx`
 - Create: `apps/docs/content/docs/components/layout/meta.json`
-
-- [ ] **Step 1: Create the buttons folder and move button.mdx**
+- **Step 1: Create the buttons folder and move button.mdx**
 
 ```bash
 mkdir -p apps/docs/content/docs/components/buttons
@@ -115,7 +115,7 @@ Create `apps/docs/content/docs/components/buttons/meta.json`:
 }
 ```
 
-- [ ] **Step 2: Create the layout folder with meta.json**
+- **Step 2: Create the layout folder with meta.json**
 
 ```bash
 mkdir -p apps/docs/content/docs/components/layout
@@ -136,7 +136,7 @@ Create `apps/docs/content/docs/components/layout/meta.json`:
 }
 ```
 
-- [ ] **Step 3: Update the root components meta.json**
+- **Step 3: Update the root components meta.json**
 
 Replace `apps/docs/content/docs/components/meta.json` with:
 
@@ -150,7 +150,7 @@ Replace `apps/docs/content/docs/components/meta.json` with:
 }
 ```
 
-- [ ] **Step 4: Remove decorative-box docs page and its example files**
+- **Step 4: Remove decorative-box docs page and its example files**
 
 ```bash
 rm apps/docs/content/docs/components/decorative-box.mdx
@@ -159,7 +159,7 @@ rm -rf apps/docs/examples/decorative-box
 
 The layout component examples import `DecorativeBox` from `@reva/ui` directly — these example files were only used by the now-deleted docs page.
 
-- [ ] **Step 5: Build and verify**
+- **Step 5: Build and verify**
 
 ```bash
 cd apps/docs && bun run build
@@ -167,7 +167,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. The sidebar shows "Buttons" and "Layout" as category groups under "Reva UI". Button page resolves at `/docs/components/buttons/button`.
 
-- [ ] **Step 6: Commit**
+- **Step 6: Commit**
 
 ```bash
 git add -A
@@ -182,9 +182,9 @@ remove DecorativeBox docs page (internal utility)."
 ### Task 3: Create placeholder pages for deferred layout components
 
 **Files:**
-- Create: 11 MDX files in `apps/docs/content/docs/components/layout/`
 
-- [ ] **Step 1: Create all 11 placeholder MDX files**
+- Create: 11 MDX files in `apps/docs/content/docs/components/layout/`
+- **Step 1: Create all 11 placeholder MDX files**
 
 Each file follows this template (customise `title` and `description` per component):
 
@@ -201,6 +201,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { AbsoluteCenter } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/aspect-ratio.mdx`:
@@ -216,6 +217,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { AspectRatio } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/bleed.mdx`:
@@ -231,6 +233,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Bleed } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/center.mdx`:
@@ -246,6 +249,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Center } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/circle.mdx`:
@@ -261,6 +265,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Circle } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/float.mdx`:
@@ -276,6 +281,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Float } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/link-overlay.mdx`:
@@ -291,6 +297,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { LinkOverlay } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/separator.mdx`:
@@ -306,6 +313,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Separator } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/square.mdx`:
@@ -321,6 +329,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Square } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/visually-hidden.mdx`:
@@ -336,6 +345,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { VisuallyHidden } from '@reva/ui'
 ```
+
 ```
 
 Create `apps/docs/content/docs/components/layout/wrap.mdx`:
@@ -351,6 +361,7 @@ Documentation and examples are coming soon. For now, import and use the componen
 ```tsx
 import { Wrap } from '@reva/ui'
 ```
+
 ```
 
 - [ ] **Step 2: Build and verify**
@@ -361,7 +372,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. All 11 placeholder pages appear in the sidebar under Layout, below the visual separator.
 
-- [ ] **Step 3: Commit**
+- **Step 3: Commit**
 
 ```bash
 git add -A
@@ -373,12 +384,12 @@ git commit -m "docs: add placeholder pages for 11 deferred layout components"
 ### Task 4: Document Box component
 
 **Files:**
+
 - Create: `apps/docs/content/docs/components/layout/box.mdx`
 - Create: `apps/docs/examples/box/default.tsx`
 - Create: `apps/docs/examples/box/as-prop.tsx`
 - Create: `apps/docs/examples/box/style-props.tsx`
-
-- [ ] **Step 1: Create example files**
+- **Step 1: Create example files**
 
 Create `apps/docs/examples/box/default.tsx`:
 
@@ -408,13 +419,13 @@ Create `apps/docs/examples/box/as-prop.tsx`:
 import { Box } from '@reva/ui'
 
 export const code = `<Box as="section" p="4" bg="bg.muted" rounded="md">
-  Rendered as a &lt;section&gt; element
+  Rendered as a <section> element
 </Box>`
 
 export default function BoxAsProp() {
   return (
     <Box as="section" p="4" bg="bg.muted" rounded="md">
-      Rendered as a &lt;section&gt; element
+      Rendered as a <section> element
     </Box>
   )
 }
@@ -458,7 +469,7 @@ export default function BoxStyleProps() {
 }
 ```
 
-- [ ] **Step 2: Create the MDX page**
+- **Step 2: Create the MDX page**
 
 Create `apps/docs/content/docs/components/layout/box.mdx`:
 
@@ -488,26 +499,21 @@ import { Box } from '@reva/ui'
 
 Use the `as` prop to render a different HTML element while keeping all style props.
 
-<ComponentPreview code={asPropCode}>
-  <BoxAsProp />
-</ComponentPreview>
-
 ### Style props
 
 Box accepts any Panda CSS style prop — spacing, colours, borders, shadows, and more.
-
-<ComponentPreview code={stylePropsCode}>
-  <BoxStyleProps />
-</ComponentPreview>
 
 ## Props
 
 Box accepts all Panda CSS style props. Any valid CSS property can be passed as a prop using Panda's utility naming conventions.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `as` | `React.ElementType` | `'div'` | HTML element to render |
-| `className` | `string` | — | Additional CSS classes |
+
+| Prop        | Type                | Default | Description            |
+| ----------- | ------------------- | ------- | ---------------------- |
+| `as`        | `React.ElementType` | `'div'` | HTML element to render |
+| `className` | `string`            | —       | Additional CSS classes |
+
+
 ```
 
 - [ ] **Step 3: Build and verify**
@@ -518,7 +524,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. Box page renders at `/docs/components/layout/box` with working Preview/Code tabs.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add -A
@@ -530,12 +536,12 @@ git commit -m "docs: add Box component documentation with examples"
 ### Task 5: Document Container component
 
 **Files:**
+
 - Create: `apps/docs/content/docs/components/layout/container.mdx`
 - Create: `apps/docs/examples/container/default.tsx`
 - Create: `apps/docs/examples/container/sizes.tsx`
 - Create: `apps/docs/examples/container/center-content.tsx`
-
-- [ ] **Step 1: Create example files**
+- **Step 1: Create example files**
 
 Create `apps/docs/examples/container/default.tsx`:
 
@@ -623,7 +629,7 @@ export default function ContainerCenterContent() {
 }
 ```
 
-- [ ] **Step 2: Create the MDX page**
+- **Step 2: Create the MDX page**
 
 Create `apps/docs/content/docs/components/layout/container.mdx`:
 
@@ -653,25 +659,20 @@ import { Container } from '@reva/ui'
 
 Use the `maxW` prop to constrain the container to a specific breakpoint width.
 
-<ComponentPreview code={sizesCode}>
-  <ContainerSizes />
-</ComponentPreview>
-
 ### Center content
 
 Use the `centerContent` prop to centre content both horizontally and vertically within the container.
 
-<ComponentPreview code={centerContentCode}>
-  <ContainerCenterContent />
-</ComponentPreview>
-
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `maxW` | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| ...` | — | Maximum width (token key or CSS value) |
+
+| Prop            | Type      | Default | Description                                |
+| --------------- | --------- | ------- | ------------------------------------------ |
+| `maxW`          | `'sm'     | 'md'    | 'lg'                                       |
 | `centerContent` | `boolean` | `false` | Centre content horizontally and vertically |
-| `className` | `string` | — | Additional CSS classes |
+| `className`     | `string`  | —       | Additional CSS classes                     |
+
+
 ```
 
 - [ ] **Step 3: Build and verify**
@@ -682,7 +683,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. Container page renders at `/docs/components/layout/container`.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add -A
@@ -694,12 +695,12 @@ git commit -m "docs: add Container component documentation with examples"
 ### Task 6: Document Flex component
 
 **Files:**
+
 - Create: `apps/docs/content/docs/components/layout/flex.mdx`
 - Create: `apps/docs/examples/flex/default.tsx`
 - Create: `apps/docs/examples/flex/direction.tsx`
 - Create: `apps/docs/examples/flex/align-justify.tsx`
-
-- [ ] **Step 1: Create example files**
+- **Step 1: Create example files**
 
 Create `apps/docs/examples/flex/default.tsx`:
 
@@ -788,7 +789,7 @@ export default function FlexAlignJustify() {
 }
 ```
 
-- [ ] **Step 2: Create the MDX page**
+- **Step 2: Create the MDX page**
 
 Create `apps/docs/content/docs/components/layout/flex.mdx`:
 
@@ -818,28 +819,23 @@ import { Flex } from '@reva/ui'
 
 Use the `direction` prop to control the flex direction. Defaults to `row`.
 
-<ComponentPreview code={directionCode}>
-  <FlexDirection />
-</ComponentPreview>
-
 ### Align and justify
 
 Use `align` and `justify` to control cross-axis and main-axis alignment.
 
-<ComponentPreview code={alignJustifyCode}>
-  <FlexAlignJustify />
-</ComponentPreview>
-
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'` | `'row'` | Flex direction |
-| `align` | `CSSProperties['alignItems']` | — | Cross-axis alignment |
-| `justify` | `CSSProperties['justifyContent']` | — | Main-axis alignment |
-| `wrap` | `CSSProperties['flexWrap']` | — | Whether items wrap |
-| `gap` | `ConditionalValue<Tokens['spacing']>` | — | Gap between items |
-| `className` | `string` | — | Additional CSS classes |
+
+| Prop        | Type                                  | Default  | Description            |
+| ----------- | ------------------------------------- | -------- | ---------------------- |
+| `direction` | `'row'                                | 'column' | 'row-reverse'          |
+| `align`     | `CSSProperties['alignItems']`         | —        | Cross-axis alignment   |
+| `justify`   | `CSSProperties['justifyContent']`     | —        | Main-axis alignment    |
+| `wrap`      | `CSSProperties['flexWrap']`           | —        | Whether items wrap     |
+| `gap`       | `ConditionalValue<Tokens['spacing']>` | —        | Gap between items      |
+| `className` | `string`                              | —        | Additional CSS classes |
+
+
 ```
 
 - [ ] **Step 3: Build and verify**
@@ -850,7 +846,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. Flex page renders at `/docs/components/layout/flex`.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add -A
@@ -862,12 +858,12 @@ git commit -m "docs: add Flex component documentation with examples"
 ### Task 7: Document Grid component
 
 **Files:**
+
 - Create: `apps/docs/content/docs/components/layout/grid.mdx`
 - Create: `apps/docs/examples/grid/default.tsx`
 - Create: `apps/docs/examples/grid/template-columns.tsx`
 - Create: `apps/docs/examples/grid/spanning.tsx`
-
-- [ ] **Step 1: Create example files**
+- **Step 1: Create example files**
 
 Create `apps/docs/examples/grid/default.tsx`:
 
@@ -959,7 +955,7 @@ export default function GridSpanning() {
 }
 ```
 
-- [ ] **Step 2: Create the MDX page**
+- **Step 2: Create the MDX page**
 
 Create `apps/docs/content/docs/components/layout/grid.mdx`:
 
@@ -989,39 +985,36 @@ import { Grid, GridItem } from '@reva/ui'
 
 Use `gridTemplateColumns` for explicit column sizing instead of the `columns` shorthand.
 
-<ComponentPreview code={templateColumnsCode}>
-  <GridTemplateColumns />
-</ComponentPreview>
-
 ### Spanning columns
 
 Use `GridItem` with `colSpan` to make items span multiple columns.
-
-<ComponentPreview code={spanningCode}>
-  <GridSpanning />
-</ComponentPreview>
 
 ## Props
 
 ### Grid
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `columns` | `number` | — | Shorthand for equal-width columns |
-| `gap` | `ConditionalValue<Tokens['spacing']>` | — | Gap between grid items |
-| `gridTemplateColumns` | `CSSProperties['gridTemplateColumns']` | — | Explicit column track sizing |
-| `gridTemplateRows` | `CSSProperties['gridTemplateRows']` | — | Explicit row track sizing |
-| `className` | `string` | — | Additional CSS classes |
+
+| Prop                  | Type                                   | Default | Description                       |
+| --------------------- | -------------------------------------- | ------- | --------------------------------- |
+| `columns`             | `number`                               | —       | Shorthand for equal-width columns |
+| `gap`                 | `ConditionalValue<Tokens['spacing']>`  | —       | Gap between grid items            |
+| `gridTemplateColumns` | `CSSProperties['gridTemplateColumns']` | —       | Explicit column track sizing      |
+| `gridTemplateRows`    | `CSSProperties['gridTemplateRows']`    | —       | Explicit row track sizing         |
+| `className`           | `string`                               | —       | Additional CSS classes            |
+
 
 ### GridItem
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `colSpan` | `number` | — | Number of columns to span |
-| `rowSpan` | `number` | — | Number of rows to span |
-| `colStart` | `number` | — | Starting column line |
-| `colEnd` | `number` | — | Ending column line |
-| `className` | `string` | — | Additional CSS classes |
+
+| Prop        | Type     | Default | Description               |
+| ----------- | -------- | ------- | ------------------------- |
+| `colSpan`   | `number` | —       | Number of columns to span |
+| `rowSpan`   | `number` | —       | Number of rows to span    |
+| `colStart`  | `number` | —       | Starting column line      |
+| `colEnd`    | `number` | —       | Ending column line        |
+| `className` | `string` | —       | Additional CSS classes    |
+
+
 ```
 
 - [ ] **Step 3: Build and verify**
@@ -1032,7 +1025,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. Grid page renders at `/docs/components/layout/grid`.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add -A
@@ -1044,11 +1037,11 @@ git commit -m "docs: add Grid component documentation with examples"
 ### Task 8: Document Spacer component
 
 **Files:**
+
 - Create: `apps/docs/content/docs/components/layout/spacer.mdx`
 - Create: `apps/docs/examples/spacer/default.tsx`
 - Create: `apps/docs/examples/spacer/vertical.tsx`
-
-- [ ] **Step 1: Create example files**
+- **Step 1: Create example files**
 
 Create `apps/docs/examples/spacer/default.tsx`:
 
@@ -1098,7 +1091,7 @@ export default function SpacerVertical() {
 }
 ```
 
-- [ ] **Step 2: Create the MDX page**
+- **Step 2: Create the MDX page**
 
 Create `apps/docs/content/docs/components/layout/spacer.mdx`:
 
@@ -1127,13 +1120,10 @@ import { Spacer } from '@reva/ui'
 
 Spacer works in both horizontal and vertical flex layouts.
 
-<ComponentPreview code={verticalCode}>
-  <SpacerVertical />
-</ComponentPreview>
-
 ## Props
 
 Spacer accepts all standard Panda CSS style props. It has no component-specific props — it simply applies `flex: 1` to fill available space.
+
 ```
 
 - [ ] **Step 3: Build and verify**
@@ -1144,7 +1134,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. Spacer page renders at `/docs/components/layout/spacer`.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add -A
@@ -1156,12 +1146,12 @@ git commit -m "docs: add Spacer component documentation with examples"
 ### Task 9: Document Stack component
 
 **Files:**
+
 - Create: `apps/docs/content/docs/components/layout/stack.mdx`
 - Create: `apps/docs/examples/stack/default.tsx`
 - Create: `apps/docs/examples/stack/horizontal-vertical.tsx`
 - Create: `apps/docs/examples/stack/with-separator.tsx`
-
-- [ ] **Step 1: Create example files**
+- **Step 1: Create example files**
 
 Create `apps/docs/examples/stack/default.tsx`:
 
@@ -1250,7 +1240,7 @@ export default function StackWithSeparator() {
 }
 ```
 
-- [ ] **Step 2: Create the MDX page**
+- **Step 2: Create the MDX page**
 
 Create `apps/docs/content/docs/components/layout/stack.mdx`:
 
@@ -1280,28 +1270,23 @@ import { Stack, HStack, VStack } from '@reva/ui'
 
 `HStack` is shorthand for `Stack` with `direction="row"` and centred vertical alignment. `VStack` is shorthand for `direction="column"` with centred horizontal alignment.
 
-<ComponentPreview code={horizontalVerticalCode}>
-  <StackHorizontalVertical />
-</ComponentPreview>
-
 ### With separator
 
 Pass `separator` to insert a `Separator` between each item. The separator orientation is inferred from the stack direction.
 
-<ComponentPreview code={withSeparatorCode}>
-  <StackWithSeparator />
-</ComponentPreview>
-
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'` | `'column'` | Stack direction |
-| `gap` | `ConditionalValue<Tokens['spacing']>` | — | Gap between items |
-| `separator` | `boolean \| ReactElement` | — | Insert a separator between items |
-| `align` | `CSSProperties['alignItems']` | — | Cross-axis alignment |
-| `justify` | `CSSProperties['justifyContent']` | — | Main-axis alignment |
-| `className` | `string` | — | Additional CSS classes |
+
+| Prop        | Type                                  | Default       | Description            |
+| ----------- | ------------------------------------- | ------------- | ---------------------- |
+| `direction` | `'row'                                | 'column'      | 'row-reverse'          |
+| `gap`       | `ConditionalValue<Tokens['spacing']>` | —             | Gap between items      |
+| `separator` | `boolean                              | ReactElement` | —                      |
+| `align`     | `CSSProperties['alignItems']`         | —             | Cross-axis alignment   |
+| `justify`   | `CSSProperties['justifyContent']`     | —             | Main-axis alignment    |
+| `className` | `string`                              | —             | Additional CSS classes |
+
+
 ```
 
 - [ ] **Step 3: Build and verify**
@@ -1312,7 +1297,7 @@ cd apps/docs && bun run build
 
 Expected: Build succeeds. Stack page renders at `/docs/components/layout/stack`.
 
-- [ ] **Step 4: Commit**
+- **Step 4: Commit**
 
 ```bash
 git add -A
@@ -1323,7 +1308,7 @@ git commit -m "docs: add Stack component documentation with examples"
 
 ### Task 10: Final verification
 
-- [ ] **Step 1: Full build from root**
+- **Step 1: Full build from root**
 
 ```bash
 bun run build
@@ -1331,21 +1316,21 @@ bun run build
 
 Expected: All packages and apps build successfully.
 
-- [ ] **Step 2: Dev server spot-check**
+- **Step 2: Dev server spot-check**
 
 ```bash
 bun run dev:docs
 ```
 
 Verify in the browser:
+
 - Sidebar shows "Buttons" group with "Button" page
 - Sidebar shows "Layout" group with 6 documented + 11 placeholder pages
 - Visual separator between documented and placeholder pages in sidebar
 - Each priority page loads with working Preview/Code tabs
 - Placeholder pages show the "coming soon" message
 - No broken links or 404s
-
-- [ ] **Step 3: Commit any final fixes**
+- **Step 3: Commit any final fixes**
 
 If any adjustments are needed, fix and commit:
 
@@ -1353,3 +1338,4 @@ If any adjustments are needed, fix and commit:
 git add -A
 git commit -m "docs: fix layout docs issues from final verification"
 ```
+
