@@ -1,0 +1,58 @@
+---
+title: Grid
+description: A Box with display grid, plus GridItem for spanning columns and rows.
+---
+
+import GridDefault, { code as defaultCode } from '@/examples/grid/default'
+import GridTemplateColumns, { code as templateColumnsCode } from '@/examples/grid/template-columns'
+import GridSpanning, { code as spanningCode } from '@/examples/grid/spanning'
+
+<ComponentPreview code={defaultCode}>
+  <GridDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Grid, GridItem } from '@reva/ui'
+```
+
+## Examples
+
+### Template columns
+
+Use `gridTemplateColumns` for explicit column sizing instead of the `columns` shorthand.
+
+<ComponentPreview code={templateColumnsCode}>
+  <GridTemplateColumns />
+</ComponentPreview>
+
+### Spanning columns
+
+Use `GridItem` with `colSpan` to make items span multiple columns.
+
+<ComponentPreview code={spanningCode}>
+  <GridSpanning />
+</ComponentPreview>
+
+## Props
+
+### Grid
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `columns` | `number` | — | Shorthand for equal-width columns |
+| `gap` | `ConditionalValue<Tokens['spacing']>` | — | Gap between grid items |
+| `gridTemplateColumns` | `CSSProperties['gridTemplateColumns']` | — | Explicit column track sizing |
+| `gridTemplateRows` | `CSSProperties['gridTemplateRows']` | — | Explicit row track sizing |
+| `className` | `string` | — | Additional CSS classes |
+
+### GridItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `colSpan` | `number` | — | Number of columns to span |
+| `rowSpan` | `number` | — | Number of rows to span |
+| `colStart` | `number` | — | Starting column line |
+| `colEnd` | `number` | — | Ending column line |
+| `className` | `string` | — | Additional CSS classes |
