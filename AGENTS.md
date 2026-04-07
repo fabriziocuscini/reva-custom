@@ -7,10 +7,11 @@
 - Wants `.cursor/` fully gitignored (hooks state, MCP config, workspace settings are machine-local)
 - In Figma, prefers variable bindings over hardcoded values for reusable design properties (font family, weight, size) — only hardcode line height and letter spacing
 - Prefers component recipes co-located with component definitions — single place to go when creating or modifying a component (implemented: `@reva/panda-preset` merged into `@reva/ui`)
+- Prefers Fumadocs shared `apps/docs/lib/layout.shared.tsx` with `baseOptions()` for nav (logo, GitHub, links) so docs layouts stay consistent and easy to extend
 
 ## Learned Workspace Facts
 
-- Local dev uses portless proxy: `sudo portless proxy start --https --tld local --port 443` for clean HTTPS at `*.revaos.local`
+- Local dev uses portless proxy: `sudo portless proxy start --https --tld local --port 443` for clean HTTPS at `*.revaos.local`; loading `@reva/docs` at `docs.revaos.local` in dev needs `allowedDevOrigins: ['docs.revaos.local']` in `apps/docs/next.config.mjs` (Next.js 16) or client JS won't load and hydration breaks (tabs, theme toggle, and other client controls)
 - Portless proxy runs once per boot; individual dev servers (`bun run dev:tokens`, `bun run dev:docs`) register automatically
 - Style Dictionary 4.4.0 bug: `verbosity: 'silent'` causes ENOENT in `cleanFile` on missing output files — use default verbosity with `warnings: 'disabled'`
 - User has multiple MacBook Pros — build failures on one machine often mean stale or missing `dist/` artifacts
@@ -22,4 +23,4 @@
 - Figma typography and colour variables live in a team library (not local to design files) — import via `figma.variables.importVariableByKeyAsync(key)`
 - `@reva/ui` is the single golden source for all components (layout + interactive) — layout patterns re-exported from Panda codegen today, but facade allows swapping implementations without consumer impact
 - Docs app loads generated Panda CSS via `import './styled-system.css'` in `layout.tsx` (not CSS `@import` in `global.css`) — Turbopack/Tailwind PostCSS can't resolve relative imports to parent directories in dev mode
-- Fumadocs sidebar navigation requires explicit entries in `content/docs/{section}/meta.json` — new docs pages won't appear in the sidebar menu without updating this file
+- Fumadocs: list pages in each section's `meta.json` or they won't appear in the sidebar; layout tabs (section switcher) use folders with `"root": true`. Icons and short descriptions in that dropdown come from root `meta.json` (`icon` as a Lucide name string, `description`) plus an `icon()` handler on `loader()` in `apps/docs/lib/source.ts`
