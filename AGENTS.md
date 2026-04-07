@@ -8,7 +8,7 @@
 - In Figma, prefers variable bindings over hardcoded values for reusable design properties (font family, weight, size) — only hardcode line height and letter spacing
 - Prefers component recipes co-located with component definitions — single place to go when creating or modifying a component (implemented: `@reva/panda-preset` merged into `@reva/ui`)
 - Prefers Fumadocs shared `apps/docs/lib/layout.shared.tsx` with `baseOptions()` for nav (logo, GitHub, links) so docs layouts stay consistent and easy to extend
-- Prefers the standard Fumadocs `CodeBlock` + `Pre` from `fumadocs-ui/components/codeblock` for component previews — not `DynamicCodeBlock` (unnecessary client-side highlighting) or `ServerCodeBlock`
+
 
 ## Learned Workspace Facts
 
