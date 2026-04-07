@@ -546,9 +546,25 @@
     --sizes-8: 32px;
     --sizes-9: 36px;
     --sizes-10: 40px;
+    --sizes-11: 44px;
     --sizes-12: 48px;
     --sizes-14: 56px;
     --sizes-16: 64px;
+    --sizes-20: 80px;
+    --sizes-24: 96px;
+    --sizes-28: 112px;
+    --sizes-32: 128px;
+    --sizes-36: 144px;
+    --sizes-40: 160px;
+    --sizes-44: 176px;
+    --sizes-48: 192px;
+    --sizes-52: 208px;
+    --sizes-56: 224px;
+    --sizes-60: 240px;
+    --sizes-64: 256px;
+    --sizes-72: 288px;
+    --sizes-80: 320px;
+    --sizes-96: 384px;
     --sizes-half: 2px;
     --sizes-1_half: 6px;
     --sizes-2_half: 10px;
@@ -1174,8 +1190,8 @@
       background-clip: padding-box;
       -webkit-background-clip: padding-box;
       background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-      min-width: var(--sizes-16);
-      min-height: var(--sizes-16);
+      min-width: var(--sizes-4);
+      min-height: var(--sizes-4);
       height: var(--sizes-full);
 }
 
@@ -1621,8 +1637,8 @@
     max-width: var(--sizes-8xl);
 }
 
-  .h_32 {
-    height: 32px;
+  .h_16 {
+    height: var(--sizes-16);
 }
 
   .w_full {
@@ -1661,16 +1677,12 @@
     height: var(--sizes-10);
 }
 
-  .h_16 {
-    height: var(--sizes-16);
-}
-
   .w_24 {
-    width: 24px;
+    width: var(--sizes-24);
 }
 
-  .h_48 {
-    height: 48px;
+  .h_xs {
+    height: var(--sizes-xs);
 }
 
   @media screen and (min-width: 48rem) {

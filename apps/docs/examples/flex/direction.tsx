@@ -4,9 +4,9 @@ import { DecorativeBox, Flex, VStack } from '@reva/ui'
 
 export const code = `{/* Row (default) */}
 <Flex direction="row" gap="4">
-  <DecorativeBox h="16" w="24" />
-  <DecorativeBox h="16" w="24" />
-  <DecorativeBox h="16" w="24" />
+  <DecorativeBox h="16" w="16" />
+  <DecorativeBox h="16" w="16" />
+  <DecorativeBox h="16" w="16" />
 </Flex>
 
 {/* Column */}
@@ -20,9 +20,9 @@ export default function FlexDirection() {
   return (
     <VStack gap="6" w="full" alignItems="stretch">
       <Flex direction="row" gap="4">
-        <DecorativeBox h="16" w="24" />
-        <DecorativeBox h="16" w="24" />
-        <DecorativeBox h="16" w="24" />
+        <DecorativeBox h="16" w="16" />
+        <DecorativeBox h="16" w="16" />
+        <DecorativeBox h="16" w="16" />
       </Flex>
       <Flex direction="column" gap="4">
         <DecorativeBox h="8" />

@@ -2,7 +2,7 @@
 
 import { DecorativeBox, Flex } from '@reva/ui'
 
-export const code = `<Flex gap="4" align="center" justify="space-between" h="32" bg="bg.subtle" p="4" rounded="md">
+export const code = `<Flex gap="4" align="center" justify="space-between" h="16" bg="bg.subtle" p="4" rounded="md">
   <DecorativeBox h="8" w="16" />
   <DecorativeBox h="12" w="16" />
   <DecorativeBox h="10" w="16" />
@@ -10,7 +10,7 @@ export const code = `<Flex gap="4" align="center" justify="space-between" h="32"
 
 export default function FlexAlignJustify() {
   return (
-    <Flex gap="4" align="center" justify="space-between" h="32" bg="bg.subtle" p="4" rounded="md">
+    <Flex gap="4" align="center" justify="space-between" h="16" bg="bg.subtle" p="4" rounded="md">
       <DecorativeBox h="8" w="16" />
       <DecorativeBox h="12" w="16" />
       <DecorativeBox h="10" w="16" />

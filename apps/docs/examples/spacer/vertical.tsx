@@ -2,7 +2,7 @@
 
 import { Box, Flex, Spacer } from '@reva/ui'
 
-export const code = `<Flex direction="column" h="48">
+export const code = `<Flex direction="column" h="xs">
   <Box p="4" bg="bg.muted" rounded="md">Top</Box>
   <Spacer />
   <Box p="4" bg="bg.muted" rounded="md">Bottom</Box>
@@ -10,7 +10,7 @@ export const code = `<Flex direction="column" h="48">
 
 export default function SpacerVertical() {
   return (
-    <Flex direction="column" h="48">
+    <Flex direction="column" h="xs">
       <Box p="4" bg="bg.muted" rounded="md">
         Top
       </Box>
