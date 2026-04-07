@@ -4,16 +4,15 @@ import { breakpoints } from './breakpoints'
 import { conditions } from './conditions'
 import { containerSizes } from './container-sizes'
 import { keyframes } from './keyframes'
-import { absoluteCenter, button, decorativeBox } from './recipes'
 import { semanticTokens } from './semantic-tokens'
 import { textStyles } from './text-styles'
 import { tokens } from './tokens'
-
-// Re-export for apps that want full Reva-branded base styles on html/body
-export { globalCss as revaGlobalCss } from './global-css'
+import { absoluteCenter } from '../components/absolute-center/recipe'
+import { button } from '../components/button/recipe'
+import { decorativeBox } from '../components/decorative-box/recipe'
 
 export const revaPreset = definePreset({
-  name: '@reva/panda-preset',
+  name: '@reva/ui',
   conditions,
   theme: {
     breakpoints,

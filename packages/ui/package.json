@@ -16,6 +16,16 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
+    },
+    "./preset": {
+      "import": {
+        "types": "./dist/preset.d.mts",
+        "default": "./dist/preset.mjs"
+      },
+      "require": {
+        "types": "./dist/preset.d.cts",
+        "default": "./dist/preset.cjs"
+      }
     }
   },
   "scripts": {
@@ -23,7 +33,8 @@
     "codegen": "panda codegen --clean"
   },
   "dependencies": {
-    "@ark-ui/react": "^5"
+    "@ark-ui/react": "^5",
+    "@reva/tokens": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
@@ -32,7 +43,6 @@
   "devDependencies": {
     "@pandacss/dev": "^1",
     "@pandacss/types": "^1",
-    "@reva/panda-preset": "workspace:*",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tsdown": "^0.20.3",

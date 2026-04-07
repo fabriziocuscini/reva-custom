@@ -1,6 +1,6 @@
 ---
 name: ui-component-patterns
-description: Component implementation patterns for the Reva design system using Ark UI + Panda CSS. Covers token architecture (Panda plural namespace, two-layer system), the styled() pattern for single-element components (Park UI approach), slot recipes and createStyleContext for compound components, data-attribute conditions, variant conventions, file structure across @reva/panda-preset and @reva/ui, and forbidden patterns. Auto-invoke when creating, editing, or reviewing any component, recipe, or styled wrapper.
+description: Component implementation patterns for the Reva design system using Ark UI + Panda CSS. Covers token architecture (Panda plural namespace, two-layer system), the styled() pattern for single-element components (Park UI approach), slot recipes and createStyleContext for compound components, data-attribute conditions, variant conventions, file structure in @reva/ui (co-located recipes + `src/theme/` preset assembly), and forbidden patterns. Auto-invoke when creating, editing, or reviewing any component, recipe, or styled wrapper.
 ---
 
 # Reva Component Patterns: Ark UI + Panda CSS
@@ -15,17 +15,18 @@ description: Component implementation patterns for the Reva design system using 
 
 ## Where Things Live
 
-Recipes and styled components are split across two packages:
+Recipes, preset assembly, and styled components live in `@reva/ui`:
 
-| What                               | Where                                 | Why                                                            |
-| ---------------------------------- | ------------------------------------- | -------------------------------------------------------------- |
-| Slot recipes, CVA recipes          | `packages/panda-preset/src/recipes/`  | Part of the Panda CSS preset, shared across all consuming apps |
-| Styled wrappers, namespace exports | `packages/ui/src/components/`         | Wire recipes to Ark UI via `styled()` or `createStyleContext`  |
-| `styled()`                         | `styled-system/jsx` (Panda-generated) | Single-element: `styled(ark.<element>, recipe)`                |
-| `createStyleContext` utility       | `packages/ui/src/utils/`              | Compound components: distributes slot recipe classes           |
-| Design tokens (source)             | `packages/design-tokens/src/`         | Tokens Studio JSON format, code is source of truth             |
+| What                               | Where                                                    | Why                                                            |
+| ---------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------- |
+| Slot recipes, CVA recipes          | `packages/ui/src/components/<name>/recipe.ts`            | Co-located with the component; registered in `src/theme/`    |
+| Preset assembly (`revaPreset`)     | `packages/ui/src/theme/` + `src/preset.ts`               | Tokens, conditions, breakpoints, text styles, recipe registry  |
+| Styled wrappers, namespace exports | `packages/ui/src/components/`                            | Wire recipes to Ark UI via `styled()` or `createStyleContext`  |
+| `styled()`                         | `styled-system/jsx` (Panda-generated)                    | Single-element: `styled(ark.<element>, recipe)`                |
+| `createStyleContext` utility       | `packages/ui/src/utils/`                                 | Compound components: distributes slot recipe classes           |
+| Design tokens (source)             | `packages/design-tokens/src/`                            | DTCG JSON, code is source of truth                             |
 
-Recipes via `styled-system/recipes`, `styled()` via `styled-system/jsx` (both Panda-generated). Never import recipes from preset source.
+Recipes via `styled-system/recipes`, `styled()` via `styled-system/jsx` (both Panda-generated). Never import recipes from package source — only from generated `styled-system/recipes`.
 
 ---
 
@@ -48,7 +49,7 @@ Panda CSS **slot recipes** (`defineSlotRecipe`) are the canonical way to style m
 
 The three layers of every component are:
 
-1. **Recipe** (in `@reva/panda-preset`): defines slots, base styles, variants, defaultVariants
+1. **Recipe** (in `@reva/ui`, typically `components/<name>/recipe.ts`): defines slots, base styles, variants, defaultVariants
 2. **Styled wrapper** (in `@reva/ui`): wires recipe to Ark UI. Use `styled(ark.<element>, recipe)` for single-element components; use `createStyleContext` for compound components with slot recipes
 3. **Consumer component** (optional, in `@reva/ui`): simplified API on top of the styled wrapper
 
@@ -62,7 +63,7 @@ Use `anatomy.keys()` to populate `slots` so they stay in sync with the library.
 Always check via the **Ark UI MCP server** for the complete and up-to-date slot list before writing a new recipe. Anatomy keys are the source of truth.
 
 ```typescript
-// packages/panda-preset/src/recipes/accordion.ts
+// packages/ui/src/components/accordion/recipe.ts
 import { accordionAnatomy } from '@ark-ui/react/anatomy'
 import { defineSlotRecipe } from '@pandacss/dev'
 
@@ -284,18 +285,25 @@ defaultVariants: {
 ## Component File Structure
 
 ```
-packages/panda-preset/src/
-  recipes/
-    accordion.ts         # defineSlotRecipe definition
-    button.ts            # cva for single-element components
-    index.ts             # barrel export for all recipes
-
 packages/ui/src/
+  theme/
+    index.ts             # definePreset: registers tokens, recipes, text styles, etc.
+    tokens.ts            # defineTokens from @reva/tokens
+    semantic-tokens.ts
+    conditions.ts
+    breakpoints.ts
+    container-sizes.ts
+    text-styles.ts
+    keyframes.ts
+    global-css.ts
+  preset.ts              # exports revaPreset, revaGlobalCss for consuming apps
   components/
     accordion/
+      recipe.ts          # defineSlotRecipe (register in theme/index.ts)
       index.tsx          # styled compound component + namespace export
-      accordion.test.tsx # Playwright component test
+      accordion.test.tsx
     button/
+      recipe.ts          # defineRecipe / cva
       index.tsx
       button.test.tsx
   utils/
@@ -309,12 +317,12 @@ packages/ui/src/
 
 For components that render a single DOM element (Button, Badge, Input, etc.), use Panda's `styled()` from `styled-system/jsx` to wire the recipe to an Ark UI primitive. This is the canonical pattern—informed by Park UI—and avoids manual `cx()`, type assertions, and prop plumbing.
 
-### Recipe (in preset)
+### Recipe (co-located with component)
 
-Use `defineRecipe` or `cva` in `@reva/panda-preset`:
+Use `defineRecipe` or `cva` next to the component and export from `packages/ui/src/theme/index.ts`:
 
 ```typescript
-// packages/panda-preset/src/recipes/button.ts
+// packages/ui/src/components/button/recipe.ts
 import { defineRecipe } from '@pandacss/dev'
 
 export const button = defineRecipe({
@@ -402,20 +410,18 @@ Use `forwardRef` on all leaf parts that render DOM elements, so consumers can at
 
 ## Panda CSS Preset: Minimal Setup
 
-`@reva/panda-preset` disables Panda's default preset and fully owns all token definitions. This means:
+`@reva/ui/preset` exports `revaPreset`, which omits `@pandacss/preset-panda` so Reva owns all token definitions. `@pandacss/preset-base` (utility mappings) is auto-included — do not use `eject: true`.
 
-- No `@pandacss/preset-base` in the presets array
-- All tokens defined under Panda plural keys: `colors`, `spacing`, `radii`, `fonts`, `fontSizes`, `fontWeights`, `lineHeights`, `shadows`, plus `letterSpacings`, `borderWidths`, `zIndex`, `durations`, `easings` as needed
-- Token values imported from `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` (not hardcoded)
+- Tokens under Panda plural keys come from `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` (not hardcoded in recipes for colour)
 - Consuming apps configure Panda with only our preset:
 
 ```typescript
 // In any consuming app's panda.config.ts
 import { defineConfig } from '@pandacss/dev'
-import { revaPreset } from '@reva/panda-preset'
+import { revaPreset } from '@reva/ui/preset'
 
 export default defineConfig({
-  presets: [revaPreset], // no @pandacss/preset-base
+  presets: [revaPreset],
   include: ['./src/**/*.{ts,tsx}'],
   outdir: 'styled-system',
   jsxFramework: 'react',
@@ -535,12 +541,12 @@ bg: 'neutral.50'
 // Use defineRecipe/cva for single elements, defineSlotRecipe for multi-part
 
 // Importing recipe classes from source in application code
-import { accordion } from 'packages/panda-preset/src/recipes/accordion'
+import { accordion } from 'packages/ui/src/components/accordion/recipe'
 // Always import from 'styled-system/recipes' (generated output)
 
-// Using Panda's default preset alongside @reva/panda-preset
-presets: ['@pandacss/preset-base', revaPreset]  // wrong
-presets: [revaPreset]                            // correct
+// Using Panda's opinionated token preset alongside Reva
+presets: ['@pandacss/preset-panda', revaPreset]  // wrong
+presets: [revaPreset]                            // correct (import from @reva/ui/preset)
 
 // Singular token namespace keys in source files
 color: { ... }    // wrong — use 'colors'

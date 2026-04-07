@@ -26,7 +26,6 @@
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@vitejs/plugin-react": "^4",
@@ -44,7 +43,6 @@
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@vitejs/plugin-react": "^4",
@@ -67,7 +65,6 @@
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^22",
         "@types/react": "^19",
@@ -117,29 +114,16 @@
         "typescript": "^5",
       },
     },
-    "packages/panda-preset": {
-      "name": "@reva/panda-preset",
-      "version": "0.0.0",
-      "dependencies": {
-        "@reva/tokens": "workspace:*",
-      },
-      "devDependencies": {
-        "@pandacss/dev": "^1",
-        "@pandacss/types": "^1",
-        "tsdown": "^0.20.3",
-        "typescript": "^5",
-      },
-    },
     "packages/ui": {
       "name": "@reva/ui",
       "version": "0.0.0",
       "dependencies": {
         "@ark-ui/react": "^5",
+        "@reva/tokens": "workspace:*",
       },
       "devDependencies": {
         "@pandacss/dev": "^1",
         "@pandacss/types": "^1",
-        "@reva/panda-preset": "workspace:*",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "tsdown": "^0.20.3",
@@ -605,8 +589,6 @@
     "@reva/config": ["@reva/config@workspace:packages/config"],
 
     "@reva/docs": ["@reva/docs@workspace:apps/docs"],
-
-    "@reva/panda-preset": ["@reva/panda-preset@workspace:packages/panda-preset"],
 
     "@reva/tokens": ["@reva/tokens@workspace:packages/design-tokens"],
 

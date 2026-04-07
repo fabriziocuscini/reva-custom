@@ -672,7 +672,7 @@ Non-palette-specific tokens sit at the root of the semantic colour tree:
 | TypeScript constants    | `dist/ts/tokens-{theme}.ts`                                 | Named exports (`colorsBrand500`, `spacing4`)              |
 | JSON (nested)           | `dist/json/tokens-{theme}.json`                             | Nested structure with resolved values                     |
 | JSON (flat, mobile)     | `dist/json-mobile/tokens-{theme}.json`                      | Flat camelCase keys for React Native                      |
-| Panda CSS               | `dist/panda/tokens.json`, `dist/panda/semantic-tokens.json` | `{ value }` format consumed by `@reva/panda-preset`       |
+| Panda CSS               | `dist/panda/tokens.json`, `dist/panda/semantic-tokens.json` | `{ value }` format consumed by `@reva/ui`'s preset assembler       |
 | Panda component specs   | `dist/panda/components/{name}.json`                         | Per-component recipe metrics (refs resolved to token keys) |
 | Figma manifest          | `dist/figma/variables-manifest.json`                        | Figma Plugin API–ready collection/variable/mode structure |
 
@@ -753,7 +753,7 @@ The manifest maps token groups to four Figma variable collections:
 
 ## How Panda CSS Consumes Tokens
 
-`@reva/panda-preset` imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` and passes them to `defineTokens` / `defineSemanticTokens`. Component recipes import per-component spec JSON from `@reva/tokens/panda/components/*` for sizing and spacing metrics.
+`@reva/ui` imports `@reva/tokens/panda/tokens` and `@reva/tokens/panda/semantic-tokens` and passes them to `defineTokens` / `defineSemanticTokens` in its preset assembler. Component recipes live in `@reva/ui` next to their components and use foundation token keys directly for non-colour metrics (spacing, sizes, radii, font sizes, etc.).
 
 `breakpoints` and `containerSizes` are defined directly in the preset as flat maps — they are Panda theme config, not token categories.
 
