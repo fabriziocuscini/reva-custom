@@ -28,14 +28,14 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
-    "eslint": "^9",
-    "postcss": "^8.5.6",
+    "@changesets/cli": "^2.30.0",
+    "eslint": "^9.39.4",
+    "postcss": "^8.5.8",
     "postcss-discard-duplicates": "^7.0.2",
-    "prettier": "^3",
-    "prettier-plugin-organize-imports": "^4",
+    "prettier": "^3.8.1",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "tsdown": "^0.20.3",
-    "turbo": "^2.8.10",
+    "turbo": "^2.9.4",
     "typescript": "^5.9.3"
   }
 }

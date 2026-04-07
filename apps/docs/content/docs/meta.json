@@ -1,4 +1,4 @@
 {
-  "title": "Docs",
-  "pages": ["---Getting Started---", "index", "---Components---", "...components"]
+	"title": "Docs",
+	"pages": ["components", "design-tokens"]
 }

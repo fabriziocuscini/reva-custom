@@ -1,4 +1,5 @@
 {
-  "title": "Components",
-  "pages": ["button"]
+	"title": "Components",
+	"root": true,
+	"pages": ["index", "button", "decorative-box"]
 }

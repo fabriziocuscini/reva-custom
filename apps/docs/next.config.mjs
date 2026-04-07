@@ -1,7 +1,8 @@
-import { createMDX } from 'fumadocs-mdx/next'
+import { createMDX } from "fumadocs-mdx/next";
 
 const nextConfig = {
-    typedRoutes: false,
-}
+	typedRoutes: false,
+	allowedDevOrigins: ["docs.revaos.local"],
+};
 
-export default createMDX()(nextConfig)
+export default createMDX()(nextConfig);
