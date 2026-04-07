@@ -1,5 +1,7 @@
 {
-	"title": "Components",
+	"title": "Reva UI",
+	"description": "The component library",
+	"icon": "LayoutGrid",
 	"root": true,
 	"pages": ["index", "button", "decorative-box"]
 }

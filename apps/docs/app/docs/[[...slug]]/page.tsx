@@ -2,7 +2,7 @@ import { ComponentPreview } from '@/components/component-preview'
 import { source } from '@/lib/source'
 import defaultMdxComponents from 'fumadocs-ui/mdx'
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/page'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mdxComponents: any = {
@@ -12,6 +12,7 @@ const mdxComponents: any = {
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params
+  if (!params.slug) redirect('/docs/components')
   const page = source.getPage(params.slug)
   if (!page) notFound()
 
