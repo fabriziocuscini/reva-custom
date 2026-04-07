@@ -1,0 +1,31 @@
+---
+title: Spacer
+description: Creates flexible space between flex items, expanding to fill available space.
+---
+
+import SpacerDefault, { code as defaultCode } from '@/examples/spacer/default'
+import SpacerVertical, { code as verticalCode } from '@/examples/spacer/vertical'
+
+<ComponentPreview code={defaultCode}>
+  <SpacerDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Spacer } from '@reva/ui'
+```
+
+## Examples
+
+### Vertical spacing
+
+Spacer works in both horizontal and vertical flex layouts.
+
+<ComponentPreview code={verticalCode}>
+  <SpacerVertical />
+</ComponentPreview>
+
+## Props
+
+Spacer accepts all standard Panda CSS style props. It has no component-specific props — it simply applies `flex: 1` to fill available space.
