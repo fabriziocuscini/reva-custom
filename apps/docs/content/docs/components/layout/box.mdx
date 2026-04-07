@@ -1,0 +1,45 @@
+---
+title: Box
+description: The most fundamental layout building block. Renders a div with Panda CSS style props.
+---
+
+import BoxDefault, { code as defaultCode } from '@/examples/box/default'
+import BoxAsProp, { code as asPropCode } from '@/examples/box/as-prop'
+import BoxStyleProps, { code as stylePropsCode } from '@/examples/box/style-props'
+
+<ComponentPreview code={defaultCode}>
+  <BoxDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Box } from '@reva/ui'
+```
+
+## Examples
+
+### As another element
+
+Use the `as` prop to render a different HTML element while keeping all style props.
+
+<ComponentPreview code={asPropCode}>
+  <BoxAsProp />
+</ComponentPreview>
+
+### Style props
+
+Box accepts any Panda CSS style prop — spacing, colours, borders, shadows, and more.
+
+<ComponentPreview code={stylePropsCode}>
+  <BoxStyleProps />
+</ComponentPreview>
+
+## Props
+
+Box accepts all Panda CSS style props. Any valid CSS property can be passed as a prop using Panda's utility naming conventions.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `as` | `React.ElementType` | `'div'` | HTML element to render |
+| `className` | `string` | — | Additional CSS classes |
