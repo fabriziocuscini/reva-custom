@@ -5,7 +5,7 @@ import { Box } from '@reva/ui'
 export const code = `<Box
   mt="4"
   p="6"
-  bg="bg.subtle"
+  bg="neutral.bg.muted"
   border="1px solid"
   borderColor="border.default"
   rounded="lg"
@@ -20,7 +20,7 @@ export default function BoxStyleProps() {
     <Box
       mt="4"
       p="6"
-      bg="bg.subtle"
+      bg="neutral.bg.muted"
       border="1px solid"
       borderColor="border.default"
       rounded="lg"

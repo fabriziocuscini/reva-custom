@@ -1513,16 +1513,12 @@
     padding: var(--spacing-4);
 }
 
-  .bg_bg\.muted {
-    background: bg.muted;
+  .bg_neutral\.bg\.muted {
+    background: var(--colors-neutral-bg-muted);
 }
 
   .p_6 {
     padding: var(--spacing-6);
-}
-
-  .bg_bg\.subtle {
-    background: bg.subtle;
 }
 
   .bd_1px_solid {
