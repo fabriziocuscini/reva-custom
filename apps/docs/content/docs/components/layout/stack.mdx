@@ -1,0 +1,47 @@
+---
+title: Stack
+description: Arranges children in a vertical or horizontal stack with consistent spacing. Includes HStack and VStack shorthand variants.
+---
+
+import StackDefault, { code as defaultCode } from '@/examples/stack/default'
+import StackHorizontalVertical, { code as horizontalVerticalCode } from '@/examples/stack/horizontal-vertical'
+import StackWithSeparator, { code as withSeparatorCode } from '@/examples/stack/with-separator'
+
+<ComponentPreview code={defaultCode}>
+  <StackDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Stack, HStack, VStack } from '@reva/ui'
+```
+
+## Examples
+
+### HStack and VStack
+
+`HStack` is shorthand for `Stack` with `direction="row"` and centred vertical alignment. `VStack` is shorthand for `direction="column"` with centred horizontal alignment.
+
+<ComponentPreview code={horizontalVerticalCode}>
+  <StackHorizontalVertical />
+</ComponentPreview>
+
+### With separator
+
+Pass `separator` to insert a `Separator` between each item. The separator orientation is inferred from the stack direction.
+
+<ComponentPreview code={withSeparatorCode}>
+  <StackWithSeparator />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'` | `'column'` | Stack direction |
+| `gap` | `ConditionalValue<Tokens['spacing']>` | — | Gap between items |
+| `separator` | `boolean \| ReactElement` | — | Insert a separator between items |
+| `align` | `CSSProperties['alignItems']` | — | Cross-axis alignment |
+| `justify` | `CSSProperties['justifyContent']` | — | Main-axis alignment |
+| `className` | `string` | — | Additional CSS classes |
