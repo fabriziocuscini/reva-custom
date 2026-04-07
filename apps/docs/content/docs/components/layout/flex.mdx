@@ -1,0 +1,47 @@
+---
+title: Flex
+description: A Box with display flex, providing shorthand props for flexbox layouts.
+---
+
+import FlexDefault, { code as defaultCode } from '@/examples/flex/default'
+import FlexDirection, { code as directionCode } from '@/examples/flex/direction'
+import FlexAlignJustify, { code as alignJustifyCode } from '@/examples/flex/align-justify'
+
+<ComponentPreview code={defaultCode}>
+  <FlexDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Flex } from '@reva/ui'
+```
+
+## Examples
+
+### Direction
+
+Use the `direction` prop to control the flex direction. Defaults to `row`.
+
+<ComponentPreview code={directionCode}>
+  <FlexDirection />
+</ComponentPreview>
+
+### Align and justify
+
+Use `align` and `justify` to control cross-axis and main-axis alignment.
+
+<ComponentPreview code={alignJustifyCode}>
+  <FlexAlignJustify />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'` | `'row'` | Flex direction |
+| `align` | `CSSProperties['alignItems']` | — | Cross-axis alignment |
+| `justify` | `CSSProperties['justifyContent']` | — | Main-axis alignment |
+| `wrap` | `CSSProperties['flexWrap']` | — | Whether items wrap |
+| `gap` | `ConditionalValue<Tokens['spacing']>` | — | Gap between items |
+| `className` | `string` | — | Additional CSS classes |
