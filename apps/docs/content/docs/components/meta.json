@@ -3,5 +3,12 @@
   "description": "The component library",
   "icon": "PanelsTopLeft",
   "root": true,
-  "pages": ["index", "buttons", "layout"]
+  "pages": [
+    "index",
+    "---Buttons---",
+    "button",
+    "---Layout---",
+    "box", "container", "flex", "grid", "spacer", "stack",
+    "wip"
+  ]
 }

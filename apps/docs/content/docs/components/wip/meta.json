@@ -1,8 +1,6 @@
 {
-  "title": "Layout",
+  "title": "WIP",
   "pages": [
-    "box", "container", "flex", "grid", "spacer", "stack",
-    "---",
     "absolute-center", "aspect-ratio", "bleed", "center",
     "circle", "float", "link-overlay", "separator", "square",
     "visually-hidden", "wrap"
