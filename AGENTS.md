@@ -26,3 +26,7 @@
 - `@reva/ui` renamed `Divider` → `Separator` — aligns with Ark UI, Chakra v3, and WAI-ARIA; Panda's `Divider` JSX pattern is aliased internally
 - Docs component pages in nested category folders (`components/buttons/`, `components/layout/`, `components/data-display/`) under "Reva UI" root tab; examples pattern: `'use client'`, import from `@reva/ui`, export `code` string + default function component at `apps/docs/examples/<component>/<variant>.tsx`
 - Fumadocs `global.css` uses `fumadocs-ui/css/neutral.css` preset with `--color-fd-primary` overridden to gold.600 (light) / gold.500 (dark)
+- GitHub repo renamed from `reva` to `reva-custom` — remote is `https://github.com/fabriziocuscini/reva-custom.git`; local folder remains `reva/`
+- Figma UI Kit file key is `KziMxmqVYKmMnMpAOhBLql`; variable collections: "Foundation" (571 vars, 1 mode) and "Color mode" (214 vars, light/dark modes)
+- Figma component variant naming convention uses Title Case: `Variant=solid, Color=accent, Size=xs, Disabled=true`
+- Built-in conditions (`_icon`, `_hover`, `_focus`, etc.) come from `@pandacss/preset-base` — Reva's `conditions.ts` only defines `light`/`dark` colour-mode conditions
