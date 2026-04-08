@@ -1155,6 +1155,27 @@
 @layer panda_recipes{
   @layer _base{
 
+    .badge {
+      padding-inline: var(--spacing-2);
+      gap: var(--spacing-1);
+      border-radius: var(--radii-xs);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--fonts-text);
+      font-weight: var(--font-weights-medium);
+      letter-spacing: var(--letter-spacings-loose);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      user-select: none;
+}
+
+    .badge :where(svg) {
+      flex-shrink: 0;
+}
+
     .button {
       border-width: var(--border-widths-default);
       border-color: transparent;
@@ -1207,6 +1228,255 @@
       align-items: center;
       justify-content: center;
 }
+}
+
+  .badge--color_neutral {
+    --colors-color-palette-canvas: var(--colors-neutral-canvas);
+    --colors-color-palette-surface: var(--colors-neutral-surface);
+    --colors-color-palette-solid: var(--colors-neutral-solid);
+    --colors-color-palette-bg-subtle: var(--colors-neutral-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-neutral-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-neutral-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-neutral-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-neutral-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-neutral-border-subtle);
+    --colors-color-palette-border-default: var(--colors-neutral-border-default);
+    --colors-color-palette-border-strong: var(--colors-neutral-border-strong);
+    --colors-color-palette-fg-default: var(--colors-neutral-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-neutral-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-neutral-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-neutral-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-neutral-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-neutral-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-neutral-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-neutral-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-neutral-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-neutral-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-neutral-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-neutral-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-neutral-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-neutral-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-neutral-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-neutral-alpha-a950);
+}
+
+  .badge--variant_subtle {
+    background: var(--colors-color-palette-bg-subtle);
+    color: var(--colors-color-palette-fg-default);
+}
+
+  .badge--size_md {
+    font-size: var(--font-sizes-3xs);
+    height: var(--sizes-5);
+    min-width: var(--sizes-6);
+}
+
+  .badge--size_md :where(svg) {
+    width: var(--sizes-3_half);
+    height: var(--sizes-3_half);
+}
+
+  .badge--color_brand {
+    --colors-color-palette-canvas: var(--colors-brand-canvas);
+    --colors-color-palette-surface: var(--colors-brand-surface);
+    --colors-color-palette-solid: var(--colors-brand-solid);
+    --colors-color-palette-bg-subtle: var(--colors-brand-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-brand-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-brand-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-brand-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-brand-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-brand-border-subtle);
+    --colors-color-palette-border-default: var(--colors-brand-border-default);
+    --colors-color-palette-border-strong: var(--colors-brand-border-strong);
+    --colors-color-palette-fg-default: var(--colors-brand-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-brand-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-brand-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-brand-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-brand-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-brand-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-brand-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-brand-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-brand-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-brand-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-brand-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-brand-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-brand-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-brand-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-brand-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-brand-alpha-a950);
+}
+
+  .badge--color_accent {
+    --colors-color-palette-canvas: var(--colors-accent-canvas);
+    --colors-color-palette-surface: var(--colors-accent-surface);
+    --colors-color-palette-solid: var(--colors-accent-solid);
+    --colors-color-palette-bg-subtle: var(--colors-accent-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-accent-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-accent-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-accent-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-accent-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-accent-border-subtle);
+    --colors-color-palette-border-default: var(--colors-accent-border-default);
+    --colors-color-palette-border-strong: var(--colors-accent-border-strong);
+    --colors-color-palette-fg-default: var(--colors-accent-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-accent-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-accent-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-accent-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-accent-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-accent-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-accent-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-accent-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-accent-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-accent-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-accent-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-accent-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-accent-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-accent-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-accent-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-accent-alpha-a950);
+}
+
+  .badge--color_error {
+    --colors-color-palette-canvas: var(--colors-error-canvas);
+    --colors-color-palette-surface: var(--colors-error-surface);
+    --colors-color-palette-solid: var(--colors-error-solid);
+    --colors-color-palette-bg-subtle: var(--colors-error-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-error-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-error-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-error-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-error-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-error-border-subtle);
+    --colors-color-palette-border-default: var(--colors-error-border-default);
+    --colors-color-palette-border-strong: var(--colors-error-border-strong);
+    --colors-color-palette-fg-default: var(--colors-error-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-error-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-error-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-error-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-error-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-error-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-error-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-error-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-error-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-error-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-error-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-error-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-error-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-error-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-error-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-error-alpha-a950);
+}
+
+  .badge--color_warning {
+    --colors-color-palette-canvas: var(--colors-warning-canvas);
+    --colors-color-palette-surface: var(--colors-warning-surface);
+    --colors-color-palette-solid: var(--colors-warning-solid);
+    --colors-color-palette-bg-subtle: var(--colors-warning-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-warning-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-warning-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-warning-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-warning-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-warning-border-subtle);
+    --colors-color-palette-border-default: var(--colors-warning-border-default);
+    --colors-color-palette-border-strong: var(--colors-warning-border-strong);
+    --colors-color-palette-fg-default: var(--colors-warning-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-warning-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-warning-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-warning-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-warning-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-warning-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-warning-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-warning-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-warning-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-warning-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-warning-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-warning-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-warning-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-warning-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-warning-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-warning-alpha-a950);
+}
+
+  .badge--color_success {
+    --colors-color-palette-canvas: var(--colors-success-canvas);
+    --colors-color-palette-surface: var(--colors-success-surface);
+    --colors-color-palette-solid: var(--colors-success-solid);
+    --colors-color-palette-bg-subtle: var(--colors-success-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-success-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-success-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-success-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-success-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-success-border-subtle);
+    --colors-color-palette-border-default: var(--colors-success-border-default);
+    --colors-color-palette-border-strong: var(--colors-success-border-strong);
+    --colors-color-palette-fg-default: var(--colors-success-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-success-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-success-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-success-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-success-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-success-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-success-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-success-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-success-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-success-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-success-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-success-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-success-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-success-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-success-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-success-alpha-a950);
+}
+
+  .badge--color_info {
+    --colors-color-palette-canvas: var(--colors-info-canvas);
+    --colors-color-palette-surface: var(--colors-info-surface);
+    --colors-color-palette-solid: var(--colors-info-solid);
+    --colors-color-palette-bg-subtle: var(--colors-info-bg-subtle);
+    --colors-color-palette-bg-muted: var(--colors-info-bg-muted);
+    --colors-color-palette-bg-emphasized: var(--colors-info-bg-emphasized);
+    --colors-color-palette-bg-solid: var(--colors-info-bg-solid);
+    --colors-color-palette-bg-strong: var(--colors-info-bg-strong);
+    --colors-color-palette-border-subtle: var(--colors-info-border-subtle);
+    --colors-color-palette-border-default: var(--colors-info-border-default);
+    --colors-color-palette-border-strong: var(--colors-info-border-strong);
+    --colors-color-palette-fg-default: var(--colors-info-fg-default);
+    --colors-color-palette-fg-high-contrast: var(--colors-info-fg-high-contrast);
+    --colors-color-palette-fg-on-solid: var(--colors-info-fg-on-solid);
+    --colors-color-palette-focus-ring: var(--colors-info-focus-ring);
+    --colors-color-palette-alpha-transparent: var(--colors-info-alpha-transparent);
+    --colors-color-palette-alpha-a50: var(--colors-info-alpha-a50);
+    --colors-color-palette-alpha-a100: var(--colors-info-alpha-a100);
+    --colors-color-palette-alpha-a200: var(--colors-info-alpha-a200);
+    --colors-color-palette-alpha-a300: var(--colors-info-alpha-a300);
+    --colors-color-palette-alpha-a400: var(--colors-info-alpha-a400);
+    --colors-color-palette-alpha-a500: var(--colors-info-alpha-a500);
+    --colors-color-palette-alpha-a600: var(--colors-info-alpha-a600);
+    --colors-color-palette-alpha-a700: var(--colors-info-alpha-a700);
+    --colors-color-palette-alpha-a800: var(--colors-info-alpha-a800);
+    --colors-color-palette-alpha-a900: var(--colors-info-alpha-a900);
+    --colors-color-palette-alpha-a950: var(--colors-info-alpha-a950);
+}
+
+  .badge--size_lg {
+    font-size: var(--font-sizes-2xs);
+    height: var(--sizes-6);
+    min-width: var(--sizes-8);
+}
+
+  .badge--size_lg :where(svg) {
+    width: var(--sizes-4);
+    height: var(--sizes-4);
+}
+
+  .badge--variant_solid {
+    background: var(--colors-color-palette-bg-solid);
+    color: var(--colors-color-palette-fg-on-solid);
+}
+
+  .badge--variant_outline {
+    background: transparent;
+    border-width: var(--border-widths-default);
+    border-color: var(--colors-color-palette-border-default);
+    color: var(--colors-color-palette-fg-default);
 }
 
   .button--color_accent {

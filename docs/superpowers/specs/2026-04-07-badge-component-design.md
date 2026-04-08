@@ -90,32 +90,36 @@ export const badge = defineRecipe({
 
 ### Token mapping
 
-| Recipe property | Token path | Category | Resolved value |
-|---|---|---|---|
-| `px: '2'` | `spacing.2` | spacing | 8px |
-| `gap: '1'` | `spacing.1` | spacing | 4px |
-| `borderRadius: 'xs'` | `radii.xs` | radii | 4px |
-| `fontFamily: 'text'` | `fonts.text` | fonts | Inter Tight |
-| `fontWeight: 'medium'` | `fontWeights.medium` | fontWeights | 500 |
-| `letterSpacing: 'loose'` | `letterSpacings.loose` | letterSpacings | 0.04em |
-| `lineHeight: '1'` | — (raw CSS) | — | 1 |
-| `borderWidth: 'default'` | `borderWidths.default` | borderWidths | 1px |
-| `h: '5'` | `sizes.5` | sizes | 20px |
-| `h: '6'` | `sizes.6` | sizes | 24px |
-| `minW: '6'` | `sizes.6` | sizes | 24px |
-| `minW: '8'` | `sizes.8` | sizes | 32px |
-| `fontSize: '3xs'` | `fontSizes.3xs` | fontSizes | 11px |
-| `fontSize: '2xs'` | `fontSizes.2xs` | fontSizes | 12px |
-| `boxSize: '3_half'` | `sizes.3_half` | sizes | 14px |
-| `boxSize: '4'` | `sizes.4` | sizes | 16px |
+
+| Recipe property          | Token path             | Category       | Resolved value |
+| ------------------------ | ---------------------- | -------------- | -------------- |
+| `px: '2'`                | `spacing.2`            | spacing        | 8px            |
+| `gap: '1'`               | `spacing.1`            | spacing        | 4px            |
+| `borderRadius: 'xs'`     | `radii.xs`             | radii          | 4px            |
+| `fontFamily: 'text'`     | `fonts.text`           | fonts          | Inter Tight    |
+| `fontWeight: 'medium'`   | `fontWeights.medium`   | fontWeights    | 500            |
+| `letterSpacing: 'loose'` | `letterSpacings.loose` | letterSpacings | 0.04em         |
+| `lineHeight: '1'`        | — (raw CSS)            | —              | 1              |
+| `borderWidth: 'default'` | `borderWidths.default` | borderWidths   | 1px            |
+| `h: '5'`                 | `sizes.5`              | sizes          | 20px           |
+| `h: '6'`                 | `sizes.6`              | sizes          | 24px           |
+| `minW: '6'`              | `sizes.6`              | sizes          | 24px           |
+| `minW: '8'`              | `sizes.8`              | sizes          | 32px           |
+| `fontSize: '3xs'`        | `fontSizes.3xs`        | fontSizes      | 11px           |
+| `fontSize: '2xs'`        | `fontSizes.2xs`        | fontSizes      | 12px           |
+| `boxSize: '3_half'`      | `sizes.3_half`         | sizes          | 14px           |
+| `boxSize: '4'`           | `sizes.4`              | sizes          | 16px           |
+
 
 ### Variant × color semantic token paths
 
-| Variant | `bg` | `borderColor` | `color` |
-|---|---|---|---|
-| solid | `colorPalette.bg.solid` | — | `colorPalette.fg.onSolid` |
-| subtle | `colorPalette.bg.subtle` | — | `colorPalette.fg.default` |
-| outline | `transparent` | `colorPalette.border.default` | `colorPalette.fg.default` |
+
+| Variant | `bg`                     | `borderColor`                 | `color`                   |
+| ------- | ------------------------ | ----------------------------- | ------------------------- |
+| solid   | `colorPalette.bg.solid`  | —                             | `colorPalette.fg.onSolid` |
+| subtle  | `colorPalette.bg.subtle` | —                             | `colorPalette.fg.default` |
+| outline | `transparent`            | `colorPalette.border.default` | `colorPalette.fg.default` |
+
 
 ## React Component
 
@@ -151,15 +155,17 @@ Badge.displayName = 'Badge'
 
 ### Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `color` | `'neutral' \| 'brand' \| 'accent' \| 'error' \| 'warning' \| 'success' \| 'info'` | `'neutral'` | Semantic color palette |
-| `variant` | `'solid' \| 'subtle' \| 'outline'` | `'subtle'` | Visual style |
-| `size` | `'md' \| 'lg'` | `'md'` | Badge size |
-| `iconStart` | `ReactNode` | — | Icon before the label |
-| `iconEnd` | `ReactNode` | — | Icon after the label |
-| `children` | `ReactNode` | — | Label text |
-| `asChild` | `boolean` | — | Render as child element (Ark UI) |
+
+| Prop        | Type        | Default  | Description                      |
+| ----------- | ----------- | -------- | -------------------------------- |
+| `color`     | `'neutral'  | 'brand'  | 'accent'                         |
+| `variant`   | `'solid'    | 'subtle' | 'outline'`                       |
+| `size`      | `'md'       | 'lg'`    | `'md'`                           |
+| `iconStart` | `ReactNode` | —        | Icon before the label            |
+| `iconEnd`   | `ReactNode` | —        | Icon after the label             |
+| `children`  | `ReactNode` | —        | Label text                       |
+| `asChild`   | `boolean`   | —        | Render as child element (Ark UI) |
+
 
 ### Consumer API
 
@@ -204,6 +210,7 @@ Add `---Data Display---` separator and `badge` slug to `apps/docs/content/docs/c
 File: `apps/docs/content/docs/components/badge.mdx`
 
 Sections:
+
 1. Frontmatter (`title: Badge`, `description: A small label for status, category, or metadata`)
 2. Default example via `<ComponentPreview>`
 3. Usage (import snippet)
@@ -214,13 +221,15 @@ Sections:
 
 All under `apps/docs/examples/badge/`:
 
-| File | Content |
-|---|---|
-| `default.tsx` | `<Badge>New</Badge>` |
-| `variants.tsx` | solid, subtle, outline in an `HStack` |
-| `sizes.tsx` | md and lg side by side |
-| `colors.tsx` | All 7 palettes displayed |
+
+| File             | Content                               |
+| ---------------- | ------------------------------------- |
+| `default.tsx`    | `<Badge>New</Badge>`                  |
+| `variants.tsx`   | solid, subtle, outline in an `HStack` |
+| `sizes.tsx`      | md and lg side by side                |
+| `colors.tsx`     | All 7 palettes displayed              |
 | `with-icons.tsx` | `iconStart`, `iconEnd`, both combined |
+
 
 Each file: `'use client'`, imports from `@reva/ui`, exports `code` string + default component.
 
@@ -241,16 +250,18 @@ Each file: `'use client'`, imports from `@reva/ui`, exports `code` string + defa
 
 ### Component properties
 
-| Property | Type | Values | Default |
-|---|---|---|---|
-| `size` | Variant | md, lg | md |
-| `variant` | Variant | solid, subtle, outline | subtle |
-| `color` | Variant | neutral, brand, accent, error, warning, success, info | neutral |
-| `showIconStart` | Boolean | true / false | false |
-| `showIconEnd` | Boolean | true / false | false |
-| `iconStart` | Instance swap | Circle (Outline, Bold) | Circle |
-| `iconEnd` | Instance swap | Circle (Outline, Bold) | Circle |
-| `label` | Text | — | "Badge" |
+
+| Property        | Type          | Values                                                | Default |
+| --------------- | ------------- | ----------------------------------------------------- | ------- |
+| `size`          | Variant       | md, lg                                                | md      |
+| `variant`       | Variant       | solid, subtle, outline                                | subtle  |
+| `color`         | Variant       | neutral, brand, accent, error, warning, success, info | neutral |
+| `showIconStart` | Boolean       | true / false                                          | false   |
+| `showIconEnd`   | Boolean       | true / false                                          | false   |
+| `iconStart`     | Instance swap | Circle (Outline, Bold)                                | Circle  |
+| `iconEnd`       | Instance swap | Circle (Outline, Bold)                                | Circle  |
+| `label`         | Text          | —                                                     | "Badge" |
+
 
 ### Default icon
 
@@ -260,37 +271,45 @@ Circle icon from the Icon Library (file key `5384g17KMjLF7osdyA1UZT`), set to Ou
 
 **Shared base (all variants):**
 
-| Figma property | Variable |
-|---|---|
-| Padding left / right | `spacing/2` (8px) |
-| Item spacing (gap) | `spacing/1` (4px) |
-| Corner radius | `radii/xs` (4px) |
-| Font family | `fonts/text` (Inter Tight) |
-| Font weight | `fontWeights/medium` (500) |
+
+| Figma property       | Variable                   |
+| -------------------- | -------------------------- |
+| Padding left / right | `spacing/2` (8px)          |
+| Item spacing (gap)   | `spacing/1` (4px)          |
+| Corner radius        | `radii/xs` (4px)           |
+| Font family          | `fonts/text` (Inter Tight) |
+| Font weight          | `fontWeights/medium` (500) |
+
 
 **Hardcoded (no variable):**
 
+
 | Figma property | Value |
-|---|---|
-| Letter spacing | 4% |
-| Line height | 100% |
+| -------------- | ----- |
+| Letter spacing | 4%    |
+| Line height    | 100%  |
+
 
 **Per size:**
 
-| Property | md | lg |
-|---|---|---|
-| Fixed height | `sizes/5` (20px) | `sizes/6` (24px) |
-| Min width | `sizes/6` (24px) | `sizes/8` (32px) |
-| Font size | `fontSizes/3xs` (11px) | `fontSizes/2xs` (12px) |
-| Icon width × height | `sizes/3_half` (14×14) | `sizes/4` (16×16) |
+
+| Property            | md                     | lg                     |
+| ------------------- | ---------------------- | ---------------------- |
+| Fixed height        | `sizes/5` (20px)       | `sizes/6` (24px)       |
+| Min width           | `sizes/6` (24px)       | `sizes/8` (32px)       |
+| Font size           | `fontSizes/3xs` (11px) | `fontSizes/2xs` (12px) |
+| Icon width × height | `sizes/3_half` (14×14) | `sizes/4` (16×16)      |
+
 
 **Per variant × color:**
 
-| Variant | Fill variable | Stroke variable | Text color variable |
-|---|---|---|---|
-| solid | `{palette}.bg.solid` | — | `{palette}.fg.onSolid` |
-| subtle | `{palette}.bg.subtle` | — | `{palette}.fg.default` |
-| outline | none | `{palette}.border.default` (1px inside) | `{palette}.fg.default` |
+
+| Variant | Fill variable         | Stroke variable                         | Text color variable    |
+| ------- | --------------------- | --------------------------------------- | ---------------------- |
+| solid   | `{palette}.bg.solid`  | —                                       | `{palette}.fg.onSolid` |
+| subtle  | `{palette}.bg.subtle` | —                                       | `{palette}.fg.default` |
+| outline | none                  | `{palette}.border.default` (1px inside) | `{palette}.fg.default` |
+
 
 Where `{palette}` is the active color (neutral, brand, accent, error, warning, success, info).
 
@@ -301,3 +320,4 @@ Where `{palette}` is the active color (neutral, brand, accent, error, warning, s
 - Dismissible / closable behaviour
 - Animated transitions
 - Badge groups / attached badges
+

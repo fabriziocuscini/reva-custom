@@ -16,39 +16,45 @@
 
 ### Create
 
-| File | Responsibility |
-|---|---|
-| `packages/ui/src/components/badge/recipe.ts` | Panda CSS recipe definition |
-| `packages/ui/src/components/badge/index.tsx` | React component |
-| `apps/docs/examples/badge/default.tsx` | Default example |
-| `apps/docs/examples/badge/variants.tsx` | Variants example |
-| `apps/docs/examples/badge/sizes.tsx` | Sizes example |
-| `apps/docs/examples/badge/colors.tsx` | Colors example |
-| `apps/docs/examples/badge/with-icons.tsx` | Icons example |
-| `apps/docs/content/docs/components/badge.mdx` | Documentation page |
+
+| File                                          | Responsibility              |
+| --------------------------------------------- | --------------------------- |
+| `packages/ui/src/components/badge/recipe.ts`  | Panda CSS recipe definition |
+| `packages/ui/src/components/badge/index.tsx`  | React component             |
+| `apps/docs/examples/badge/default.tsx`        | Default example             |
+| `apps/docs/examples/badge/variants.tsx`       | Variants example            |
+| `apps/docs/examples/badge/sizes.tsx`          | Sizes example               |
+| `apps/docs/examples/badge/colors.tsx`         | Colors example              |
+| `apps/docs/examples/badge/with-icons.tsx`     | Icons example               |
+| `apps/docs/content/docs/components/badge.mdx` | Documentation page          |
+
 
 ### Modify
 
-| File | Change |
-|---|---|
-| `packages/ui/src/theme/index.ts` | Import badge recipe, add to `theme.recipes` |
-| `packages/ui/src/index.ts` | Export `Badge` and `BadgeProps` |
-| `apps/docs/content/docs/components/meta.json` | Add Data Display section + badge slug |
+
+| File                                          | Change                                      |
+| --------------------------------------------- | ------------------------------------------- |
+| `packages/ui/src/theme/index.ts`              | Import badge recipe, add to `theme.recipes` |
+| `packages/ui/src/index.ts`                    | Export `Badge` and `BadgeProps`             |
+| `apps/docs/content/docs/components/meta.json` | Add Data Display section + badge slug       |
+
 
 ### Figma (via `use_figma` tool)
 
-| Target | Action |
-|---|---|
+
+| Target                                 | Action                                   |
+| -------------------------------------- | ---------------------------------------- |
 | UI Kit file (`KziMxmqVYKmMnMpAOhBLql`) | Create Badge component set (42 variants) |
+
 
 ---
 
 ## Task 1: Badge Recipe
 
 **Files:**
-- Create: `packages/ui/src/components/badge/recipe.ts`
 
-- [ ] **Step 1: Create the recipe file**
+- Create: `packages/ui/src/components/badge/recipe.ts`
+- **Step 1: Create the recipe file**
 
 ```ts
 // packages/ui/src/components/badge/recipe.ts
@@ -121,7 +127,7 @@ export const badge = defineRecipe({
 })
 ```
 
-- [ ] **Step 2: Commit**
+- **Step 2: Commit**
 
 ```bash
 git add packages/ui/src/components/badge/recipe.ts
@@ -133,9 +139,9 @@ git commit -m "feat(ui): add Badge recipe"
 ## Task 2: Preset Wiring
 
 **Files:**
-- Modify: `packages/ui/src/theme/index.ts`
 
-- [ ] **Step 1: Import badge recipe and add to theme.recipes**
+- Modify: `packages/ui/src/theme/index.ts`
+- **Step 1: Import badge recipe and add to theme.recipes**
 
 Add the import after the existing recipe imports, and add `badge` to the `recipes` object:
 
@@ -175,7 +181,7 @@ export const revaPreset = definePreset({
 })
 ```
 
-- [ ] **Step 2: Commit**
+- **Step 2: Commit**
 
 ```bash
 git add packages/ui/src/theme/index.ts
@@ -187,10 +193,10 @@ git commit -m "feat(ui): wire Badge recipe into preset"
 ## Task 3: React Component + Barrel Export
 
 **Files:**
+
 - Create: `packages/ui/src/components/badge/index.tsx`
 - Modify: `packages/ui/src/index.ts`
-
-- [ ] **Step 1: Create the component file**
+- **Step 1: Create the component file**
 
 ```tsx
 // packages/ui/src/components/badge/index.tsx
@@ -221,7 +227,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 Badge.displayName = 'Badge'
 ```
 
-- [ ] **Step 2: Add Badge export to barrel**
+- **Step 2: Add Badge export to barrel**
 
 In `packages/ui/src/index.ts`, add the Badge export after the Button line and before the Layout section:
 
@@ -237,7 +243,7 @@ export { AbsoluteCenter, type AbsoluteCenterProps } from './components/absolute-
 // ... rest unchanged
 ```
 
-- [ ] **Step 3: Commit**
+- **Step 3: Commit**
 
 ```bash
 git add packages/ui/src/components/badge/index.tsx packages/ui/src/index.ts
@@ -248,7 +254,7 @@ git commit -m "feat(ui): add Badge React component"
 
 ## Task 4: Codegen + Build Verification
 
-- [ ] **Step 1: Run Panda codegen for the UI package**
+- **Step 1: Run Panda codegen for the UI package**
 
 ```bash
 cd packages/ui && bun run codegen
@@ -256,7 +262,7 @@ cd packages/ui && bun run codegen
 
 Expected: Codegen succeeds. The `styled-system/recipes` directory now contains the generated `badge` recipe artifacts.
 
-- [ ] **Step 2: Run the full monorepo build**
+- **Step 2: Run the full monorepo build**
 
 ```bash
 cd /Users/fabriziocuscini/Development/reva && bun run build
@@ -264,7 +270,7 @@ cd /Users/fabriziocuscini/Development/reva && bun run build
 
 Expected: All packages build successfully with zero errors. `@reva/ui` dist output includes Badge.
 
-- [ ] **Step 3: Verify typecheck**
+- **Step 3: Verify typecheck**
 
 ```bash
 bun run typecheck
@@ -272,7 +278,7 @@ bun run typecheck
 
 Expected: No type errors.
 
-- [ ] **Step 4: Commit any codegen artifacts if needed**
+- **Step 4: Commit any codegen artifacts if needed**
 
 If `styled-system/` changes are tracked (check `.gitignore`), commit them. If gitignored, skip.
 
@@ -281,9 +287,9 @@ If `styled-system/` changes are tracked (check `.gitignore`), commit them. If gi
 ## Task 5: Docs — Sidebar Update
 
 **Files:**
-- Modify: `apps/docs/content/docs/components/meta.json`
 
-- [ ] **Step 1: Add Data Display section and badge slug**
+- Modify: `apps/docs/content/docs/components/meta.json`
+- **Step 1: Add Data Display section and badge slug**
 
 ```json
 {
@@ -304,7 +310,7 @@ If `styled-system/` changes are tracked (check `.gitignore`), commit them. If gi
 }
 ```
 
-- [ ] **Step 2: Commit**
+- **Step 2: Commit**
 
 ```bash
 git add apps/docs/content/docs/components/meta.json
@@ -316,6 +322,7 @@ git commit -m "docs: add Data Display section with Badge to sidebar"
 ## Task 6: Docs — Example Files
 
 **Files:**
+
 - Create: `apps/docs/examples/badge/default.tsx`
 - Create: `apps/docs/examples/badge/variants.tsx`
 - Create: `apps/docs/examples/badge/sizes.tsx`
@@ -324,7 +331,7 @@ git commit -m "docs: add Data Display section with Badge to sidebar"
 
 Each file follows the pattern: `'use client'`, import from `@reva/ui`, export `code` string + default component.
 
-- [ ] **Step 1: Create default example**
+- **Step 1: Create default example**
 
 ```tsx
 // apps/docs/examples/badge/default.tsx
@@ -339,7 +346,7 @@ export default function BadgeDefault() {
 }
 ```
 
-- [ ] **Step 2: Create variants example**
+- **Step 2: Create variants example**
 
 ```tsx
 // apps/docs/examples/badge/variants.tsx
@@ -362,7 +369,7 @@ export default function BadgeVariants() {
 }
 ```
 
-- [ ] **Step 3: Create sizes example**
+- **Step 3: Create sizes example**
 
 ```tsx
 // apps/docs/examples/badge/sizes.tsx
@@ -383,7 +390,7 @@ export default function BadgeSizes() {
 }
 ```
 
-- [ ] **Step 4: Create colors example**
+- **Step 4: Create colors example**
 
 ```tsx
 // apps/docs/examples/badge/colors.tsx
@@ -414,7 +421,7 @@ export default function BadgeColors() {
 }
 ```
 
-- [ ] **Step 5: Create with-icons example**
+- **Step 5: Create with-icons example**
 
 This example needs SVG icons. Use inline SVGs matching the `_icon` auto-sizing (no explicit size needed — the recipe handles it).
 
@@ -451,7 +458,7 @@ export default function BadgeWithIcons() {
 }
 ```
 
-- [ ] **Step 6: Commit**
+- **Step 6: Commit**
 
 ```bash
 git add apps/docs/examples/badge/
@@ -463,9 +470,9 @@ git commit -m "docs: add Badge example files"
 ## Task 7: Docs — Badge Page
 
 **Files:**
-- Create: `apps/docs/content/docs/components/badge.mdx`
 
-- [ ] **Step 1: Create the MDX page**
+- Create: `apps/docs/content/docs/components/badge.mdx`
+- **Step 1: Create the MDX page**
 
 ```mdx
 ---
@@ -495,44 +502,31 @@ import { Badge } from '@reva/ui'
 
 Three visual styles: `subtle` (default), `solid`, and `outline`.
 
-<ComponentPreview code={variantsCode}>
-  <BadgeVariants />
-</ComponentPreview>
-
 ### Colors
 
 Seven semantic color palettes. Default is `neutral`.
-
-<ComponentPreview code={colorsCode}>
-  <BadgeColors />
-</ComponentPreview>
 
 ### Sizes
 
 Two sizes: `md` (default, 20px) and `lg` (24px).
 
-<ComponentPreview code={sizesCode}>
-  <BadgeSizes />
-</ComponentPreview>
-
 ### With Icons
 
 Use `iconStart` and `iconEnd` props to render icons. Icons are automatically sized by the recipe.
 
-<ComponentPreview code={withIconsCode}>
-  <BadgeWithIcons />
-</ComponentPreview>
-
 ## Props
 
-| Prop        | Type                                                                                     | Default      | Description            |
-| ----------- | ---------------------------------------------------------------------------------------- | ------------ | ---------------------- |
-| `variant`   | `'solid' \| 'subtle' \| 'outline'`                                                       | `'subtle'`   | Visual style           |
-| `color`     | `'neutral' \| 'brand' \| 'accent' \| 'error' \| 'warning' \| 'success' \| 'info'`        | `'neutral'`  | Color palette          |
-| `size`      | `'md' \| 'lg'`                                                                            | `'md'`       | Badge size             |
-| `iconStart` | `ReactNode`                                                                               | —            | Icon before the label  |
-| `iconEnd`   | `ReactNode`                                                                               | —            | Icon after the label   |
-| `asChild`   | `boolean`                                                                                 | —            | Render as child element |
+
+| Prop        | Type        | Default  | Description             |
+| ----------- | ----------- | -------- | ----------------------- |
+| `variant`   | `'solid'    | 'subtle' | 'outline'`              |
+| `color`     | `'neutral'  | 'brand'  | 'accent'                |
+| `size`      | `'md'       | 'lg'`    | `'md'`                  |
+| `iconStart` | `ReactNode` | —        | Icon before the label   |
+| `iconEnd`   | `ReactNode` | —        | Icon after the label    |
+| `asChild`   | `boolean`   | —        | Render as child element |
+
+
 ```
 
 - [ ] **Step 2: Commit**
@@ -546,21 +540,21 @@ git commit -m "docs: add Badge documentation page"
 
 ## Task 8: Docs Dev Verification
 
-- [ ] **Step 1: Run docs dev server**
+- **Step 1: Run docs dev server**
 
 ```bash
 cd /Users/fabriziocuscini/Development/reva && bun run dev:docs
 ```
 
-- [ ] **Step 2: Verify Badge page renders**
+- **Step 2: Verify Badge page renders**
 
 Open the docs site and navigate to Reva UI → Data Display → Badge. Verify:
+
 - Page loads without errors
 - Default example renders a badge
 - All 5 example sections display correctly
 - Props table is formatted properly
-
-- [ ] **Step 3: Stop dev server when verified**
+- **Step 3: Stop dev server when verified**
 
 ---
 
@@ -574,9 +568,10 @@ This task creates a 42-variant component set (2 sizes × 3 variants × 7 colors)
 
 ### Sub-task 9a: Discover Variables and Icon Component
 
-- [ ] **Step 1: Search for design token variables in the UI Kit**
+- **Step 1: Search for design token variables in the UI Kit**
 
 Use `use_figma` to list variable collections and find the token variables that were synced from `@reva/tokens`. We need variable IDs for:
+
 - `spacing/1`, `spacing/2`
 - `radii/xs`
 - `sizes/5`, `sizes/6`, `sizes/8`, `sizes/3_half`, `sizes/4`
@@ -594,13 +589,13 @@ for (const col of collections) {
 
 Then retrieve individual variables by iterating collection variable IDs and matching by name.
 
-- [ ] **Step 2: Find the Circle icon in the Icon Library**
+- **Step 2: Find the Circle icon in the Icon Library**
 
 Use `figma_search_components` or `use_figma` to search for the Circle component in the Icon Library file. Get the component key for instantiation via `importComponentByKeyAsync`.
 
 ### Sub-task 9b: Create Badge Variant Frames
 
-- [ ] **Step 3: Create a Section for the Badge component**
+- **Step 3: Create a Section for the Badge component**
 
 ```js
 const section = figma.createSection()
@@ -609,7 +604,7 @@ section.x = 0
 section.y = 0
 ```
 
-- [ ] **Step 4: Build the 42 variant frames**
+- **Step 4: Build the 42 variant frames**
 
 For each combination of `size` (md, lg) × `variant` (solid, subtle, outline) × `color` (neutral, brand, accent, error, warning, success, info):
 
@@ -670,32 +665,33 @@ for (const size of sizes) {
 
 ### Sub-task 9c: Combine and Configure Component Set
 
-- [ ] **Step 5: Combine into component set**
+- **Step 5: Combine into component set**
 
 ```js
 const componentSet = figma.combineAsVariants(components, section)
 componentSet.name = 'Badge'
 ```
 
-- [ ] **Step 6: Add boolean properties for icon visibility**
+- **Step 6: Add boolean properties for icon visibility**
 
 After combining, configure component properties on the set:
+
 - `showIconStart` (boolean, default: false) — controls IconStart visibility
 - `showIconEnd` (boolean, default: false) — controls IconEnd visibility
-
-- [ ] **Step 7: Add text property for label**
+- **Step 7: Add text property for label**
 
 Expose the label text node as a text component property named `label`.
 
-- [ ] **Step 8: Add instance swap properties for icons**
+- **Step 8: Add instance swap properties for icons**
 
 Expose IconStart and IconEnd as instance swap properties, with Circle (Outline, Bold) as the default.
 
 ### Sub-task 9d: Variable Bindings
 
-- [ ] **Step 9: Bind dimensional variables**
+- **Step 9: Bind dimensional variables**
 
 For each variant frame, bind:
+
 - `paddingLeft` / `paddingRight` → `spacing/2`
 - `itemSpacing` → `spacing/1`
 - `cornerRadius` → `radii/xs`
@@ -714,7 +710,7 @@ await frame.setBoundVariable('cornerRadius', radiiXsVar)
 // ... etc for each property
 ```
 
-- [ ] **Step 10: Bind color variables**
+- **Step 10: Bind color variables**
 
 For each frame, based on its `variant` and `color`:
 
@@ -722,23 +718,24 @@ For each frame, based on its `variant` and `color`:
 **subtle:** bind fill to `{color}.bg.subtle`, text color to `{color}.fg.default`, icon color to `{color}.fg.default`
 **outline:** remove fill, bind stroke to `{color}.border.default` (1px inside), text color to `{color}.fg.default`, icon color to `{color}.fg.default`
 
-- [ ] **Step 11: Set hardcoded typography values**
+- **Step 11: Set hardcoded typography values**
 
 For all label text nodes:
+
 - Letter spacing: `{ value: 4, unit: 'PERCENT' }`
 - Line height: `{ value: 100, unit: 'PERCENT' }`
 
 These are NOT bound to variables (per spec).
 
-- [ ] **Step 12: Visual verification**
+- **Step 12: Visual verification**
 
 Take a screenshot of the completed component set to verify:
+
 - All 42 variants render correctly
 - Colors are visually distinct
 - Icons are properly sized and centered
 - Typography looks correct
-
-- [ ] **Step 13: Commit (docs only — Figma is external)**
+- **Step 13: Commit (docs only — Figma is external)**
 
 No git commit needed for Figma work. Note completion in the task tracker.
 
@@ -748,9 +745,10 @@ No git commit needed for Figma work. Note completion in the task tracker.
 
 After all tasks are complete, verify:
 
-- [ ] `bun run build` passes with zero errors
-- [ ] `bun run typecheck` passes with zero errors
-- [ ] `bun run lint` passes (or only pre-existing warnings)
-- [ ] Docs site renders the Badge page with all examples
-- [ ] Figma component set has 42 variants with correct variable bindings
-- [ ] Badge is importable: `import { Badge } from '@reva/ui'`
+- `bun run build` passes with zero errors
+- `bun run typecheck` passes with zero errors
+- `bun run lint` passes (or only pre-existing warnings)
+- Docs site renders the Badge page with all examples
+- Figma component set has 42 variants with correct variable bindings
+- Badge is importable: `import { Badge } from '@reva/ui'`
+
