@@ -7,6 +7,8 @@
     "index",
     "---Buttons---",
     "button",
+    "---Data Display---",
+    "badge",
     "---Layout---",
     "box", "container", "flex", "grid", "spacer", "stack",
     "wip"
