@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amber Palette Comparison</title>
+<style>
+  :root {
+    /* Coolors Golden Apricot */
+    --apricot-50: oklch(96.79% 0.015 70.89);
+    --apricot-100: oklch(93.32% 0.029 69.16);
+    --apricot-200: oklch(86.76% 0.060 68.57);
+    --apricot-300: oklch(80.24% 0.089 67.68);
+    --apricot-400: oklch(73.91% 0.116 65.95);
+    --apricot-500: oklch(67.97% 0.139 62.24);
+    --apricot-600: oklch(57.69% 0.116 62.69);
+    --apricot-700: oklch(47.07% 0.093 63.10);
+    --apricot-800: oklch(35.80% 0.068 63.80);
+    --apricot-900: oklch(23.42% 0.038 65.77);
+    --apricot-950: oklch(19.49% 0.030 65.85);
+
+    /* Reva Amber */
+    --reva-50: oklch(98.95% 0.009 78.25);
+    --reva-100: oklch(96.14% 0.021 79.08);
+    --reva-200: oklch(90.35% 0.0432 76.32);
+    --reva-300: oklch(84.24% 0.0676 72.58);
+    --reva-400: oklch(77.79% 0.0933 68.91);
+    --reva-500: oklch(70.49% 0.1289 64.13);
+    --reva-600: oklch(57.42% 0.1056 56.99);
+    --reva-700: oklch(46.08% 0.0879 52.88);
+    --reva-800: oklch(35.57% 0.0734 49.67);
+    --reva-900: oklch(25.05% 0.0586 44.81);
+    --reva-950: oklch(20.01% 0.0507 45.41);
+
+    /* Tailwind Amber */
+    --tw-50: oklch(98.7% 0.022 95.277);
+    --tw-100: oklch(96.2% 0.059 95.617);
+    --tw-200: oklch(92.4% 0.12 95.746);
+    --tw-300: oklch(87.9% 0.169 91.605);
+    --tw-400: oklch(82.8% 0.189 84.429);
+    --tw-500: oklch(76.9% 0.188 70.08);
+    --tw-600: oklch(66.6% 0.179 58.318);
+    --tw-700: oklch(55.5% 0.163 48.998);
+    --tw-800: oklch(47.3% 0.137 46.201);
+    --tw-900: oklch(41.4% 0.112 45.904);
+    --tw-950: oklch(27.9% 0.077 45.635);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 2rem;
+    background: #fafafa;
+    color: #1a1a1a;
+  }
+
+  h1 { font-size: 1.25rem; font-weight: 600; margin-bottom: 2rem; }
+
+  .palette { margin-bottom: 2rem; }
+  .palette-name { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.03em; }
+
+  .swatches { display: flex; gap: 2px; }
+
+  .swatch {
+    flex: 1;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
+    font-size: 0.6rem;
+    font-weight: 500;
+    min-width: 0;
+  }
+
+  .swatch .stop { opacity: 0.8; }
+  .swatch .hex { opacity: 0.6; font-family: ui-monospace, monospace; font-size: 0.55rem; }
+
+  .light-text { color: white; }
+  .dark-text { color: #1a1a1a; }
+</style>
+</head>
+<body>
+
+<h1>Amber Palette Comparison</h1>
+
+<div class="palette">
+  <div class="palette-name">Coolors Golden Apricot (#D78D3F)</div>
+  <div class="swatches">
+    <div class="swatch dark-text" style="background: var(--apricot-50)"><span class="stop">50</span></div>
+    <div class="swatch dark-text" style="background: var(--apricot-100)"><span class="stop">100</span></div>
+    <div class="swatch dark-text" style="background: var(--apricot-200)"><span class="stop">200</span></div>
+    <div class="swatch dark-text" style="background: var(--apricot-300)"><span class="stop">300</span></div>
+    <div class="swatch dark-text" style="background: var(--apricot-400)"><span class="stop">400</span></div>
+    <div class="swatch dark-text" style="background: var(--apricot-500)"><span class="stop">500</span></div>
+    <div class="swatch light-text" style="background: var(--apricot-600)"><span class="stop">600</span></div>
+    <div class="swatch light-text" style="background: var(--apricot-700)"><span class="stop">700</span></div>
+    <div class="swatch light-text" style="background: var(--apricot-800)"><span class="stop">800</span></div>
+    <div class="swatch light-text" style="background: var(--apricot-900)"><span class="stop">900</span></div>
+    <div class="swatch light-text" style="background: var(--apricot-950)"><span class="stop">950</span></div>
+  </div>
+</div>
+
+<div class="palette">
+  <div class="palette-name">Reva Amber</div>
+  <div class="swatches">
+    <div class="swatch dark-text" style="background: var(--reva-50)"><span class="stop">50</span></div>
+    <div class="swatch dark-text" style="background: var(--reva-100)"><span class="stop">100</span></div>
+    <div class="swatch dark-text" style="background: var(--reva-200)"><span class="stop">200</span></div>
+    <div class="swatch dark-text" style="background: var(--reva-300)"><span class="stop">300</span></div>
+    <div class="swatch dark-text" style="background: var(--reva-400)"><span class="stop">400</span></div>
+    <div class="swatch dark-text" style="background: var(--reva-500)"><span class="stop">500</span></div>
+    <div class="swatch light-text" style="background: var(--reva-600)"><span class="stop">600</span></div>
+    <div class="swatch light-text" style="background: var(--reva-700)"><span class="stop">700</span></div>
+    <div class="swatch light-text" style="background: var(--reva-800)"><span class="stop">800</span></div>
+    <div class="swatch light-text" style="background: var(--reva-900)"><span class="stop">900</span></div>
+    <div class="swatch light-text" style="background: var(--reva-950)"><span class="stop">950</span></div>
+  </div>
+</div>
+
+<div class="palette">
+  <div class="palette-name">Tailwind Amber</div>
+  <div class="swatches">
+    <div class="swatch dark-text" style="background: var(--tw-50)"><span class="stop">50</span></div>
+    <div class="swatch dark-text" style="background: var(--tw-100)"><span class="stop">100</span></div>
+    <div class="swatch dark-text" style="background: var(--tw-200)"><span class="stop">200</span></div>
+    <div class="swatch dark-text" style="background: var(--tw-300)"><span class="stop">300</span></div>
+    <div class="swatch dark-text" style="background: var(--tw-400)"><span class="stop">400</span></div>
+    <div class="swatch dark-text" style="background: var(--tw-500)"><span class="stop">500</span></div>
+    <div class="swatch dark-text" style="background: var(--tw-600)"><span class="stop">600</span></div>
+    <div class="swatch light-text" style="background: var(--tw-700)"><span class="stop">700</span></div>
+    <div class="swatch light-text" style="background: var(--tw-800)"><span class="stop">800</span></div>
+    <div class="swatch light-text" style="background: var(--tw-900)"><span class="stop">900</span></div>
+    <div class="swatch light-text" style="background: var(--tw-950)"><span class="stop">950</span></div>
+  </div>
+</div>
+
+</body>
+</html>

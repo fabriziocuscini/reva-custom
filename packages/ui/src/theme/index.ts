@@ -8,6 +8,7 @@ import { semanticTokens } from './semantic-tokens'
 import { textStyles } from './text-styles'
 import { tokens } from './tokens'
 import { absoluteCenter } from '../components/absolute-center/recipe'
+import { badge } from '../components/badge/recipe'
 import { button } from '../components/button/recipe'
 import { decorativeBox } from '../components/decorative-box/recipe'
 
@@ -21,6 +22,7 @@ export const revaPreset = definePreset({
     semanticTokens,
     recipes: {
       absoluteCenter,
+      badge,
       button,
       decorativeBox,
     },
