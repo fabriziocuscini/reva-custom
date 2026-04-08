@@ -17,6 +17,9 @@ export const badge = defineRecipe({
     px: '2',
     gap: '1',
     borderRadius: 'xs',
+    _icon: {
+      flexShrink: '0',
+    },
   },
   variants: {
     color: {
