@@ -1,6 +1,9 @@
 // Interactive components
 export { Button, type ButtonProps } from './components/button'
 
+// Data display components
+export { Badge, type BadgeProps } from './components/badge'
+
 // Layout components
 export { AbsoluteCenter, type AbsoluteCenterProps } from './components/absolute-center'
 export { Box, type BoxProps } from './components/box'
