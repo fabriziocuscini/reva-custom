@@ -1,0 +1,65 @@
+---
+title: Badge
+description: A small label for status, category, or metadata.
+---
+
+import BadgeDefault, { code as defaultCode } from '@/examples/badge/default'
+import BadgeVariants, { code as variantsCode } from '@/examples/badge/variants'
+import BadgeSizes, { code as sizesCode } from '@/examples/badge/sizes'
+import BadgeColors, { code as colorsCode } from '@/examples/badge/colors'
+import BadgeWithIcons, { code as withIconsCode } from '@/examples/badge/with-icons'
+
+<ComponentPreview code={defaultCode}>
+  <BadgeDefault />
+</ComponentPreview>
+
+## Usage
+
+```tsx
+import { Badge } from '@reva/ui'
+```
+
+## Examples
+
+### Variants
+
+Three visual styles: `subtle` (default), `solid`, and `outline`.
+
+<ComponentPreview code={variantsCode}>
+  <BadgeVariants />
+</ComponentPreview>
+
+### Colors
+
+Seven semantic color palettes. Default is `neutral`.
+
+<ComponentPreview code={colorsCode}>
+  <BadgeColors />
+</ComponentPreview>
+
+### Sizes
+
+Two sizes: `md` (default, 20px) and `lg` (24px).
+
+<ComponentPreview code={sizesCode}>
+  <BadgeSizes />
+</ComponentPreview>
+
+### With Icons
+
+Use `iconStart` and `iconEnd` props to render icons. Icons are automatically sized by the recipe.
+
+<ComponentPreview code={withIconsCode}>
+  <BadgeWithIcons />
+</ComponentPreview>
+
+## Props
+
+| Prop        | Type                                                                                     | Default      | Description            |
+| ----------- | ---------------------------------------------------------------------------------------- | ------------ | ---------------------- |
+| `variant`   | `'solid' \| 'subtle' \| 'outline'`                                                       | `'subtle'`   | Visual style           |
+| `color`     | `'neutral' \| 'brand' \| 'accent' \| 'error' \| 'warning' \| 'success' \| 'info'`        | `'neutral'`  | Color palette          |
+| `size`      | `'md' \| 'lg'`                                                                            | `'md'`       | Badge size             |
+| `iconStart` | `ReactNode`                                                                               | —            | Icon before the label  |
+| `iconEnd`   | `ReactNode`                                                                               | —            | Icon after the label   |
+| `asChild`   | `boolean`                                                                                 | —            | Render as child element |
