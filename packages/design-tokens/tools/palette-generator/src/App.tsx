@@ -3,7 +3,7 @@ import { AlphaStrip } from '@/components/alpha-strip'
 import { ChromaPanel } from '@/components/chroma-panel'
 import { ColorPickerInput } from '@/components/color-picker-input'
 import { ComparePanel, type DockSide } from '@/components/compare-panel'
-import { CopyBlock } from '@/components/copy-block'
+import { ExportDialog } from '@/components/export-dialog'
 import { DockedPaletteStrip } from '@/components/docked-palette-strip'
 import { HuePanel } from '@/components/hue-panel'
 import { LightnessPanel } from '@/components/lightness-panel'
@@ -27,6 +27,7 @@ import {
   ArrowDown,
   ArrowUp,
   Check,
+  Upload,
   LoaderCircle,
   Moon,
   PanelRightOpen,
@@ -114,7 +115,9 @@ function PaletteEditor({
   const [viewAll, setViewAll] = useState(false)
   const [displayMode, setDisplayMode] = useState<'palette' | 'gradient'>('palette')
   const [saveDialogOpen, setSaveDialogOpen] = useState(false)
+  const [exportDialogOpen, setExportDialogOpen] = useState(false)
   const [savedFlash, setSavedFlash] = useState(false)
+  const [showExtended, setShowExtended] = useState(true)
   const [showAlpha, setShowAlpha] = useState(false)
   const [comparePanelOpen, setComparePanelOpen] = useState(false)
   const [compareSteps, setCompareSteps] = useState<Set<number>>(new Set())
@@ -365,6 +368,14 @@ function PaletteEditor({
 
   const paletteHexMap = useMemo(() => new Map(palette.map((s) => [s.step, s.hex])), [palette])
 
+  const displayPalette = useMemo(
+    () =>
+      showExtended
+        ? palette
+        : palette.filter((s) => s.step % 100 === 0 || s.step === 50 || s.step === 950),
+    [showExtended, palette],
+  )
+
   const comparePanelNode = comparePanelOpen ? (
     <ComparePanel
       entries={compareEntries}
@@ -522,6 +533,18 @@ function PaletteEditor({
                 <div className="ml-auto flex items-center gap-3 shrink-0">
                   {(!paletteDocked || viewAll) && (
                     <div className="flex items-center gap-1.5">
+                      <Label htmlFor="show-extended" className="text-[10px] text-muted-foreground">
+                        Extended palette
+                      </Label>
+                      <Switch
+                        id="show-extended"
+                        checked={showExtended}
+                        onCheckedChange={setShowExtended}
+                      />
+                    </div>
+                  )}
+                  {(!paletteDocked || viewAll) && (
+                    <div className="flex items-center gap-1.5">
                       <Label htmlFor="show-alpha" className="text-[10px] text-muted-foreground">
                         Show alpha
                       </Label>
@@ -590,6 +613,19 @@ function PaletteEditor({
                               <TooltipContent>Reset all parameters</TooltipContent>
                             </Tooltip>
                           )}
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => setExportDialogOpen(true)}
+                                className="size-6"
+                              >
+                                <Upload className="size-3.5" />
+                              </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Export palette…</TooltipContent>
+                          </Tooltip>
                           {isCustomHex ? (
                             <Button
                               variant="ghost"
@@ -630,7 +666,7 @@ function PaletteEditor({
                         {showAlpha && <AlphaStrip midpointHex={midpointHex} />}
                         <TabsContent value="palette" className="mt-0">
                           <PaletteStrip
-                            palette={palette}
+                            palette={displayPalette}
                             paletteName={
                               activePreset
                                 ? (presets.find((p) => p.name === activePreset)?.displayName ?? '')
@@ -646,11 +682,11 @@ function PaletteEditor({
                           <div
                             className={`h-10 md:h-12 lg:h-16 ${showAlpha ? 'rounded-b-lg' : 'rounded-lg'}`}
                             style={{
-                              background: `linear-gradient(to right, ${palette.map((p) => p.hex).join(', ')})`,
+                              background: `linear-gradient(to right, ${displayPalette.map((p) => p.hex).join(', ')})`,
                             }}
                           />
                         </TabsContent>
-                        <PaletteStrip palette={palette} labelsOnly />
+                        <PaletteStrip palette={displayPalette} labelsOnly />
                       </CardContent>
                     </Card>
                   )}
@@ -688,12 +724,10 @@ function PaletteEditor({
                   {/* Values table */}
                   <Card>
                     <CardContent>
-                      <ValuesTable palette={palette} />
+                      <ValuesTable palette={displayPalette} />
                     </CardContent>
                   </Card>
 
-                  {/* Copy block */}
-                  <CopyBlock palette={palette} paletteName={activePreset ?? 'custom'} />
                 </div>
               )}
             </Tabs>
@@ -726,6 +760,12 @@ function PaletteEditor({
         lastPreset={lastPreset}
         isSaving={isSaving}
         onSave={handleSaveAs}
+      />
+      <ExportDialog
+        open={exportDialogOpen}
+        onOpenChange={setExportDialogOpen}
+        palette={palette}
+        paletteName={activePreset ?? 'custom'}
       />
     </TooltipProvider>
   )
